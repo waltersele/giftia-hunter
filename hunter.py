@@ -13,6 +13,7 @@ import requests
 import logging
 import os
 import sys
+import re
 from datetime import datetime
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -52,648 +53,345 @@ logger.info(f"[HUNTER] API Endpoint: {WP_API_URL}")
 logger.info(f"[HUNTER] Debug Mode: {'ENABLED' if DEBUG else 'DISABLED'}")
 
 # ============================================================================
-# BÚSQUEDAS INTELIGENTES POR CATEGORÍA - MEGA EXPANSIÓN REGALOS
+# BÚSQUEDAS POR CATEGORÍA - SIMPLIFICADO (6 VIBES + DIGITAL)
+# Mapeo directo al frontend: Tech, Gourmet, Bienestar, Aventura, Estilo, Fandom
 # ============================================================================
 
 SMART_SEARCHES = {
     # =========================================================================
-    # TECH VIBE - Gadgets, Gaming, Tecnología
+    # DIGITAL - Productos digitales para entrega inmediata
+    # =========================================================================
+    "Digital": [
+        # Suscripciones
+        "tarjeta regalo Netflix",
+        "tarjeta regalo Spotify premium",
+        "tarjeta regalo Amazon",
+        "tarjeta regalo Steam",
+        "tarjeta regalo PlayStation Store",
+        "tarjeta regalo Xbox Game Pass",
+        "tarjeta regalo Nintendo eShop",
+        "tarjeta regalo Google Play",
+        "tarjeta regalo Apple iTunes",
+        "suscripción Audible regalo",
+        "suscripción Kindle Unlimited regalo",
+        "suscripción Amazon Prime regalo",
+        "suscripción Disney Plus regalo",
+        "suscripción HBO Max regalo",
+        
+        # Cursos y Formación
+        "curso online Masterclass regalo",
+        "curso Udemy regalo",
+        "curso Domestika regalo",
+        
+        # Software & Licencias
+        "Microsoft Office 365 código regalo",
+        "licencia software regalo",
+        
+        # eBooks
+        "ebook kindle bestseller regalo",
+        "kindle ebook regalo",
+    ],
+    
+    # =========================================================================
+    # TECH & GAMING - Gadgets, Consolas, Smart Home
     # =========================================================================
     "Tech": [
-        # Gadgets únicos y originales
+        # Gadgets originales
         "gadgets tecnologicos regalo original",
-        "gadgets curiosos innovadores",
         "mini proyector portatil regalo",
         "cargador inalámbrico diseño premium",
-        "estación carga múltiple dispositivos",
-        "hub USB-C premium aluminio",
         "lámpara LED inteligente RGB WiFi",
-        "despertador digital proyector techo",
-        "marco digital fotos WiFi",
+        "marco digital fotos WiFi regalo",
         "altavoz bluetooth diseño premium",
         
-        # Gaming & eSports
+        # Gaming
         "auriculares gaming inalámbricos premium",
-        "teclado mecánico RGB gaming",
-        "ratón gaming profesional inalámbrico",
-        "alfombrilla gaming XXL RGB",
-        "silla gaming ergonómica premium",
-        "mando PS5 edición especial",
-        "mando Xbox elite controller",
-        "soporte auriculares RGB gaming",
-        "capturadora video streaming",
-        "micrófono USB streaming podcast",
-        
-        # Drones & Cámaras
-        "drone DJI Mini regalo",
-        "cámara acción 4K regalo",
-        "gimbal estabilizador smartphone",
-        "webcam 4K streaming",
-        "anillo luz selfie profesional",
-        "trípode smartphone profesional",
+        "teclado mecánico RGB gaming regalo",
+        "mando PS5 edición especial regalo",
+        "mando Xbox elite controller regalo",
+        "consola retro mini regalo",
+        "silla gaming ergonómica regalo",
         
         # Smart Home
         "Alexa Echo regalo",
         "Google Nest regalo",
         "bombillas inteligentes Philips Hue",
-        "enchufe inteligente WiFi",
-        "sensor temperatura humedad smart",
-        "cerradura inteligente WiFi",
-        "timbre video inteligente",
         "robot aspirador regalo",
         
-        # Wearables
+        # Wearables & Audio
         "smartwatch regalo premium",
-        "Apple Watch correa regalo",
-        "Garmin reloj deportivo",
-        "Fitbit regalo fitness",
-        "gafas realidad virtual Meta Quest",
         "auriculares AirPods regalo",
-        "auriculares Sony WH-1000",
+        "auriculares Sony WH-1000 regalo",
+        "gafas realidad virtual Meta Quest",
         
-        # Retro & Nostalgia Tech
-        "consola retro mini regalo",
-        "Game Boy clásico regalo",
+        # Cámaras & Drones
+        "drone DJI Mini regalo",
+        "cámara instantánea Polaroid Instax regalo",
+        "webcam 4K streaming regalo",
+        "gimbal estabilizador smartphone regalo",
+        
+        # Retro Tech
         "tocadiscos vintage regalo",
-        "radio retro bluetooth",
-        "cámara instantánea Polaroid Instax",
-        "máquina escribir bluetooth",
+        "radio retro bluetooth regalo",
+        "Game Boy clásico regalo",
     ],
     
     # =========================================================================
-    # GOURMET - Foodies, Cocina, Vinos
+    # GOURMET - Foodie, Cocina, Vinos, Experiencias gastronómicas
     # =========================================================================
     "Gourmet": [
-        # Kits y experiencias gastronómicas
+        # Kits experiencias
         "kit cata vinos regalo premium",
-        "kit hacer cerveza artesanal",
-        "kit hacer queso casero",
-        "kit sushi regalo",
+        "kit hacer cerveza artesanal regalo",
         "kit gin tonic premium botanicos",
         "kit cocktails regalo mixología",
+        "kit sushi regalo",
         "kit especias mundo regalo",
-        "kit chocolatería artesanal",
-        "kit hacer pasta fresca",
-        "kit fermentación kombucha",
         
-        # Café & Té premium
+        # Café & Té
         "cafetera espresso regalo premium",
         "molinillo café manual regalo",
-        "café especialidad regalo gourmet",
-        "set té japones regalo",
-        "tetera hierro fundido japonesa",
-        "matcha kit ceremonial regalo",
-        "prensa francesa premium regalo",
-        "chemex cafetera regalo",
+        "set té japones regalo ceremonial",
         "AeroPress regalo café",
         
         # Vinos & Licores
         "decantador vino cristal regalo",
         "set copas vino Riedel regalo",
-        "sacacorchos eléctrico premium",
-        "enfriador vino regalo",
-        "caja vinos reserva regalo",
         "whisky premium regalo single malt",
-        "set whisky cristal regalo",
         "ginebra premium regalo botánica",
-        "vermut artesanal regalo",
         
         # Utensilios Chef
         "cuchillo chef japonés regalo",
         "set cuchillos damasco regalo",
+        "sartén hierro fundido regalo",
         "tabla cortar madera noble regalo",
-        "mortero mármol regalo",
-        "sartén hierro fundido Lodge regalo",
-        "olla holandesa Le Creuset regalo",
-        "thermomix accesorios regalo",
-        "mandolina cocina profesional",
-        "báscula cocina precisión",
         
         # Delicatessen
         "aceite oliva premium regalo",
         "jamón ibérico bellota regalo",
-        "queso manchego curado regalo",
         "chocolate belga regalo premium",
         "trufa negra regalo gourmet",
-        "caviar regalo premium",
-        "foie gras regalo gourmet",
-        "sal escamas gourmet regalo",
-        "vinagre balsámico Módena regalo",
-        "miel cruda premium regalo",
         
-        # BBQ & Parrilla  
+        # BBQ
         "kit BBQ regalo premium",
-        "termómetro carne bluetooth",
+        "termómetro carne bluetooth regalo",
         "ahumador portátil regalo",
-        "plancha hierro fundido",
-        "carbón binchotan japonés",
-        "guantes BBQ resistentes calor",
     ],
     
     # =========================================================================
-    # FRIKI / FANDOM - Coleccionismo, Series, Anime, Comics
-    # =========================================================================
-    "Friki": [
-        # Funko Pop & Figuras
-        "funko pop edición limitada",
-        "funko pop exclusivo chase",
-        "funko pop Star Wars regalo",
-        "funko pop Marvel Avengers",
-        "funko pop Harry Potter",
-        "funko pop anime exclusivo",
-        "funko pop Disney villanos",
-        "funko pop The Office",
-        "funko pop Stranger Things",
-        "funko pop Game of Thrones",
-        
-        # LEGO sets coleccionistas
-        "LEGO Star Wars UCS regalo",
-        "LEGO Technic regalo",
-        "LEGO Architecture regalo",
-        "LEGO Harry Potter castillo",
-        "LEGO Ideas regalo",
-        "LEGO Creator Expert regalo",
-        "LEGO Marvel regalo",
-        "LEGO Nintendo regalo",
-        
-        # Star Wars
-        "sable luz Star Wars regalo",
-        "casco Star Wars regalo réplica",
-        "figura Star Wars Black Series",
-        "maqueta Star Wars regalo",
-        "libro arte Star Wars",
-        "disfraz Mandalorian premium",
-        
-        # Marvel & DC
-        "figura Marvel Legends regalo",
-        "escudo Capitán América regalo",
-        "casco Iron Man regalo",
-        "guante infinito Thanos regalo",
-        "cómic Marvel omnibus regalo",
-        "figura Batman premium regalo",
-        "Batarang réplica regalo",
-        
-        # Harry Potter
-        "varita Harry Potter regalo oficial",
-        "túnica Hogwarts regalo oficial",
-        "libro Harry Potter ilustrado regalo",
-        "ajedrez mago Harry Potter",
-        "mapa merodeador regalo",
-        "giratiempo Hermione regalo",
-        
-        # Anime & Manga
-        "figura anime premium regalo",
-        "figura Dragon Ball Super",
-        "figura One Piece regalo",
-        "figura Naruto Shippuden",
-        "figura Demon Slayer regalo",
-        "figura Attack on Titan",
-        "manga box set regalo",
-        "poster anime metal regalo",
-        "katana decorativa regalo",
-        
-        # Gaming Merchandise
-        "figura Zelda regalo",
-        "figura Pokemon regalo",
-        "figura Final Fantasy regalo",
-        "libro arte videojuegos regalo",
-        "réplica espada videojuego",
-        "camiseta gaming premium",
-        "sudadera gaming regalo",
-        
-        # Juegos de Mesa Premium
-        "Catan edición especial regalo",
-        "ajedrez temático regalo premium",
-        "Risk edición coleccionista",
-        "Monopoly edición especial",
-        "juego mesa estrategia premium",
-        "Dungeons Dragons starter set",
-        "cartas Magic gathering regalo",
-        "cartas Pokemon regalo premium",
-    ],
-    
-    # =========================================================================
-    # ZEN - Wellness, Meditación, Relax, Spa
+    # ZEN - Bienestar, Spa, Meditación, Yoga (BIENESTAR en frontend)
     # =========================================================================
     "Zen": [
-        # Aromaterapia & Velas
+        # Aromaterapia
         "difusor aceites esenciales regalo",
-        "set aceites esenciales regalo premium",
         "vela aromática lujo regalo",
-        "vela masaje regalo",
         "incienso japonés premium regalo",
-        "palo santo premium regalo",
-        "quemador incienso diseño",
         "lámpara sal himalaya regalo",
         
         # Meditación
-        "cojín meditación zafu regalo",
-        "banco meditación madera",
         "cuenco tibetano regalo",
-        "campana tibetana meditación",
-        "mala meditación piedras naturales",
-        "app meditación suscripción regalo",
-        "libro meditación regalo",
+        "cojín meditación zafu regalo",
+        "mala piedras naturales regalo",
         
         # Yoga
         "esterilla yoga premium regalo",
         "bloque yoga corcho regalo",
-        "correa yoga algodón",
         "rueda yoga regalo",
-        "bolster yoga regalo",
-        "manta yoga regalo",
-        "leggings yoga regalo premium",
         
         # Masaje & Relajación
+        "pistola masaje regalo muscular",
         "masajeador cervical regalo",
-        "pistola masaje regalo",
-        "rodillo masaje facial jade",
-        "gua sha regalo jade",
-        "almohadilla térmica regalo",
-        "cojín masaje shiatsu regalo",
-        "hamaca cervical regalo",
-        "bola masaje pies regalo",
+        "rodillo jade facial regalo",
+        "gua sha jade regalo",
         
         # Spa en Casa
         "albornoz algodón egipcio regalo",
-        "zapatillas spa regalo lujo",
         "set spa regalo premium",
         "sales baño regalo lujo",
         "bomba baño regalo set",
-        "exfoliante corporal natural regalo",
-        "mascarilla facial premium regalo",
-        "aceite corporal regalo",
         
-        # Sueño & Descanso
+        # Sueño
         "almohada viscoelástica regalo",
         "antifaz seda dormir regalo",
-        "máquina ruido blanco regalo",
-        "difusor dormitorio regalo",
-        "spray almohada lavanda regalo",
-        "luz despertador amanecer regalo",
         "weighted blanket manta pesada",
-        
-        # Té & Infusiones Relax
-        "set té relax regalo",
-        "infusiones relajantes regalo",
-        "tetera cristal regalo",
-        "taza térmica regalo",
+        "luz despertador amanecer regalo",
     ],
     
     # =========================================================================
-    # VIAJES - Aventura, Mochileros, Exploradores
-    # =========================================================================
-    "Viajes": [
-        # Equipaje Premium
-        "maleta cabina regalo premium",
-        "maleta Samsonite regalo",
-        "mochila viaje 40L regalo",
-        "mochila antirrobo regalo",
-        "neceser viaje organizador regalo",
-        "organizadores maleta set regalo",
-        "funda pasaporte piel regalo",
-        "etiqueta maleta cuero regalo",
-        
-        # Comodidad Viaje
-        "almohada viaje memory foam regalo",
-        "antifaz viaje seda regalo",
-        "tapones oídos viaje regalo",
-        "manta viaje compacta regalo",
-        "reposapiés avión regalo",
-        "cojín lumbar viaje regalo",
-        
-        # Tecnología Viajero
-        "adaptador universal viaje regalo",
-        "powerbank 20000mah regalo",
-        "cargador portátil solar regalo",
-        "traductor instantáneo regalo",
-        "wifi portátil internacional regalo",
-        "rastreador maleta AirTag regalo",
-        "kindle paperwhite regalo",
-        "cámara viaje compacta regalo",
-        
-        # Outdoor & Aventura
-        "tienda campaña ultraligera regalo",
-        "saco dormir compacto regalo",
-        "colchoneta inflable camping regalo",
-        "linterna frontal regalo",
-        "navaja suiza victorinox regalo",
-        "filtro agua portátil regalo",
-        "cocina camping gas regalo",
-        "hamaca camping regalo",
-        
-        # Accesorios Viajero
-        "botella agua plegable regalo",
-        "toalla microfibra viaje regalo",
-        "candado TSA regalo",
-        "riñonera viaje antirrobo regalo",
-        "gafas sol polarizadas viaje regalo",
-        "sombrero viaje plegable regalo",
-        
-        # Experiencias & Guías
-        "guía lonely planet regalo",
-        "mapa scratch viajes regalo",
-        "diario viaje cuero regalo",
-        "libro fotografía viajes regalo",
-        
-        # Playa & Verano
-        "toalla playa premium regalo",
-        "nevera portátil playa regalo",
-        "hamaca playa regalo",
-        "altavoz bluetooth impermeable regalo",
-        "gafas snorkel regalo",
-        "cámara acuática regalo",
-    ],
-    
-    # =========================================================================
-    # DEPORTE - Fitness, Running, Outdoor
+    # DEPORTE - Fitness, Running, Outdoor (Se combina con VIAJES = AVENTURA)
     # =========================================================================
     "Deporte": [
-        # Fitness & Gym
+        # Fitness
         "mancuernas ajustables regalo",
-        "kettlebell regalo fitness",
         "banda resistencia set regalo",
-        "ab roller rueda abdominal regalo",
-        "cuerda saltar profesional regalo",
-        "step fitness regalo",
-        "pelota ejercicio regalo",
-        "TRX entrenamiento suspensión regalo",
         "foam roller masaje regalo",
         "pistola masaje muscular regalo",
+        "TRX entrenamiento suspensión regalo",
         
         # Running
-        "zapatillas running regalo premium",
-        "reloj GPS running regalo",
-        "cinturón running hidratación regalo",
+        "reloj GPS running regalo Garmin",
         "auriculares deporte bluetooth regalo",
-        "chaleco running reflectante regalo",
-        "calcetines compresión running regalo",
-        "gorra running transpirable regalo",
-        "gafas sol deportivas regalo",
+        "cinturón running hidratación regalo",
         
         # Ciclismo
         "casco ciclismo regalo",
         "luz bicicleta potente regalo",
-        "guantes ciclismo regalo",
-        "maillot ciclismo regalo",
-        "culotte ciclismo regalo",
         "ciclocomputador GPS regalo",
-        "candado bicicleta regalo",
-        "herramientas bicicleta kit regalo",
         
-        # Natación
-        "gafas natación regalo",
-        "gorro silicona natación regalo",
-        "bañador competición regalo",
-        "toalla natación microfibra regalo",
-        "bolsa natación impermeable regalo",
-        "reloj natación regalo",
-        
-        # Deportes Raqueta
-        "raqueta padel regalo",
-        "paletero padel regalo",
-        "raqueta tenis regalo",
-        "bolsa tenis regalo",
-        "overgrip raqueta regalo",
-        
-        # Outdoor Sports
+        # Outdoor
         "bastones trekking plegables regalo",
         "mochila hidratación trail regalo",
-        "botas montaña regalo",
-        "brújula profesional regalo",
         "prismáticos compactos regalo",
-        "GPS montaña Garmin regalo",
+        "navaja suiza victorinox regalo",
         
-        # Yoga & Pilates
-        "esterilla yoga premium regalo",
-        "bloque yoga corcho regalo",
-        "aro pilates regalo",
-        "pelota pilates regalo",
-        "reformer pilates portátil regalo",
+        # Padel & Tenis
+        "raqueta padel regalo",
+        "paletero padel regalo",
         
         # Recuperación
-        "masajeador percusión regalo",
-        "electroestimulador muscular regalo",
         "botas compresión recuperación regalo",
-        "hielo gel recuperación regalo",
-        "crema recuperación muscular regalo",
+        "electroestimulador muscular regalo",
     ],
     
     # =========================================================================
-    # MODA - Fashion, Accesorios, Joyería
+    # VIAJES - Aventura, Exploradores, Camping (AVENTURA en frontend)
+    # =========================================================================
+    "Viajes": [
+        # Equipaje
+        "maleta cabina regalo premium",
+        "mochila viaje 40L regalo",
+        "mochila antirrobo regalo",
+        "neceser viaje organizador regalo",
+        
+        # Comodidad Viaje
+        "almohada viaje memory foam regalo",
+        "antifaz viaje seda regalo",
+        "adaptador universal viaje regalo",
+        "powerbank 20000mah regalo",
+        
+        # Tech Viajero
+        "kindle paperwhite regalo",
+        "rastreador maleta AirTag regalo",
+        "traductor instantáneo regalo",
+        
+        # Camping & Outdoor
+        "tienda campaña ultraligera regalo",
+        "saco dormir compacto regalo",
+        "linterna frontal regalo",
+        "filtro agua portátil regalo",
+        "hamaca camping regalo",
+        
+        # Accesorios
+        "mapa scratch viajes regalo",
+        "diario viaje cuero regalo",
+        "guía lonely planet regalo",
+        
+        # Playa
+        "altavoz bluetooth impermeable regalo",
+        "cámara acuática regalo",
+        "gafas snorkel regalo",
+    ],
+    
+    # =========================================================================
+    # MODA - Estilo, Accesorios, Joyería (ESTILO en frontend)
     # =========================================================================
     "Moda": [
         # Relojes
-        "reloj automatico regalo hombre",
-        "reloj mujer regalo elegante",
+        "reloj automatico regalo",
         "reloj minimalista regalo",
         "smartwatch elegante regalo",
-        "correa reloj cuero premium regalo",
-        "caja relojes regalo",
-        "reloj vintage regalo",
         
-        # Gafas de Sol
+        # Gafas
         "gafas sol Ray-Ban regalo",
-        "gafas sol polarizadas regalo premium",
-        "gafas sol diseñador regalo",
-        "funda gafas cuero regalo",
+        "gafas sol polarizadas premium regalo",
         
         # Bolsos & Carteras
-        "bolso piel regalo mujer",
-        "cartera piel regalo hombre",
+        "bolso piel regalo",
+        "cartera piel regalo",
         "mochila cuero regalo",
-        "neceser piel regalo",
-        "monedero diseñador regalo",
-        "clutch fiesta regalo",
-        "bandolera piel regalo",
         
         # Joyería
         "collar plata 925 regalo",
         "pulsera oro regalo",
         "pendientes diseño regalo",
-        "anillo compromiso regalo",
-        "gemelos camisa regalo hombre",
-        "relicario foto regalo",
         "joyero organizador regalo",
-        "pulsera personalizada regalo",
         
-        # Cinturones & Accesorios
+        # Accesorios
         "cinturón piel italiano regalo",
-        "tirantes premium regalo",
         "corbata seda regalo",
-        "pañuelo seda regalo",
         "fular cashmere regalo",
         "guantes piel regalo",
         
-        # Calzado Premium
+        # Calzado
         "zapatillas limited edition regalo",
-        "mocasines piel regalo",
-        "botines cuero regalo",
-        "sandalias diseñador regalo",
         "sneakers premium regalo",
-        
-        # Ropa Premium
-        "camisa lino premium regalo",
-        "jersey cashmere regalo",
-        "chaqueta piel regalo",
-        "abrigo lana regalo",
-        "vestido diseñador regalo",
-        "pijama seda regalo",
-        "albornoz algodón egipcio regalo",
         
         # Fragancias
         "perfume nicho regalo",
-        "colonia premium regalo hombre",
-        "set perfume regalo mujer",
-        "difusor hogar lujo regalo",
-        "vela perfumada lujo regalo",
+        "colonia premium regalo",
+        "set perfume regalo",
         
-        # Cuidado Personal Premium
-        "set afeitado premium regalo",
-        "neceser viaje cuero regalo",
-        "espejo aumento iluminado regalo",
-        "set manicura premium regalo",
-    ],
-    
-    # =========================================================================
-    # HOGAR - Decoración, Casa, Diseño (NUEVA CATEGORÍA)
-    # =========================================================================
-    "Hogar": [
-        # Decoración
+        # Hogar con estilo
         "cuadro decorativo moderno regalo",
-        "espejo decorativo regalo",
-        "jarrón diseño regalo",
-        "escultura decorativa regalo",
-        "reloj pared diseño regalo",
         "lámpara diseño regalo",
-        "cojines decorativos set regalo",
-        "manta decorativa regalo",
-        
-        # Plantas & Jardín
-        "maceta diseño regalo",
+        "jarrón diseño regalo",
         "kit bonsai regalo",
-        "terrario plantas regalo",
-        "jardín vertical interior regalo",
-        "kit huerto urbano regalo",
-        "herramientas jardín premium regalo",
-        
-        # Cocina Diseño
-        "vajilla diseño regalo",
-        "cristalería premium regalo",
-        "cubertería acero inoxidable regalo",
-        "juego ollas diseño regalo",
-        "electrodoméstico retro regalo",
-        "cafetera diseño regalo",
-        "tostadora retro regalo",
-        
-        # Iluminación
-        "lámpara mesa diseño regalo",
-        "lámpara pie regalo",
-        "vela LED diseño regalo",
-        "guirnalda luces decorativa regalo",
-        "neón personalizado regalo",
-        
-        # Textiles Hogar
-        "sábanas algodón egipcio regalo",
-        "edredón plumas regalo",
-        "toallas algodón egipcio regalo",
-        "alfombra diseño regalo",
-        "cortinas terciopelo regalo",
     ],
     
     # =========================================================================
-    # NIÑOS - Regalos para peques (NUEVA CATEGORÍA)
+    # FRIKI - Fandom, Coleccionismo, Anime, Comics, Juegos Mesa (FANDOM en frontend)
     # =========================================================================
-    "Peques": [
-        # Juguetes Educativos
-        "juguete STEM regalo niño",
-        "kit ciencia niños regalo",
-        "microscopio niños regalo",
-        "telescopio niños regalo",
-        "robot programable niños regalo",
-        "kit electrónica niños regalo",
+    "Friki": [
+        # Funko Pop
+        "funko pop edición limitada regalo",
+        "funko pop Star Wars regalo",
+        "funko pop Marvel regalo",
+        "funko pop Harry Potter regalo",
+        "funko pop anime regalo",
         
-        # LEGO & Construcción
-        "LEGO Friends regalo",
-        "LEGO City regalo",
+        # LEGO
+        "LEGO Star Wars regalo",
+        "LEGO Harry Potter regalo",
+        "LEGO Technic regalo",
+        "LEGO Architecture regalo",
+        
+        # Star Wars
+        "sable luz Star Wars regalo",
+        "casco Star Wars réplica regalo",
+        "figura Star Wars Black Series",
+        
+        # Marvel & DC
+        "figura Marvel Legends regalo",
+        "escudo Capitán América regalo",
+        "casco Iron Man regalo",
+        
+        # Harry Potter
+        "varita Harry Potter regalo oficial",
+        "libro Harry Potter ilustrado regalo",
+        
+        # Anime & Manga
+        "figura anime premium regalo",
+        "figura Dragon Ball regalo",
+        "figura One Piece regalo",
+        "manga box set regalo",
+        
+        # Juegos de Mesa
+        "Catan edición especial regalo",
+        "juego mesa estrategia regalo",
+        "Dungeons Dragons starter regalo",
+        "cartas Pokemon regalo",
+        
+        # Gaming Merchandise
+        "figura Zelda regalo",
+        "figura Pokemon regalo",
+        "camiseta gaming premium regalo",
+        
+        # Para niños (también Fandom)
+        "LEGO City regalo niños",
         "LEGO Ninjago regalo",
-        "LEGO Disney regalo",
         "Playmobil regalo",
-        "Mega Construx regalo",
-        
-        # Juegos Creativos
-        "set manualidades niños regalo",
-        "kit pintura niños regalo",
-        "plastilina Play-Doh regalo",
-        "kit joyería niña regalo",
-        "máquina coser niños regalo",
-        "kit costura niños regalo",
-        
-        # Aire Libre
-        "bicicleta niños regalo",
-        "patinete niños regalo",
-        "patines niños regalo",
-        "tienda campaña niños regalo",
-        "piscina hinchable regalo",
-        "cometa niños regalo",
-        
-        # Peluches & Muñecos
+        "juguete STEM regalo niño",
         "peluche gigante regalo",
-        "Squishmallow regalo",
-        "muñeca regalo",
-        "figura acción niños regalo",
-        "marioneta regalo",
-        
-        # Libros Infantiles
-        "libro infantil ilustrado regalo",
-        "colección libros niños regalo",
-        "libro interactivo niños regalo",
-        "audiolibro niños regalo",
-        
-        # Tecnología Niños
-        "tablet niños regalo",
-        "cámara niños regalo",
-        "reloj niños GPS regalo",
-        "auriculares niños regalo",
-        "karaoke niños regalo",
-    ],
-    
-    # =========================================================================
-    # PAREJAS - Regalos románticos (NUEVA CATEGORÍA)
-    # =========================================================================
-    "Parejas": [
-        # Experiencias Románticas
-        "cena romantica kit regalo",
-        "spa pareja regalo",
-        "escapada romantica regalo",
-        "cata vinos pareja regalo",
-        "clase cocina pareja regalo",
-        
-        # Joyería Pareja
-        "anillo compromiso regalo",
-        "pulsera pareja personalizada regalo",
-        "collar corazón regalo",
-        "colgante foto regalo",
-        "alianzas regalo",
-        
-        # Personalizado
-        "album fotos personalizado regalo",
-        "cuadro personalizado pareja regalo",
-        "estrella nombre regalo",
-        "libro amor personalizado regalo",
-        "puzzle foto pareja regalo",
-        
-        # Hogar Pareja
-        "set desayuno cama regalo",
-        "sábanas seda regalo",
-        "vela masaje pareja regalo",
-        "albornoz pareja set regalo",
-        
-        # Experiencias
-        "vuelo globo regalo",
-        "paseo barco regalo",
-        "hotel romántico regalo",
-        "picnic gourmet regalo",
     ],
 }
 
@@ -727,7 +425,15 @@ BLACKLIST = {
     "max_price_eur": 9999.0,    # Nada absurdamente caro
     "preferred_price_range": (20, 500),  # Rango ideal para regalos
     
-    # Requisitos de calidad
+    # =========================================================================
+    # REQUISITOS DE CALIDAD PREMIUM - Solo productos top
+    # =========================================================================
+    "min_rating": 4.5,          # Mínimo 4.5 estrellas (ESTRICTO)
+    "min_reviews": 50,          # Mínimo 50 reseñas (productos mainstream)
+    "min_reviews_niche": 20,    # Mínimo 20 para productos nicho/premium
+    "niche_price_threshold": 100,  # +100€ = nicho, menor requisito de reviews
+    
+    # Requisitos de título
     "min_title_length": 15,     # Títulos demasiado cortos = basura
     "max_title_length": 200,    # Títulos demasiado largos = spam
 }
@@ -926,11 +632,37 @@ except Exception as e:
 def send_to_giftia(datos):
     """
     Envía producto validado a la API de Giftia con metadata de clasificación.
+    FILTRO PREMIUM: Solo productos con 4.5+ estrellas y suficientes reseñas.
     """
     # Validaciones previas
     if not datos.get("asin") or not datos.get("title"):
         logger.warning("Datos incompletos, ignorando")
         return False
+    
+    # =========================================================================
+    # FILTRO DE CALIDAD PREMIUM - Solo productos top de Amazon
+    # =========================================================================
+    rating_value = datos.get("rating_value", 0.0)
+    review_count = datos.get("review_count", 0)
+    
+    # Determinar mínimo de reviews según precio (nicho vs mainstream)
+    try:
+        price_float = float(datos.get("price", "0").replace(",", ".").replace("€", ""))
+        min_reviews = BLACKLIST["min_reviews_niche"] if price_float >= BLACKLIST["niche_price_threshold"] else BLACKLIST["min_reviews"]
+    except:
+        min_reviews = BLACKLIST["min_reviews"]
+    
+    # FILTRO 1: Rating mínimo 4.5 estrellas
+    if rating_value < BLACKLIST["min_rating"]:
+        logger.debug(f"⭐ RATING BAJO ({rating_value}): {datos['title'][:40]}...")
+        return False
+    
+    # FILTRO 2: Mínimo de reseñas
+    if review_count < min_reviews:
+        logger.debug(f"📊 POCAS REVIEWS ({review_count}/{min_reviews}): {datos['title'][:40]}...")
+        return False
+    
+    logger.info(f"✅ CALIDAD OK: {rating_value}⭐ con {review_count} reviews")
     
     # Check garbage
     if is_garbage(datos["title"], datos.get("price", "0"), datos.get("description", "")):
@@ -1127,11 +859,34 @@ try:
                         except:
                             image_url = ""
                         
-                        # Rating (optativo pero mejora score)
+                        # Rating (OBLIGATORIO para calidad)
+                        rating = ""
+                        rating_value = 0.0
                         try:
-                            rating = item.find_element(By.CSS_SELECTOR, ".a-star-small span").text
+                            rating_el = item.find_element(By.CSS_SELECTOR, "span.a-icon-alt")
+                            rating_text = rating_el.get_attribute("innerHTML") or rating_el.text
+                            rating = rating_text
+                            # Extraer número: "4,7 de 5 estrellas" → 4.7
+                            match = re.search(r'([0-9]+[,.]?[0-9]*)', rating_text.replace(',', '.'))
+                            if match:
+                                rating_value = float(match.group(1))
                         except:
-                            rating = ""
+                            pass
+                        
+                        # Número de reviews (OBLIGATORIO para calidad)
+                        review_count = 0
+                        try:
+                            reviews_el = item.find_element(By.CSS_SELECTOR, "span.a-size-base.s-underline-text")
+                            reviews_text = reviews_el.text.replace(".", "").replace(",", "")
+                            review_count = int(re.sub(r'[^0-9]', '', reviews_text) or 0)
+                        except:
+                            try:
+                                # Selector alternativo
+                                reviews_el = item.find_element(By.CSS_SELECTOR, "a.a-link-normal span.a-size-base")
+                                reviews_text = reviews_el.text.replace(".", "").replace(",", "")
+                                review_count = int(re.sub(r'[^0-9]', '', reviews_text) or 0)
+                            except:
+                                pass
                         
                         # Descripción/subtítulo (optativo)
                         try:
@@ -1152,6 +907,8 @@ try:
                                 "affiliate_url": affiliate_url,
                                 "description": description,
                                 "rating": rating,
+                                "rating_value": rating_value,
+                                "review_count": review_count,
                                 "source_vibe": vibe
                             }
                             
