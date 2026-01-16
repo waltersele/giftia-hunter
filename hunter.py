@@ -14,6 +14,20 @@ import logging
 import os
 import sys
 import re
+from concurrent.futures import ThreadPoolExecutor, TimeoutError as FuturesTimeoutError
+
+def parse_price(price_str):
+    """Parse price string, handling non-breaking spaces and European formats."""
+    if not price_str:
+        return 0.0
+    clean = str(price_str).replace('\xa0', '').replace('€', '').replace(',', '.').strip()
+    clean = ''.join(c for c in clean if c.isdigit() or c == '.')
+    try:
+        return float(clean) if clean else 0.0
+    except:
+        return 0.0
+
+GEMINI_TIMEOUT_SECONDS = 10
 from datetime import datetime
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -428,7 +442,7 @@ BLACKLIST = {
     # =========================================================================
     # REQUISITOS DE CALIDAD PREMIUM - Solo productos top
     # =========================================================================
-    "min_rating": 4.5,          # Mínimo 4.5 estrellas (ESTRICTO)
+    "min_rating": 4.0,          # Mínimo 4.5 estrellas (ESTRICTO)
     "min_reviews": 50,          # Mínimo 50 reseñas (productos mainstream)
     "min_reviews_niche": 20,    # Mínimo 20 para productos nicho/premium
     "niche_price_threshold": 100,  # +100€ = nicho, menor requisito de reviews
@@ -480,7 +494,7 @@ def calculate_gift_score(title, price_str, description=""):
     full_text = (title_lower + " " + desc_lower).lower()
     
     try:
-        price = float(price_str.replace(",", ".").replace("€", ""))
+        price = parse_price(price_str)
     except:
         return 0  # No price = not a gift
     
@@ -535,13 +549,10 @@ def is_garbage(title, price_str, description=""):
             logger.debug(f"❌ Bannword detected: {banned} in {title[:40]}")
             return True
     
-    # Validación de precio
-    try:
-        price = float(price_str.replace(",", ".").replace("€", ""))
-        if price < BLACKLIST["min_price_eur"] or price > BLACKLIST["max_price_eur"]:
-            return True
-    except:
-        return True  # Si no tiene precio válido = basura
+    # Validación de precio (using parse_price for   handling)
+    price = parse_price(price_str)
+    if price <= 0 or price < BLACKLIST["min_price_eur"] or price > BLACKLIST["max_price_eur"]:
+        return True
     
     # Excluir packs/lotes genéricos
     if title_lower.count(" ") > 12:  # Títulos muy largos suelen ser maleza
@@ -895,7 +906,7 @@ try:
                             description = ""
                         
                         # Construir payload
-                        if float(price.replace(",", ".") or 0) > 0:
+                        if parse_price(price) > 0:
                             affiliate_url = f"https://www.amazon.es/dp/{asin}?tag={AMAZON_TAG}"
                             
                             payload = {
