@@ -7,6 +7,17 @@
 *.log
 hunter_output.txt
 hunter.log
+hunter_log.txt
+
+# Archivos de datos temporales
+pending_products.json
+processed_products.json
+published_inventory.json
+last_gemini_response.txt
+last_gemini_response_ok.txt
+
+# Logs de reprocesamiento
+reprocess_*.txt
 
 # Python
 __pycache__/
