@@ -18,6 +18,10 @@ import os
 import sys
 import re
 from concurrent.futures import ThreadPoolExecutor, TimeoutError as FuturesTimeoutError
+from dotenv import load_dotenv
+
+# Cargar .env
+load_dotenv()
 
 def parse_price(price_str):
     """Parse price string, handling non-breaking spaces and European formats."""
@@ -31,10 +35,8 @@ def parse_price(price_str):
         return 0.0
 
 GEMINI_TIMEOUT_SECONDS = 8
-# 🔑 API KEY - Configuración Gemini
-GEMINI_API_KEYS = [
-    "AIzaSyBJw7dAlTUkFH2m3kfA8lY1idsXcz6m-mg",  # Key principal (2026-01-19)
-]
+# 🔑 API KEY - Leer desde .env (NUNCA hardcodear)
+GEMINI_API_KEYS = [os.getenv("GEMINI_API_KEY", "")]
 _current_key_index = 0  # Índice de la key actual
 GEMINI_MODEL = "gemini-2.0-flash"  # Modelo más reciente y rápido
 GEMINI_RETRY_WAIT = 60  # Segundos a esperar cuando quota excedida
@@ -2096,42 +2098,95 @@ def run_queue_processor(max_products=None, pacing_seconds=None):
 # BUCLE PRINCIPAL DE SCRAPING
 # ============================================================================
 
+# ⏰ CONFIGURACIÓN DE DURACIÓN
+RUN_HOURS = 6  # Horas de ejecución continua
+RUN_DURATION_SECONDS = RUN_HOURS * 60 * 60
+
 if __name__ == "__main__":
-    logger.info(f"Starting main scraping loop at {datetime.now()}")
+    start_time = time.time()
+    end_time = start_time + RUN_DURATION_SECONDS
+    cycle = 0
+    
+    logger.info(f"🚀 HUNTER MODO MARATÓN - {RUN_HOURS} HORAS")
+    logger.info(f"⏰ Inicio: {datetime.now().strftime('%H:%M:%S')}")
+    logger.info(f"⏰ Fin previsto: {datetime.fromtimestamp(end_time).strftime('%H:%M:%S')}")
+    
+    while time.time() < end_time:
+        cycle += 1
+        remaining_hours = (end_time - time.time()) / 3600
+        logger.info(f"")
+        logger.info(f"═══════════════════════════════════════════")
+        logger.info(f"🔄 CICLO {cycle} - Quedan {remaining_hours:.1f}h")
+        logger.info(f"═══════════════════════════════════════════")
 
-    # Seleccionar más vibes para máxima variedad (ahora tenemos 10 categorías)
-    selected_vibes = random.sample(list(SMART_SEARCHES.keys()), k=min(6, len(SMART_SEARCHES)))
-    logger.info(f"[VIBES] Selected: {selected_vibes}")
+        # Seleccionar más vibes para máxima variedad (ahora tenemos 10 categorías)
+        selected_vibes = random.sample(list(SMART_SEARCHES.keys()), k=min(6, len(SMART_SEARCHES)))
+        logger.info(f"[VIBES] Selected: {selected_vibes}")
 
-    total_sent = 0
-    total_discarded = 0
+        total_sent = 0
+        total_discarded = 0
 
-    try:
-        for vibe in selected_vibes:
-            searches = SMART_SEARCHES[vibe]
-            # Seleccionar 4-5 búsquedas por vibe (antes eran 2-3)
-            selected_searches = random.sample(searches, k=min(5, len(searches)))
-            
-            for query in selected_searches:
-                # Agregar variación temporal DINÁMICA
-                current_year = datetime.now().year
-                modifiers = [
-                    "",                              # Sin modificador
-                    f" {current_year}",              # Año actual (2026)
-                    f" {current_year - 1}",          # Año anterior (2025)
-                    " novedades",                    # Novedades
-                    " bestseller",                   # Más vendidos
-                    " viral",                        # Productos virales
-                    " trending",                     # Tendencias
-                    " nuevo lanzamiento",            # Lanzamientos recientes
-                    " top ventas",                   # Top ventas
+        try:
+            for vibe in selected_vibes:
+                # Verificar tiempo restante
+                if time.time() >= end_time:
+                    logger.info(f"⏰ Tiempo agotado, terminando ciclo...")
+                    break
+                    
+                searches = SMART_SEARCHES[vibe]
+                # Seleccionar 4-5 búsquedas por vibe (antes eran 2-3)
+                selected_searches = random.sample(searches, k=min(5, len(searches)))
+                
+                for query in selected_searches:
+                    # Agregar variación temporal DINÁMICA
+                    current_year = datetime.now().year
+                    modifiers = [
+                        "",                              # Sin modificador
+                        f" {current_year}",              # Año actual (2026)
+                        f" {current_year - 1}",          # Año anterior (2025)
+                        " novedades",                    # Novedades
+                        " bestseller",                   # Más vendidos
+                        " viral",                        # Productos virales
+                        " trending",                     # Tendencias
+                        " nuevo lanzamiento",            # Lanzamientos recientes
+                        " top ventas",                   # Top ventas
+                        " mas vendido",                  # Más vendidos español
+                        " mejor valorado",               # Mejor valorados
+                        " idea regalo",                  # Ideas regalo
+                        " regalo original",              # Regalo original
+                        " regalo perfecto",              # Regalo perfecto
+                        " recomendado",                  # Recomendados
+                        " premium",                      # Premium
+                        " calidad",                      # Calidad
+                        " oferta",                       # Ofertas
+                        " chollos",                      # Chollos
+                        " black friday",                 # Black Friday deals
+                        " navidad",                      # Navidad
+                        " cumpleaños",                   # Cumpleaños
+                        " san valentin",                 # San Valentín
+                        " dia del padre",                # Día del padre
+                        " dia de la madre",              # Día de la madre
+                        " aniversario",                  # Aniversario
+                        " exclusivo",                    # Exclusivo
+                        " edicion limitada",             # Edición limitada
+                        " profesional",                  # Profesional
+                    ]
+                    final_query = query + random.choice(modifiers)
+                    
+                    logger.info(f"[SEARCH] [{vibe}] {final_query}")
+                
+                # URL con ordenamiento aleatorio para variedad
+                sort_options = [
+                    "date-desc-rank",                # Por novedad
+                    "review-rank",                   # Mejor valorados
+                    "popularity-rank",               # Más populares
+                    "",                              # Relevancia Amazon
                 ]
-                final_query = query + random.choice(modifiers)
-                
-                logger.info(f"[SEARCH] [{vibe}] {final_query}")
-                
-                # URL con ordenamiento por novedad + rating
-                amazon_url = f"https://www.amazon.es/s?k={final_query.replace(' ', '+')}&s=date-desc-rank&ref=sr_st_date-desc-rank"
+                sort_param = random.choice(sort_options)
+                if sort_param:
+                    amazon_url = f"https://www.amazon.es/s?k={final_query.replace(' ', '+')}&s={sort_param}"
+                else:
+                    amazon_url = f"https://www.amazon.es/s?k={final_query.replace(' ', '+')}"
                 
                 try:
                     driver.get(amazon_url)
@@ -2328,43 +2383,47 @@ if __name__ == "__main__":
                     logger.error(f"Error searching '{final_query}': {e}")
                     continue
         
-        logger.info(f"[SCRAPING DONE] ¡Scraping completado!")
-        logger.info(f"   En cola: {total_sent}")
-        logger.info(f"   Descartados: {total_discarded}")
-        logger.info(f"   Tasa de éxito pre-filtro: {(total_sent / max(1, total_sent + total_discarded) * 100):.1f}%")
-        
-        # =========================================================================
-        # 🧠 FASE 2: PROCESAR COLA CON GEMINI
-        # =========================================================================
-        queue_size = get_pending_count()
-        if queue_size > 0:
-            logger.info(f"")
-            logger.info(f"═══════════════════════════════════════════")
-            logger.info(f"🧠 INICIANDO PROCESAMIENTO IA")
-            logger.info(f"═══════════════════════════════════════════")
-            logger.info(f"📦 Productos en cola: {queue_size}")
-            logger.info(f"⏱️ Tiempo estimado: {queue_size * GEMINI_PACING_SECONDS / 60:.1f} minutos")
-            logger.info(f"")
+            logger.info(f"[SCRAPING DONE] ¡Scraping completado!")
+            logger.info(f"   En cola: {total_sent}")
+            logger.info(f"   Descartados: {total_discarded}")
+            logger.info(f"   Tasa de éxito pre-filtro: {(total_sent / max(1, total_sent + total_discarded) * 100):.1f}%")
             
-            published = run_queue_processor()
-            
-            logger.info(f"")
-            logger.info(f"═══════════════════════════════════════════")
-            logger.info(f"🏆 RESUMEN FINAL")
-            logger.info(f"═══════════════════════════════════════════")
-            logger.info(f"   Scrapeados: {total_sent + total_discarded}")
-            logger.info(f"   Pre-filtrados: {total_sent}")
-            logger.info(f"   Publicados: {published}")
-            logger.info(f"   Tasa conversión: {(published / max(1, total_sent) * 100):.1f}%")
-        else:
-            logger.info(f"📭 No hay productos en cola para procesar")
+            # =========================================================================
+            # 🧠 FASE 2: PROCESAR COLA CON GEMINI
+            # =========================================================================
+            queue_size = get_pending_count()
+            if queue_size > 0:
+                logger.info(f"")
+                logger.info(f"═══════════════════════════════════════════")
+                logger.info(f"🧠 INICIANDO PROCESAMIENTO IA")
+                logger.info(f"═══════════════════════════════════════════")
+                logger.info(f"📦 Productos en cola: {queue_size}")
+                logger.info(f"⏱️ Tiempo estimado: {queue_size * GEMINI_PACING_SECONDS / 60:.1f} minutos")
+                logger.info(f"")
+                
+                published = run_queue_processor()
+                
+                logger.info(f"")
+                logger.info(f"═══════════════════════════════════════════")
+                logger.info(f"🏆 RESUMEN FINAL")
+                logger.info(f"═══════════════════════════════════════════")
+                logger.info(f"   Scrapeados: {total_sent + total_discarded}")
+                logger.info(f"   Pre-filtrados: {total_sent}")
+                logger.info(f"   Publicados: {published}")
+                logger.info(f"   Tasa conversión: {(published / max(1, total_sent) * 100):.1f}%")
+            else:
+                logger.info(f"📭 No hay productos en cola para procesar")
 
-    except KeyboardInterrupt:
-        logger.info("🛑 Interrumpido por usuario")
-        logger.info(f"📦 Quedan {get_pending_count()} productos en cola para próxima ejecución")
-    except Exception as e:
-        logger.error(f"Error fatal: {e}")
-        logger.info(f"📦 Quedan {get_pending_count()} productos en cola")
-    finally:
-        driver.quit()
-        logger.info("🏁 Driver cerrado, sesión terminada")
+        except KeyboardInterrupt:
+            logger.info("🛑 Interrumpido por usuario")
+            logger.info(f"📦 Quedan {get_pending_count()} productos en cola para próxima ejecución")
+            break
+        except Exception as e:
+            logger.error(f"Error en ciclo {cycle}: {e}")
+            logger.info(f"📦 Quedan {get_pending_count()} productos en cola")
+            time.sleep(30)  # Esperar 30s antes del siguiente ciclo si hay error
+            continue
+    
+    # Fin del while - limpieza
+    driver.quit()
+    logger.info("🏁 Driver cerrado, sesión de 6 horas terminada")

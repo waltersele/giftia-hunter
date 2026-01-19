@@ -21,14 +21,13 @@ load_dotenv()
 PENDING_QUEUE_FILE = "pending_products.json"
 PROCESSED_LOG_FILE = "processed_products.json"
 GEMINI_PACING_SECONDS = 1  # Con plan de pago podemos ir RÁPIDO
+WP_PACING_SECONDS = 5  # Delay entre envíos a WP para evitar 429
 BATCH_SIZE = 3  # Reducido a 3 para evitar respuestas cortadas por Gemini
 
-# APIs - Credenciales hardcodeadas (igual que hunter.py)
-WP_API_URL = "https://giftia.es/wp-content/plugins/giftfinder-core/api-ingest.php"
-WP_TOKEN = "nu27OrX2t5VZQmrGXfoZk3pbcS97yiP5"
-GEMINI_API_KEYS = [
-    "AIzaSyBJw7dAlTUkFH2m3kfA8lY1idsXcz6m-mg",  # Key principal (2026-01-19)
-]
+# APIs - Leer desde .env (NUNCA hardcodear secrets)
+WP_API_URL = os.getenv("WP_API_URL", "https://giftia.es/wp-content/plugins/giftfinder-core/api-ingest.php")
+WP_TOKEN = os.getenv("WP_API_TOKEN", "")
+GEMINI_API_KEYS = [os.getenv("GEMINI_API_KEY", "")]
 
 # Logger
 logging.basicConfig(level=logging.INFO, format='%(asctime)s [%(levelname)s] %(message)s')
@@ -890,10 +889,12 @@ def process_product(product):
         if response.status_code == 200:
             logger.info(f"✅ WordPress OK: {title[:40]}")
             log_processed_product(product, {"status": "published", "quality": classification["gift_quality"]})
+            time.sleep(WP_PACING_SECONDS)  # Evitar rate limiting
             return True
         else:
             logger.error(f"❌ Error API {response.status_code}: {response.text[:100]}")
             log_processed_product(product, {"status": "error", "http_code": response.status_code})
+            time.sleep(WP_PACING_SECONDS)  # Esperar aunque falle
             return False
     except Exception as e:
         logger.error(f"❌ Excepción: {e}")
