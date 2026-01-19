@@ -27,7 +27,7 @@ load_dotenv()
 WP_API_URL = os.getenv("WP_API_URL", "https://giftia.es/wp-json/giftia/v1/ingest")
 WP_UPDATE_SEO_URL = "https://giftia.es/wp-content/plugins/giftfinder-core/api-update-seo.php"
 WP_TOKEN = os.getenv("WP_TOKEN", "nu27OrX2t5VZQmrGXfoZk3pbcS97yiP5")
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "AIzaSyBaY5HAZOPGhJjGS4oQFqC0ZAHkGkx0wjc")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "AIzaSyBJw7dAlTUkFH2m3kfA8lY1idsXcz6m-mg")
 
 # Configurar Gemini
 genai.configure(api_key=GEMINI_API_KEY)

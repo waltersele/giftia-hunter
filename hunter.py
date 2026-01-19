@@ -31,10 +31,9 @@ def parse_price(price_str):
         return 0.0
 
 GEMINI_TIMEOUT_SECONDS = 8
-# 🔑 ROTACIÓN DE API KEYS - cuando una da 429, usa la siguiente
+# 🔑 API KEY - Configuración Gemini
 GEMINI_API_KEYS = [
-    "AIzaSyDvL1qB1Zre5-B_cIv6qbE8GozJ4pbt1sw",  # Key 1 (pago)
-    "AIzaSyBaY5HAZOPGhJjGS4oQFqC0ZAHkGkx0wjc",  # Key 2 (free)
+    "AIzaSyBJw7dAlTUkFH2m3kfA8lY1idsXcz6m-mg",  # Key principal (2026-01-19)
 ]
 _current_key_index = 0  # Índice de la key actual
 GEMINI_MODEL = "gemini-2.0-flash"  # Modelo más reciente y rápido

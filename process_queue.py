@@ -27,8 +27,7 @@ BATCH_SIZE = 3  # Reducido a 3 para evitar respuestas cortadas por Gemini
 WP_API_URL = "https://giftia.es/wp-content/plugins/giftfinder-core/api-ingest.php"
 WP_TOKEN = "nu27OrX2t5VZQmrGXfoZk3pbcS97yiP5"
 GEMINI_API_KEYS = [
-    "AIzaSyBaY5HAZOPGhJjGS4oQFqC0ZAHkGkx0wjc",  # Key PAGO (pay-as-you-go) - PRIORIDAD
-    "AIzaSyDvL1qB1Zre5-B_cIv6qbE8GozJ4pbt1sw",  # Key backup
+    "AIzaSyBJw7dAlTUkFH2m3kfA8lY1idsXcz6m-mg",  # Key principal (2026-01-19)
 ]
 
 # Logger
