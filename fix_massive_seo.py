@@ -262,10 +262,22 @@ def main():
     print("─" * 60)
     
     for i, product in enumerate(products):
+        # Obtener datos del producto con precio válido
         product_id = product['id']
         title = product['title']
         asin = product['asin']
-        price = product['price']
+        price = product.get('price', 0)
+        
+        # Si precio es 0, usar precio por defecto basado en título
+        if not price or price == 0:
+            if any(word in title.lower() for word in ['luxury', 'premium', 'oro', 'plata', 'diamante']):
+                price = 89.99
+            elif any(word in title.lower() for word in ['set', 'kit', 'pack', 'bundle']):
+                price = 59.99
+            elif any(word in title.lower() for word in ['mini', 'pequeño', 'basic']):
+                price = 19.99
+            else:
+                price = 39.99
         
         progress = f"[{i+1}/{len(products)}]"
         print(f"\n{progress} ID {product_id}: {title[:50]}...")
