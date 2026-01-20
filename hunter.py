@@ -2347,6 +2347,46 @@ if __name__ == "__main__":
                             except:
                                 description = ""
                             
+
+                            # Prime y envío gratis
+                            is_prime = False
+                            free_shipping = False
+                            try:
+                                # Detectar Prime badge
+                                prime_elements = item.find_elements(By.CSS_SELECTOR, "i.a-icon-prime, .a-icon-prime, span[aria-label*='Prime']")
+                                is_prime = len(prime_elements) > 0
+                            except:
+                                pass
+                            
+                            # Detectar tiempo de envío y envío gratis
+                            delivery_time = ""
+                            try:
+                                # Buscar texto de envío en múltiples selectores
+                                delivery_selectors = [
+                                    "span[data-component-type='s-shipping-label-block']",
+                                    "div[data-cy='delivery-recipe']",
+                                    "span.a-text-bold[aria-label*='Entrega']",
+                                    "span.a-color-base.a-text-bold",
+                                    "div.s-align-children-center span"
+                                ]
+                                for selector in delivery_selectors:
+                                    try:
+                                        els = item.find_elements(By.CSS_SELECTOR, selector)
+                                        for el in els:
+                                            text = el.text.strip()
+                                            # Buscar patrones de entrega
+                                            if any(kw in text.lower() for kw in ['entrega', 'envío', 'llega', 'recíbelo', 'mañana', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado', 'domingo', 'días']):
+                                                if len(text) > len(delivery_time):
+                                                    delivery_time = text
+                                    except:
+                                        continue
+                            except:
+                                pass
+                            
+                            # Determinar si es envío gratis basado en texto o Prime
+                            delivery_lower = delivery_time.lower()
+                            free_shipping = is_prime or "gratis" in delivery_lower or "envío gratis" in delivery_lower
+
                             # Construir payload
                             if parse_price(price) > 0:
                                 affiliate_url = f"https://www.amazon.es/dp/{asin}?tag={AMAZON_TAG}"
@@ -2362,7 +2402,10 @@ if __name__ == "__main__":
                                     "rating": rating,
                                     "rating_value": rating_value,
                                     "review_count": review_count,
-                                    "source_vibe": vibe
+                                    "source_vibe": vibe,
+                                    "is_prime": is_prime,
+                                    "free_shipping": free_shipping,
+                                    "delivery_time": delivery_time
                                 }
                                 
                                 # MODO HÍBRIDO: añadir a cola (no llama a Gemini aún)
