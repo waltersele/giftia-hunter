@@ -240,6 +240,26 @@ def validate_category(category):
     if not category:
         return "otros"
     cat_lower = category.lower().strip()
+    
+    # Correcciones de errores comunes de Gemini
+    CATEGORY_CORRECTIONS = {
+        "fandom": "Friki",           # Gemini inventa "Fandom" pero no existe
+        "hogar": "Decoración",       # A veces usa "Hogar" en vez de "Decoración"
+        "bienestar": "Zen",          # "Bienestar" → Zen
+        "fitness": "Deporte",        # "Fitness" → Deporte
+        "bebés": "Infantil",         # "Bebés" → Infantil
+        "bebes": "Infantil",
+        "niños": "Infantil",
+        "ninos": "Infantil",
+        "cocina": "Gourmet",         # "Cocina" → Gourmet
+        "gastronomia": "Gourmet",
+        "electrónica": "Tech",       # "Electrónica" → Tech
+        "electronica": "Tech",
+    }
+    
+    if cat_lower in CATEGORY_CORRECTIONS:
+        return CATEGORY_CORRECTIONS[cat_lower]
+    
     for valid in VALID_CATEGORIES:
         if valid.lower() == cat_lower:
             return valid
@@ -371,31 +391,39 @@ RECHAZA (ok: false):
 📦 CATEGORÍA (category) - USA EXACTAMENTE ESTOS VALORES:
 ═══════════════════════════════════════════════════════════════════════════════
 
-CATEGORÍA = ¿QUÉ TIPO DE PERSONA LO DISFRUTARÍA?
+⚠️ USA SOLO ESTOS 18 VALORES EXACTOS. NO INVENTES OTROS:
 
-- Tech: Gadgets, electrónica, smart home, USB, Bluetooth
-- Gamer: Videojuegos, consolas, accesorios gaming, periféricos
-- Gourmet: SOLO cocina/gastronomía: utensilios, vino, café, delicatessen
-- Deporte: Fitness, gym, running, ciclismo, deportes
-- Outdoor: Camping, senderismo, viajes, mochilas, aventura
+- Tech: Gadgets, electrónica, smart home, USB, Bluetooth, móviles, tablets
+- Gamer: Videojuegos, consolas, accesorios gaming, sillas gaming
+- Gourmet: Cocina, barbacoas, parrillas, utensilios, vino, café, delicatessen
+- Deporte: Fitness, gym, electroestimuladores, running, ciclismo, musculación
+- Outdoor: Camping, senderismo, aventura, mochilas trekking
 - Viajes: Maletas, accesorios viaje, mapas, experiencias
 - Moda: Ropa, bolsos, accesorios moda, joyería
-- Belleza: Cosmética, skincare, perfumes, spa
-- Decoración: Hogar, muebles, lámparas, arte, jardinería
-- Zen: Yoga, meditación, velas, aromaterapia, bienestar
-- Lector: Libros, e-readers, accesorios lectura
-- Música: Instrumentos, auriculares, vinilos, accesorios música
-- Artista: Arte, pintura, manualidades, craft, DIY
-- Fotografía: Cámaras, objetivos, accesorios foto, impresión
-- Friki: Coleccionismo, fandom, Star Wars, Marvel, anime, juegos mesa
-- Mascotas: Perros, gatos, accesorios animales
+- Belleza: Cosmética, skincare, perfumes, spa, masajeadores faciales
+- Decoración: Hogar, muebles, lámparas, arte, jardinería, textiles hogar
+- Zen: Yoga, meditación, velas, aromaterapia, mindfulness, relajación
+- Lector: Libros, e-readers, accesorios lectura, marcapáginas
+- Música: Instrumentos, auriculares, vinilos, tocadiscos
+- Artista: Arte, pintura, manualidades, craft, DIY, lienzos
+- Fotografía: Cámaras, objetivos, accesorios foto, impresión, trípodes
+- Friki: SOLO merchandising Star Wars/Marvel/anime/Harry Potter, juegos mesa
+- Mascotas: Perros, gatos, accesorios animales, comederos
 - Lujo: Premium, exclusivo, ediciones especiales +200€
-- Infantil: Bebés, niños, juguetes, puericultura, álbumes bebé
+- Infantil: BEBÉS, niños 0-6 años, juguetes, puericultura, Montessori, cubos bebé
 
-⚠️ REGLA CRÍTICA: 
-- Álbumes de bebé, ropa bebé, puericultura → "Infantil" (NO Decoración, NO Gourmet)
-- Mantas, sábanas, textiles hogar → "Decoración" (NO Zen)
-- Accesorios cocina → "Gourmet" (NO Tech)
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║ 🚫 ERRORES COMUNES A EVITAR - LEE ESTO ANTES DE CLASIFICAR:                  ║
+╠═══════════════════════════════════════════════════════════════════════════════╣
+║ ❌ "Fandom" NO EXISTE - usa "Friki" (solo para merchandising series/pelis)   ║
+║ ❌ Barbacoas/Parrillas → "Gourmet" (NO Outdoor, NO Decoración)               ║
+║ ❌ Electroestimuladores → "Deporte" (NO Tech, NO Belleza)                    ║
+║ ❌ Regalos parto/bebé → "Infantil" (NO Decoración, NO Gourmet, NO Zen)       ║
+║ ❌ Juguetes Montessori → "Infantil" (NO Tech aunque sea "educativo")         ║
+║ ❌ Cubos mágicos bebé → "Infantil" (NO Tech)                                 ║
+║ ❌ Centro actividades niños → "Infantil" (NO Tech)                           ║
+║ ❌ Mantas/sábanas → "Decoración" (NO Zen)                                    ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
 
 ═══════════════════════════════════════════════════════════════════════════════
 👶 EDAD (age) - ¿Quién lo DISFRUTARÍA?
