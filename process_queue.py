@@ -243,18 +243,81 @@ def validate_category(category):
     
     # Correcciones de errores comunes de Gemini
     CATEGORY_CORRECTIONS = {
-        "fandom": "Friki",           # Gemini inventa "Fandom" pero no existe
-        "hogar": "Decoración",       # A veces usa "Hogar" en vez de "Decoración"
-        "bienestar": "Zen",          # "Bienestar" → Zen
-        "fitness": "Deporte",        # "Fitness" → Deporte
-        "bebés": "Infantil",         # "Bebés" → Infantil
+        # Categorías inventadas que NO existen
+        "fandom": "Friki",
+        "coleccionismo": "Friki",
+        "merchandising": "Friki",
+        "geek": "Friki",
+        
+        # Sinónimos de categorías reales
+        "hogar": "Decoración",
+        "casa": "Decoración",
+        "interiores": "Decoración",
+        
+        "bienestar": "Zen",
+        "relax": "Zen",
+        "relajación": "Zen",
+        "relajacion": "Zen",
+        "wellness": "Zen",
+        
+        "fitness": "Deporte",
+        "gimnasio": "Deporte",
+        "gym": "Deporte",
+        "ejercicio": "Deporte",
+        "sport": "Deporte",
+        
+        "bebés": "Infantil",
         "bebes": "Infantil",
+        "bebé": "Infantil",
+        "bebe": "Infantil",
         "niños": "Infantil",
         "ninos": "Infantil",
-        "cocina": "Gourmet",         # "Cocina" → Gourmet
+        "niño": "Infantil",
+        "nino": "Infantil",
+        "kids": "Infantil",
+        "children": "Infantil",
+        "puericultura": "Infantil",
+        "juguetes": "Infantil",
+        
+        "cocina": "Gourmet",
+        "gastronomía": "Gourmet",
         "gastronomia": "Gourmet",
-        "electrónica": "Tech",       # "Electrónica" → Tech
+        "food": "Gourmet",
+        "comida": "Gourmet",
+        "bebidas": "Gourmet",
+        
+        "electrónica": "Tech",
         "electronica": "Tech",
+        "tecnología": "Tech",
+        "tecnologia": "Tech",
+        "gadgets": "Tech",
+        
+        "videojuegos": "Gamer",
+        "gaming": "Gamer",
+        "games": "Gamer",
+        
+        "aire libre": "Outdoor",
+        "aventura": "Outdoor",
+        "naturaleza": "Outdoor",
+        "acampada": "Outdoor",
+        
+        "libros": "Lector",
+        "lectura": "Lector",
+        "literatura": "Lector",
+        
+        "manualidades": "Artista",
+        "craft": "Artista",
+        "diy": "Artista",
+        "arte": "Artista",
+        
+        "animales": "Mascotas",
+        "pets": "Mascotas",
+        "perros": "Mascotas",
+        "gatos": "Mascotas",
+        
+        "premium": "Lujo",
+        "luxury": "Lujo",
+        "exclusivo": "Lujo",
     }
     
     if cat_lower in CATEGORY_CORRECTIONS:
@@ -393,36 +456,65 @@ RECHAZA (ok: false):
 
 ⚠️ USA SOLO ESTOS 18 VALORES EXACTOS. NO INVENTES OTROS:
 
-- Tech: Gadgets, electrónica, smart home, USB, Bluetooth, móviles, tablets
-- Gamer: Videojuegos, consolas, accesorios gaming, sillas gaming
-- Gourmet: Cocina, barbacoas, parrillas, utensilios, vino, café, delicatessen
-- Deporte: Fitness, gym, electroestimuladores, running, ciclismo, musculación
-- Outdoor: Camping, senderismo, aventura, mochilas trekking
-- Viajes: Maletas, accesorios viaje, mapas, experiencias
-- Moda: Ropa, bolsos, accesorios moda, joyería
-- Belleza: Cosmética, skincare, perfumes, spa, masajeadores faciales
-- Decoración: Hogar, muebles, lámparas, arte, jardinería, textiles hogar
-- Zen: Yoga, meditación, velas, aromaterapia, mindfulness, relajación
-- Lector: Libros, e-readers, accesorios lectura, marcapáginas
-- Música: Instrumentos, auriculares, vinilos, tocadiscos
-- Artista: Arte, pintura, manualidades, craft, DIY, lienzos
-- Fotografía: Cámaras, objetivos, accesorios foto, impresión, trípodes
-- Friki: SOLO merchandising Star Wars/Marvel/anime/Harry Potter, juegos mesa
-- Mascotas: Perros, gatos, accesorios animales, comederos
-- Lujo: Premium, exclusivo, ediciones especiales +200€
-- Infantil: BEBÉS, niños 0-6 años, juguetes, puericultura, Montessori, cubos bebé
+- Tech: Gadgets ADULTOS, electrónica, smart home, USB, Bluetooth, móviles, tablets, drones
+- Gamer: Videojuegos, consolas, accesorios gaming, sillas gaming, mandos, teclados gaming
+- Gourmet: Cocina, BARBACOAS, PARRILLAS, utensilios cocina, vino, café, whisky, cerveza artesanal
+- Deporte: Fitness, gym, ELECTROESTIMULADORES, running, ciclismo, pádel, tenis, foam roller
+- Outdoor: Camping, TIENDAS CAMPAÑA, senderismo, bastones trekking, linternas frontales
+- Viajes: Maletas, MAPAS RASCAR, accesorios viaje, experiencias Smartbox/Wonderbox
+- Moda: Ropa ADULTOS, bolsos, accesorios moda, joyería, carteras, cinturones
+- Belleza: Cosmética, skincare, perfumes ADULTOS, spa, gua sha, rodillo jade, antifaces seda
+- Decoración: Hogar ADULTOS, muebles, lámparas, arte, jardinería, globos terráqueos, mantas ADULTO
+- Zen: Yoga, meditación, velas, aromaterapia, incienso, cojines meditación, difusores
+- Lector: Libros, Kindle, e-readers, accesorios lectura, cuadernos premium
+- Música: Instrumentos, AURICULARES, vinilos, tocadiscos, cajas música, altavoces
+- Artista: Arte, pintura, rotuladores, manualidades ADULTO, craft, DIY, origami ADULTO
+- Fotografía: Cámaras ADULTO, objetivos, trípodes, marcos digitales, drones foto
+- Friki: FUNKO POP, merchandising Star Wars/Marvel/anime/Harry Potter, LEGO adultos, juegos mesa
+- Mascotas: Perros, gatos, accesorios SOLO para animales, comederos, camas mascota
+- Lujo: Premium +200€, whisky premium, relojes, joyería fina, ediciones especiales
+- Infantil: TODO para bebés/niños 0-10: juguetes, Montessori, biberones, mantas bebé, peluches
 
 ╔═══════════════════════════════════════════════════════════════════════════════╗
-║ 🚫 ERRORES COMUNES A EVITAR - LEE ESTO ANTES DE CLASIFICAR:                  ║
+║ 🚨 REGLAS CRÍTICAS - LEER ANTES DE CLASIFICAR:                                ║
 ╠═══════════════════════════════════════════════════════════════════════════════╣
-║ ❌ "Fandom" NO EXISTE - usa "Friki" (solo para merchandising series/pelis)   ║
-║ ❌ Barbacoas/Parrillas → "Gourmet" (NO Outdoor, NO Decoración)               ║
-║ ❌ Electroestimuladores → "Deporte" (NO Tech, NO Belleza)                    ║
-║ ❌ Regalos parto/bebé → "Infantil" (NO Decoración, NO Gourmet, NO Zen)       ║
-║ ❌ Juguetes Montessori → "Infantil" (NO Tech aunque sea "educativo")         ║
-║ ❌ Cubos mágicos bebé → "Infantil" (NO Tech)                                 ║
-║ ❌ Centro actividades niños → "Infantil" (NO Tech)                           ║
-║ ❌ Mantas/sábanas → "Decoración" (NO Zen)                                    ║
+║                                                                               ║
+║ 📌 INFANTIL (prioridad máxima - si es para bebé/niño, ES Infantil):          ║
+║   • Biberones, chupetes, termómetros bebé → Infantil (NO Belleza, NO Tech)   ║
+║   • Mantas bebé, capas baño bebé → Infantil (NO Moda, NO Decoración)         ║
+║   • Juguetes Montessori, cubos actividades → Infantil (NO Tech)              ║
+║   • Set regalo nacimiento/parto → Infantil (NO Zen, NO Decoración)           ║
+║   • Peluches para niños, nutrias dormir → Infantil (NO Decoración)           ║
+║   • Kit costura NIÑOS, origami NIÑOS → Infantil (NO Artista)                 ║
+║   • Colonia bebé, cremas bebé → Infantil (NO Belleza)                        ║
+║   • Cámara instantánea NIÑOS → Infantil (NO Fotografía)                      ║
+║                                                                               ║
+║ 📌 GOURMET (todo lo de cocina/gastronomía):                                  ║
+║   • Set barbacoa, utensilios parrilla → Gourmet (NO Outdoor, NO Fandom)      ║
+║   • Delantal cocina → Gourmet (NO Moda)                                      ║
+║   • Set té/café → Gourmet (NO Viajes aunque sea "portátil")                  ║
+║                                                                               ║
+║ 📌 DEPORTE (ejercicio físico):                                               ║
+║   • Electroestimuladores TENS/EMS → Deporte (NO Tech, NO Belleza, NO Fandom) ║
+║   • Paletero pádel/tenis → Deporte (NO Viajes, NO Mascotas)                  ║
+║   • Foam roller, bandas elásticas → Deporte (NO Zen)                         ║
+║                                                                               ║
+║ 📌 FRIKI (SOLO merchandising franquicias):                                   ║
+║   • Funko Pop → Friki (NO Música, NO Decoración)                             ║
+║   • Varitas Harry Potter → Friki                                             ║
+║   • LEGO Star Wars/Marvel → Friki                                            ║
+║   • Juegos de mesa temáticos → Friki (NO Gamer)                              ║
+║   ⚠️ "Fandom" NO EXISTE como categoría - usar "Friki"                        ║
+║                                                                               ║
+║ 📌 OUTDOOR vs DEPORTE:                                                       ║
+║   • Tiendas campaña, bastones senderismo → Outdoor                           ║
+║   • Equipamiento gym, fitness casa → Deporte                                 ║
+║                                                                               ║
+║ 📌 TECH (solo electrónica adultos):                                          ║
+║   • Robot aspirador → Tech (NO Mascotas)                                     ║
+║   • Smart tracker, AirTag → Tech                                             ║
+║   • Tableta gráfica → Tech (o Artista si es para dibujo)                     ║
+║                                                                               ║
 ╚═══════════════════════════════════════════════════════════════════════════════╝
 
 ═══════════════════════════════════════════════════════════════════════════════
