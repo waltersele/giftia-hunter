@@ -50,7 +50,7 @@ except Exception as e:
 # Extraer valores del schema JSON
 VALID_CATEGORIES = list(SCHEMA.get('categories', {}).keys()) if SCHEMA.get('categories') else [
     "Tech", "Gamer", "Gourmet", "Deporte", "Outdoor", "Viajes", "Moda", "Belleza",
-    "Decoración", "Zen", "Lector", "Música", "Artista", "Fotografía", "Friki", "Mascotas", "Lujo"
+    "Decoración", "Zen", "Lector", "Música", "Artista", "Fotografía", "Friki", "Mascotas", "Lujo", "Infantil"
 ]
 
 VALID_AGES = list(SCHEMA.get('ages', {}).keys()) if SCHEMA.get('ages') else [
@@ -370,7 +370,32 @@ RECHAZA (ok: false):
 ═══════════════════════════════════════════════════════════════════════════════
 📦 CATEGORÍA (category) - USA EXACTAMENTE ESTOS VALORES:
 ═══════════════════════════════════════════════════════════════════════════════
-{', '.join(VALID_CATEGORIES)}
+
+CATEGORÍA = ¿QUÉ TIPO DE PERSONA LO DISFRUTARÍA?
+
+- Tech: Gadgets, electrónica, smart home, USB, Bluetooth
+- Gamer: Videojuegos, consolas, accesorios gaming, periféricos
+- Gourmet: SOLO cocina/gastronomía: utensilios, vino, café, delicatessen
+- Deporte: Fitness, gym, running, ciclismo, deportes
+- Outdoor: Camping, senderismo, viajes, mochilas, aventura
+- Viajes: Maletas, accesorios viaje, mapas, experiencias
+- Moda: Ropa, bolsos, accesorios moda, joyería
+- Belleza: Cosmética, skincare, perfumes, spa
+- Decoración: Hogar, muebles, lámparas, arte, jardinería
+- Zen: Yoga, meditación, velas, aromaterapia, bienestar
+- Lector: Libros, e-readers, accesorios lectura
+- Música: Instrumentos, auriculares, vinilos, accesorios música
+- Artista: Arte, pintura, manualidades, craft, DIY
+- Fotografía: Cámaras, objetivos, accesorios foto, impresión
+- Friki: Coleccionismo, fandom, Star Wars, Marvel, anime, juegos mesa
+- Mascotas: Perros, gatos, accesorios animales
+- Lujo: Premium, exclusivo, ediciones especiales +200€
+- Infantil: Bebés, niños, juguetes, puericultura, álbumes bebé
+
+⚠️ REGLA CRÍTICA: 
+- Álbumes de bebé, ropa bebé, puericultura → "Infantil" (NO Decoración, NO Gourmet)
+- Mantas, sábanas, textiles hogar → "Decoración" (NO Zen)
+- Accesorios cocina → "Gourmet" (NO Tech)
 
 ═══════════════════════════════════════════════════════════════════════════════
 👶 EDAD (age) - ¿Quién lo DISFRUTARÍA?

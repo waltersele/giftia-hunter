@@ -1,11 +1,11 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 GIFTIA HUNTER v11.0 - THE GIFTIA STANDARD
 Curador IA: Ingeniero + Explorador + Hedonista
 
 - 4 Filtros de Excelencia: Utilidad Elevada, Auto-Boicot, Originalidad, Orgullo
-- Cláusula "Cheap & Chic" para <20€
+- ClÃƒÂ¡usula "Cheap & Chic" para <20Ã¢â€šÂ¬
 - Busca GEMAS que hagan sentir inteligente y generoso a quien regala
 """
 
@@ -27,7 +27,7 @@ def parse_price(price_str):
     """Parse price string, handling non-breaking spaces and European formats."""
     if not price_str:
         return 0.0
-    clean = str(price_str).replace('\xa0', '').replace('€', '').replace(',', '.').strip()
+    clean = str(price_str).replace('\xa0', '').replace('Ã¢â€šÂ¬', '').replace(',', '.').strip()
     clean = ''.join(c for c in clean if c.isdigit() or c == '.')
     try:
         return float(clean) if clean else 0.0
@@ -35,15 +35,15 @@ def parse_price(price_str):
         return 0.0
 
 GEMINI_TIMEOUT_SECONDS = 8
-# 🔑 API KEY - Leer desde .env (NUNCA hardcodear)
+# Ã°Å¸â€â€˜ API KEY - Leer desde .env (NUNCA hardcodear)
 GEMINI_API_KEYS = [os.getenv("GEMINI_API_KEY", "")]
-_current_key_index = 0  # Índice de la key actual
-GEMINI_MODEL = "gemini-2.0-flash"  # Modelo más reciente y rápido
+_current_key_index = 0  # ÃƒÂndice de la key actual
+GEMINI_MODEL = "gemini-2.0-flash"  # Modelo mÃƒÂ¡s reciente y rÃƒÂ¡pido
 GEMINI_RETRY_WAIT = 60  # Segundos a esperar cuando quota excedida
-GEMINI_MAX_RETRIES = 3  # Máximo intentos antes de fallback
-GEMINI_PACING_SECONDS = 10  # 🐢 PACING SEGURO: 10s entre llamadas (6 RPM, muy bajo del límite 15 RPM)
+GEMINI_MAX_RETRIES = 3  # MÃƒÂ¡ximo intentos antes de fallback
+GEMINI_PACING_SECONDS = 10  # Ã°Å¸ÂÂ¢ PACING SEGURO: 10s entre llamadas (6 RPM, muy bajo del lÃƒÂ­mite 15 RPM)
 
-# 📦 COLA LOCAL - Productos pendientes de análisis AI
+# Ã°Å¸â€œÂ¦ COLA LOCAL - Productos pendientes de anÃƒÂ¡lisis AI
 PENDING_QUEUE_FILE = "pending_products.json"
 PROCESSED_LOG_FILE = "processed_products.json"
 
@@ -59,7 +59,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
 
 # ============================================================================
-# CONFIGURACIÓN CENTRALIZADA
+# CONFIGURACIÃƒâ€œN CENTRALIZADA
 # ============================================================================
 
 # Environment-based configuration
@@ -71,7 +71,7 @@ DEBUG = os.getenv("DEBUG", "0") == "1"
 # ============================================================================
 # CARGAR SCHEMA CENTRALIZADO (giftia_schema.json)
 # ============================================================================
-# Este schema es la FUENTE ÚNICA DE VERDAD para categorías, edades, géneros, etc.
+# Este schema es la FUENTE ÃƒÅ¡NICA DE VERDAD para categorÃƒÂ­as, edades, gÃƒÂ©neros, etc.
 # Debe coincidir con giftfinder-core/config/giftia-schema.php
 
 SCHEMA_PATH = os.path.join(os.path.dirname(__file__), 'giftia_schema.json')
@@ -80,14 +80,14 @@ GIFTIA_SCHEMA = {}
 try:
     with open(SCHEMA_PATH, 'r', encoding='utf-8') as f:
         GIFTIA_SCHEMA = json.load(f)
-    print(f"✅ Schema cargado: {len(GIFTIA_SCHEMA.get('categories', {}))} categorías")
+    print(f"Ã¢Å“â€¦ Schema cargado: {len(GIFTIA_SCHEMA.get('categories', {}))} categorÃƒÂ­as")
 except FileNotFoundError:
-    print(f"⚠️ Schema no encontrado en {SCHEMA_PATH}, usando valores por defecto")
+    print(f"Ã¢Å¡Â Ã¯Â¸Â Schema no encontrado en {SCHEMA_PATH}, usando valores por defecto")
 except json.JSONDecodeError as e:
-    print(f"⚠️ Error parseando schema: {e}")
+    print(f"Ã¢Å¡Â Ã¯Â¸Â Error parseando schema: {e}")
 
 # ============================================================================
-# CATEGORÍAS v2.0 - Sistema de 4 Dimensiones del Avatar
+# CATEGORÃƒÂAS v2.0 - Sistema de 4 Dimensiones del Avatar
 # ============================================================================
 # El nuevo sistema usa:
 # - gf_vibe (personalidad): techie, foodie, zen, friki, aventurero, estiloso, practico
@@ -111,44 +111,44 @@ else:
     VALID_ETAPAS = ["bebe", "peques", "teen", "genz", "adulto", "senior"]
     VALID_GENDERS = ["any", "male", "female"]
 
-# Mapeo de categorías antiguas/erróneas a las correctas
+# Mapeo de categorÃƒÂ­as antiguas/errÃƒÂ³neas a las correctas
 CATEGORY_MAPPING = {
     "Arte": "Hogar",
     "Bebe": "Infantil",
-    "Bebé": "Friki",
+    "BebÃƒÂ©": "Friki",
     "Gaming": "Gamer",
     "Wellness": "Zen",
     "Bienestar": "Zen",
-    "Hogar": "Decoración",
+    "Hogar": "DecoraciÃƒÂ³n",
     "Lectura": "Lector",
     "Libros": "Lector",
     "Cocina": "Gourmet",
-    "Gastronomía": "Gourmet",
+    "GastronomÃƒÂ­a": "Gourmet",
     "Relax": "Zen",
     "Sport": "Deporte",
     "Aventura": "Outdoor",
     "Camping": "Outdoor",
     "Fashion": "Moda",
     "Pets": "Mascotas",
-    "Photo": "Fotografía",
-    "Audio": "Música",
+    "Photo": "FotografÃƒÂ­a",
+    "Audio": "MÃƒÂºsica",
     "Fitness": "Deporte",  # Fusionar Fitness en Deporte
     "Geek": "Friki",       # Fusionar Geek en Friki
 }
 
 def validate_category(category):
     """
-    Valida y normaliza una categoría.
-    Si no es válida, intenta mapearla o retorna 'Friki' como fallback.
+    Valida y normaliza una categorÃƒÂ­a.
+    Si no es vÃƒÂ¡lida, intenta mapearla o retorna 'Friki' como fallback.
     """
     if not category:
         return "Friki"
     
-    # Si ya es válida, retornar
+    # Si ya es vÃƒÂ¡lida, retornar
     if category in VALID_CATEGORIES:
         return category
     
-    # Intentar mapear categoría antigua/errónea
+    # Intentar mapear categorÃƒÂ­a antigua/errÃƒÂ³nea
     if category in CATEGORY_MAPPING:
         return CATEGORY_MAPPING[category]
     
@@ -158,17 +158,17 @@ def validate_category(category):
             return valid
     
     # Fallback
-    print(f"⚠️ Categoría desconocida '{category}', usando 'Friki'")
+    print(f"Ã¢Å¡Â Ã¯Â¸Â CategorÃƒÂ­a desconocida '{category}', usando 'Friki'")
     return "Friki"
 
 def validate_gender(gender):
-    """Valida que el género sea válido."""
+    """Valida que el gÃƒÂ©nero sea vÃƒÂ¡lido."""
     if gender in VALID_GENDERS:
         return gender
     return "unisex"
 
 def get_category_keywords(category):
-    """Obtiene las keywords de una categoría desde el schema."""
+    """Obtiene las keywords de una categorÃƒÂ­a desde el schema."""
     if GIFTIA_SCHEMA and category in GIFTIA_SCHEMA.get('categories', {}):
         return GIFTIA_SCHEMA['categories'][category].get('keywords', [])
     return []
@@ -188,18 +188,18 @@ logger = logging.getLogger(__name__)
 if sys.platform == 'win32':
     sys.stdout.reconfigure(encoding='utf-8')
 
-logger.info("[HUNTER] 💎 INICIANDO v11.0 - THE GIFTIA STANDARD")
+logger.info("[HUNTER] Ã°Å¸â€™Å½ INICIANDO v11.0 - THE GIFTIA STANDARD")
 logger.info(f"[HUNTER] API Endpoint: {WP_API_URL}")
-logger.info(f"[HUNTER] Gemini API: {len(GEMINI_API_KEYS)} keys configuradas (rotación automática)")
-logger.info(f"[HUNTER] 🐢 Pacing: {GEMINI_PACING_SECONDS}s entre llamadas (6 RPM seguro)")
+logger.info(f"[HUNTER] Gemini API: {len(GEMINI_API_KEYS)} keys configuradas (rotaciÃƒÂ³n automÃƒÂ¡tica)")
+logger.info(f"[HUNTER] Ã°Å¸ÂÂ¢ Pacing: {GEMINI_PACING_SECONDS}s entre llamadas (6 RPM seguro)")
 logger.info(f"[HUNTER] Debug Mode: {'ENABLED' if DEBUG else 'DISABLED'}")
 
 # ============================================================================
-# 📦 SISTEMA DE COLA LOCAL - Productos pendientes de análisis AI
+# Ã°Å¸â€œÂ¦ SISTEMA DE COLA LOCAL - Productos pendientes de anÃƒÂ¡lisis AI
 # ============================================================================
 
 def load_pending_queue():
-    """Carga productos pendientes de análisis."""
+    """Carga productos pendientes de anÃƒÂ¡lisis."""
     try:
         if os.path.exists(PENDING_QUEUE_FILE):
             with open(PENDING_QUEUE_FILE, 'r', encoding='utf-8') as f:
@@ -217,23 +217,23 @@ def save_pending_queue(queue):
         logger.error(f"Error guardando cola: {e}")
 
 def add_to_pending_queue(product):
-    """Añade un producto a la cola de pendientes."""
+    """AÃƒÂ±ade un producto a la cola de pendientes."""
     queue = load_pending_queue()
     # Evitar duplicados por ASIN
     if not any(p.get('asin') == product.get('asin') for p in queue):
         product['queued_at'] = datetime.now().isoformat()
         queue.append(product)
         save_pending_queue(queue)
-        logger.info(f"📦 EN COLA [{len(queue)}]: {product.get('title', '')[:40]}...")
+        logger.info(f"Ã°Å¸â€œÂ¦ EN COLA [{len(queue)}]: {product.get('title', '')[:40]}...")
         return True
     return False
 
 def get_pending_count():
-    """Retorna cuántos productos hay en cola."""
+    """Retorna cuÃƒÂ¡ntos productos hay en cola."""
     return len(load_pending_queue())
 
 def log_processed_product(product, result):
-    """Registra producto procesado (para análisis posterior)."""
+    """Registra producto procesado (para anÃƒÂ¡lisis posterior)."""
     try:
         processed = []
         if os.path.exists(PROCESSED_LOG_FILE):
@@ -244,7 +244,7 @@ def log_processed_product(product, result):
         product['ai_result'] = result
         processed.append(product)
         
-        # Mantener solo últimos 500 para no crecer infinito
+        # Mantener solo ÃƒÂºltimos 500 para no crecer infinito
         if len(processed) > 500:
             processed = processed[-500:]
         
@@ -269,13 +269,13 @@ def remove_from_queue(asin):
     save_pending_queue(queue)
 
 # Variable global para modo cola
-QUEUE_MODE = os.getenv("QUEUE_MODE", "hybrid").lower()  # 'queue', 'direct', 'hybrid'
-# hybrid = scrapea y añade a cola, procesa cola al final
+QUEUE_MODE = os.getenv("QUEUE_MODE", "queue").lower()  # 'queue', 'direct', 'hybrid'
+# hybrid = scrapea y aÃƒÂ±ade a cola, procesa cola al final
 # queue = solo procesa cola existente
 # direct = comportamiento anterior (Gemini inline)
 
 # ============================================================================
-# BÚSQUEDAS POR CATEGORÍA - SIMPLIFICADO (6 VIBES + DIGITAL)
+# BÃƒÅ¡SQUEDAS POR CATEGORÃƒÂA - SIMPLIFICADO (6 VIBES + DIGITAL)
 # Mapeo directo al frontend: Tech, Gourmet, Bienestar, Aventura, Estilo, Fandom
 # ============================================================================
 
@@ -294,19 +294,19 @@ SMART_SEARCHES = {
         "tarjeta regalo Nintendo eShop",
         "tarjeta regalo Google Play",
         "tarjeta regalo Apple iTunes",
-        "suscripción Audible regalo",
-        "suscripción Kindle Unlimited regalo",
-        "suscripción Amazon Prime regalo",
-        "suscripción Disney Plus regalo",
-        "suscripción HBO Max regalo",
+        "suscripciÃƒÂ³n Audible regalo",
+        "suscripciÃƒÂ³n Kindle Unlimited regalo",
+        "suscripciÃƒÂ³n Amazon Prime regalo",
+        "suscripciÃƒÂ³n Disney Plus regalo",
+        "suscripciÃƒÂ³n HBO Max regalo",
         
-        # Cursos y Formación
+        # Cursos y FormaciÃƒÂ³n
         "curso online Masterclass regalo",
         "curso Udemy regalo",
         "curso Domestika regalo",
         
         # Software & Licencias
-        "Microsoft Office 365 código regalo",
+        "Microsoft Office 365 cÃƒÂ³digo regalo",
         "licencia software regalo",
         
         # eBooks
@@ -315,11 +315,11 @@ SMART_SEARCHES = {
     ],
     
     # =========================================================================
-    # EXPERIENCIAS - Viajes, Entradas, Smartbox (entrega instantánea/voucher)
+    # EXPERIENCIAS - Viajes, Entradas, Smartbox (entrega instantÃƒÂ¡nea/voucher)
     # =========================================================================
     "Experiencias": [
         # Smartbox & Cajas Experiencia
-        "Smartbox escapada romántica regalo",
+        "Smartbox escapada romÃƒÂ¡ntica regalo",
         "Smartbox spa bienestar regalo",
         "Smartbox aventura regalo",
         "Smartbox cena gourmet regalo",
@@ -328,24 +328,24 @@ SMART_SEARCHES = {
         "caja experiencia regalo",
         "Cofre Dakotabox regalo",
         
-        # Entradas Espectáculos
+        # Entradas EspectÃƒÂ¡culos
         "entrada musical regalo",
         "entrada teatro regalo",
         "entrada concierto regalo",
-        "entrada ópera regalo",
+        "entrada ÃƒÂ³pera regalo",
         "entrada circo del sol regalo",
         
         # Experiencias Aventura
-        "salto paracaídas experiencia regalo",
-        "vuelo globo aerostático regalo",
+        "salto paracaÃƒÂ­das experiencia regalo",
+        "vuelo globo aerostÃƒÂ¡tico regalo",
         "conducir Ferrari experiencia regalo",
         "conducir Lamborghini experiencia regalo",
         "experiencia karting regalo",
-        "vuelo helicóptero experiencia regalo",
+        "vuelo helicÃƒÂ³ptero experiencia regalo",
         "bautismo buceo experiencia regalo",
         "experiencia surf regalo",
         
-        # Experiencias Gastronómicas
+        # Experiencias GastronÃƒÂ³micas
         "cena ciegas experiencia regalo",
         "cata vinos experiencia regalo",
         "curso cocina experiencia regalo",
@@ -354,7 +354,7 @@ SMART_SEARCHES = {
         # Spa & Bienestar
         "circuito spa regalo",
         "masaje relajante experiencia regalo",
-        "día spa pareja regalo",
+        "dÃƒÂ­a spa pareja regalo",
         
         # Viajes Experiencia
         "escapada rural regalo",
@@ -369,18 +369,18 @@ SMART_SEARCHES = {
         # Gadgets originales
         "gadgets tecnologicos regalo original",
         "mini proyector portatil regalo",
-        "cargador inalámbrico diseño premium",
-        "lámpara LED inteligente RGB WiFi",
+        "cargador inalÃƒÂ¡mbrico diseÃƒÂ±o premium",
+        "lÃƒÂ¡mpara LED inteligente RGB WiFi",
         "marco digital fotos WiFi regalo",
-        "altavoz bluetooth diseño premium",
+        "altavoz bluetooth diseÃƒÂ±o premium",
         
         # Gaming
-        "auriculares gaming inalámbricos premium",
-        "teclado mecánico RGB gaming regalo",
-        "mando PS5 edición especial regalo",
+        "auriculares gaming inalÃƒÂ¡mbricos premium",
+        "teclado mecÃƒÂ¡nico RGB gaming regalo",
+        "mando PS5 ediciÃƒÂ³n especial regalo",
         "mando Xbox elite controller regalo",
         "consola retro mini regalo",
-        "silla gaming ergonómica regalo",
+        "silla gaming ergonÃƒÂ³mica regalo",
         
         # Smart Home
         "Alexa Echo regalo",
@@ -394,73 +394,73 @@ SMART_SEARCHES = {
         "auriculares Sony WH-1000 regalo",
         "gafas realidad virtual Meta Quest",
         
-        # Cámaras & Drones
+        # CÃƒÂ¡maras & Drones
         "drone DJI Mini regalo",
-        "cámara instantánea Polaroid Instax regalo",
+        "cÃƒÂ¡mara instantÃƒÂ¡nea Polaroid Instax regalo",
         "webcam 4K streaming regalo",
         "gimbal estabilizador smartphone regalo",
         
         # Retro Tech
         "tocadiscos vintage regalo",
         "radio retro bluetooth regalo",
-        "Game Boy clásico regalo",
+        "Game Boy clÃƒÂ¡sico regalo",
     ],
     
     # =========================================================================
-    # GOURMET - Foodie, Cocina, Vinos, Experiencias gastronómicas
+    # GOURMET - Foodie, Cocina, Vinos, Experiencias gastronÃƒÂ³micas
     # =========================================================================
     "Gourmet": [
         # Kits experiencias
         "kit cata vinos regalo premium",
         "kit hacer cerveza artesanal regalo",
         "kit gin tonic premium botanicos",
-        "kit cocktails regalo mixología",
+        "kit cocktails regalo mixologÃƒÂ­a",
         "kit sushi regalo",
         "kit especias mundo regalo",
         
-        # Café & Té
+        # CafÃƒÂ© & TÃƒÂ©
         "cafetera espresso regalo premium",
-        "molinillo café manual regalo",
-        "set té japones regalo ceremonial",
-        "AeroPress regalo café",
+        "molinillo cafÃƒÂ© manual regalo",
+        "set tÃƒÂ© japones regalo ceremonial",
+        "AeroPress regalo cafÃƒÂ©",
         
         # Vinos & Licores
         "decantador vino cristal regalo",
         "set copas vino Riedel regalo",
         "whisky premium regalo single malt",
-        "ginebra premium regalo botánica",
+        "ginebra premium regalo botÃƒÂ¡nica",
         
         # Utensilios Chef
-        "cuchillo chef japonés regalo",
+        "cuchillo chef japonÃƒÂ©s regalo",
         "set cuchillos damasco regalo",
-        "sartén hierro fundido regalo",
+        "sartÃƒÂ©n hierro fundido regalo",
         "tabla cortar madera noble regalo",
         
         # Delicatessen
         "aceite oliva premium regalo",
-        "jamón ibérico bellota regalo",
+        "jamÃƒÂ³n ibÃƒÂ©rico bellota regalo",
         "chocolate belga regalo premium",
         "trufa negra regalo gourmet",
         
         # BBQ
         "kit BBQ regalo premium",
-        "termómetro carne bluetooth regalo",
-        "ahumador portátil regalo",
+        "termÃƒÂ³metro carne bluetooth regalo",
+        "ahumador portÃƒÂ¡til regalo",
     ],
     
     # =========================================================================
-    # ZEN - Bienestar, Spa, Meditación, Yoga (BIENESTAR en frontend)
+    # ZEN - Bienestar, Spa, MeditaciÃƒÂ³n, Yoga (BIENESTAR en frontend)
     # =========================================================================
     "Zen": [
         # Aromaterapia
         "difusor aceites esenciales regalo",
-        "vela aromática lujo regalo",
-        "incienso japonés premium regalo",
-        "lámpara sal himalaya regalo",
+        "vela aromÃƒÂ¡tica lujo regalo",
+        "incienso japonÃƒÂ©s premium regalo",
+        "lÃƒÂ¡mpara sal himalaya regalo",
         
-        # Meditación
+        # MeditaciÃƒÂ³n
         "cuenco tibetano regalo",
-        "cojín meditación zafu regalo",
+        "cojÃƒÂ­n meditaciÃƒÂ³n zafu regalo",
         "mala piedras naturales regalo",
         
         # Yoga
@@ -468,20 +468,20 @@ SMART_SEARCHES = {
         "bloque yoga corcho regalo",
         "rueda yoga regalo",
         
-        # Masaje & Relajación
+        # Masaje & RelajaciÃƒÂ³n
         "pistola masaje regalo muscular",
         "masajeador cervical regalo",
         "rodillo jade facial regalo",
         "gua sha jade regalo",
         
         # Spa en Casa
-        "albornoz algodón egipcio regalo",
+        "albornoz algodÃƒÂ³n egipcio regalo",
         "set spa regalo premium",
-        "sales baño regalo lujo",
-        "bomba baño regalo set",
+        "sales baÃƒÂ±o regalo lujo",
+        "bomba baÃƒÂ±o regalo set",
         
-        # Sueño
-        "almohada viscoelástica regalo",
+        # SueÃƒÂ±o
+        "almohada viscoelÃƒÂ¡stica regalo",
         "antifaz seda dormir regalo",
         "weighted blanket manta pesada",
         "luz despertador amanecer regalo",
@@ -496,12 +496,12 @@ SMART_SEARCHES = {
         "banda resistencia set regalo",
         "foam roller masaje regalo",
         "pistola masaje muscular regalo",
-        "TRX entrenamiento suspensión regalo",
+        "TRX entrenamiento suspensiÃƒÂ³n regalo",
         
         # Running
         "reloj GPS running regalo Garmin",
         "auriculares deporte bluetooth regalo",
-        "cinturón running hidratación regalo",
+        "cinturÃƒÂ³n running hidrataciÃƒÂ³n regalo",
         
         # Ciclismo
         "casco ciclismo regalo",
@@ -510,16 +510,16 @@ SMART_SEARCHES = {
         
         # Outdoor
         "bastones trekking plegables regalo",
-        "mochila hidratación trail regalo",
-        "prismáticos compactos regalo",
+        "mochila hidrataciÃƒÂ³n trail regalo",
+        "prismÃƒÂ¡ticos compactos regalo",
         "navaja suiza victorinox regalo",
         
         # Padel & Tenis
         "raqueta padel regalo",
         "paletero padel regalo",
         
-        # Recuperación
-        "botas compresión recuperación regalo",
+        # RecuperaciÃƒÂ³n
+        "botas compresiÃƒÂ³n recuperaciÃƒÂ³n regalo",
         "electroestimulador muscular regalo",
     ],
     
@@ -542,28 +542,28 @@ SMART_SEARCHES = {
         # Tech Viajero
         "kindle paperwhite regalo",
         "rastreador maleta AirTag regalo",
-        "traductor instantáneo regalo",
+        "traductor instantÃƒÂ¡neo regalo",
         
         # Camping & Outdoor
-        "tienda campaña ultraligera regalo",
+        "tienda campaÃƒÂ±a ultraligera regalo",
         "saco dormir compacto regalo",
         "linterna frontal regalo",
-        "filtro agua portátil regalo",
+        "filtro agua portÃƒÂ¡til regalo",
         "hamaca camping regalo",
         
         # Accesorios
         "mapa scratch viajes regalo",
         "diario viaje cuero regalo",
-        "guía lonely planet regalo",
+        "guÃƒÂ­a lonely planet regalo",
         
         # Playa
         "altavoz bluetooth impermeable regalo",
-        "cámara acuática regalo",
+        "cÃƒÂ¡mara acuÃƒÂ¡tica regalo",
         "gafas snorkel regalo",
     ],
     
     # =========================================================================
-    # MODA - Estilo, Accesorios, Joyería (ESTILO en frontend)
+    # MODA - Estilo, Accesorios, JoyerÃƒÂ­a (ESTILO en frontend)
     # =========================================================================
     "Moda": [
         # Relojes
@@ -580,14 +580,14 @@ SMART_SEARCHES = {
         "cartera piel regalo",
         "mochila cuero regalo",
         
-        # Joyería
+        # JoyerÃƒÂ­a
         "collar plata 925 regalo",
         "pulsera oro regalo",
-        "pendientes diseño regalo",
+        "pendientes diseÃƒÂ±o regalo",
         "joyero organizador regalo",
         
         # Accesorios
-        "cinturón piel italiano regalo",
+        "cinturÃƒÂ³n piel italiano regalo",
         "corbata seda regalo",
         "fular cashmere regalo",
         "guantes piel regalo",
@@ -603,8 +603,8 @@ SMART_SEARCHES = {
         
         # Hogar con estilo
         "cuadro decorativo moderno regalo",
-        "lámpara diseño regalo",
-        "jarrón diseño regalo",
+        "lÃƒÂ¡mpara diseÃƒÂ±o regalo",
+        "jarrÃƒÂ³n diseÃƒÂ±o regalo",
         "kit bonsai regalo",
     ],
     
@@ -613,7 +613,7 @@ SMART_SEARCHES = {
     # =========================================================================
     "Friki": [
         # Funko Pop
-        "funko pop edición limitada regalo",
+        "funko pop ediciÃƒÂ³n limitada regalo",
         "funko pop Star Wars regalo",
         "funko pop Marvel regalo",
         "funko pop Harry Potter regalo",
@@ -627,12 +627,12 @@ SMART_SEARCHES = {
         
         # Star Wars
         "sable luz Star Wars regalo",
-        "casco Star Wars réplica regalo",
+        "casco Star Wars rÃƒÂ©plica regalo",
         "figura Star Wars Black Series",
         
         # Marvel & DC
         "figura Marvel Legends regalo",
-        "escudo Capitán América regalo",
+        "escudo CapitÃƒÂ¡n AmÃƒÂ©rica regalo",
         "casco Iron Man regalo",
         
         # Harry Potter
@@ -646,7 +646,7 @@ SMART_SEARCHES = {
         "manga box set regalo",
         
         # Juegos de Mesa
-        "Catan edición especial regalo",
+        "Catan ediciÃƒÂ³n especial regalo",
         "juego mesa estrategia regalo",
         "Dungeons Dragons starter regalo",
         "cartas Pokemon regalo",
@@ -656,20 +656,20 @@ SMART_SEARCHES = {
         "figura Pokemon regalo",
         "camiseta gaming premium regalo",
         
-        # Para niños (también Fandom)
-        "LEGO City regalo niños",
+        # Para niÃƒÂ±os (tambiÃƒÂ©n Fandom)
+        "LEGO City regalo niÃƒÂ±os",
         "LEGO Ninjago regalo",
         "Playmobil regalo",
-        "juguete STEM regalo niño",
+        "juguete STEM regalo niÃƒÂ±o",
         "peluche gigante regalo",
     ],
     
     # =========================================================================
-    # BEBÉ - Productos para recién nacidos y bebés (0-2 años)
-    # Sets regalo de marcas premium que Gemini debería ACEPTAR
+    # BEBÃƒâ€° - Productos para reciÃƒÂ©n nacidos y bebÃƒÂ©s (0-2 aÃƒÂ±os)
+    # Sets regalo de marcas premium que Gemini deberÃƒÂ­a ACEPTAR
     # =========================================================================
     "Bebe": [
-        # MARCAS PREMIUM - Sets regalo (Gemini debería aceptar estos)
+        # MARCAS PREMIUM - Sets regalo (Gemini deberÃƒÂ­a aceptar estos)
         "Philips Avent set regalo",
         "Suavinex set regalo bebe",
         "Chicco set regalo",
@@ -681,18 +681,18 @@ SMART_SEARCHES = {
         # Carricoches y transporte
         "cochecito bebe regalo",
         "silla paseo bebe regalo",
-        "mochila portabebés ergonómica regalo",
+        "mochila portabebÃƒÂ©s ergonÃƒÂ³mica regalo",
         "capazo bebe regalo",
         "silla coche bebe grupo 0 regalo",
         
         # Cestas y sets regalo
         "canastilla bebe regalo",
-        "cesta regalo recién nacido",
+        "cesta regalo reciÃƒÂ©n nacido",
         "set regalo bebe",
         "caja regalo nacimiento",
         "kit bienvenida bebe regalo",
         
-        # Ropa bebé
+        # Ropa bebÃƒÂ©
         "ropa bebe regalo set",
         "bodies bebe pack regalo",
         "pijama bebe regalo",
@@ -702,15 +702,15 @@ SMART_SEARCHES = {
         "gorro bebe regalo",
         "patucos bebe regalo",
         
-        # Baño bebé
-        "bañera bebe regalo",
-        "set baño bebe regalo",
+        # BaÃƒÂ±o bebÃƒÂ©
+        "baÃƒÂ±era bebe regalo",
+        "set baÃƒÂ±o bebe regalo",
         "toalla bebe capucha regalo",
-        "capa baño bebe regalo",
-        "termómetro baño bebe regalo",
-        "patitos baño bebe regalo",
+        "capa baÃƒÂ±o bebe regalo",
+        "termÃƒÂ³metro baÃƒÂ±o bebe regalo",
+        "patitos baÃƒÂ±o bebe regalo",
         
-        # Alimentación
+        # AlimentaciÃƒÂ³n
         "set biberones regalo",
         "robot cocina bebe regalo",
         "trona bebe regalo",
@@ -718,17 +718,17 @@ SMART_SEARCHES = {
         "vajilla bebe regalo",
         "cuchara silicona bebe set",
         
-        # Sueño y descanso
+        # SueÃƒÂ±o y descanso
         "cuna bebe regalo",
         "minicuna regalo",
-        "móvil cuna musical regalo",
+        "mÃƒÂ³vil cuna musical regalo",
         "proyector estrellas bebe regalo",
         "luz nocturna bebe regalo",
         "saco dormir bebe regalo",
         "doudou bebe regalo",
         "mantita bebe regalo",
         
-        # Juguetes bebé (0-2 años)
+        # Juguetes bebÃƒÂ© (0-2 aÃƒÂ±os)
         "sonajero bebe regalo",
         "mordedor bebe regalo",
         "gimnasio bebe regalo",
@@ -741,34 +741,34 @@ SMART_SEARCHES = {
         # Recuerdos y especiales
         "huella bebe regalo",
         "marco foto bebe regalo",
-        "álbum bebe regalo",
+        "ÃƒÂ¡lbum bebe regalo",
         "caja recuerdos bebe regalo",
         "joyero primer diente regalo",
         
         # Seguridad y cuidado
-        "vigilabebés cámara regalo",
+        "vigilabebÃƒÂ©s cÃƒÂ¡mara regalo",
         "esterilizador biberones regalo",
         "cambiador bebe regalo",
-        "bolsa pañales regalo",
+        "bolsa paÃƒÂ±ales regalo",
         "neceser bebe regalo",
     ],
     
     # =========================================================================
-    # ARTE - Materiales artísticos, manualidades, creatividad (NUEVO)
+    # ARTE - Materiales artÃƒÂ­sticos, manualidades, creatividad (NUEVO)
     # =========================================================================
     "Arte": [
         # Pintura & Dibujo
         "set acuarelas profesional regalo",
-        "set óleos artista regalo",
-        "set lápices colores profesional regalo Faber Castell",
+        "set ÃƒÂ³leos artista regalo",
+        "set lÃƒÂ¡pices colores profesional regalo Faber Castell",
         "set rotuladores lettering regalo",
         "caballete pintura regalo",
         "lienzos artista set regalo",
         "paleta pintura madera regalo",
         "set pinceles profesional regalo",
         
-        # Dibujo Técnico & Diseño
-        "tableta gráfica dibujo regalo",
+        # Dibujo TÃƒÂ©cnico & DiseÃƒÂ±o
+        "tableta grÃƒÂ¡fica dibujo regalo",
         "Wacom regalo artista",
         "set copic markers regalo",
         "set prismacolor regalo",
@@ -779,25 +779,25 @@ SMART_SEARCHES = {
         "kit scrapbooking regalo",
         "set arcilla polimerica regalo",
         "kit costura creativa regalo",
-        "máquina coser regalo principiante",
+        "mÃƒÂ¡quina coser regalo principiante",
         "kit bordado regalo",
-        "kit macramé regalo",
+        "kit macramÃƒÂ© regalo",
         "kit punch needle regalo",
         "kit resina epoxi regalo",
         
-        # Niños creativos
-        "set arte niños regalo premium",
-        "maletín pintura niños regalo",
-        "kit manualidades niños regalo",
+        # NiÃƒÂ±os creativos
+        "set arte niÃƒÂ±os regalo premium",
+        "maletÃƒÂ­n pintura niÃƒÂ±os regalo",
+        "kit manualidades niÃƒÂ±os regalo",
         "set plastilina Play-Doh regalo",
-        "caballete niños regalo",
-        "set acuarelas niños regalo",
-        "kit origami niños regalo",
+        "caballete niÃƒÂ±os regalo",
+        "set acuarelas niÃƒÂ±os regalo",
+        "kit origami niÃƒÂ±os regalo",
         "ceras Manley set regalo",
         
-        # Caligrafía & Lettering
-        "set caligrafía regalo",
-        "plumas caligrafía regalo",
+        # CaligrafÃƒÂ­a & Lettering
+        "set caligrafÃƒÂ­a regalo",
+        "plumas caligrafÃƒÂ­a regalo",
         "kit lettering principiante regalo",
         "brush pens tombow regalo",
         
@@ -810,11 +810,11 @@ SMART_SEARCHES = {
 }
 
 # ============================================================================
-# 🧠 CEREBRO SEMÁNTICO v9.0 - Filtrado Contextual Inteligente
+# Ã°Å¸Â§Â  CEREBRO SEMÃƒÂNTICO v9.0 - Filtrado Contextual Inteligente
 # ============================================================================
 
 # REGLAS DE CONTEXTO: Palabras "peligrosas" que dependen del contexto
-# Si "batería" + "coche" = BASURA, pero "batería" + "musical" = JOYITA
+# Si "baterÃƒÂ­a" + "coche" = BASURA, pero "baterÃƒÂ­a" + "musical" = JOYITA
 CONTEXT_RULES = {
     "bateria": {
         "bad_context": ["coche", "moto", "12v", "24v", "recambio", "repuesto", "arranque", "cr2032", "aa", "aaa", "lr44"],
@@ -830,39 +830,39 @@ CONTEXT_RULES = {
     },
     "cable": {
         "bad_context": ["red", "bobina", "electrico", "instalacion", "tierra", "antena", "metros", "rollo"],
-        "good_context": ["organizador", "luminoso", "rgb", "diseño", "gaming", "trenzado", "premium"]
+        "good_context": ["organizador", "luminoso", "rgb", "diseÃƒÂ±o", "gaming", "trenzado", "premium"]
     },
     "funda": {
         "bad_context": ["almohada", "sofa", "silla", "coche", "asiento", "tabla", "planchar", "nordica", "colchon"],
-        "good_context": ["nintendo", "switch", "steam deck", "kindle", "diseño", "cuero", "airpods", "premium"]
+        "good_context": ["nintendo", "switch", "steam deck", "kindle", "diseÃƒÂ±o", "cuero", "airpods", "premium"]
     },
     "cargador": {
         "bad_context": ["pilas", "recambio", "coche", "bateria coche", "arrancador"],
-        "good_context": ["inalambrico", "magsafe", "rapido", "diseño", "premium", "qi", "wireless"]
+        "good_context": ["inalambrico", "magsafe", "rapido", "diseÃƒÂ±o", "premium", "qi", "wireless"]
     },
     "soporte": {
         "bad_context": ["tv", "pared", "bicicleta", "herramientas", "estanteria", "monitor"],
-        "good_context": ["gaming", "rgb", "auriculares", "diseño", "madera", "premium"]
+        "good_context": ["gaming", "rgb", "auriculares", "diseÃƒÂ±o", "madera", "premium"]
     }
 }
 
-# PALABRAS DE ORO - Aumentan drásticamente el Gift Score
+# PALABRAS DE ORO - Aumentan drÃƒÂ¡sticamente el Gift Score
 GOLDEN_KEYWORDS = [
     "edicion limitada", "coleccionista", "oficial", "premium", "deluxe",
     "caja regalo", "kit regalo", "set regalo", "madera noble", "cuero autentico",
-    "hecho a mano", "artesanal", "diseño original", "gadget", "novedad",
+    "hecho a mano", "artesanal", "diseÃƒÂ±o original", "gadget", "novedad",
     "bestseller", "viral", "tiktok", "juego mesa", "lego", "funko",
-    "edición especial", "exclusivo", "handmade", "luxury", "signature"
+    "ediciÃƒÂ³n especial", "exclusivo", "handmade", "luxury", "signature"
 ]
 
-# KILLER KEYWORDS - Muerte súbita, nadie quiere esto como regalo
+# KILLER KEYWORDS - Muerte sÃƒÂºbita, nadie quiere esto como regalo
 KILLER_KEYWORDS = [
     # Consumibles/Repuestos
     "recambio", "repuesto", "pack de 10", "pack de 20", "pack de 50",
     "pack de 100", "100 unidades", "50 unidades", "tornillos", "tuercas",
     "recarga", "refill", "cartucho recambio",
     
-    # GRANEL - Tamaños gigantes no regalo
+    # GRANEL - TamaÃƒÂ±os gigantes no regalo
     "garrafa", "5 litros", "5l", "10 litros", "10l", "20 litros", "25 litros",
     "5kg", "10kg", "25kg", "bulk", "industrial", "hosteleria", "profesional 5l",
     
@@ -872,23 +872,23 @@ KILLER_KEYWORDS = [
     "silicona sellador", "junta fontaneria", "desatascador", "estropajo",
     "bayeta", "cubo fregona", "escoba", "recogedor",
     
-    # Industrial/Fontanería
+    # Industrial/FontanerÃƒÂ­a
     "fontaneria", "tuberia", "pvc", "manguera", "grifo", "valvula",
     "junta torica", "arandela", "codo pvc",
     
-    # Bebé CONSUMIBLES (solo los claramente utilitarios)
-    "pañales", "pañal", "toallitas humedas", 
+    # BebÃƒÂ© CONSUMIBLES (solo los claramente utilitarios)
+    "paÃƒÂ±ales", "paÃƒÂ±al", "toallitas humedas", 
     "leche formula", "leche infantil", "potito", "papilla",
     "tetina recambio",
     
-    # Alimentación básica
+    # AlimentaciÃƒÂ³n bÃƒÂ¡sica
     "arroz 5kg", "arroz 10kg", "aceite girasol", "aceite oliva 5l",
     "sal 1kg", "azucar 1kg", "harina 5kg",
     
-    # Tarjetas Amazon (genéricas)
+    # Tarjetas Amazon (genÃƒÂ©ricas)
     "tarjeta regalo amazon", "tarjeta regalo electronica", "tarjeta de felicitacion",
     
-    # Ropa interior básica
+    # Ropa interior bÃƒÂ¡sica
     "pack calzoncillos", "pack bragas", "pack calcetines basicos",
     "slip hombre pack", "boxer pack 10",
     
@@ -898,44 +898,44 @@ KILLER_KEYWORDS = [
 ]
 
 # ============================================================================
-# 🎯 SISTEMA DE GÉNERO/DEMOGRAFÍA - Detección inteligente de target
+# Ã°Å¸Å½Â¯ SISTEMA DE GÃƒâ€°NERO/DEMOGRAFÃƒÂA - DetecciÃƒÂ³n inteligente de target
 # ============================================================================
 
 # Indicadores de producto FEMENINO
 FEMALE_INDICATORS = {
-    # Colores típicamente femeninos
+    # Colores tÃƒÂ­picamente femeninos
     "colors": ["rosa", "pink", "fucsia", "lavanda", "lila", "coral", "malva", "violeta"],
     # Palabras clave femeninas
     "keywords": [
         "mujer", "woman", "women", "girl", "chica", "dama", "femenino", "feminine",
-        "ella", "her", "ladies", "señora", "mamá", "madre", "novia", "esposa",
+        "ella", "her", "ladies", "seÃƒÂ±ora", "mamÃƒÂ¡", "madre", "novia", "esposa",
         "manicura", "pedicura", "maquillaje", "makeup", "labial", "rimel", "mascara",
         "bolso mujer", "vestido", "falda", "sujetador", "braga", "lenceria",
         "depiladora", "plancha pelo", "secador pelo", "rizador",
-        "bomba baño", "sales baño rosa", "spa mujer", "beauty", "belleza",
+        "bomba baÃƒÂ±o", "sales baÃƒÂ±o rosa", "spa mujer", "beauty", "belleza",
         "joyeria mujer", "pendientes", "pulsera mujer", "collar mujer"
     ],
-    # Productos típicamente femeninos (aunque no digan "mujer")
+    # Productos tÃƒÂ­picamente femeninos (aunque no digan "mujer")
     "products": [
-        "bombas de baño", "bath bomb", "set maquillaje", "paleta sombras",
+        "bombas de baÃƒÂ±o", "bath bomb", "set maquillaje", "paleta sombras",
         "neceser maquillaje", "espejo maquillaje", "brochas maquillaje",
-        "set manicura", "esmalte uñas", "gel uñas", "lampara uñas"
+        "set manicura", "esmalte uÃƒÂ±as", "gel uÃƒÂ±as", "lampara uÃƒÂ±as"
     ]
 }
 
 # Indicadores de producto MASCULINO
 MALE_INDICATORS = {
-    # Colores típicamente masculinos (solos no determinan, pero ayudan)
-    "colors": [],  # Los colores masculinos son más neutros
+    # Colores tÃƒÂ­picamente masculinos (solos no determinan, pero ayudan)
+    "colors": [],  # Los colores masculinos son mÃƒÂ¡s neutros
     # Palabras clave masculinas
     "keywords": [
         "hombre", "man", "men", "boy", "chico", "caballero", "masculino", "masculine",
-        "él", "him", "his", "papá", "padre", "novio", "esposo", "marido",
+        "ÃƒÂ©l", "him", "his", "papÃƒÂ¡", "padre", "novio", "esposo", "marido",
         "barba", "beard", "afeitado", "shaving", "afeitadora", "maquinilla",
         "corbata", "gemelos", "tirantes hombre", "cinturon hombre",
         "locion after shave", "colonia hombre", "perfume hombre"
     ],
-    # Productos típicamente masculinos
+    # Productos tÃƒÂ­picamente masculinos
     "products": [
         "set afeitado", "brocha afeitar", "navaja afeitar", "aceite barba",
         "recortadora barba", "kit barba", "cera bigote", "peine barba"
@@ -945,20 +945,20 @@ MALE_INDICATORS = {
 # Indicadores de producto INFANTIL
 KIDS_INDICATORS = {
     "keywords": [
-        "niño", "niña", "kids", "children", "infantil", "child", "baby", "bebé",
-        "junior", "peque", "pequeño", "pequeña", "escolar", "colegio",
-        "juguete", "toy", "toys", "peluche", "muñeco", "muñeca",
-        "recién nacido", "recien nacido", "newborn", "bebe", "lactante"
+        "niÃƒÂ±o", "niÃƒÂ±a", "kids", "children", "infantil", "child", "baby", "bebÃƒÂ©",
+        "junior", "peque", "pequeÃƒÂ±o", "pequeÃƒÂ±a", "escolar", "colegio",
+        "juguete", "toy", "toys", "peluche", "muÃƒÂ±eco", "muÃƒÂ±eca",
+        "reciÃƒÂ©n nacido", "recien nacido", "newborn", "bebe", "lactante"
     ],
     "products": [
-        "juego educativo", "puzzle niños", "lego duplo", "playmobil",
+        "juego educativo", "puzzle niÃƒÂ±os", "lego duplo", "playmobil",
         "cuentos infantiles", "libro colorear", "plastilina", "crayones",
-        "cochecito", "carricoche", "canastilla", "biberón", "chupete",
-        "sonajero", "mordedor", "cuna", "minicuna", "trona", "portabebés"
+        "cochecito", "carricoche", "canastilla", "biberÃƒÂ³n", "chupete",
+        "sonajero", "mordedor", "cuna", "minicuna", "trona", "portabebÃƒÂ©s"
     ]
 }
 
-# Productos SOLO para adultos - NUNCA mostrar a niños/bebés
+# Productos SOLO para adultos - NUNCA mostrar a niÃƒÂ±os/bebÃƒÂ©s
 ADULT_ONLY_PRODUCTS = [
     "antifaz", "antifaz seda", "antifaz dormir",
     "vino", "whisky", "ginebra", "cerveza", "licor", "champagne",
@@ -968,18 +968,18 @@ ADULT_ONLY_PRODUCTS = [
     "sacacorchos", "decantador",
     "rasuradora", "afeitadora", "depiladora",
     "pistola masaje", "masajeador",
-    "manta eléctrica", "almohadilla eléctrica",
+    "manta elÃƒÂ©ctrica", "almohadilla elÃƒÂ©ctrica",
     "plancha pelo", "secador pelo", "rizador",
 ]
 
 # ============================================================================
-# 🔄 SISTEMA DE DEDUPLICACIÓN - Evitar productos repetidos/similares
+# Ã°Å¸â€â€ž SISTEMA DE DEDUPLICACIÃƒâ€œN - Evitar productos repetidos/similares
 # ============================================================================
 
-# Cache de productos enviados en esta sesión (para evitar duplicados)
+# Cache de productos enviados en esta sesiÃƒÂ³n (para evitar duplicados)
 SENT_PRODUCTS_CACHE = set()  # ASINs enviados
 SENT_CATEGORIES_CACHE = {}   # {"auriculares traductores": 1, "smartwatch": 2, ...}
-MAX_PER_CATEGORY = 5         # Máximo 5 productos por categoría similar
+MAX_PER_CATEGORY = 5         # MÃƒÂ¡ximo 5 productos por categorÃƒÂ­a similar
 
 # Palabras clave para categorizar productos (detectar similares)
 PRODUCT_CATEGORIES = [
@@ -1033,8 +1033,8 @@ PRODUCT_CATEGORIES = [
 
 def get_product_category(title):
     """
-    Detecta la categoría del producto para evitar duplicados.
-    Retorna la categoría o None si no encuentra match.
+    Detecta la categorÃƒÂ­a del producto para evitar duplicados.
+    Retorna la categorÃƒÂ­a o None si no encuentra match.
     """
     title_lower = title.lower()
     for category in PRODUCT_CATEGORIES:
@@ -1044,11 +1044,11 @@ def get_product_category(title):
 
 def is_duplicate_category(title):
     """
-    Verifica si ya enviamos demasiados productos de esta categoría.
+    Verifica si ya enviamos demasiados productos de esta categorÃƒÂ­a.
     """
     category = get_product_category(title)
     if not category:
-        return False  # Sin categoría = permitir
+        return False  # Sin categorÃƒÂ­a = permitir
     
     current_count = SENT_CATEGORIES_CACHE.get(category, 0)
     return current_count >= MAX_PER_CATEGORY
@@ -1061,11 +1061,11 @@ def register_sent_product(asin, title):
     category = get_product_category(title)
     if category:
         SENT_CATEGORIES_CACHE[category] = SENT_CATEGORIES_CACHE.get(category, 0) + 1
-        logger.debug(f"📦 Categoría '{category}': {SENT_CATEGORIES_CACHE[category]}/{MAX_PER_CATEGORY}")
+        logger.debug(f"Ã°Å¸â€œÂ¦ CategorÃƒÂ­a '{category}': {SENT_CATEGORIES_CACHE[category]}/{MAX_PER_CATEGORY}")
 
 def detect_target_gender(title, description=""):
     """
-    Detecta el género/demografía objetivo del producto.
+    Detecta el gÃƒÂ©nero/demografÃƒÂ­a objetivo del producto.
     Retorna: 'female', 'male', 'kids', o 'unisex'
     """
     text = (title + " " + description).lower()
@@ -1101,10 +1101,10 @@ def detect_target_gender(title, description=""):
         if prod in text:
             kids_score += 5
     
-    # ⚠️ Penalización: Productos de adultos NUNCA son para niños
+    # Ã¢Å¡Â Ã¯Â¸Â PenalizaciÃƒÂ³n: Productos de adultos NUNCA son para niÃƒÂ±os
     for adult_product in ADULT_ONLY_PRODUCTS:
         if adult_product in text:
-            kids_score = 0  # Reset - no es para niños
+            kids_score = 0  # Reset - no es para niÃƒÂ±os
             break
     
     # Determinar ganador
@@ -1118,25 +1118,25 @@ def detect_target_gender(title, description=""):
     return "unisex"
 
 # ============================================================================
-# 🧠 GEMINI JUDGE - El Juez AI para clasificación inteligente
+# Ã°Å¸Â§Â  GEMINI JUDGE - El Juez AI para clasificaciÃƒÂ³n inteligente
 # ============================================================================
 
 def ask_gemini_judge(title, price, category_hint="", already_sent_categories=None):
     """
     Consulta a Gemini para clasificar el producto de forma inteligente.
-    Con retry automático cuando se excede la quota (429).
+    Con retry automÃƒÂ¡tico cuando se excede la quota (429).
     
     Retorna un dict con:
     - is_good_gift: bool
     - target_gender: 'male', 'female', 'any'
-    - category: categoría de gf_category (inventario WordPress)
+    - category: categorÃƒÂ­a de gf_category (inventario WordPress)
     - vibes: lista de vibes de personalidad (gf_vibe)
-    - reasoning: explicación breve
+    - reasoning: explicaciÃƒÂ³n breve
     - is_duplicate: bool (si ya tenemos algo muy similar)
     """
     if not GEMINI_API_KEYS or len(GEMINI_API_KEYS) == 0:
         # Sin API keys, usar fallback al sistema anterior
-        logger.debug("⚠️ Gemini no configurado, usando fallback regex")
+        logger.debug("Ã¢Å¡Â Ã¯Â¸Â Gemini no configurado, usando fallback regex")
         return None
     
     # Construir contexto de productos ya enviados
@@ -1147,77 +1147,77 @@ def ask_gemini_judge(title, price, category_hint="", already_sent_categories=Non
             sent_context = f"Ya tengo en mi lista: {', '.join(sent_items[:10])}."
     
     # Usar la constante global VALID_CATEGORIES
-    # Edades y ocasiones del schema (fuente única de verdad)
+    # Edades y ocasiones del schema (fuente ÃƒÂºnica de verdad)
     valid_ages = list(GIFTIA_SCHEMA.get('ages', {}).keys()) if GIFTIA_SCHEMA else ["nino", "teen", "joven", "adulto", "senior", "mayor"]
     valid_occasions = list(GIFTIA_SCHEMA.get('occasions', {}).keys()) if GIFTIA_SCHEMA else ["cumple", "navidad", "amigoinvisible", "sanvalentin", "aniversario", "diaMadre", "graduacion", "boda", "gracias", "random"]
     valid_genders = list(GIFTIA_SCHEMA.get('genders', {}).keys()) if GIFTIA_SCHEMA else ["unisex", "male", "female", "kids"]
     
     prompt = f"""Eres el CURADOR PRINCIPAL de "Giftia". Tu criterio combina:
-🔧 INGENIERO (utilidad y calidad) + 🧭 EXPLORADOR (originalidad) + 🍷 HEDONISTA (placer)
+Ã°Å¸â€Â§ INGENIERO (utilidad y calidad) + Ã°Å¸Â§Â­ EXPLORADOR (originalidad) + Ã°Å¸ÂÂ· HEDONISTA (placer)
 
-Tu misión: Filtrar la basura del e-commerce para encontrar "GEMAS" que hagan sentir INTELIGENTE y GENEROSO a quien regala.
+Tu misiÃƒÂ³n: Filtrar la basura del e-commerce para encontrar "GEMAS" que hagan sentir INTELIGENTE y GENEROSO a quien regala.
 
 PRODUCTO: {title}
 PRECIO: {price} EUR
 {sent_context}
 
-═══════════════════════════════════════════════════════════════════════════════
-💎 THE GIFTIA STANDARD - MATRIZ DE DECISIÓN
+Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
+Ã°Å¸â€™Å½ THE GIFTIA STANDARD - MATRIZ DE DECISIÃƒâ€œN
 Para APROBAR, debe superar AL MENOS UNO de estos 4 filtros.
-Si es "del montón" o "hacer la compra" → RECHAZAR sin piedad.
-═══════════════════════════════════════════════════════════════════════════════
+Si es "del montÃƒÂ³n" o "hacer la compra" Ã¢â€ â€™ RECHAZAR sin piedad.
+Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
 
-🔧 FILTRO 1: UTILIDAD ELEVADA (Best in Class)
-"¿Es la MEJOR versión posible de esa utilidad?"
-❌ Tupper plástico supermercado, paraguas endeble, bolígrafo publicidad, cable genérico
-✅ Bento Box hermético diseño (Monbento), Paraguas fibra vidrio, Bolígrafo latón, Cable trenzado premium
-CRITERIO: "¿Es consumible que se tira o herramienta que se cuida?"
+Ã°Å¸â€Â§ FILTRO 1: UTILIDAD ELEVADA (Best in Class)
+"Ã‚Â¿Es la MEJOR versiÃƒÂ³n posible de esa utilidad?"
+Ã¢ÂÅ’ Tupper plÃƒÂ¡stico supermercado, paraguas endeble, bolÃƒÂ­grafo publicidad, cable genÃƒÂ©rico
+Ã¢Å“â€¦ Bento Box hermÃƒÂ©tico diseÃƒÂ±o (Monbento), Paraguas fibra vidrio, BolÃƒÂ­grafo latÃƒÂ³n, Cable trenzado premium
+CRITERIO: "Ã‚Â¿Es consumible que se tira o herramienta que se cuida?"
 
-🎁 FILTRO 2: AUTO-BOICOT (The Indulgence Gap)
-"¿Es algo que QUIEREN pero les da 'dolor' comprarse?"
-❌ Calcetines básicos, tinta impresora, bombillas, gel ducha familiar
-✅ Calcetines Lana Merino/Happy Socks, Vela Aromática Premium, Aceite Trufa, Jabón Aesop/Rituals
-CRITERIO: "¿Lo compraría un martes cualquiera? SÍ→Rechazar. Es 'capricho'→Aprobar"
+Ã°Å¸Å½Â FILTRO 2: AUTO-BOICOT (The Indulgence Gap)
+"Ã‚Â¿Es algo que QUIEREN pero les da 'dolor' comprarse?"
+Ã¢ÂÅ’ Calcetines bÃƒÂ¡sicos, tinta impresora, bombillas, gel ducha familiar
+Ã¢Å“â€¦ Calcetines Lana Merino/Happy Socks, Vela AromÃƒÂ¡tica Premium, Aceite Trufa, JabÃƒÂ³n Aesop/Rituals
+CRITERIO: "Ã‚Â¿Lo comprarÃƒÂ­a un martes cualquiera? SÃƒÂÃ¢â€ â€™Rechazar. Es 'capricho'Ã¢â€ â€™Aprobar"
 
-🧭 FILTRO 3: ORIGINALIDAD INTELIGENTE (The Discovery)
-"¿Resuelve algo de forma ingeniosa o cuenta una historia?"
-❌ Delantales frases graciosas, tazas forma váter, plásticos inútiles, bromas cutres
-✅ Kit Cultivo Setas/Pizza, Mapamundi Corcho/Rascable, CarbonKlean, Cuaderno Reutilizable
-CRITERIO: "¿Sorprenderá gratamente o terminará en un cajón?"
+Ã°Å¸Â§Â­ FILTRO 3: ORIGINALIDAD INTELIGENTE (The Discovery)
+"Ã‚Â¿Resuelve algo de forma ingeniosa o cuenta una historia?"
+Ã¢ÂÅ’ Delantales frases graciosas, tazas forma vÃƒÂ¡ter, plÃƒÂ¡sticos inÃƒÂºtiles, bromas cutres
+Ã¢Å“â€¦ Kit Cultivo Setas/Pizza, Mapamundi Corcho/Rascable, CarbonKlean, Cuaderno Reutilizable
+CRITERIO: "Ã‚Â¿SorprenderÃƒÂ¡ gratamente o terminarÃƒÂ¡ en un cajÃƒÂ³n?"
 
-👑 FILTRO 4: ORGULLO (The Pride Factor)
-"¿Da orgullo regalarlo o parece comprado en gasolinera?"
-❌ Aspecto barato, genérico, sin marca, plástico cutre
-✅ Marca reconocida (Lego, Moleskine, Stanley, Le Creuset), Materiales nobles (madera, metal, vidrio)
-CRITERIO: "¿Me sentiría bien entregando esto?"
+Ã°Å¸â€˜â€˜ FILTRO 4: ORGULLO (The Pride Factor)
+"Ã‚Â¿Da orgullo regalarlo o parece comprado en gasolinera?"
+Ã¢ÂÅ’ Aspecto barato, genÃƒÂ©rico, sin marca, plÃƒÂ¡stico cutre
+Ã¢Å“â€¦ Marca reconocida (Lego, Moleskine, Stanley, Le Creuset), Materiales nobles (madera, metal, vidrio)
+CRITERIO: "Ã‚Â¿Me sentirÃƒÂ­a bien entregando esto?"
 
-💰 CLÁUSULA "CHEAP & CHIC" (productos <20€ para Amigo Invisible):
+Ã°Å¸â€™Â° CLÃƒÂUSULA "CHEAP & CHIC" (productos <20Ã¢â€šÂ¬ para Amigo Invisible):
 NO rechazar por precio bajo, pero aplicar LEY DEL LUJO ACCESIBLE:
-✅ Versión Premium de algo barato (Chocolate Autor vs supermercado)
-✅ Stocking Filler con diseño (Llavero Funko, Baraja cartas diseño)
-❌ Basura plástica sin gracia
+Ã¢Å“â€¦ VersiÃƒÂ³n Premium de algo barato (Chocolate Autor vs supermercado)
+Ã¢Å“â€¦ Stocking Filler con diseÃƒÂ±o (Llavero Funko, Baraja cartas diseÃƒÂ±o)
+Ã¢ÂÅ’ Basura plÃƒÂ¡stica sin gracia
 
-📦 EJEMPLOS GIFTIA STANDARD:
-"Tupper Ikea" → ❌ (ordinario, se tira)
-"Monbento Bento Box" → ✅ FILTRO 1 (best in class, se cuida)
-"Gel ducha familiar" → ❌ (necesidad básica)
-"Set jabones Rituals" → ✅ FILTRO 2 (capricho que no te compras)
-"Taza con chiste malo" → ❌ (kitsch, terminará olvidada)
-"Kit cultivo setas gourmet" → ✅ FILTRO 3 (ingenioso, experiencia)
-"Auriculares chinos" → ❌ (vergüenza regalar)
-"Marshall Stanmore" → ✅ FILTRO 4 (orgullo, marca icónica)
-"Chocolate Milka" → ❌ (supermercado)
-"Chocolate Lindt Excellence 85%" → ✅ CHEAP&CHIC (lujo accesible)
+Ã°Å¸â€œÂ¦ EJEMPLOS GIFTIA STANDARD:
+"Tupper Ikea" Ã¢â€ â€™ Ã¢ÂÅ’ (ordinario, se tira)
+"Monbento Bento Box" Ã¢â€ â€™ Ã¢Å“â€¦ FILTRO 1 (best in class, se cuida)
+"Gel ducha familiar" Ã¢â€ â€™ Ã¢ÂÅ’ (necesidad bÃƒÂ¡sica)
+"Set jabones Rituals" Ã¢â€ â€™ Ã¢Å“â€¦ FILTRO 2 (capricho que no te compras)
+"Taza con chiste malo" Ã¢â€ â€™ Ã¢ÂÅ’ (kitsch, terminarÃƒÂ¡ olvidada)
+"Kit cultivo setas gourmet" Ã¢â€ â€™ Ã¢Å“â€¦ FILTRO 3 (ingenioso, experiencia)
+"Auriculares chinos" Ã¢â€ â€™ Ã¢ÂÅ’ (vergÃƒÂ¼enza regalar)
+"Marshall Stanmore" Ã¢â€ â€™ Ã¢Å“â€¦ FILTRO 4 (orgullo, marca icÃƒÂ³nica)
+"Chocolate Milka" Ã¢â€ â€™ Ã¢ÂÅ’ (supermercado)
+"Chocolate Lindt Excellence 85%" Ã¢â€ â€™ Ã¢Å“â€¦ CHEAP&CHIC (lujo accesible)
 
 CATEGORIAS (exactamente una): {', '.join(VALID_CATEGORIES)}
 EDADES (1-3): {', '.join(valid_ages)}
 OCASIONES (1-3): {', '.join(valid_occasions)}
 GENEROS: {', '.join(valid_genders)}
 
-Responde SOLO JSON válido:
+Responde SOLO JSON vÃƒÂ¡lido:
 {{
     "is_good_gift": true/false,
-    "reject_reason": "si false: qué filtro falla y por qué",
+    "reject_reason": "si false: quÃƒÂ© filtro falla y por quÃƒÂ©",
     "approved_filter": "si true: cual de los 4 filtros supera (utilidad/indulgencia/originalidad/orgullo)",
     "target_gender": "uno de la lista",
     "category": "UNA de la lista",
@@ -1231,9 +1231,9 @@ Responde SOLO JSON válido:
     "gift_pros": ["Pro 1 corto", "Pro 2 corto", "Pro 3 corto"]
 }}
 
-CRITERIOS CLASIFICACIÓN:
+CRITERIOS CLASIFICACIÃƒâ€œN:
 - gift_quality: 1-4 meh, 5-6 ok, 7-8 bueno, 9-10 GEMA
-- target_gender: "kids" SOLO juguetes 3-12. Alcohol/café = adultos
+- target_gender: "kids" SOLO juguetes 3-12. Alcohol/cafÃƒÂ© = adultos
 - gift_headline: persuasiva, ej "El capricho gourmet que nadie se compra pero todos desean"
 
 Solo JSON."""
@@ -1246,16 +1246,16 @@ Solo JSON."""
         }
     }
     
-    # 🐢 PACING: Esperar para no exceder 15 RPM del Free Tier
+    # Ã°Å¸ÂÂ¢ PACING: Esperar para no exceder 15 RPM del Free Tier
     global _last_gemini_call, _current_key_index
     time_since_last = time.time() - _last_gemini_call
     if time_since_last < GEMINI_PACING_SECONDS:
         wait_time = GEMINI_PACING_SECONDS - time_since_last
-        logger.debug(f"🐢 Pacing: esperando {wait_time:.1f}s antes de llamar a Gemini...")
+        logger.debug(f"Ã°Å¸ÂÂ¢ Pacing: esperando {wait_time:.1f}s antes de llamar a Gemini...")
         time.sleep(wait_time)
     _last_gemini_call = time.time()
     
-    # 🔑 ROTACIÓN DE KEYS: Intentar con cada key disponible
+    # Ã°Å¸â€â€˜ ROTACIÃƒâ€œN DE KEYS: Intentar con cada key disponible
     keys_tried = 0
     while keys_tried < len(GEMINI_API_KEYS):
         current_key = GEMINI_API_KEYS[_current_key_index]
@@ -1274,43 +1274,43 @@ Solo JSON."""
                 old_index = _current_key_index
                 _current_key_index = (_current_key_index + 1) % len(GEMINI_API_KEYS)
                 keys_tried += 1
-                logger.info(f"🔑 Key {old_index + 1} quota excedida → Rotando a Key {_current_key_index + 1}")
+                logger.info(f"Ã°Å¸â€â€˜ Key {old_index + 1} quota excedida Ã¢â€ â€™ Rotando a Key {_current_key_index + 1}")
                 
                 if keys_tried < len(GEMINI_API_KEYS):
                     time.sleep(1)  # Breve pausa antes de intentar con otra key
                     continue
                 else:
                     # Todas las keys agotadas, esperar y reintentar
-                    logger.warning(f"⚠️ Todas las {len(GEMINI_API_KEYS)} keys agotadas. Esperando {GEMINI_RETRY_WAIT}s...")
+                    logger.warning(f"Ã¢Å¡Â Ã¯Â¸Â Todas las {len(GEMINI_API_KEYS)} keys agotadas. Esperando {GEMINI_RETRY_WAIT}s...")
                     time.sleep(GEMINI_RETRY_WAIT)
                     keys_tried = 0  # Reiniciar contador para otro ciclo
                     continue
             
             if response.status_code != 200:
-                logger.warning(f"⚠️ Gemini error {response.status_code}: {response.text[:100]}")
+                logger.warning(f"Ã¢Å¡Â Ã¯Â¸Â Gemini error {response.status_code}: {response.text[:100]}")
                 return None
             
             data = response.json()
             text_response = data.get("candidates", [{}])[0].get("content", {}).get("parts", [{}])[0].get("text", "")
             
-            # Limpiar respuesta (a veces Gemini añade markdown)
+            # Limpiar respuesta (a veces Gemini aÃƒÂ±ade markdown)
             text_response = text_response.strip()
             if text_response.startswith("```"):
                 text_response = re.sub(r'^```json?\s*', '', text_response)
                 text_response = re.sub(r'\s*```$', '', text_response)
             
             result = json.loads(text_response)
-            logger.debug(f"🧠 Gemini: {result}")
+            logger.debug(f"Ã°Å¸Â§Â  Gemini: {result}")
             return result
             
         except json.JSONDecodeError as e:
-            logger.warning(f"⚠️ Gemini JSON inválido: {text_response[:100]}")
+            logger.warning(f"Ã¢Å¡Â Ã¯Â¸Â Gemini JSON invÃƒÂ¡lido: {text_response[:100]}")
             return None
         except requests.exceptions.Timeout:
-            logger.warning("⚠️ Gemini timeout")
+            logger.warning("Ã¢Å¡Â Ã¯Â¸Â Gemini timeout")
             return None
         except Exception as e:
-            logger.warning(f"⚠️ Gemini error: {e}")
+            logger.warning(f"Ã¢Å¡Â Ã¯Â¸Â Gemini error: {e}")
             return None
     
     return None
@@ -1348,7 +1348,7 @@ def classify_with_gemini_or_fallback(title, price, description=""):
     # Fallback al sistema regex
     return {
         "source": "fallback",
-        "is_good_gift": True,  # El filtro regex ya pasó
+        "is_good_gift": True,  # El filtro regex ya pasÃƒÂ³
         "reject_reason": None,
         "target_gender": detect_target_gender(title, description),
         "category": classify_product_vibes(title, description, str(price))[0] if classify_product_vibes(title, description, str(price)) else "Friki",
@@ -1364,33 +1364,33 @@ def classify_with_gemini_or_fallback(title, price, description=""):
     }
 
 # ============================================================================
-# CONFIGURACIÓN DE CALIDAD
+# CONFIGURACIÃƒâ€œN DE CALIDAD
 # ============================================================================
 
 BLACKLIST = {
     # Palabras sospechosas que disminuyen score (no matan)
     "suspicious_keywords": [
-        "fake", "réplica", "genérico", "pack ahorro", "lote",
+        "fake", "rÃƒÂ©plica", "genÃƒÂ©rico", "pack ahorro", "lote",
         "outlet", "defectuoso", "reparado", "reacondicionado",
-        "imitación", "copia"
+        "imitaciÃƒÂ³n", "copia"
     ],
     
     # Precios sospechosos
-    "min_price_eur": 12.0,      # Nada por debajo de 12€
+    "min_price_eur": 12.0,      # Nada por debajo de 12Ã¢â€šÂ¬
     "max_price_eur": 9999.0,    # Nada absurdamente caro
     "preferred_price_range": (20, 500),  # Rango ideal para regalos
     
     # =========================================================================
     # REQUISITOS DE CALIDAD PREMIUM - Solo productos top
     # =========================================================================
-    "min_rating": 4.0,          # Mínimo 4.5 estrellas (ESTRICTO)
-    "min_reviews": 50,          # Mínimo 50 reseñas (productos mainstream)
-    "min_reviews_niche": 20,    # Mínimo 20 para productos nicho/premium
-    "niche_price_threshold": 100,  # +100€ = nicho, menor requisito de reviews
+    "min_rating": 4.0,          # MÃƒÂ­nimo 4.5 estrellas (ESTRICTO)
+    "min_reviews": 50,          # MÃƒÂ­nimo 50 reseÃƒÂ±as (productos mainstream)
+    "min_reviews_niche": 20,    # MÃƒÂ­nimo 20 para productos nicho/premium
+    "niche_price_threshold": 100,  # +100Ã¢â€šÂ¬ = nicho, menor requisito de reviews
     
-    # Requisitos de título
-    "min_title_length": 15,     # Títulos demasiado cortos = basura
-    "max_title_length": 200,    # Títulos demasiado largos = spam
+    # Requisitos de tÃƒÂ­tulo
+    "min_title_length": 15,     # TÃƒÂ­tulos demasiado cortos = basura
+    "max_title_length": 200,    # TÃƒÂ­tulos demasiado largos = spam
 }
 
 # ============================================================================
@@ -1401,15 +1401,15 @@ GIFT_KEYWORDS = {
     "premium": 10,
     "exclusivo": 10,
     "limitado": 9,
-    "edición especial": 9,
+    "ediciÃƒÂ³n especial": 9,
     "oficial": 8,
-    "auténtico": 8,
+    "autÃƒÂ©ntico": 8,
     "licenciado": 8,
     "original": 7,
     "handmade": 9,
     "artesanal": 8,
-    "ecológico": 7,
-    "orgánico": 7,
+    "ecolÃƒÂ³gico": 7,
+    "orgÃƒÂ¡nico": 7,
     "sostenible": 6,
     "premium quality": 8,
     "pro": 5,
@@ -1420,12 +1420,12 @@ GIFT_KEYWORDS = {
 
 
 # ============================================================================
-# 🧠 MOTOR DE ANÁLISIS CONTEXTUAL
+# Ã°Å¸Â§Â  MOTOR DE ANÃƒÂLISIS CONTEXTUAL
 # ============================================================================
 
 def analyze_context(text, keyword):
     """
-    Analiza si una palabra 'peligrosa' está en contexto bueno o malo.
+    Analiza si una palabra 'peligrosa' estÃƒÂ¡ en contexto bueno o malo.
     Retorna: 'good', 'bad', o 'neutral'
     """
     rules = CONTEXT_RULES.get(keyword)
@@ -1434,7 +1434,7 @@ def analyze_context(text, keyword):
     
     text_lower = text.lower()
     
-    # Primero checar contexto malo (más restrictivo)
+    # Primero checar contexto malo (mÃƒÂ¡s restrictivo)
     for bad in rules["bad_context"]:
         if bad in text_lower:
             return "bad"
@@ -1448,12 +1448,12 @@ def analyze_context(text, keyword):
 
 
 # ============================================================================
-# MOTOR DE SCORING SEMÁNTICO
+# MOTOR DE SCORING SEMÃƒÂNTICO
 # ============================================================================
 
 def calculate_gift_score(title, price_str, description=""):
     """
-    Calcula puntuación de 0-100 para determinar si es un regalo perfecto.
+    Calcula puntuaciÃƒÂ³n de 0-100 para determinar si es un regalo perfecto.
     Basado en: palabras clave premium, rango de precio, relevancia.
     """
     score = 50  # Base score
@@ -1467,24 +1467,24 @@ def calculate_gift_score(title, price_str, description=""):
     except:
         return 0  # No price = not a gift
     
-    # Penalización por precio fuera de rango
+    # PenalizaciÃƒÂ³n por precio fuera de rango
     if price < BLACKLIST["min_price_eur"]:
         return 0
     if price > BLACKLIST["max_price_eur"]:
         return 0
     
-    # Bonus por rango ideal de regalo (20-500€)
+    # Bonus por rango ideal de regalo (20-500Ã¢â€šÂ¬)
     if BLACKLIST["preferred_price_range"][0] <= price <= BLACKLIST["preferred_price_range"][1]:
         score += 20
     elif price > 500:
         score -= 5
     
-    # Búsqueda de palabras clave premium (GIFT_KEYWORDS originales)
+    # BÃƒÂºsqueda de palabras clave premium (GIFT_KEYWORDS originales)
     for keyword, points in GIFT_KEYWORDS.items():
         if keyword in full_text:
             score += min(points, 15)
     
-    # 🧠 BONUS por GOLDEN KEYWORDS (v9.0)
+    # Ã°Å¸Â§Â  BONUS por GOLDEN KEYWORDS (v9.0)
     for gold in GOLDEN_KEYWORDS:
         if gold in full_text:
             score += 12
@@ -1494,7 +1494,7 @@ def calculate_gift_score(title, price_str, description=""):
         if keyword in full_text:
             score -= 10
     
-    # 🧠 Penalización por palabras peligrosas en contexto neutral
+    # Ã°Å¸Â§Â  PenalizaciÃƒÂ³n por palabras peligrosas en contexto neutral
     for dangerous_word in CONTEXT_RULES.keys():
         if dangerous_word in full_text:
             context = analyze_context(full_text, dangerous_word)
@@ -1503,14 +1503,14 @@ def calculate_gift_score(title, price_str, description=""):
             elif context == "good":
                 score += 10  # Contexto positivo = bonus
     
-    # Validación de longitud de título
+    # ValidaciÃƒÂ³n de longitud de tÃƒÂ­tulo
     if len(title) < BLACKLIST["min_title_length"]:
         score -= 20
     if len(title) > BLACKLIST["max_title_length"]:
         score -= 15
     
     # Bonus por signos de calidad
-    if "★" in title or "⭐" in title:
+    if "Ã¢Ëœâ€¦" in title or "Ã¢Â­Â" in title:
         score += 5
     if "official" in title_lower or "oficial" in title_lower:
         score += 10
@@ -1520,52 +1520,52 @@ def calculate_gift_score(title, price_str, description=""):
 
 def is_garbage(title, price_str, description=""):
     """
-    🧠 FILTRADO CONTEXTUAL SEMÁNTICO v9.0
+    Ã°Å¸Â§Â  FILTRADO CONTEXTUAL SEMÃƒÂNTICO v9.0
     Ya no bloquea palabras "tontas". Analiza el CONTEXTO.
     """
     title_lower = title.lower()
     full_text = (title_lower + " " + description.lower()).strip()
     
-    # 1. KILLER KEYWORDS - Muerte súbita
+    # 1. KILLER KEYWORDS - Muerte sÃƒÂºbita
     for killer in KILLER_KEYWORDS:
         if killer in title_lower:
-            logger.info(f"💀 KILLER: '{killer}' en {title[:50]}")
+            logger.info(f"Ã°Å¸â€™â‚¬ KILLER: '{killer}' en {title[:50]}")
             return True
     
-    # 2. ANÁLISIS CONTEXTUAL - La magia del v9.0
+    # 2. ANÃƒÂLISIS CONTEXTUAL - La magia del v9.0
     for dangerous_word in CONTEXT_RULES.keys():
         if dangerous_word in title_lower:
             context = analyze_context(full_text, dangerous_word)
             if context == "bad":
-                logger.info(f"⛔ CONTEXTO MALO: '{dangerous_word}' en {title[:50]}")
+                logger.info(f"Ã¢â€ºâ€ CONTEXTO MALO: '{dangerous_word}' en {title[:50]}")
                 return True
             elif context == "good":
-                logger.info(f"✨ CONTEXTO BUENO: '{dangerous_word}' salvado")
+                logger.info(f"Ã¢Å“Â¨ CONTEXTO BUENO: '{dangerous_word}' salvado")
     
-    # 3. CONSUMIBLES (cantidades grandes) - EXCEPTO productos que son regalos válidos
+    # 3. CONSUMIBLES (cantidades grandes) - EXCEPTO productos que son regalos vÃƒÂ¡lidos
     consumable_match = re.search(r'\b\d{2,}\s*(piezas|unidades|pcs|ud|uds)\b', title_lower)
     if consumable_match:
-        # Excepciones: productos donde "X piezas" es característica, no consumible
+        # Excepciones: productos donde "X piezas" es caracterÃƒÂ­stica, no consumible
         gift_with_pieces = [
             "lego", "playmobil", "puzzle", "rompecabezas", "maqueta", "kit de",
-            "set de", "pack regalo", "caja de", "colección", "pintura", "acuarela",
-            "rotulador", "lapiz", "crayon", "herramienta", "construcción",
+            "set de", "pack regalo", "caja de", "colecciÃƒÂ³n", "pintura", "acuarela",
+            "rotulador", "lapiz", "crayon", "herramienta", "construcciÃƒÂ³n",
             "bloques", "mecano", "k'nex", "magnetiles", "juego de mesa"
         ]
         if not any(x in title_lower for x in gift_with_pieces):
-            logger.info(f"🔧 CONSUMIBLE: {title[:50]}")
+            logger.info(f"Ã°Å¸â€Â§ CONSUMIBLE: {title[:50]}")
             return True
     
     # 4. PRECIO
     price = parse_price(price_str)
     if price <= 0:
-        logger.info(f"💰 PRECIO INVÁLIDO ({price}€): {title[:40]}...")
+        logger.info(f"Ã°Å¸â€™Â° PRECIO INVÃƒÂLIDO ({price}Ã¢â€šÂ¬): {title[:40]}...")
         return True
     if price < BLACKLIST["min_price_eur"]:
-        logger.info(f"💰 PRECIO BAJO ({price}€ < {BLACKLIST['min_price_eur']}€): {title[:40]}...")
+        logger.info(f"Ã°Å¸â€™Â° PRECIO BAJO ({price}Ã¢â€šÂ¬ < {BLACKLIST['min_price_eur']}Ã¢â€šÂ¬): {title[:40]}...")
         return True
     if price > BLACKLIST["max_price_eur"]:
-        logger.info(f"💰 PRECIO ALTO ({price}€ > {BLACKLIST['max_price_eur']}€): {title[:40]}...")
+        logger.info(f"Ã°Å¸â€™Â° PRECIO ALTO ({price}Ã¢â€šÂ¬ > {BLACKLIST['max_price_eur']}Ã¢â€šÂ¬): {title[:40]}...")
         return True
     
     return False
@@ -1573,45 +1573,45 @@ def is_garbage(title, price_str, description=""):
 
 def classify_product_vibes(title, description="", price_str=""):
     """
-    Clasifica automáticamente el producto en categorías de Giftia (gf_category).
-    Retorna array de categorías que coinciden: ['Tech', 'Gamer', etc]
+    Clasifica automÃƒÂ¡ticamente el producto en categorÃƒÂ­as de Giftia (gf_category).
+    Retorna array de categorÃƒÂ­as que coinciden: ['Tech', 'Gamer', etc]
     NOTA: Este es un fallback regex. El sistema principal usa process_queue.py
-    con Gemini para clasificación avanzada (vibes, etapas, ocasiones).
+    con Gemini para clasificaciÃƒÂ³n avanzada (vibes, etapas, ocasiones).
     """
     text = (title + " " + description).lower()
     matched_vibes = []
     
-    # Construir vibe_keywords desde el schema si está disponible
+    # Construir vibe_keywords desde el schema si estÃƒÂ¡ disponible
     if GIFTIA_SCHEMA and 'categories' in GIFTIA_SCHEMA:
         vibe_keywords = {}
         for cat_name, cat_data in GIFTIA_SCHEMA['categories'].items():
             # Los keywords vienen del schema
             keywords = cat_data.get('keywords', [])
             if keywords:
-                # Convertir a lowercase para comparación
+                # Convertir a lowercase para comparaciÃƒÂ³n
                 vibe_keywords[cat_name] = [kw.lower() for kw in keywords]
     else:
         # Fallback con keywords hardcodeados si no hay schema
         vibe_keywords = {
-            "Tech": ["gadget", "tech", "electrónic", "usb", "inalámbric", "inteligent", "smart", "auricular", "smartwatch", "bluetooth", "wifi", "led"],
-            "Gourmet": ["café", "tea", "vino", "queso", "aceite", "gourmet", "cocinero", "chef", "especias", "chocolate", "jamón", "whisky", "gin", "cafetera", "cuchillo"],
+            "Tech": ["gadget", "tech", "electrÃƒÂ³nic", "usb", "inalÃƒÂ¡mbric", "inteligent", "smart", "auricular", "smartwatch", "bluetooth", "wifi", "led"],
+            "Gourmet": ["cafÃƒÂ©", "tea", "vino", "queso", "aceite", "gourmet", "cocinero", "chef", "especias", "chocolate", "jamÃƒÂ³n", "whisky", "gin", "cafetera", "cuchillo"],
             "Friki": ["funko", "pop", "star wars", "harry potter", "marvel", "anime", "manga", "coleccion", "geek", "nerd", "estatua", "figura", "pokemon", "disney"],
             "Gamer": ["playstation", "xbox", "nintendo", "gaming", "mando", "consola", "ps5", "videojuego", "esport"],
             "Zen": ["meditaci", "yoga", "spa", "aromaterapia", "difusor", "vela", "cristal", "chakra", "mindfulness", "relajaci", "bienestar"],
-            "Viajes": ["mochila", "maleta", "viajero", "viaje", "portátil", "backpack", "adaptador", "equipaje"],
-            "Outdoor": ["camping", "trekking", "acampad", "senderismo", "montaña", "aventura", "linterna", "navaja"],
+            "Viajes": ["mochila", "maleta", "viajero", "viaje", "portÃƒÂ¡til", "backpack", "adaptador", "equipaje"],
+            "Outdoor": ["camping", "trekking", "acampad", "senderismo", "montaÃƒÂ±a", "aventura", "linterna", "navaja"],
             "Deporte": ["deporte", "runner", "ejercicio", "gym", "bicicleta", "running", "entrenamiento", "sport", "pesas", "mancuerna", "fitness", "yoga mat", "esterilla"],
-            "Moda": ["ropa", "zapatos", "bolso", "reloj", "gafas", "cinturón", "cartera", "sombrero", "bufanda", "joya", "moda", "perfume"],
-            "Belleza": ["maquillaje", "skincare", "cosmética", "crema", "sérum", "beauty", "tratamiento facial", "mascarilla"],
-            "Decoración": ["decoración", "hogar", "lámpara", "cojín", "cuadro", "jarrón", "vela decorativa", "estantería"],
-            "Artista": ["acuarela", "óleo", "pintura", "pincel", "lienzo", "caballete", "dibujo", "sketch", "rotulador", "lettering", "manualidad", "craft", "arcilla", "escultura", "copic", "wacom", "tableta gráfica", "scrapbook", "bordado"],
-            "Lector": ["libro", "lectura", "kindle", "e-reader", "literatura", "novela", "marcapáginas", "estantería libros"],
-            "Música": ["guitarra", "piano", "ukelele", "instrumento", "vinilo", "tocadiscos", "auriculares música", "altavoz"],
-            "Fotografía": ["cámara", "fotografía", "polaroid", "instax", "álbum foto", "trípode", "objetivo", "impresora foto"],
+            "Moda": ["ropa", "zapatos", "bolso", "reloj", "gafas", "cinturÃƒÂ³n", "cartera", "sombrero", "bufanda", "joya", "moda", "perfume"],
+            "Belleza": ["maquillaje", "skincare", "cosmÃƒÂ©tica", "crema", "sÃƒÂ©rum", "beauty", "tratamiento facial", "mascarilla"],
+            "DecoraciÃƒÂ³n": ["decoraciÃƒÂ³n", "hogar", "lÃƒÂ¡mpara", "cojÃƒÂ­n", "cuadro", "jarrÃƒÂ³n", "vela decorativa", "estanterÃƒÂ­a"],
+            "Artista": ["acuarela", "ÃƒÂ³leo", "pintura", "pincel", "lienzo", "caballete", "dibujo", "sketch", "rotulador", "lettering", "manualidad", "craft", "arcilla", "escultura", "copic", "wacom", "tableta grÃƒÂ¡fica", "scrapbook", "bordado"],
+            "Lector": ["libro", "lectura", "kindle", "e-reader", "literatura", "novela", "marcapÃƒÂ¡ginas", "estanterÃƒÂ­a libros"],
+            "MÃƒÂºsica": ["guitarra", "piano", "ukelele", "instrumento", "vinilo", "tocadiscos", "auriculares mÃƒÂºsica", "altavoz"],
+            "FotografÃƒÂ­a": ["cÃƒÂ¡mara", "fotografÃƒÂ­a", "polaroid", "instax", "ÃƒÂ¡lbum foto", "trÃƒÂ­pode", "objetivo", "impresora foto"],
             "Mascotas": ["perro", "gato", "mascota", "pet", "collar mascota", "comedero", "cama perro", "juguete mascota"],
-            "Lujo": ["premium", "lujo", "luxury", "oro", "plata", "exclusivo", "edición limitada"],
-            "Digital": ["tarjeta regalo", "código", "suscripción", "netflix", "spotify", "steam", "playstation store", "xbox game pass", "nintendo eshop", "amazon prime", "disney plus", "curso online", "ebook", "kindle unlimited"],
-            "Experiencias": ["smartbox", "wonderbox", "escapada", "entrada", "concierto", "experiencia", "spa", "vuelo", "paracaídas", "globo", "ferrari", "cata", "escape room", "hotel", "viaje sorpresa"],
+            "Lujo": ["premium", "lujo", "luxury", "oro", "plata", "exclusivo", "ediciÃƒÂ³n limitada"],
+            "Digital": ["tarjeta regalo", "cÃƒÂ³digo", "suscripciÃƒÂ³n", "netflix", "spotify", "steam", "playstation store", "xbox game pass", "nintendo eshop", "amazon prime", "disney plus", "curso online", "ebook", "kindle unlimited"],
+            "Experiencias": ["smartbox", "wonderbox", "escapada", "entrada", "concierto", "experiencia", "spa", "vuelo", "paracaÃƒÂ­das", "globo", "ferrari", "cata", "escape room", "hotel", "viaje sorpresa"],
         }
     
     for vibe, keywords in vibe_keywords.items():
@@ -1625,15 +1625,15 @@ def classify_product_vibes(title, description="", price_str=""):
 
 def classify_product_recipients(title, description=""):
     """
-    Clasifica automáticamente para qué tipos de personas es ideal.
+    Clasifica automÃƒÂ¡ticamente para quÃƒÂ© tipos de personas es ideal.
     Retorna array de recipients: ['Tech Lover', 'Foodie', etc]
     """
     text = (title + " " + description).lower()
     recipients = []
     
     recipient_keywords = {
-        "Tech Lover": ["gadget", "tech", "smart", "digital", "electrónic", "usb", "app", "software"],
-        "Foodie": ["food", "comida", "café", "vino", "queso", "gourmet", "chef", "cocinero"],
+        "Tech Lover": ["gadget", "tech", "smart", "digital", "electrÃƒÂ³nic", "usb", "app", "software"],
+        "Foodie": ["food", "comida", "cafÃƒÂ©", "vino", "queso", "gourmet", "chef", "cocinero"],
         "Geek": ["star wars", "harry potter", "marvel", "anime", "manga", "pop", "coleccion"],
         "Wellness Enthusiast": ["yoga", "meditaci", "spa", "aromaterapia", "relax", "zen"],
         "Adventurer": ["viaje", "mochila", "trekking", "camping", "aventura", "outdoor"],
@@ -1654,7 +1654,7 @@ def classify_product_recipients(title, description=""):
 # SELENIUM DRIVER SETUP
 # ============================================================================
 
-print("🏹 Setting up Chrome driver...")
+print("Ã°Å¸ÂÂ¹ Setting up Chrome driver...")
 options = Options()
 if not DEBUG:
     options.add_argument("--headless")
@@ -1672,15 +1672,15 @@ except Exception as e:
     sys.exit(1)
 
 # ============================================================================
-# FUNCIÓN DE ENVÍO A GIFTIA
+# FUNCIÃƒâ€œN DE ENVÃƒÂO A GIFTIA
 # ============================================================================
 
 def send_to_giftia(datos):
     """
-    Envía producto validado a la API de Giftia con metadata de clasificación.
-    FILTRO PREMIUM: Solo productos con 4.5+ estrellas y suficientes reseñas.
-    DEDUPLICACIÓN: No enviar productos duplicados o de categorías saturadas.
-    DEMOGRAFÍA: Detecta género/target del producto.
+    EnvÃƒÂ­a producto validado a la API de Giftia con metadata de clasificaciÃƒÂ³n.
+    FILTRO PREMIUM: Solo productos con 4.5+ estrellas y suficientes reseÃƒÂ±as.
+    DEDUPLICACIÃƒâ€œN: No enviar productos duplicados o de categorÃƒÂ­as saturadas.
+    DEMOGRAFÃƒÂA: Detecta gÃƒÂ©nero/target del producto.
     """
     # Validaciones previas
     if not datos.get("asin") or not datos.get("title"):
@@ -1688,41 +1688,41 @@ def send_to_giftia(datos):
         return False
     
     # =========================================================================
-    # DEDUPLICACIÓN - Evitar productos repetidos
+    # DEDUPLICACIÃƒâ€œN - Evitar productos repetidos
     # =========================================================================
     asin = datos["asin"]
     title = datos["title"]
     
     # Ya enviamos este ASIN exacto?
     if asin in SENT_PRODUCTS_CACHE:
-        logger.info(f"🔄 DUPLICADO (ASIN): {title[:40]}...")
+        logger.info(f"Ã°Å¸â€â€ž DUPLICADO (ASIN): {title[:40]}...")
         return False
     
-    # Ya tenemos demasiados de esta categoría?
+    # Ya tenemos demasiados de esta categorÃƒÂ­a?
     if is_duplicate_category(title):
         category = get_product_category(title)
-        logger.info(f"🔄 DUPLICADO (categoría '{category}'): {title[:40]}...")
+        logger.info(f"Ã°Å¸â€â€ž DUPLICADO (categorÃƒÂ­a '{category}'): {title[:40]}...")
         return False
     
     # =========================================================================
     # FILTRO DE CALIDAD PREMIUM - Solo productos top de Amazon
     # =========================================================================
-    # SISTEMA DE CALIDAD DINÁMICO
-    # 1000+ reviews → 4.2⭐ mínimo
-    # 500-999 reviews → 4.3⭐ mínimo
-    # 100-499 reviews → 4.5⭐ mínimo
-    # 50-99 reviews → 4.7⭐ mínimo
-    # <50 reviews → DESCARTAR
+    # SISTEMA DE CALIDAD DINÃƒÂMICO
+    # 1000+ reviews Ã¢â€ â€™ 4.2Ã¢Â­Â mÃƒÂ­nimo
+    # 500-999 reviews Ã¢â€ â€™ 4.3Ã¢Â­Â mÃƒÂ­nimo
+    # 100-499 reviews Ã¢â€ â€™ 4.5Ã¢Â­Â mÃƒÂ­nimo
+    # 50-99 reviews Ã¢â€ â€™ 4.7Ã¢Â­Â mÃƒÂ­nimo
+    # <50 reviews Ã¢â€ â€™ DESCARTAR
     # =========================================================================
     rating_value = datos.get("rating_value", 0.0)
     review_count = datos.get("review_count", 0)
     
-    # Mínimo absoluto: 50 reviews
+    # MÃƒÂ­nimo absoluto: 50 reviews
     if review_count < 50:
-        logger.info(f"📊 POCAS REVIEWS ({review_count}<50): {datos['title'][:40]}...")
+        logger.info(f"Ã°Å¸â€œÅ  POCAS REVIEWS ({review_count}<50): {datos['title'][:40]}...")
         return False
     
-    # Rating dinámico según cantidad de reviews
+    # Rating dinÃƒÂ¡mico segÃƒÂºn cantidad de reviews
     if review_count >= 1000:
         min_rating = 4.2
     elif review_count >= 500:
@@ -1733,20 +1733,20 @@ def send_to_giftia(datos):
         min_rating = 4.7
     
     if rating_value < min_rating:
-        logger.info(f"⭐ RATING BAJO ({rating_value}<{min_rating} para {review_count} reviews): {datos['title'][:40]}...")
+        logger.info(f"Ã¢Â­Â RATING BAJO ({rating_value}<{min_rating} para {review_count} reviews): {datos['title'][:40]}...")
         return False
     
-    logger.info(f"✅ CALIDAD OK: {rating_value}⭐ con {review_count} reviews (min: {min_rating})")
+    logger.info(f"Ã¢Å“â€¦ CALIDAD OK: {rating_value}Ã¢Â­Â con {review_count} reviews (min: {min_rating})")
     
-    # Check garbage (pre-filtro rápido Python)
+    # Check garbage (pre-filtro rÃƒÂ¡pido Python)
     if is_garbage(datos["title"], datos.get("price", "0"), datos.get("description", "")):
-        logger.info(f"🗑️ BASURA: {datos['title'][:50]}...")
+        logger.info(f"Ã°Å¸â€”â€˜Ã¯Â¸Â BASURA: {datos['title'][:50]}...")
         return False
     
     # =========================================================================
-    # 🧠 JUEZ GEMINI - Clasificación inteligente con IA
+    # Ã°Å¸Â§Â  JUEZ GEMINI - ClasificaciÃƒÂ³n inteligente con IA
     # =========================================================================
-    price_value = float(datos.get("price", "0").replace(",", ".").replace("€", "").strip() or 0)
+    price_value = float(re.sub(r"[^0-9.,]", "", datos.get("price", "0")).replace(",", ".").strip() or "0")
     classification = classify_with_gemini_or_fallback(
         title=datos["title"],
         price=price_value,
@@ -1756,24 +1756,24 @@ def send_to_giftia(datos):
     # Si Gemini dice que NO es buen regalo, rechazar
     if not classification["is_good_gift"]:
         reason = classification.get("reject_reason", "no es buen regalo")
-        source_emoji = "🧠" if classification["source"] == "gemini" else "🔧"
+        source_emoji = "Ã°Å¸Â§Â " if classification["source"] == "gemini" else "Ã°Å¸â€Â§"
         logger.info(f"{source_emoji} RECHAZADO: {reason} - {datos['title'][:40]}...")
         return False
     
     # Si Gemini detecta duplicado
     if classification["is_duplicate"]:
-        logger.info(f"🧠 DUPLICADO (Gemini): {datos['title'][:40]}...")
+        logger.info(f"Ã°Å¸Â§Â  DUPLICADO (Gemini): {datos['title'][:40]}...")
         return False
     
-    # Usar clasificación de Gemini (o fallback)
+    # Usar clasificaciÃƒÂ³n de Gemini (o fallback)
     target_gender = classification["target_gender"]
-    gemini_category = validate_category(classification["category"])  # VALIDAR categoría
+    gemini_category = validate_category(classification["category"])  # VALIDAR categorÃƒÂ­a
     gift_quality = classification["gift_quality"]
     source = classification["source"]
     
     # Si gift_quality < 5, descartar (solo con Gemini)
     if source == "gemini" and gift_quality < 5:
-        logger.info(f"🧠 CALIDAD BAJA ({gift_quality}/10): {datos['title'][:40]}...")
+        logger.info(f"Ã°Å¸Â§Â  CALIDAD BAJA ({gift_quality}/10): {datos['title'][:40]}...")
         return False
     
     # Calcular score (combinamos Gemini + regex)
@@ -1788,22 +1788,22 @@ def send_to_giftia(datos):
         score = int(score * 0.5 + gift_quality * 5)  # Blend 50-50
     
     if score < 30:
-        logger.info(f"📉 Score bajo ({score}): {datos['title'][:40]}...")
+        logger.info(f"Ã°Å¸â€œâ€° Score bajo ({score}): {datos['title'][:40]}...")
         return False
     
-    # Clasificación automática (vibes y recipients del sistema regex)
+    # ClasificaciÃƒÂ³n automÃƒÂ¡tica (vibes y recipients del sistema regex)
     vibes = classify_product_vibes(datos["title"], datos.get("description", ""), datos.get("price", ""))
-    # Validar cada vibe también
+    # Validar cada vibe tambiÃƒÂ©n
     vibes = [validate_category(v) for v in vibes]
     vibes = list(set(vibes))  # Eliminar duplicados
     recipients = classify_product_recipients(datos["title"], datos.get("description", ""))
     
-    # Enriquecer datos con clasificación híbrida
+    # Enriquecer datos con clasificaciÃƒÂ³n hÃƒÂ­brida
     datos["vibes"] = vibes
     datos["recipients"] = recipients
     datos["gift_score"] = score
     datos["target_gender"] = target_gender  # De Gemini o fallback
-    datos["gemini_category"] = gemini_category  # Categoría inteligente (VALIDADA)
+    datos["gemini_category"] = gemini_category  # CategorÃƒÂ­a inteligente (VALIDADA)
     datos["classification_source"] = source  # 'gemini' o 'fallback'
     datos["gift_quality"] = gift_quality if source == "gemini" else None
     datos["discovered_at"] = datetime.now().isoformat()
@@ -1816,9 +1816,9 @@ def send_to_giftia(datos):
     datos["gift_headline"] = classification.get("gift_headline", "")
     datos["gift_pros"] = classification.get("gift_pros", [])
     
-    # Envío
-    source_emoji = "🧠" if source == "gemini" else "🔧"
-    gender_emoji = {"male": "👨", "female": "👩", "kids": "👶", "unisex": "👥"}.get(target_gender, "👥")
+    # EnvÃƒÂ­o
+    source_emoji = "Ã°Å¸Â§Â " if source == "gemini" else "Ã°Å¸â€Â§"
+    gender_emoji = {"male": "Ã°Å¸â€˜Â¨", "female": "Ã°Å¸â€˜Â©", "kids": "Ã°Å¸â€˜Â¶", "unisex": "Ã°Å¸â€˜Â¥"}.get(target_gender, "Ã°Å¸â€˜Â¥")
     logger.info(f"{source_emoji} ENVIANDO [Score:{score}|Q:{gift_quality}] {gender_emoji} [{gemini_category}] {datos['title'][:40]}...")
     
     try:
@@ -1857,13 +1857,13 @@ def send_to_giftia(datos):
 
 
 # ============================================================================
-# 📦 SISTEMA DE COLA - Añadir producto para análisis posterior
+# Ã°Å¸â€œÂ¦ SISTEMA DE COLA - AÃƒÂ±adir producto para anÃƒÂ¡lisis posterior
 # ============================================================================
 
 def queue_for_ai_analysis(datos):
     """
-    FASE 1: Filtros básicos + añadir a cola.
-    NO llama a Gemini, solo filtra basura obvia y añade a cola.
+    FASE 1: Filtros bÃƒÂ¡sicos + aÃƒÂ±adir a cola.
+    NO llama a Gemini, solo filtra basura obvia y aÃƒÂ±ade a cola.
     """
     # Validaciones previas
     if not datos.get("asin") or not datos.get("title"):
@@ -1875,19 +1875,19 @@ def queue_for_ai_analysis(datos):
     
     # Ya enviamos este ASIN exacto?
     if asin in SENT_PRODUCTS_CACHE:
-        logger.debug(f"🔄 DUPLICADO (ASIN ya enviado): {title[:40]}...")
+        logger.debug(f"Ã°Å¸â€â€ž DUPLICADO (ASIN ya enviado): {title[:40]}...")
         return False
     
-    # Ya está en cola?
+    # Ya estÃƒÂ¡ en cola?
     queue = load_pending_queue()
     if any(p.get('asin') == asin for p in queue):
-        logger.debug(f"🔄 YA EN COLA: {title[:40]}...")
+        logger.debug(f"Ã°Å¸â€â€ž YA EN COLA: {title[:40]}...")
         return False
     
-    # Demasiados de esta categoría?
+    # Demasiados de esta categorÃƒÂ­a?
     if is_duplicate_category(title):
         category = get_product_category(title)
-        logger.debug(f"🔄 DUPLICADO (categoría '{category}'): {title[:40]}...")
+        logger.debug(f"Ã°Å¸â€â€ž DUPLICADO (categorÃƒÂ­a '{category}'): {title[:40]}...")
         return False
     
     # Filtro de calidad: reviews y rating
@@ -1895,10 +1895,10 @@ def queue_for_ai_analysis(datos):
     review_count = datos.get("review_count", 0)
     
     if review_count < 50:
-        logger.debug(f"📊 POCAS REVIEWS ({review_count}<50): {title[:40]}...")
+        logger.debug(f"Ã°Å¸â€œÅ  POCAS REVIEWS ({review_count}<50): {title[:40]}...")
         return False
     
-    # Rating dinámico según cantidad de reviews
+    # Rating dinÃƒÂ¡mico segÃƒÂºn cantidad de reviews
     if review_count >= 1000:
         min_rating = 4.2
     elif review_count >= 500:
@@ -1909,16 +1909,16 @@ def queue_for_ai_analysis(datos):
         min_rating = 4.7
     
     if rating_value < min_rating:
-        logger.debug(f"⭐ RATING BAJO ({rating_value}<{min_rating}): {title[:40]}...")
+        logger.debug(f"Ã¢Â­Â RATING BAJO ({rating_value}<{min_rating}): {title[:40]}...")
         return False
     
-    # Pre-filtro rápido Python (sin Gemini)
+    # Pre-filtro rÃƒÂ¡pido Python (sin Gemini)
     if is_garbage(title, datos.get("price", "0"), datos.get("description", "")):
-        logger.debug(f"🗑️ BASURA: {title[:50]}...")
+        logger.debug(f"Ã°Å¸â€”â€˜Ã¯Â¸Â BASURA: {title[:50]}...")
         return False
     
-    # ¡Producto válido! Añadir a cola
-    logger.info(f"✅ CANDIDATO [Rating:{rating_value}⭐|Reviews:{review_count}]: {title[:50]}...")
+    # Ã‚Â¡Producto vÃƒÂ¡lido! AÃƒÂ±adir a cola
+    logger.info(f"Ã¢Å“â€¦ CANDIDATO [Rating:{rating_value}Ã¢Â­Â|Reviews:{review_count}]: {title[:50]}...")
     return add_to_pending_queue(datos)
 
 
@@ -1931,13 +1931,13 @@ def process_queued_product(product):
     
     # Verificar que no se haya enviado mientras estaba en cola
     if asin in SENT_PRODUCTS_CACHE:
-        logger.info(f"⏭️ Ya enviado: {title[:40]}...")
+        logger.info(f"Ã¢ÂÂ­Ã¯Â¸Â Ya enviado: {title[:40]}...")
         return False
     
     # Calcular precio
-    price_value = float(product.get("price", "0").replace(",", ".").replace("€", "").strip() or 0)
+    price_value = float(re.sub(r"[^0-9.,]", "", product.get("price", "0")).replace(",", ".").strip() or "0")
     
-    # 🧠 LLAMAR A GEMINI (aquí sí, con pacing)
+    # Ã°Å¸Â§Â  LLAMAR A GEMINI (aquÃƒÂ­ sÃƒÂ­, con pacing)
     classification = classify_with_gemini_or_fallback(
         title=title,
         price=price_value,
@@ -1947,25 +1947,25 @@ def process_queued_product(product):
     # Si Gemini dice NO
     if not classification["is_good_gift"]:
         reason = classification.get("reject_reason", "no es buen regalo")
-        source_emoji = "🧠" if classification["source"] == "gemini" else "🔧"
+        source_emoji = "Ã°Å¸Â§Â " if classification["source"] == "gemini" else "Ã°Å¸â€Â§"
         logger.info(f"{source_emoji} RECHAZADO: {reason} - {title[:40]}...")
         log_processed_product(product, {"status": "rejected", "reason": reason})
         return False
     
     if classification["is_duplicate"]:
-        logger.info(f"🧠 DUPLICADO (Gemini): {title[:40]}...")
+        logger.info(f"Ã°Å¸Â§Â  DUPLICADO (Gemini): {title[:40]}...")
         log_processed_product(product, {"status": "rejected", "reason": "duplicado"})
         return False
     
-    # Extraer clasificación
+    # Extraer clasificaciÃƒÂ³n
     target_gender = classification["target_gender"]
     gemini_category = validate_category(classification["category"])
     gift_quality = classification["gift_quality"]
     source = classification["source"]
     
-    # Calidad mínima
+    # Calidad mÃƒÂ­nima
     if source == "gemini" and gift_quality < 5:
-        logger.info(f"🧠 CALIDAD BAJA ({gift_quality}/10): {title[:40]}...")
+        logger.info(f"Ã°Å¸Â§Â  CALIDAD BAJA ({gift_quality}/10): {title[:40]}...")
         log_processed_product(product, {"status": "rejected", "reason": f"calidad {gift_quality}/10"})
         return False
     
@@ -1975,7 +1975,7 @@ def process_queued_product(product):
         score = int(score * 0.5 + gift_quality * 5)
     
     if score < 30:
-        logger.info(f"📉 Score bajo ({score}): {title[:40]}...")
+        logger.info(f"Ã°Å¸â€œâ€° Score bajo ({score}): {title[:40]}...")
         log_processed_product(product, {"status": "rejected", "reason": f"score {score}"})
         return False
     
@@ -1994,8 +1994,8 @@ def process_queued_product(product):
     product["discovered_at"] = product.get("queued_at", datetime.now().isoformat())
     product["processed_at"] = datetime.now().isoformat()
     
-    # === AÑADIR CAMPOS DE GEMINI AL PRODUCTO ===
-    # Estos campos son cruciales para el schema de taxonomías
+    # === AÃƒâ€˜ADIR CAMPOS DE GEMINI AL PRODUCTO ===
+    # Estos campos son cruciales para el schema de taxonomÃƒÂ­as
     product["etapas"] = classification.get("etapas", ["adultos"])
     product["ocasiones"] = classification.get("ocasiones", ["cumpleanos", "sin-motivo"])
     product["delivery"] = classification.get("delivery", "standard")
@@ -2004,8 +2004,8 @@ def process_queued_product(product):
     product["gift_pros"] = classification.get("gift_pros", [])
     
     # ENVIAR A WORDPRESS
-    source_emoji = "🧠" if source == "gemini" else "🔧"
-    gender_emoji = {"male": "👨", "female": "👩", "kids": "👶", "unisex": "👥"}.get(target_gender, "👥")
+    source_emoji = "Ã°Å¸Â§Â " if source == "gemini" else "Ã°Å¸â€Â§"
+    gender_emoji = {"male": "Ã°Å¸â€˜Â¨", "female": "Ã°Å¸â€˜Â©", "kids": "Ã°Å¸â€˜Â¶", "unisex": "Ã°Å¸â€˜Â¥"}.get(target_gender, "Ã°Å¸â€˜Â¥")
     logger.info(f"{source_emoji} ENVIANDO [Score:{score}|Q:{gift_quality}] {gender_emoji} [{gemini_category}] {title[:40]}...")
     
     try:
@@ -2023,17 +2023,17 @@ def process_queued_product(product):
         )
         
         if response.status_code == 200:
-            logger.info(f"✅ WordPress OK: {title[:40]}")
+            logger.info(f"Ã¢Å“â€¦ WordPress OK: {title[:40]}")
             register_sent_product(asin, title)
             log_processed_product(product, {"status": "published", "score": score, "quality": gift_quality})
             return True
         else:
-            logger.error(f"❌ Error API {response.status_code}: {response.text[:100]}")
+            logger.error(f"Ã¢ÂÅ’ Error API {response.status_code}: {response.text[:100]}")
             log_processed_product(product, {"status": "error", "http_code": response.status_code})
             return False
             
     except Exception as e:
-        logger.error(f"❌ Excepción: {str(e)}")
+        logger.error(f"Ã¢ÂÅ’ ExcepciÃƒÂ³n: {str(e)}")
         log_processed_product(product, {"status": "error", "exception": str(e)})
         return False
 
@@ -2041,21 +2041,21 @@ def process_queued_product(product):
 def run_queue_processor(max_products=None, pacing_seconds=None):
     """
     Procesa la cola de productos con Gemini.
-    Respeta el pacing para no exceder límites de API.
+    Respeta el pacing para no exceder lÃƒÂ­mites de API.
     """
     if pacing_seconds is None:
         pacing_seconds = GEMINI_PACING_SECONDS
     
     queue_size = get_pending_count()
     if queue_size == 0:
-        logger.info("📭 Cola vacía, nada que procesar")
+        logger.info("Ã°Å¸â€œÂ­ Cola vacÃƒÂ­a, nada que procesar")
         return 0
     
-    logger.info(f"🚀 PROCESANDO COLA: {queue_size} productos pendientes")
-    logger.info(f"⏱️ Pacing: {pacing_seconds}s entre productos ({60/pacing_seconds:.1f} RPM)")
+    logger.info(f"Ã°Å¸Å¡â‚¬ PROCESANDO COLA: {queue_size} productos pendientes")
+    logger.info(f"Ã¢ÂÂ±Ã¯Â¸Â Pacing: {pacing_seconds}s entre productos ({60/pacing_seconds:.1f} RPM)")
     
     if max_products:
-        logger.info(f"📊 Límite: {max_products} productos máximo")
+        logger.info(f"Ã°Å¸â€œÅ  LÃƒÂ­mite: {max_products} productos mÃƒÂ¡ximo")
     
     processed = 0
     published = 0
@@ -2066,31 +2066,31 @@ def run_queue_processor(max_products=None, pacing_seconds=None):
             break
         
         if max_products and processed >= max_products:
-            # Devolver a cola si excedemos límite
+            # Devolver a cola si excedemos lÃƒÂ­mite
             add_to_pending_queue(product)
-            logger.info(f"⏸️ Límite alcanzado ({max_products}), parando")
+            logger.info(f"Ã¢ÂÂ¸Ã¯Â¸Â LÃƒÂ­mite alcanzado ({max_products}), parando")
             break
         
         processed += 1
         remaining = get_pending_count()
-        logger.info(f"─────────────────────────────────────────")
-        logger.info(f"📦 [{processed}] Procesando... (quedan {remaining} en cola)")
+        logger.info(f"Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬")
+        logger.info(f"Ã°Å¸â€œÂ¦ [{processed}] Procesando... (quedan {remaining} en cola)")
         
         try:
             if process_queued_product(product):
                 published += 1
         except Exception as e:
-            logger.error(f"❌ Error procesando: {e}")
+            logger.error(f"Ã¢ÂÅ’ Error procesando: {e}")
             # No devolver a cola para evitar bucle infinito
         
         # Pacing - esperar antes del siguiente
         if get_pending_count() > 0:
-            logger.debug(f"⏳ Esperando {pacing_seconds}s...")
+            logger.debug(f"Ã¢ÂÂ³ Esperando {pacing_seconds}s...")
             time.sleep(pacing_seconds)
     
-    logger.info(f"═══════════════════════════════════════════")
-    logger.info(f"📊 RESUMEN COLA: {processed} procesados, {published} publicados")
-    logger.info(f"📭 Quedan {get_pending_count()} en cola")
+    logger.info(f"Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â")
+    logger.info(f"Ã°Å¸â€œÅ  RESUMEN COLA: {processed} procesados, {published} publicados")
+    logger.info(f"Ã°Å¸â€œÂ­ Quedan {get_pending_count()} en cola")
     return published
 
 
@@ -2098,28 +2098,37 @@ def run_queue_processor(max_products=None, pacing_seconds=None):
 # BUCLE PRINCIPAL DE SCRAPING
 # ============================================================================
 
-# ⏰ CONFIGURACIÓN DE DURACIÓN
-RUN_HOURS = 6  # Horas de ejecución continua
-RUN_DURATION_SECONDS = RUN_HOURS * 60 * 60
+# Ã¢ÂÂ° CONFIGURACIÃƒâ€œN DE DURACIÃƒâ€œN
+DEFAULT_RUN_HOURS = 6  # Horas de ejecucion por defecto
 
 if __name__ == "__main__":
+    import argparse
+    parser = argparse.ArgumentParser(description='Giftia Hunter')
+    parser.add_argument('--hours', type=float, default=DEFAULT_RUN_HOURS, help='Horas')
+    parser.add_argument('--test', action='store_true', help='Modo test: 5 min')
+    args = parser.parse_args()
+
+    RUN_HOURS = 5/60 if args.test else args.hours
+    RUN_DURATION_SECONDS = int(RUN_HOURS * 60 * 60)
+
     start_time = time.time()
     end_time = start_time + RUN_DURATION_SECONDS
     cycle = 0
-    
-    logger.info(f"🚀 HUNTER MODO MARATÓN - {RUN_HOURS} HORAS")
-    logger.info(f"⏰ Inicio: {datetime.now().strftime('%H:%M:%S')}")
-    logger.info(f"⏰ Fin previsto: {datetime.fromtimestamp(end_time).strftime('%H:%M:%S')}")
+
+    mode_text = "MODO TEST (5 min)" if args.test else f"MODO MARATON - {RUN_HOURS}h"
+    logger.info(f"HUNTER {mode_text}")
+    logger.info(f"Ã¢ÂÂ° Inicio: {datetime.now().strftime('%H:%M:%S')}")
+    logger.info(f"Ã¢ÂÂ° Fin previsto: {datetime.fromtimestamp(end_time).strftime('%H:%M:%S')}")
     
     while time.time() < end_time:
         cycle += 1
         remaining_hours = (end_time - time.time()) / 3600
         logger.info(f"")
-        logger.info(f"═══════════════════════════════════════════")
-        logger.info(f"🔄 CICLO {cycle} - Quedan {remaining_hours:.1f}h")
-        logger.info(f"═══════════════════════════════════════════")
+        logger.info(f"Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â")
+        logger.info(f"Ã°Å¸â€â€ž CICLO {cycle} - Quedan {remaining_hours:.1f}h")
+        logger.info(f"Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â")
 
-        # Seleccionar más vibes para máxima variedad (ahora tenemos 10 categorías)
+        # Seleccionar mÃƒÂ¡s vibes para mÃƒÂ¡xima variedad (ahora tenemos 10 categorÃƒÂ­as)
         selected_vibes = random.sample(list(SMART_SEARCHES.keys()), k=min(6, len(SMART_SEARCHES)))
         logger.info(f"[VIBES] Selected: {selected_vibes}")
 
@@ -2130,27 +2139,27 @@ if __name__ == "__main__":
             for vibe in selected_vibes:
                 # Verificar tiempo restante
                 if time.time() >= end_time:
-                    logger.info(f"⏰ Tiempo agotado, terminando ciclo...")
+                    logger.info(f"Ã¢ÂÂ° Tiempo agotado, terminando ciclo...")
                     break
                     
                 searches = SMART_SEARCHES[vibe]
-                # Seleccionar 4-5 búsquedas por vibe (antes eran 2-3)
+                # Seleccionar 4-5 bÃƒÂºsquedas por vibe (antes eran 2-3)
                 selected_searches = random.sample(searches, k=min(5, len(searches)))
                 
                 for query in selected_searches:
-                    # Agregar variación temporal DINÁMICA
+                    # Agregar variaciÃƒÂ³n temporal DINÃƒÂMICA
                     current_year = datetime.now().year
                     modifiers = [
                         "",                              # Sin modificador
-                        f" {current_year}",              # Año actual (2026)
-                        f" {current_year - 1}",          # Año anterior (2025)
+                        f" {current_year}",              # AÃƒÂ±o actual (2026)
+                        f" {current_year - 1}",          # AÃƒÂ±o anterior (2025)
                         " novedades",                    # Novedades
-                        " bestseller",                   # Más vendidos
+                        " bestseller",                   # MÃƒÂ¡s vendidos
                         " viral",                        # Productos virales
                         " trending",                     # Tendencias
                         " nuevo lanzamiento",            # Lanzamientos recientes
                         " top ventas",                   # Top ventas
-                        " mas vendido",                  # Más vendidos español
+                        " mas vendido",                  # MÃƒÂ¡s vendidos espaÃƒÂ±ol
                         " mejor valorado",               # Mejor valorados
                         " idea regalo",                  # Ideas regalo
                         " regalo original",              # Regalo original
@@ -2162,13 +2171,13 @@ if __name__ == "__main__":
                         " chollos",                      # Chollos
                         " black friday",                 # Black Friday deals
                         " navidad",                      # Navidad
-                        " cumpleaños",                   # Cumpleaños
-                        " san valentin",                 # San Valentín
-                        " dia del padre",                # Día del padre
-                        " dia de la madre",              # Día de la madre
+                        " cumpleaÃƒÂ±os",                   # CumpleaÃƒÂ±os
+                        " san valentin",                 # San ValentÃƒÂ­n
+                        " dia del padre",                # DÃƒÂ­a del padre
+                        " dia de la madre",              # DÃƒÂ­a de la madre
                         " aniversario",                  # Aniversario
                         " exclusivo",                    # Exclusivo
-                        " edicion limitada",             # Edición limitada
+                        " edicion limitada",             # EdiciÃƒÂ³n limitada
                         " profesional",                  # Profesional
                     ]
                     final_query = query + random.choice(modifiers)
@@ -2179,7 +2188,7 @@ if __name__ == "__main__":
                 sort_options = [
                     "date-desc-rank",                # Por novedad
                     "review-rank",                   # Mejor valorados
-                    "popularity-rank",               # Más populares
+                    "popularity-rank",               # MÃƒÂ¡s populares
                     "",                              # Relevancia Amazon
                 ]
                 sort_param = random.choice(sort_options)
@@ -2200,7 +2209,7 @@ if __name__ == "__main__":
                         )
                         logger.debug(f"   Cargaron {len(items)} productos con WebDriverWait")
                     except:
-                        logger.debug(f"   WebDriverWait falló, usando JavaScript...")
+                        logger.debug(f"   WebDriverWait fallÃƒÂ³, usando JavaScript...")
                         # Usar JavaScript para ejecutar scroll y esperar
                         time.sleep(2)
                         driver.execute_script("window.scrollTo(0, 1000);")
@@ -2210,12 +2219,12 @@ if __name__ == "__main__":
                         items_count = driver.execute_script("""
                             return document.querySelectorAll('[data-component-type="s-search-result"]').length;
                         """)
-                        logger.debug(f"   JavaScript encontró {items_count} elementos")
+                        logger.debug(f"   JavaScript encontrÃƒÂ³ {items_count} elementos")
                         
                         # Ahora buscar con Selenium
                         items = driver.find_elements(By.CSS_SELECTOR, 'div[data-component-type="s-search-result"]')
                         
-                        # Si aún no encuentra, intentar selector alternativo
+                        # Si aÃƒÂºn no encuentra, intentar selector alternativo
                         if len(items) == 0:
                             logger.debug(f"   Intentando selector alternativo...")
                             items = driver.find_elements(By.CSS_SELECTOR, 'div.s-result-item[data-asin]')
@@ -2224,16 +2233,16 @@ if __name__ == "__main__":
                     
                     captured_in_query = 0
                     for item in items:
-                        if captured_in_query >= 5:  # Máx 5 por búsqueda
+                        if captured_in_query >= 5:  # MÃƒÂ¡x 5 por bÃƒÂºsqueda
                             break
                         
                         try:
-                            # ASIN (identificador único)
+                            # ASIN (identificador ÃƒÂºnico)
                             asin = item.get_attribute("data-asin")
                             if not asin or len(asin) < 10:
                                 continue
                             
-                            # Título - Múltiples selectores por si Amazon cambia
+                            # TÃƒÂ­tulo - MÃƒÂºltiples selectores por si Amazon cambia
                             title = None
                             title_selectors = [
                                 "h2 a span",
@@ -2256,7 +2265,7 @@ if __name__ == "__main__":
                                     continue
                             
                             if not title:
-                                # Último recurso: usar JavaScript
+                                # ÃƒÅ¡ltimo recurso: usar JavaScript
                                 try:
                                     title = driver.execute_script("""
                                         var el = arguments[0];
@@ -2277,15 +2286,18 @@ if __name__ == "__main__":
                                 price_elements = item.find_elements(By.CSS_SELECTOR, ".a-price .a-offscreen")
                                 if price_elements:
                                     price_txt = price_elements[0].get_attribute("textContent")
-                                    price = price_txt.replace("€", "").replace(".", "").replace(",", ".").strip()
+                                    price = price_txt.replace("Ã¢â€šÂ¬", "").replace(".", "").replace(",", ".").strip()
                                 else:
                                     price = "0"
                             except:
                                 price = "0"
                             
-                            # Imagen
+                            # Imagen - LIMPIEZA HD
                             try:
-                                image_url = item.find_element(By.CSS_SELECTOR, "img.s-image").get_attribute("src")
+                                raw_img = item.find_element(By.CSS_SELECTOR, "img.s-image").get_attribute("src")
+                                # TRUCO HD: Quitar parámetros de calidad baja como ._AC_UL320_
+                                # Transforma "...image._AC_UL320_.jpg" en "...image.jpg"
+                                image_url = re.sub(r'\._[A-Z]{2}[^.]*_', '', raw_img) if raw_img else ""
                                 # Ensure HTTPS
                                 if image_url and image_url.startswith("http://"):
                                     image_url = image_url.replace("http://", "https://", 1)
@@ -2299,17 +2311,17 @@ if __name__ == "__main__":
                                 rating_el = item.find_element(By.CSS_SELECTOR, "span.a-icon-alt")
                                 rating_text = rating_el.get_attribute("innerHTML") or rating_el.text
                                 rating = rating_text
-                                # Extraer número: "4,7 de 5 estrellas" → 4.7
+                                # Extraer nÃƒÂºmero: "4,7 de 5 estrellas" Ã¢â€ â€™ 4.7
                                 match = re.search(r'([0-9]+[,.]?[0-9]*)', rating_text.replace(',', '.'))
                                 if match:
                                     rating_value = float(match.group(1))
                             except:
                                 pass
                             
-                            # Número de reviews (OBLIGATORIO para calidad)
+                            # NÃƒÂºmero de reviews (OBLIGATORIO para calidad)
                             review_count = 0
                             try:
-                                # Selector principal - número de reviews junto a las estrellas
+                                # Selector principal - nÃƒÂºmero de reviews junto a las estrellas
                                 reviews_el = item.find_element(By.CSS_SELECTOR, "span.a-size-base.s-underline-text")
                                 reviews_text = reviews_el.text.replace(".", "").replace(",", "")
                                 review_count = int(re.sub(r'[^0-9]', '', reviews_text) or 0)
@@ -2330,7 +2342,7 @@ if __name__ == "__main__":
                                             review_count = int(match.group(1))
                                     except:
                                         try:
-                                            # Alternativo 3: cualquier span con número después del rating
+                                            # Alternativo 3: cualquier span con nÃƒÂºmero despuÃƒÂ©s del rating
                                             all_spans = item.find_elements(By.CSS_SELECTOR, "span.a-size-base")
                                             for span in all_spans:
                                                 text = span.text.strip()
@@ -2341,14 +2353,14 @@ if __name__ == "__main__":
                                         except:
                                             pass
                             
-                            # Descripción/subtítulo (optativo)
+                            # DescripciÃƒÂ³n/subtÃƒÂ­tulo (optativo)
                             try:
                                 description = item.find_element(By.CSS_SELECTOR, ".a-color-base.a-text-normal").text
                             except:
                                 description = ""
                             
 
-                            # Prime y envío gratis
+                            # Prime y envÃƒÂ­o gratis
                             is_prime = False
                             free_shipping = False
                             try:
@@ -2358,10 +2370,10 @@ if __name__ == "__main__":
                             except:
                                 pass
                             
-                            # Detectar tiempo de envío y envío gratis
+                            # Detectar tiempo de envÃƒÂ­o y envÃƒÂ­o gratis
                             delivery_time = ""
                             try:
-                                # Buscar texto de envío en múltiples selectores
+                                # Buscar texto de envÃƒÂ­o en mÃƒÂºltiples selectores
                                 delivery_selectors = [
                                     "span[data-component-type='s-shipping-label-block']",
                                     "div[data-cy='delivery-recipe']",
@@ -2375,7 +2387,7 @@ if __name__ == "__main__":
                                         for el in els:
                                             text = el.text.strip()
                                             # Buscar patrones de entrega
-                                            if any(kw in text.lower() for kw in ['entrega', 'envío', 'llega', 'recíbelo', 'mañana', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado', 'domingo', 'días']):
+                                            if any(kw in text.lower() for kw in ['entrega', 'envÃƒÂ­o', 'llega', 'recÃƒÂ­belo', 'maÃƒÂ±ana', 'lunes', 'martes', 'miÃƒÂ©rcoles', 'jueves', 'viernes', 'sÃƒÂ¡bado', 'domingo', 'dÃƒÂ­as']):
                                                 if len(text) > len(delivery_time):
                                                     delivery_time = text
                                     except:
@@ -2383,9 +2395,9 @@ if __name__ == "__main__":
                             except:
                                 pass
                             
-                            # Determinar si es envío gratis basado en texto o Prime
+                            # Determinar si es envÃƒÂ­o gratis basado en texto o Prime
                             delivery_lower = delivery_time.lower()
-                            free_shipping = is_prime or "gratis" in delivery_lower or "envío gratis" in delivery_lower
+                            free_shipping = is_prime or "gratis" in delivery_lower or "envÃƒÂ­o gratis" in delivery_lower
 
                             # Construir payload
                             if parse_price(price) > 0:
@@ -2408,7 +2420,7 @@ if __name__ == "__main__":
                                     "delivery_time": delivery_time
                                 }
                                 
-                                # MODO HÍBRIDO: añadir a cola (no llama a Gemini aún)
+                                # MODO HÃƒÂBRIDO: aÃƒÂ±adir a cola (no llama a Gemini aÃƒÂºn)
                                 if queue_for_ai_analysis(payload):
                                     total_sent += 1
                                     captured_in_query += 1
@@ -2426,47 +2438,52 @@ if __name__ == "__main__":
                     logger.error(f"Error searching '{final_query}': {e}")
                     continue
         
-            logger.info(f"[SCRAPING DONE] ¡Scraping completado!")
+            logger.info(f"[SCRAPING DONE] Ã‚Â¡Scraping completado!")
             logger.info(f"   En cola: {total_sent}")
             logger.info(f"   Descartados: {total_discarded}")
-            logger.info(f"   Tasa de éxito pre-filtro: {(total_sent / max(1, total_sent + total_discarded) * 100):.1f}%")
+            logger.info(f"   Tasa de ÃƒÂ©xito pre-filtro: {(total_sent / max(1, total_sent + total_discarded) * 100):.1f}%")
             
             # =========================================================================
-            # 🧠 FASE 2: PROCESAR COLA CON GEMINI
+            # Ã°Å¸Â§Â  FASE 2: PROCESAR COLA CON GEMINI
             # =========================================================================
             queue_size = get_pending_count()
             if queue_size > 0:
                 logger.info(f"")
-                logger.info(f"═══════════════════════════════════════════")
-                logger.info(f"🧠 INICIANDO PROCESAMIENTO IA")
-                logger.info(f"═══════════════════════════════════════════")
-                logger.info(f"📦 Productos en cola: {queue_size}")
-                logger.info(f"⏱️ Tiempo estimado: {queue_size * GEMINI_PACING_SECONDS / 60:.1f} minutos")
+                logger.info(f"Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â")
+                logger.info(f"Ã°Å¸Â§Â  INICIANDO PROCESAMIENTO IA")
+                logger.info(f"Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â")
+                logger.info(f"Ã°Å¸â€œÂ¦ Productos en cola: {queue_size}")
+                logger.info(f"Ã¢ÂÂ±Ã¯Â¸Â Tiempo estimado: {queue_size * GEMINI_PACING_SECONDS / 60:.1f} minutos")
                 logger.info(f"")
                 
-                published = run_queue_processor()
+                # En modo queue, NO procesamos - usar process_queue.py
+                if QUEUE_MODE == 'queue':
+                    logger.info('Modo QUEUE: productos guardados. Ejecuta process_queue.py')
+                    published = 0
+                else:
+                    published = run_queue_processor()
                 
                 logger.info(f"")
-                logger.info(f"═══════════════════════════════════════════")
-                logger.info(f"🏆 RESUMEN FINAL")
-                logger.info(f"═══════════════════════════════════════════")
+                logger.info(f"Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â")
+                logger.info(f"Ã°Å¸Ââ€  RESUMEN FINAL")
+                logger.info(f"Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â")
                 logger.info(f"   Scrapeados: {total_sent + total_discarded}")
                 logger.info(f"   Pre-filtrados: {total_sent}")
                 logger.info(f"   Publicados: {published}")
-                logger.info(f"   Tasa conversión: {(published / max(1, total_sent) * 100):.1f}%")
+                logger.info(f"   Tasa conversiÃƒÂ³n: {(published / max(1, total_sent) * 100):.1f}%")
             else:
-                logger.info(f"📭 No hay productos en cola para procesar")
+                logger.info(f"Ã°Å¸â€œÂ­ No hay productos en cola para procesar")
 
         except KeyboardInterrupt:
-            logger.info("🛑 Interrumpido por usuario")
-            logger.info(f"📦 Quedan {get_pending_count()} productos en cola para próxima ejecución")
+            logger.info("Ã°Å¸â€ºâ€˜ Interrumpido por usuario")
+            logger.info(f"Ã°Å¸â€œÂ¦ Quedan {get_pending_count()} productos en cola para prÃƒÂ³xima ejecuciÃƒÂ³n")
             break
         except Exception as e:
             logger.error(f"Error en ciclo {cycle}: {e}")
-            logger.info(f"📦 Quedan {get_pending_count()} productos en cola")
+            logger.info(f"Ã°Å¸â€œÂ¦ Quedan {get_pending_count()} productos en cola")
             time.sleep(30)  # Esperar 30s antes del siguiente ciclo si hay error
             continue
     
     # Fin del while - limpieza
     driver.quit()
-    logger.info("🏁 Driver cerrado, sesión de 6 horas terminada")
+    logger.info("Ã°Å¸ÂÂ Driver cerrado, sesiÃƒÂ³n de 6 horas terminada")
