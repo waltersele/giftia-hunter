@@ -1,0 +1,139 @@
+[2026-01-21 18:34:46] ================================================================================
+[2026-01-21 18:34:46] AWIN FEED IMPORTER - Starting import process
+[2026-01-21 18:34:46] ================================================================================
+[2026-01-21 18:34:46] Fetching feed list from Awin...
+[2026-01-21 18:34:48] ✗ ERROR fetching feed list: Expecting value: line 1 column 1 (char 0)
+[2026-01-21 18:34:48] ✗ ABORT: Could not fetch feed list
+[2026-01-21 18:36:17] ================================================================================
+[2026-01-21 18:36:17] AWIN FEED IMPORTER - Starting import process
+[2026-01-21 18:36:17] ================================================================================
+[2026-01-21 18:36:17] Fetching feed list from Awin...
+[2026-01-21 18:36:20] ✓ Feed list retrieved: 795 feeds total
+[2026-01-21 18:36:20] ✓ Filtered to 13 feeds from target merchants:
+[2026-01-21 18:36:20]   - Sprinter (ID 27904): Feed F83 - 117894 products
+[2026-01-21 18:36:20]   - El Corte Inglés (ID 13075): Feed 33801 - 69606 products
+[2026-01-21 18:36:20]   - El Corte Inglés (ID 13075): Feed 33803 - 362372 products
+[2026-01-21 18:36:20]   - Padel Market (ID 24562): Feed 62687 - 5486 products
+[2026-01-21 18:36:20]   - Sprinter (ID 27904): Feed 71705 - 128676 products
+[2026-01-21 18:36:20]   - El Corte Inglés (ID 13075): Feed 89678 - 302482 products
+[2026-01-21 18:36:20]   - El Corte Inglés (ID 13075): Feed 89688 - 470553 products
+[2026-01-21 18:36:20]   - Padel Market (ID 24562): Feed 97523 - 5498 products
+[2026-01-21 18:36:20]   - Padel Market (ID 24562): Feed 98176 - 5498 products
+[2026-01-21 18:36:20]   - Padel Market (ID 24562): Feed 98177 - 5498 products
+[2026-01-21 18:36:20]   - Padel Market (ID 24562): Feed 98178 - 4914 products
+[2026-01-21 18:36:20]   - Padel Market (ID 24562): Feed 98594 - 5437 products
+[2026-01-21 18:36:20]   - Padel Market (ID 24562): Feed 100347 - 4881 products
+[2026-01-21 18:36:20] 
+📥 13 feeds need updating
+[2026-01-21 18:36:20] Downloading feed F83 from Sprinter...
+[2026-01-21 18:36:29] ✓ Parsed 117894 products from feed F83
+[2026-01-21 18:36:30] Downloading feed 33801 from El Corte Inglés...
+[2026-01-21 18:36:45] ✓ Parsed 69606 products from feed 33801
+[2026-01-21 18:36:46] Downloading feed 33803 from El Corte Inglés...
+[2026-01-21 18:38:11] ✓ Parsed 362372 products from feed 33803
+[2026-01-21 18:38:12] Downloading feed 62687 from Padel Market...
+[2026-01-21 18:38:14] ✓ Parsed 5486 products from feed 62687
+[2026-01-21 18:38:15] Downloading feed 71705 from Sprinter...
+[2026-01-21 18:38:31] ✓ Parsed 128676 products from feed 71705
+[2026-01-21 18:38:32] Downloading feed 89678 from El Corte Inglés...
+[2026-01-21 18:39:35] ✓ Parsed 302482 products from feed 89678
+[2026-01-21 18:39:36] Downloading feed 89688 from El Corte Inglés...
+[2026-01-21 18:40:51] ✓ Parsed 470553 products from feed 89688
+[2026-01-21 18:40:52] Downloading feed 97523 from Padel Market...
+[2026-01-21 18:40:54] ✓ Parsed 5498 products from feed 97523
+[2026-01-21 18:40:55] Downloading feed 98176 from Padel Market...
+[2026-01-21 18:40:57] ✓ Parsed 5498 products from feed 98176
+[2026-01-21 18:40:58] Downloading feed 98177 from Padel Market...
+[2026-01-21 18:41:00] ✓ Parsed 5498 products from feed 98177
+[2026-01-21 18:41:01] Downloading feed 98178 from Padel Market...
+[2026-01-21 18:41:03] ✓ Parsed 4914 products from feed 98178
+[2026-01-21 18:41:04] Downloading feed 98594 from Padel Market...
+[2026-01-21 18:41:06] ✓ Parsed 5437 products from feed 98594
+[2026-01-21 18:41:07] Downloading feed 100347 from Padel Market...
+[2026-01-21 18:41:09] ✓ Parsed 4881 products from feed 100347
+[2026-01-21 18:41:10] 
+🔍 Applying quality filters to 1488795 products...
+[2026-01-21 18:41:10] 
+📊 Filter Results:
+[2026-01-21 18:41:10]   Total products: 1488795
+[2026-01-21 18:41:10]   ✗ No rating: 0
+[2026-01-21 18:41:10]   ✗ Rating < 4.4★: 1488795
+[2026-01-21 18:41:10]   ✗ Reviews < 150: 0
+[2026-01-21 18:41:10]   ✗ Price out of range (€12-200): 0
+[2026-01-21 18:41:10]   ✗ Missing EAN: 0
+[2026-01-21 18:41:10]   ✗ Out of stock: 0
+[2026-01-21 18:41:10]   ✓ PASSED: 0 (0.0%)
+[2026-01-21 18:41:10] ✗ No products passed quality filters
+[2026-01-21 18:41:12] ================================================================================
+[2026-01-21 18:41:12] AWIN FEED IMPORTER - Starting import process
+[2026-01-21 18:41:12] ================================================================================
+[2026-01-21 18:41:12] Fetching feed list from Awin...
+[2026-01-21 18:41:14] ✓ Feed list retrieved: 795 feeds total
+[2026-01-21 18:41:14] ✓ Filtered to 13 feeds from target merchants:
+[2026-01-21 18:41:14]   - Sprinter (ID 27904): Feed F83 - 117894 products
+[2026-01-21 18:41:14]   - El Corte Inglés (ID 13075): Feed 33801 - 69606 products
+[2026-01-21 18:41:14]   - El Corte Inglés (ID 13075): Feed 33803 - 362372 products
+[2026-01-21 18:41:14]   - Padel Market (ID 24562): Feed 62687 - 5486 products
+[2026-01-21 18:41:14]   - Sprinter (ID 27904): Feed 71705 - 128676 products
+[2026-01-21 18:41:14]   - El Corte Inglés (ID 13075): Feed 89678 - 302482 products
+[2026-01-21 18:41:14]   - El Corte Inglés (ID 13075): Feed 89688 - 470553 products
+[2026-01-21 18:41:14]   - Padel Market (ID 24562): Feed 97523 - 5498 products
+[2026-01-21 18:41:14]   - Padel Market (ID 24562): Feed 98176 - 5498 products
+[2026-01-21 18:41:14]   - Padel Market (ID 24562): Feed 98177 - 5498 products
+[2026-01-21 18:41:14]   - Padel Market (ID 24562): Feed 98178 - 4914 products
+[2026-01-21 18:41:14]   - Padel Market (ID 24562): Feed 98594 - 5437 products
+[2026-01-21 18:41:14]   - Padel Market (ID 24562): Feed 100347 - 4881 products
+[2026-01-21 18:41:14] 
+📥 13 feeds need updating
+[2026-01-21 18:41:14] Downloading feed F83 from Sprinter...
+[2026-01-21 18:41:26] ✓ Parsed 117894 products from feed F83
+[2026-01-21 18:41:27] Downloading feed 33801 from El Corte Inglés...
+[2026-01-21 18:41:43] ✓ Parsed 69606 products from feed 33801
+[2026-01-21 18:41:44] Downloading feed 33803 from El Corte Inglés...
+[2026-01-21 18:43:03] ✓ Parsed 362372 products from feed 33803
+[2026-01-21 18:43:04] Downloading feed 62687 from Padel Market...
+[2026-01-21 18:43:07] ✓ Parsed 5486 products from feed 62687
+[2026-01-21 18:43:08] Downloading feed 71705 from Sprinter...
+[2026-01-21 18:43:25] ✓ Parsed 128676 products from feed 71705
+[2026-01-21 18:43:26] Downloading feed 89678 from El Corte Inglés...
+[2026-01-21 18:44:36] ✓ Parsed 302482 products from feed 89678
+[2026-01-21 18:44:37] Downloading feed 89688 from El Corte Inglés...
+[2026-01-21 18:45:59] ✓ Parsed 470553 products from feed 89688
+[2026-01-21 18:46:00] Downloading feed 97523 from Padel Market...
+[2026-01-21 18:46:02] ✓ Parsed 5498 products from feed 97523
+[2026-01-21 18:46:03] Downloading feed 98176 from Padel Market...
+[2026-01-21 18:46:05] ✓ Parsed 5498 products from feed 98176
+[2026-01-21 18:46:06] Downloading feed 98177 from Padel Market...
+[2026-01-21 18:46:08] ✓ Parsed 5498 products from feed 98177
+[2026-01-21 18:46:09] Downloading feed 98178 from Padel Market...
+[2026-01-21 18:46:11] ✓ Parsed 4914 products from feed 98178
+[2026-01-21 18:46:12] Downloading feed 98594 from Padel Market...
+[2026-01-21 18:46:13] ✓ Parsed 5437 products from feed 98594
+[2026-01-21 18:46:14] Downloading feed 100347 from Padel Market...
+[2026-01-21 18:46:16] ✓ Parsed 4881 products from feed 100347
+[2026-01-21 18:46:17] 
+🔍 Applying quality filters to 1488795 products...
+[2026-01-21 18:46:18] 
+📊 Filter Results:
+[2026-01-21 18:46:18]   Total products: 1488795
+[2026-01-21 18:46:18]   ✗ Price out of range (€12-200): 380106
+[2026-01-21 18:46:18]   ✗ Missing EAN: 5057
+[2026-01-21 18:46:18]   ✗ Out of stock: 534002
+[2026-01-21 18:46:18]   ✓ PASSED: 569630 (38.3%)
+[2026-01-21 18:46:18] 
+💡 NOTE: Rating/reviews not in Awin feeds. Gemini will filter quality.
+[2026-01-21 18:46:18] 
+🔄 Transforming 569630 products to Giftia format...
+[2026-01-21 18:46:20] ✓ Transformation complete: 569630 products ready
+[2026-01-21 18:46:42] 
+✓ Added 569630 new products to pending queue
+[2026-01-21 18:46:42]   (Skipped 0 duplicates by EAN)
+[2026-01-21 18:46:42]   Total pending: 569648 products
+[2026-01-21 18:46:42] 
+================================================================================
+[2026-01-21 18:46:42] ✓ IMPORT COMPLETE in 330.4s
+[2026-01-21 18:46:42]   Feeds processed: 13
+[2026-01-21 18:46:42]   Products downloaded: 1488795
+[2026-01-21 18:46:42]   Products passed filters: 569630
+[2026-01-21 18:46:42]   New products added to queue: Ready for Gemini processing
+[2026-01-21 18:46:42] ================================================================================

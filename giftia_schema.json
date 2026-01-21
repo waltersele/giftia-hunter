@@ -122,6 +122,20 @@
       "description": "Productos premium, alta gama, ediciones limitadas",
       "keywords": ["premium", "lujo", "luxury", "exclusivo", "edición limitada", "oro", "plata"],
       "emoji": "💎"
+    },
+    "Bebes": {
+      "slug": "bebes",
+      "name": "Bebés",
+      "description": "Productos para bebés 0-2 años: biberones, chupetes, ropa bebé, cunas, cochecitos",
+      "keywords": ["bebé", "bebe", "biberón", "chupete", "cuna", "cochecito", "pañal", "recién nacido", "lactancia", "embarazo", "parto", "canastilla", "body bebé", "manta bebé", "sonajero"],
+      "emoji": "👶"
+    },
+    "Ninos": {
+      "slug": "ninos",
+      "name": "Niños",
+      "description": "Productos para niños 3-12 años: juguetes, mochilas escolares, libros infantiles, juegos educativos",
+      "keywords": ["niño", "juguete", "montessori", "lego niños", "mochila escolar", "libro infantil", "puzzle", "juego educativo", "peluche", "muñeca", "coche juguete", "construcción", "colorear", "kit niños"],
+      "emoji": "🧒"
     }
   },
   

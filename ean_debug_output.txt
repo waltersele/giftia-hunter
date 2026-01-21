@@ -1,0 +1,13 @@
+﻿python : Traceback (most recent call last):
+En línea: 1 Carácter: 1
++ python debug_ean_selectors.py 2>&1 | Out-File -Encoding UTF8 ean_debu ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback (most recent call last)::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "D:\giftia-hunter\debug_ean_selectors.py", line 32, in <module>
+    print(f"\U0001f50d Abriendo: {url}")
+  File "C:\Python312\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f50d' in position 0: character maps to <undefined>

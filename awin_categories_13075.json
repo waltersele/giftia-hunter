@@ -1,0 +1,166 @@
+{
+  "merchant_id": 13075,
+  "merchant_name": "El Corte Inglés",
+  "total_products": 69606,
+  "total_categories": 26,
+  "categories": {
+    "Multimedia > Música y grabaciones": 37209,
+    "Arte y ocio > Hobbies y artes creativas": 15904,
+    "Arte y ocio > Fiestas y celebraciones > Regalos": 7876,
+    "Multimedia > DVD y vídeo": 6640,
+    "Software > Software de videojuegos": 919,
+    "Arte y ocio > Hobbies y artes creativas > Manualidades > Kits de manualidades": 370,
+    "Material de oficina > Clasificación y organización > Calendarios, organizadores y agendas": 242,
+    "Material de oficina > Productos generales > Gomas de borrar": 103,
+    "Material de oficina > Artículos de oficina > Accesorios para escritura y dibujo > Recambios y tintas": 81,
+    "Material de oficina > Artículos de oficina > Artículos de escritura y dibujo > Bolígrafos y lápices > Juegos de bolígrafo y lápiz": 64,
+    "Material de oficina > Artículos de oficina > Accesorios para escritura y dibujo": 49,
+    "Mobiliario > Accesorios para mobiliario de oficina > Accesorios y productos para escritorios": 45,
+    "Material de oficina > Artículos de oficina > Artículos de escritura y dibujo": 21,
+    "Maletas y bolsos de viaje > Mochilas": 17,
+    "Material de oficina > Clasificación y organización > Materiales de encuadernación > Accesorios de encuadernación > Fundas protectoras": 11,
+    "Juegos y juguetes > Juguetes > Muñecas, parques infantiles y figuras de juguete": 10,
+    "Equipamiento deportivo": 10,
+    "Juegos y juguetes > Juguetes > Juguetes educativos": 8,
+    "Multimedia > Libros": 7,
+    "Material de oficina > Clasificación y organización > Materiales de encuadernación > Accesorios de encuadernación > Separadores": 6,
+    "Casa y jardín > Decoración > Globos terráqueos": 6,
+    "Juegos y juguetes": 3,
+    "Maletas y bolsos de viaje > Accesorios de equipaje > Fundas para mochilas": 2,
+    "Juegos y juguetes > Juegos > Juegos de mesa": 1,
+    "Maletas y bolsos de viaje > Accesorios de equipaje": 1,
+    "Electrónica": 1
+  },
+  "examples": {
+    "Arte y ocio > Fiestas y celebraciones > Regalos": {
+      "title": "Cenicero Real Madrid C.F. Mediano 100% Blanco.",
+      "price": "12.0",
+      "brand": "Real Madrid C.F."
+    },
+    "Multimedia > Música y grabaciones": {
+      "title": "Victory (Edición Color) (LP-Vinilo).",
+      "price": "37.99",
+      "brand": "MASS APPEAL"
+    },
+    "Multimedia > Libros": {
+      "title": "El año que sonarán todas tus canciones: Agenda Defreds (2023-2024).",
+      "price": "17.95",
+      "brand": "COPELIA"
+    },
+    "Arte y ocio > Hobbies y artes creativas": {
+      "title": "Mi primera Biblia (Tapa blanda).",
+      "price": "12.35",
+      "brand": "PALABRA"
+    },
+    "Material de oficina > Productos generales > Gomas de borrar": {
+      "title": "Goma multifunción HMM gris.",
+      "price": "10.0",
+      "brand": "HMM"
+    },
+    "Mobiliario > Accesorios para mobiliario de oficina > Accesorios y productos para escritorios": {
+      "title": "Papelera Simil Piel Rhodia Beige.",
+      "price": "24.99",
+      "brand": "RHODIA"
+    },
+    "Material de oficina > Artículos de oficina > Artículos de escritura y dibujo": {
+      "title": "Blister V-Pen Pluma desechable azul Pilot.",
+      "price": "4.35",
+      "brand": "Pilot"
+    },
+    "Material de oficina > Artículos de oficina > Artículos de escritura y dibujo > Bolígrafos y lápices > Juegos de bolígrafo y lápiz": {
+      "title": "Kit 4 Estuches Con Contenido Sunset MILAN, Verde.",
+      "price": "39.95",
+      "brand": "MILAN"
+    },
+    "Material de oficina > Clasificación y organización > Calendarios, organizadores y agendas": {
+      "title": "Planificador diario personal Talkual A5 - 148x210 mm 1 día página Finocam.",
+      "price": "5.0",
+      "brand": "FINOCAM"
+    },
+    "Material de oficina > Clasificación y organización > Materiales de encuadernación > Accesorios de encuadernación > Separadores": {
+      "title": "Separadores Folio 10 posiciones 5 colores Dohe.",
+      "price": "2.99",
+      "brand": "Dohe"
+    },
+    "Material de oficina > Clasificación y organización > Materiales de encuadernación > Accesorios de encuadernación > Fundas protectoras": {
+      "title": "100 fundas multitaladro Frost.",
+      "price": "7.75",
+      "brand": "Frost"
+    },
+    "Arte y ocio > Hobbies y artes creativas > Manualidades > Kits de manualidades": {
+      "title": "ACUARELAS Estuche 12 Pastillas 22 mm Colores Surtidos + Pincel Jovi.",
+      "price": "2.95",
+      "brand": "Jovi"
+    },
+    "Casa y jardín > Decoración > Globos terráqueos": {
+      "title": "Globo Terráqueo con luz Nigth & Day azul Tecnodidattica.",
+      "price": "30.99",
+      "brand": "Tecnodidattica"
+    },
+    "Multimedia > DVD y vídeo": {
+      "title": "Aprende con Mozart (DVD).",
+      "price": "10.99",
+      "brand": "39 Escalones Films"
+    },
+    "Software > Software de videojuegos": {
+      "title": "Silla Gaming Nasa Supernova.",
+      "price": "179.0",
+      "brand": "NASA"
+    },
+    "Juegos y juguetes": {
+      "title": "Juego de Ingenio Aquamarine Games Los 3 Imposibles.",
+      "price": "12.15",
+      "brand": "Aquamarine Games"
+    },
+    "Juegos y juguetes > Juegos > Juegos de mesa": {
+      "title": "La Torre de Colores.",
+      "price": "14.35",
+      "brand": "Aquamarine Games"
+    },
+    "Material de oficina > Artículos de oficina > Accesorios para escritura y dibujo > Recambios y tintas": {
+      "title": "Frasco Cristal Tinta 50 ml Waterman Negro.",
+      "price": "10.5",
+      "brand": "Waterman"
+    },
+    "Material de oficina > Artículos de oficina > Accesorios para escritura y dibujo": {
+      "title": "Plumín F Z50 Lamy Acero.",
+      "price": "8.5",
+      "brand": "Lamy"
+    },
+    "Juegos y juguetes > Juguetes > Muñecas, parques infantiles y figuras de juguete": {
+      "title": "Maletín Del Artista Frozen II.",
+      "price": "37.99",
+      "brand": "Crayola"
+    },
+    "Juegos y juguetes > Juguetes > Juguetes educativos": {
+      "title": "16 Maxi Tizas de Suelo Lavables.",
+      "price": "9.99",
+      "brand": "Crayola"
+    },
+    "Maletas y bolsos de viaje > Mochilas": {
+      "title": "Mochila unisex Wyoming Eastpak.",
+      "price": "69.99",
+      "brand": "Eastpak"
+    },
+    "Equipamiento deportivo": {
+      "title": "Máquina recreativa The Fast & The Furious Deluxe Racing Arcade1up.",
+      "price": "799.99",
+      "brand": "Arcade1up"
+    },
+    "Maletas y bolsos de viaje > Accesorios de equipaje": {
+      "title": "Estuche Roland Garros edición limitada.",
+      "price": "22.4",
+      "brand": "Delsey Paris"
+    },
+    "Maletas y bolsos de viaje > Accesorios de equipaje > Fundas para mochilas": {
+      "title": "Mochila Roland Garros textil edición limitada.",
+      "price": "76.3",
+      "brand": "Delsey Paris"
+    },
+    "Electrónica": {
+      "title": "Auricular Speedlink Legatos Stereo Headset negro.",
+      "price": "9.99",
+      "brand": "Speedlink"
+    }
+  }
+}

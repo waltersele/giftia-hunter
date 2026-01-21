@@ -1,0 +1,451 @@
+{
+  "timestamp": "2026-01-21T11:27:17.759256",
+  "dry_run": false,
+  "total_products": 100,
+  "changes": [
+    {
+      "id": 3092,
+      "title": "Tu Mensaje Iluminado: Caja de Luz LED",
+      "old": "Hogar",
+      "new": "Decoración"
+    },
+    {
+      "id": 3090,
+      "title": "Armoniza tu Práctica con este Cojín Media Luna",
+      "old": "Bienestar",
+      "new": "Zen"
+    },
+    {
+      "id": 3088,
+      "title": "Encuentra tu Centro con este Cojín Zafu Orgánico",
+      "old": "Bienestar",
+      "new": "Zen"
+    },
+    {
+      "id": 3086,
+      "title": "Crea tu Cojín Gatuno: Kit Punto de Cruz Relajante",
+      "old": "Arte/Craft",
+      "new": "Artista"
+    },
+    {
+      "id": 3084,
+      "title": "Crea tu Propio Cojín de Oso Azul",
+      "old": "Arte/Craft",
+      "new": "Artista"
+    },
+    {
+      "id": 3082,
+      "title": "Un Oasis de Tranquilidad en tu Jardín",
+      "old": "Aire libre",
+      "new": "Decoración"
+    },
+    {
+      "id": 3080,
+      "title": "Hamaca Ultraligera: Tu Refugio Portátil en la Naturaleza",
+      "old": "Aire libre",
+      "new": "Outdoor"
+    },
+    {
+      "id": 3078,
+      "title": "La Hamaca Gigante para Desconectar del Mundo",
+      "old": "Aire libre",
+      "new": "Outdoor"
+    },
+    {
+      "id": 3076,
+      "title": "Globo de Nieve Mágico que Canta a la Navidad",
+      "old": "Hogar",
+      "new": "Decoración"
+    },
+    {
+      "id": 3074,
+      "title": "Lámpara Mágica que Ilumina con Color",
+      "old": "Hogar",
+      "new": "Decoración"
+    },
+    {
+      "id": 3072,
+      "title": "Lámpara de Noche Cristalina que Enamora",
+      "old": "Hogar",
+      "new": "Decoración"
+    },
+    {
+      "id": 3070,
+      "title": "Lámpara de Cristal que Ilumina y Carga",
+      "old": "Hogar",
+      "new": "Tech"
+    },
+    {
+      "id": 3068,
+      "title": "Revive la Nostalgia con Snoopy y su Caseta Funko Pop",
+      "old": "Fandom/Friki",
+      "new": "Friki"
+    },
+    {
+      "id": 3066,
+      "title": "La Magia Invernal de Halloween Town en tu Hogar",
+      "old": "Hogar",
+      "new": "Decoración"
+    },
+    {
+      "id": 3064,
+      "title": "Aventura en Miniatura: Pack Figuras Link y Zelda",
+      "old": "Fandom/Friki",
+      "new": "Ninos"
+    },
+    {
+      "id": 3062,
+      "title": "Tu Lienzo Digital Portátil: Huion Kamvas Slate 10",
+      "old": "Arte/Craft",
+      "new": "Artista"
+    },
+    {
+      "id": 3060,
+      "title": "Cesta de Madera: El Regalo Perfecto para Baby Shower",
+      "old": "Infantil",
+      "new": "Bebes"
+    },
+    {
+      "id": 3058,
+      "title": "Domina la Montaña con Bastones Plegables",
+      "old": "Aire libre",
+      "new": "Outdoor"
+    },
+    {
+      "id": 3056,
+      "title": "Bastones de Senderismo Ajustables: Conquista la Montaña con Confianza",
+      "old": "Aire libre",
+      "new": "Outdoor"
+    },
+    {
+      "id": 3038,
+      "title": "Bienvenida Personalizada: Cesta de Bebé con Amor",
+      "old": "Infantil",
+      "new": "Bebes"
+    },
+    {
+      "id": 3036,
+      "title": "Bienvenido al Mundo, Pequeño Tesoro",
+      "old": "Infantil",
+      "new": "Bebes"
+    },
+    {
+      "id": 3034,
+      "title": "El Primer Kit de Bordado para Pequeños Artistas",
+      "old": "Infantil",
+      "new": "Ninos"
+    },
+    {
+      "id": 3032,
+      "title": "Cámara Instantánea para Pequeños Artistas",
+      "old": "Infantil",
+      "new": "Ninos"
+    },
+    {
+      "id": 3030,
+      "title": "Captura la Aventura: Cámara Instantánea para Pequeños Exploradores",
+      "old": "Infantil",
+      "new": "Ninos"
+    },
+    {
+      "id": 3017,
+      "title": "Ilumina tus Aventuras: Linterna Frontal Ledlenser",
+      "old": "Aire libre",
+      "new": "Outdoor"
+    },
+    {
+      "id": 3013,
+      "title": "Regala Momentos Inolvidables en Pareja",
+      "old": "Cocina/Gourmet",
+      "new": "Viajes"
+    },
+    {
+      "id": 3011,
+      "title": "El Primer Centro de Juegos Montessori",
+      "old": "Infantil",
+      "new": "Ninos"
+    },
+    {
+      "id": 3009,
+      "title": "Centro de Aprendizaje Montessori: 4 Juguetes en 1",
+      "old": "Infantil",
+      "new": "Ninos"
+    },
+    {
+      "id": 3007,
+      "title": "Cubo Mágico Montessori: 6 Juguetes en 1",
+      "old": "Infantil",
+      "new": "Ninos"
+    },
+    {
+      "id": 3005,
+      "title": "Torre de Descubrimientos: Cubos Apilables Montessori",
+      "old": "Infantil",
+      "new": "Ninos"
+    },
+    {
+      "id": 3003,
+      "title": "Decantador de Vino Amlong Crystal: Un Toque de Elegancia",
+      "old": "Cocina/Gourmet",
+      "new": "Gourmet"
+    },
+    {
+      "id": 3001,
+      "title": "Experiencia Vinícola Completa: Set Decantador de Cristal",
+      "old": "Cocina/Gourmet",
+      "new": "Gourmet"
+    },
+    {
+      "id": 2999,
+      "title": "Decantador Cisne: Una Joya para Degustar Vino",
+      "old": "Cocina/Gourmet",
+      "new": "Gourmet"
+    },
+    {
+      "id": 2995,
+      "title": "Descubre el Mundo Oculto: Endoscopio Infantil para Pequeños Exploradores",
+      "old": "Infantil",
+      "new": "Ninos"
+    },
+    {
+      "id": 2993,
+      "title": "Alimentación Natural y Cómoda: Pack de 2 Biberones Philips Avent",
+      "old": "Infantil",
+      "new": "Bebes"
+    },
+    {
+      "id": 2991,
+      "title": "El Comienzo Perfecto: Set de Regalo Philips Avent",
+      "old": "Infantil",
+      "new": "Bebes"
+    },
+    {
+      "id": 2989,
+      "title": "Alimentación Suave y Natural: Set de 3 Biberones Philips Avent",
+      "old": "Infantil",
+      "new": "Bebes"
+    },
+    {
+      "id": 2987,
+      "title": "El Set Completo para una Alimentación Natural: Philips Avent",
+      "old": "Infantil",
+      "new": "Bebes"
+    },
+    {
+      "id": 2985,
+      "title": "El Comienzo Perfecto: Set de Biberones Philips Avent",
+      "old": "Infantil",
+      "new": "Bebes"
+    },
+    {
+      "id": 2981,
+      "title": "Despierta la Imaginación con la Pizarra de Fieltro de la Jungla",
+      "old": "Infantil",
+      "new": "Ninos"
+    },
+    {
+      "id": 2973,
+      "title": "The Glenrothes 12 Años Whisky Single Malt Escocés 70cl",
+      "old": "Cocina/Gourmet",
+      "new": "Gourmet"
+    },
+    {
+      "id": 2971,
+      "title": "Dalwhinnie 15 Años Whisky Escocés Single Malt, 700 ml",
+      "old": "Cocina/Gourmet",
+      "new": "Gourmet"
+    },
+    {
+      "id": 2969,
+      "title": "Jack Daniel's Single Barrel Tennessee Whiskey Con Estuche Metálico para regalo - 45% Vol. Alcohol, 7",
+      "old": "Cocina/Gourmet",
+      "new": "Gourmet"
+    },
+    {
+      "id": 2967,
+      "title": "Talisker 10 años, whisky escocés single malt, 700 ml",
+      "old": "Cocina/Gourmet",
+      "new": "Gourmet"
+    },
+    {
+      "id": 2961,
+      "title": "El Kit Científico Definitivo: 238+ Experimentos para Jóvenes Genios",
+      "old": "Infantil",
+      "new": "Ninos"
+    },
+    {
+      "id": 2959,
+      "title": "Desata la Creatividad con Bloques Magnéticos de Construcción",
+      "old": "Tech",
+      "new": "Ninos"
+    },
+    {
+      "id": 2957,
+      "title": "El Laboratorio Científico Definitivo para Niños",
+      "old": "Tech",
+      "new": "Ninos"
+    },
+    {
+      "id": 2955,
+      "title": "Construye tu Propio Robot y Desata tu Ingenio",
+      "old": "Tech",
+      "new": "Ninos"
+    },
+    {
+      "id": 2954,
+      "title": "Regala Tranquilidad: Termómetro Digital Philips Avent",
+      "old": "Tech",
+      "new": "Bebes"
+    },
+    {
+      "id": 2953,
+      "title": "Asegura el Baño Perfecto para tu Bebé con el Termómetro BÉABA Lotus",
+      "old": "Niños",
+      "new": "Bebes"
+    },
+    {
+      "id": 2950,
+      "title": "Kindle Paperwhite: Tu Portal a Mundos Inolvidables",
+      "old": "Lectura",
+      "new": "Lector"
+    },
+    {
+      "id": 2941,
+      "title": "BÉABA, Termómetro de baño Lotus, Digital, Multifunción, Mide la temperatura de la habitación y del a",
+      "old": "Tech",
+      "new": "Bebes"
+    },
+    {
+      "id": 2939,
+      "title": "Termómetro digital Philips Avent (modelo SCH480/00)",
+      "old": "Tech",
+      "new": "Bebes"
+    },
+    {
+      "id": 2937,
+      "title": "MUGFFINS Tazas para SURFISTA hombre - En Español - Koalificado/koalificada - 11 oz / 330 ml - Regalo",
+      "old": "Deporte/Fitness",
+      "new": "Decoración"
+    },
+    {
+      "id": 2935,
+      "title": "Taza El Surf Mola un Huevo. Cerámica AAA - 350 ml.",
+      "old": "Deporte/Fitness",
+      "new": "Decoración"
+    },
+    {
+      "id": 2933,
+      "title": "DiiliHiiri Cartel Surf de Chapa Placa Retro Letrero Estilo Vintage Metal para Decoración Hogar (Welc",
+      "old": "Hogar",
+      "new": "Decoración"
+    },
+    {
+      "id": 2931,
+      "title": "DeFieltro Kit de Costura Infantil DIY – Set de Fieltro para Niños y Niñas a Partir de 6 Años, con Un",
+      "old": "Tech",
+      "new": "Ninos"
+    },
+    {
+      "id": 2929,
+      "title": "Tacobear Kit de Costura Niños Selva Animales Costura Fieltro Manualidades Niños Cumpleaños Creativo ",
+      "old": "Arte/Craft",
+      "new": "Ninos"
+    },
+    {
+      "id": 2927,
+      "title": "Smartbox - Caja Regalo para Hombres - Pura Aventura - Caja Regalo para Hombres - 1 Experiencia de co",
+      "old": "Experiencias",
+      "new": "Viajes"
+    },
+    {
+      "id": 2925,
+      "title": "Nordik Valet Tray - Bandeja de cuero vegano de primera calidad en dos tonos marrón y beige - Organiz",
+      "old": "Hogar",
+      "new": "Decoración"
+    },
+    {
+      "id": 2923,
+      "title": "Wyckoff 2.0: Estructuras, Volume Profile y Order Flow: 3 (Curso de Trading e Inversión: Análisis Téc",
+      "old": "Tech",
+      "new": "Lector"
+    },
+    {
+      "id": 2921,
+      "title": "Fisher-Price Nutria Hora de Dormir - Peluche Musical - Con Movimiento, Sonidos y Luces Relajantes - ",
+      "old": "Bienestar",
+      "new": "Bebes"
+    },
+    {
+      "id": 2919,
+      "title": "Interbaby - Manta Bebe Recien Nacido | Manta Algodon Bebe y Poliéster, Terciopelo, Suave, Cómoda, Cá",
+      "old": "Hogar",
+      "new": "Bebes"
+    },
+    {
+      "id": 2917,
+      "title": "Interbaby - Manta Bebe Recien Nacido | Mantita Bebe 100% Poliéster, Terciopelo, Suave, Cómoda, Cálid",
+      "old": "Moda",
+      "new": "Bebes"
+    },
+    {
+      "id": 2915,
+      "title": "ieGeek Cámara Vigilancia Bebes 5\" 2K/3MP, Baby Monitor con Vista 360° PTZ, Detección Movimiento y Ll",
+      "old": "Tech",
+      "new": "Bebes"
+    },
+    {
+      "id": 2911,
+      "title": "DALLE PIANE CASHMERE",
+      "old": "Moda",
+      "new": "Lujo"
+    },
+    {
+      "id": 2907,
+      "title": "Filtro Reutilizable AeroPress Gold Tone de Acero Inoxidable - Filtro de café metálico duradero, sost",
+      "old": "Cocina/Gourmet",
+      "new": "Gourmet"
+    },
+    {
+      "id": 2905,
+      "title": "AeroPress Go cafetera portátil extra pequeña, ideal para viajes, senderismo y acampada, prensa franc",
+      "old": "Gourmet, viajes",
+      "new": "Viajes"
+    },
+    {
+      "id": 2902,
+      "title": "AeroPress Prensa de Café – Método de Preparación 3 en 1 que Combina French Press, Espresso y Café In",
+      "old": "Cocina/Gourmet",
+      "new": "Gourmet"
+    },
+    {
+      "id": 2901,
+      "title": "Togu Pilates Foamroller 90x15 cm Premium - Cilindro de gomaespuma para Fitness",
+      "old": "Deporte/Fitness",
+      "new": "Deporte"
+    },
+    {
+      "id": 2899,
+      "title": "BODYMATE Rodillo Standard para Tejido fascial | Dureza Media | Longitud 45 cm diámetro 15 cm | con L",
+      "old": "Deporte/Fitness",
+      "new": "Deporte"
+    },
+    {
+      "id": 2897,
+      "title": "PLAYMOBIL Famous Cars 71343 Magnum, P,I, Ferrari 308 GTS, Supercoche, Pieza de colección para los Af",
+      "old": "Fandom/Friki",
+      "new": "Friki"
+    },
+    {
+      "id": 2895,
+      "title": "PLAYMOBIL Scooby DOO 70362 Aventura en el Cementerio, A Partir de 5 Años",
+      "old": "Fandom/Friki",
+      "new": "Ninos"
+    },
+    {
+      "id": 2892,
+      "title": "PLAYMOBIL Back to The Future 70317 Delorean con Efectos de Luz, A Partir de 6 Años",
+      "old": "Fandom/Friki",
+      "new": "Ninos"
+    }
+  ]
+}

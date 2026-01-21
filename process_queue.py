@@ -14,6 +14,11 @@ import requests
 from datetime import datetime
 from dotenv import load_dotenv
 
+# Fix encoding para Windows (evitar crash con emojis en cp1252)
+if sys.platform == 'win32':
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+    sys.stderr.reconfigure(encoding='utf-8', errors='replace')
+
 # Cargar .env
 load_dotenv()
 
@@ -43,9 +48,9 @@ try:
     if os.path.exists(schema_path):
         with open(schema_path, 'r', encoding='utf-8') as f:
             SCHEMA = json.load(f)
-        print(f"✅ Schema giftia_schema.json cargado correctamente")
+        print(f"[OK] Schema giftia_schema.json cargado correctamente")
 except Exception as e:
-    print(f"⚠️ Error cargando schema: {e}")
+    print(f"[WARNING] Error cargando schema: {e}")
 
 # Extraer valores del schema JSON
 VALID_CATEGORIES = list(SCHEMA.get('categories', {}).keys()) if SCHEMA.get('categories') else [
@@ -74,12 +79,12 @@ CATEGORY_TO_SLUG = {}
 for key, data in SCHEMA.get('categories', {}).items():
     CATEGORY_TO_SLUG[key] = data.get('slug', key.lower())
 
-print(f"✅ Schema giftia_schema.json cargado:")
-print(f"   📦 Categorías: {len(VALID_CATEGORIES)} - {VALID_CATEGORIES[:5]}...")
-print(f"   👶 Edades: {len(VALID_AGES)} - {VALID_AGES}")
-print(f"   ⚧ Géneros: {len(VALID_GENDERS)} - {VALID_GENDERS}")
-print(f"   👥 Destinatarios: {len(VALID_RECIPIENTS)} - {VALID_RECIPIENTS}")
-print(f"   🎉 Ocasiones: {len(VALID_OCCASIONS)} - {VALID_OCCASIONS[:5]}...")
+print(f"[OK] Schema giftia_schema.json cargado:")
+print(f"   Categorias: {len(VALID_CATEGORIES)} - {VALID_CATEGORIES[:5]}...")
+print(f"   Edades: {len(VALID_AGES)} - {VALID_AGES}")
+print(f"   Generos: {len(VALID_GENDERS)} - {VALID_GENDERS}")
+print(f"   Destinatarios: {len(VALID_RECIPIENTS)} - {VALID_RECIPIENTS}")
+print(f"   Ocasiones: {len(VALID_OCCASIONS)} - {VALID_OCCASIONS[:5]}...")
 
 # Estado Gemini
 current_key_index = 0
@@ -435,9 +440,9 @@ def classify_batch_with_gemini(products):
 
 PRODUCTOS A EVALUAR:{products_text}
 
-═══════════════════════════════════════════════════════════════════════════════
-🎁 FILTROS DE EXCELENCIA (4 filtros para aprobar)
-═══════════════════════════════════════════════════════════════════════════════
+===============================================================================
+FILTROS DE EXCELENCIA (4 filtros para aprobar)
+===============================================================================
 
 1. UTILIDAD ELEVADA: ¿Resuelve algo o mejora una rutina?
 2. AUTO-BOICOT: ¿Es algo que el destinatario NO se compraría solo?
@@ -445,16 +450,21 @@ PRODUCTOS A EVALUAR:{products_text}
 4. ORGULLO: ¿Te sentirías orgulloso de regalar esto?
 
 RECHAZA (ok: false):
-❌ Recambios, pilas, cables, toner, consumibles básicos
-❌ Productos de limpieza o puramente funcionales
-❌ Cosas aburridas que nadie regalaría con emoción
-❌ Repuestos o accesorios sueltos sin gracia
+- Recambios, pilas, cables, toner, consumibles básicos
+- Productos de limpieza o puramente funcionales
+- Cosas aburridas que nadie regalaría con emoción
+- Repuestos o accesorios sueltos sin gracia
 
-═══════════════════════════════════════════════════════════════════════════════
-📦 CATEGORÍA (category) - USA EXACTAMENTE ESTOS VALORES:
-═══════════════════════════════════════════════════════════════════════════════
+===============================================================================
+CATEGORIA (category) - USA EXACTAMENTE ESTOS VALORES:
+===============================================================================
 
-⚠️ USA SOLO ESTOS 18 VALORES EXACTOS. NO INVENTES OTROS:
+[!] REGLA #1 ABSOLUTA - LEER ANTES DE TODO:
+• BEBES (0-2 años): biberones, chupetes, ropa bebé, cunas, cochecitos → "Bebes"
+• NINOS (3-12 años): juguetes, mochilas escolares, libros infantiles, Montessori → "Ninos"
+SIN EXCEPCION. Productos infantiles NUNCA van a Tech, Decoración u otras categorías.
+
+[!] USA SOLO ESTOS 19 VALORES EXACTOS. NO INVENTES OTROS:
 
 - Tech: Gadgets ADULTOS, electrónica, smart home, USB, Bluetooth, móviles, tablets, drones
 - Gamer: Videojuegos, consolas, accesorios gaming, sillas gaming, mandos, teclados gaming
@@ -473,21 +483,23 @@ RECHAZA (ok: false):
 - Friki: FUNKO POP, merchandising Star Wars/Marvel/anime/Harry Potter, LEGO adultos, juegos mesa
 - Mascotas: Perros, gatos, accesorios SOLO para animales, comederos, camas mascota
 - Lujo: Premium +200€, whisky premium, relojes, joyería fina, ediciones especiales
-- Infantil: TODO para bebés/niños 0-10: juguetes, Montessori, biberones, mantas bebé, peluches
+- Bebes: TODO bebés 0-2 años: biberones, chupetes, ropa bebé, cunas, canastillas, set nacimiento
+- Ninos: TODO niños 3-12 años: juguetes, Montessori, libros infantiles, mochilas, puzzles, peluches
 
-╔═══════════════════════════════════════════════════════════════════════════════╗
-║ 🚨 REGLAS CRÍTICAS - LEER ANTES DE CLASIFICAR:                                ║
-╠═══════════════════════════════════════════════════════════════════════════════╣
-║                                                                               ║
-║ 📌 INFANTIL (prioridad máxima - si es para bebé/niño, ES Infantil):          ║
-║   • Biberones, chupetes, termómetros bebé → Infantil (NO Belleza, NO Tech)   ║
-║   • Mantas bebé, capas baño bebé → Infantil (NO Moda, NO Decoración)         ║
-║   • Juguetes Montessori, cubos actividades → Infantil (NO Tech)              ║
-║   • Set regalo nacimiento/parto → Infantil (NO Zen, NO Decoración)           ║
-║   • Peluches para niños, nutrias dormir → Infantil (NO Decoración)           ║
-║   • Kit costura NIÑOS, origami NIÑOS → Infantil (NO Artista)                 ║
-║   • Colonia bebé, cremas bebé → Infantil (NO Belleza)                        ║
-║   • Cámara instantánea NIÑOS → Infantil (NO Fotografía)                      ║
+===============================================================================
+ REGLAS CRITICAS - LEER ANTES DE CLASIFICAR:
+===============================================================================
+
+ > BEBES Y NINOS (prioridad maxima - NUNCA clasificar como Tech/Deco/Belleza):
+║   • Biberones, chupetes, termómetros bebé → Bebes (NO Belleza, NO Tech)      ║
+║   • Mantas bebé, capas baño bebé, canastillas → Bebes (NO Moda, NO Deco)     ║
+║   • Set regalo nacimiento/parto → Bebes (NO Zen, NO Decoración)              ║
+║   • Juguetes Montessori, cubos actividades → Ninos (NO Tech)                 ║
+║   • Peluches para niños, nutrias dormir → Ninos (NO Decoración)              ║
+║   • Kit costura NIÑOS, origami NIÑOS → Ninos (NO Artista)                    ║
+║   • Colonia bebé, cremas bebé → Bebes (NO Belleza)                           ║
+║   • Cámara instantánea NIÑOS → Ninos (NO Fotografía)                         ║
+║   • Mochilas escolares, libros infantiles → Ninos (NO Viajes)                ║
 ║                                                                               ║
 ║ 📌 GOURMET (todo lo de cocina/gastronomía):                                  ║
 ║   • Set barbacoa, utensilios parrilla → Gourmet (NO Outdoor, NO Fandom)      ║
@@ -504,7 +516,7 @@ RECHAZA (ok: false):
 ║   • Varitas Harry Potter → Friki                                             ║
 ║   • LEGO Star Wars/Marvel → Friki                                            ║
 ║   • Juegos de mesa temáticos → Friki (NO Gamer)                              ║
-║   ⚠️ "Fandom" NO EXISTE como categoría - usar "Friki"                        ║
+   [!] "Fandom" NO EXISTE como categoria - usar "Friki"
 ║                                                                               ║
 ║ 📌 OUTDOOR vs DEPORTE:                                                       ║
 ║   • Tiendas campaña, bastones senderismo → Outdoor                           ║
@@ -541,41 +553,41 @@ occasions: {', '.join(VALID_OCCASIONS)} (elige 1-3)
 - hedonism: EL HEDONISMO - Placer sensorial
 - wildcard: EL WILDCARD - Descubrimiento inesperado
 
-═══════════════════════════════════════════════════════════════════════════════
-✍️ FICHA SEO COMPLETA - GOLD MASTER v51
-═══════════════════════════════════════════════════════════════════════════════
+===============================================================================
+FICHA SEO COMPLETA - GOLD MASTER v51
+===============================================================================
 
 GENERA TODOS ESTOS CAMPOS (ignora textos de Amazon, crea contenido original):
 
-──────────────────────────────────────────────────────────────────────────────
-📊 METADATOS SEO (para Google SERP)
-──────────────────────────────────────────────────────────────────────────────
+-------------------------------------------------------------------------------
+METADATOS SEO (para Google SERP)
+-------------------------------------------------------------------------------
 
 1. seo_title (50-60 chars): Meta title para Google.
    Formato: "Regalo para [Perfil]: [Producto] | Giftia"
-   ✅ "Regalo para Melómanos: Auriculares Sony Premium | Giftia"
+   Ejemplo: "Regalo para Melomanos: Auriculares Sony Premium | Giftia"
 
 2. meta_description (150-160 chars): Snippet que incita al clic.
-   Incluye: beneficio principal + llamada a la acción
-   ✅ "Descubre los auriculares con mejor cancelación de ruido. El regalo perfecto para amantes de la música. Ver precio y análisis."
+   Incluye: beneficio principal + llamada a la accion
+   Ejemplo: "Descubre los auriculares con mejor cancelacion de ruido. El regalo perfecto para amantes de la musica. Ver precio y analisis."
 
-──────────────────────────────────────────────────────────────────────────────
-🏷️ TÍTULOS Y GANCHO (visible en la ficha)
-──────────────────────────────────────────────────────────────────────────────
+-------------------------------------------------------------------------------
+TITULOS Y GANCHO (visible en la ficha)
+-------------------------------------------------------------------------------
 
-3. h1_title (40-70 chars): Título H1 persuasivo y emocional.
-   ❌ "Sony WH-1000XM5 Auriculares Inalámbricos..."
-   ✅ "Auriculares que Silencian el Mundo"
+3. h1_title (40-70 chars): Titulo H1 persuasivo y emocional.
+   Mal: "Sony WH-1000XM5 Auriculares Inalambricos..."
+   Bien: "Auriculares que Silencian el Mundo"
 
 4. short_description (80-120 palabras): Above the fold. Gancho emocional.
    - Qué dolor resuelve o placer otorga
    - Por qué es un regalo especial
    - Sensación que produce usarlo
-   ✅ "Imagina regalar la capacidad de desconectar del ruido del mundo. Estos auriculares premium ofrecen la mejor cancelación de ruido del mercado, perfectos para quien ama la música o necesita concentrarse. Un regalo que demuestra que entiendes lo que realmente importa."
+   Ejemplo: "Imagina regalar la capacidad de desconectar del ruido del mundo. Estos auriculares premium ofrecen la mejor cancelacion de ruido del mercado, perfectos para quien ama la musica o necesita concentrarse. Un regalo que demuestra que entiendes lo que realmente importa."
 
-──────────────────────────────────────────────────────────────────────────────
-⭐ VALORACIONES Y PUNTUACIÓN
-──────────────────────────────────────────────────────────────────────────────
+-------------------------------------------------------------------------------
+VALORACIONES Y PUNTUACION
+-------------------------------------------------------------------------------
 
 5. giftia_score (1-5, decimales ok): Puntuación como regalo.
    Basado en: originalidad, calidad, factor sorpresa, reviews Amazon
@@ -583,24 +595,24 @@ GENERA TODOS ESTOS CAMPOS (ignora textos de Amazon, crea contenido original):
 6. q (1-10): Calidad interna como regalo.
    9-10: "¡QUIERO UNO!" | 7-8: "Qué buena idea" | 5-6: "Está bien" | 1-4: RECHAZAR
 
-──────────────────────────────────────────────────────────────────────────────
-💬 OPINIÓN DEL EXPERTO (E-E-A-T para Google)
-──────────────────────────────────────────────────────────────────────────────
+-------------------------------------------------------------------------------
+OPINION DEL EXPERTO (E-E-A-T para Google)
+-------------------------------------------------------------------------------
 
-7. expert_opinion (100-150 palabras): Opinión del curador Giftia en primera persona.
-   - Por qué lo seleccionamos
+7. expert_opinion (100-150 palabras): Opinion del curador Giftia en primera persona.
+   - Por que lo seleccionamos
    - Experiencia personal o insights
-   - Para quién NO es adecuado (credibilidad)
+   - Para quien NO es adecuado (credibilidad)
    - Veredicto final
-   ✅ "Después de probar decenas de auriculares, estos Sony se han ganado un lugar especial en nuestra selección. La cancelación de ruido no es un gimmick—realmente funciona en el metro, avión o una oficina ruidosa. Lo que más nos gusta es que no sacrifican calidad de sonido por silencio. Eso sí, no son para quien busca algo discreto: son grandes y llamativos. Pero si el destinatario valora su espacio sonoro, este es EL regalo."
+   Ejemplo: "Despues de probar decenas de auriculares, estos Sony se han ganado un lugar especial en nuestra seleccion. La cancelacion de ruido no es un gimmick—realmente funciona en el metro, avion o una oficina ruidosa. Lo que mas nos gusta es que no sacrifican calidad de sonido por silencio. Eso si, no son para quien busca algo discreto: son grandes y llamativos. Pero si el destinatario valora su espacio sonoro, este es EL regalo."
 
-──────────────────────────────────────────────────────────────────────────────
-✅ PROS Y ❌ CONTRAS (credibilidad y escaneo rápido)
-──────────────────────────────────────────────────────────────────────────────
+-------------------------------------------------------------------------------
+PROS Y CONTRAS (credibilidad y escaneo rapido)
+-------------------------------------------------------------------------------
 
-8. pros (5-6 bullets): Puntos fuertes EMOCIONALES, no specs técnicos.
-   ❌ "Bluetooth 5.2, driver 40mm"
-   ✅ ["Cancelación de ruido que te aísla del mundo", "Batería para un vuelo transatlántico", "Comodidad para maratones de música", "Sonido que revela detalles ocultos", "Diseño premium que impresiona"]
+8. pros (5-6 bullets): Puntos fuertes EMOCIONALES, no specs tecnicos.
+   Mal: "Bluetooth 5.2, driver 40mm"
+   Bien: ["Cancelacion de ruido que te aisla del mundo", "Bateria para un vuelo transatlantico", "Comodidad para maratones de musica", "Sonido que revela detalles ocultos", "Diseno premium que impresiona"]
 
 9. cons (2-3 bullets): Puntos débiles HONESTOS. Genera confianza.
    ✅ ["Precio elevado, pero justificado por la calidad", "Tamaño grande, no son discretos", "Requieren app para sacar todo el partido"]

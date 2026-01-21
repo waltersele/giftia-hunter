@@ -1,0 +1,1658 @@
+{
+  "blacklisted": [
+    {
+      "category": "Niño &gt; Ropa &gt; Pantalones",
+      "count": 1941,
+      "reason": "Pattern match"
+    },
+    {
+      "category": "Hombre &gt; Ropa &gt; Pantalones Hombre",
+      "count": 1838,
+      "reason": "Pattern match"
+    },
+    {
+      "category": "Hombre &gt; Ropa &gt; Pantalones Hombre &gt; Fútbol",
+      "count": 1664,
+      "reason": "Pattern match"
+    },
+    {
+      "category": "Hombre &gt; Ropa &gt; Pantalones Hombre &gt; Casual",
+      "count": 1582,
+      "reason": "Pattern match"
+    },
+    {
+      "category": "Mujer &gt; Ropa &gt; Pantalones Deporte",
+      "count": 778,
+      "reason": "Pattern match"
+    },
+    {
+      "category": "Mujer &gt; Ropa &gt; Pantalones Deporte &gt; Casual",
+      "count": 650,
+      "reason": "Pattern match"
+    },
+    {
+      "category": "Hombre &gt; Ropa &gt; Pantalones Hombre &gt; Montaña",
+      "count": 592,
+      "reason": "Pattern match"
+    },
+    {
+      "category": "Hombre &gt; Ropa &gt; Pantalones Hombre &gt; Running",
+      "count": 559,
+      "reason": "Pattern match"
+    },
+    {
+      "category": "Mujer &gt; Ropa &gt; Pantalones Deporte &gt; Montaña",
+      "count": 422,
+      "reason": "Pattern match"
+    },
+    {
+      "category": "Mujer &gt; Ropa &gt; Pantalones Deporte &gt; Fitness",
+      "count": 235,
+      "reason": "Pattern match"
+    },
+    {
+      "category": "Niña &gt; Ropa &gt; Pantalones",
+      "count": 230,
+      "reason": "Pattern match"
+    },
+    {
+      "category": "Nutrición &gt; Fuerza y Energía &gt; Bebidas Isotónicas",
+      "count": 109,
+      "reason": "Pattern match"
+    },
+    {
+      "category": "Juegos &gt; Camas Elásticas",
+      "count": 22,
+      "reason": "Pattern match"
+    },
+    {
+      "category": "Deportes &gt; Ciclismo &gt; Accesorios Bici &gt; Limpieza&amp;Lubricante",
+      "count": 7,
+      "reason": "Pattern match"
+    },
+    {
+      "category": "Niña &gt; Ropa &gt; Pantalones &gt; Montaña",
+      "count": 7,
+      "reason": "Pattern match"
+    },
+    {
+      "category": "Deportes &gt; Outdoor &gt; Camping &gt; Neveras",
+      "count": 2,
+      "reason": "Pattern match"
+    }
+  ],
+  "whitelisted": [
+    {
+      "category": "Hombre &gt; Calzado &gt; Zapatillas Casual Hombre",
+      "count": 13933
+    },
+    {
+      "category": "Niña &gt; Calzado",
+      "count": 10395
+    },
+    {
+      "category": "Niño &gt; Calzado",
+      "count": 6827
+    },
+    {
+      "category": "Hombre &gt; Calzado",
+      "count": 3968
+    },
+    {
+      "category": "Hombre &gt; Calzado &gt; Zapatillas Hombre",
+      "count": 3629
+    },
+    {
+      "category": "Niño &gt; Ropa &gt; Camisetas",
+      "count": 3417
+    },
+    {
+      "category": "Mujer &gt; Calzado",
+      "count": 2472
+    },
+    {
+      "category": "Hombre &gt; Ropa &gt; Sudaderas",
+      "count": 2348
+    },
+    {
+      "category": "Hombre &gt; Ropa &gt; Camisetas &gt; Casual",
+      "count": 2278
+    },
+    {
+      "category": "Mujer &gt; Ropa &gt; Camisetas",
+      "count": 2207
+    },
+    {
+      "category": "Mujer &gt; Ropa &gt; Chaqueta",
+      "count": 1707
+    },
+    {
+      "category": "Hombre &gt; Ropa &gt; Camisetas",
+      "count": 1693
+    },
+    {
+      "category": "Niño &gt; Calzado &gt; Sandalias",
+      "count": 1610
+    },
+    {
+      "category": "Mujer &gt; Calzado &gt; Zapatillas Mujer &gt; Zapatillas Casual Mujer",
+      "count": 1584
+    },
+    {
+      "category": "Hombre &gt; Ropa &gt; Chaquetas",
+      "count": 1488
+    },
+    {
+      "category": "Zapatillas",
+      "count": 1435
+    },
+    {
+      "category": "Mujer &gt; Ropa &gt; Sudaderas Mujer",
+      "count": 1375
+    },
+    {
+      "category": "Hombre &gt; Ropa &gt; Polos",
+      "count": 1328
+    },
+    {
+      "category": "Mujer &gt; Ropa &gt; Mallas",
+      "count": 1279
+    },
+    {
+      "category": "Mujer &gt; Calzado &gt; Sandalias",
+      "count": 1225
+    },
+    {
+      "category": "Mujer &gt; Calzado &gt; Botas",
+      "count": 1161
+    },
+    {
+      "category": "Niña &gt; Calzado &gt; Sandalias",
+      "count": 1118
+    },
+    {
+      "category": "Mujer &gt; Ropa &gt; Camisetas &gt; Camisetas Casual Mujer",
+      "count": 1115
+    },
+    {
+      "category": "Hombre &gt; Ropa &gt; Sudaderas &gt; Fútbol",
+      "count": 1071
+    },
+    {
+      "category": "Hombre &gt; Calzado &gt; Deportivas de hombre",
+      "count": 1065
+    },
+    {
+      "category": "Niño &gt; Ropa &gt; Sudaderas",
+      "count": 931
+    },
+    {
+      "category": "Mujer &gt; Calzado &gt; Zapatillas Deporte Mujer",
+      "count": 919
+    },
+    {
+      "category": "Niño &gt; Ropa &gt; Chaquetas",
+      "count": 882
+    },
+    {
+      "category": "Hombre &gt; Ropa &gt; Chaquetas &gt; Montaña",
+      "count": 866
+    },
+    {
+      "category": "Deportes &gt; Trail Running &gt; Zapatillas &gt; Hombre",
+      "count": 840
+    },
+    {
+      "category": "Niño &gt; Ropa &gt; Sudaderas &gt; Fútbol",
+      "count": 808
+    },
+    {
+      "category": "Niña &gt; Ropa &gt; Camisetas",
+      "count": 784
+    },
+    {
+      "category": "Mujer &gt; Ropa &gt; Camisetas &gt; Camisetas Fitness Mujer",
+      "count": 764
+    },
+    {
+      "category": "Niña &gt; Calzado &gt; Botas Niña",
+      "count": 762
+    },
+    {
+      "category": "Hombre &gt; Ropa &gt; Chaquetas &gt; Casual",
+      "count": 755
+    },
+    {
+      "category": "Mujer &gt; Calzado &gt; Chanclas Mujer",
+      "count": 671
+    },
+    {
+      "category": "Deportes &gt; Trail Running &gt; Zapatillas &gt; Niños",
+      "count": 652
+    },
+    {
+      "category": "Hombre &gt; Ropa &gt; Forros Polares",
+      "count": 641
+    },
+    {
+      "category": "Deportes &gt; Outdoor &gt; Calzado &gt; Zapatillas &gt; Zapatillas Trekking Mujer",
+      "count": 627
+    },
+    {
+      "category": "Niño &gt; Ropa &gt; Chándals Niño",
+      "count": 611
+    },
+    {
+      "category": "Hombre &gt; Calzado &gt; Chanclas Hombre",
+      "count": 606
+    },
+    {
+      "category": "Hombre &gt; Calzado &gt; Sandalias",
+      "count": 601
+    },
+    {
+      "category": "Hombre &gt; Ropa &gt; Chándals Hombre",
+      "count": 568
+    },
+    {
+      "category": "Mujer &gt; Ropa &gt; Forros Polares",
+      "count": 564
+    },
+    {
+      "category": "Hombre &gt; Calzado &gt; Botas &gt; Montaña",
+      "count": 557
+    },
+    {
+      "category": "Hombre &gt; Ropa &gt; Camisetas &gt; Montaña",
+      "count": 516
+    },
+    {
+      "category": "Niño &gt; Ropa &gt; Polos",
+      "count": 508
+    },
+    {
+      "category": "Deportes &gt; Trail Running &gt; Zapatillas &gt; Zapatillas Trail Mujer",
+      "count": 484
+    },
+    {
+      "category": "Niño &gt; Ropa &gt; Conjuntos",
+      "count": 476
+    },
+    {
+      "category": "Niña &gt; Ropa &gt; Chándals",
+      "count": 475
+    },
+    {
+      "category": "Hombre &gt; Ropa &gt; Camisetas &gt; Baloncesto",
+      "count": 470
+    },
+    {
+      "category": "Hombre &gt; Accesorios &gt; Calcetines Hombre",
+      "count": 466
+    },
+    {
+      "category": "Mujer &gt; Ropa &gt; Sujetadores Deportivos",
+      "count": 458
+    },
+    {
+      "category": "Deportes &gt; Running &gt; Zapatillas Running &gt; Zapatillas Running Niña",
+      "count": 452
+    },
+    {
+      "category": "Mujer &gt; Ropa &gt; Polos",
+      "count": 427
+    },
+    {
+      "category": "Hombre &gt; Ropa &gt; Softshell",
+      "count": 422
+    },
+    {
+      "category": "Deportes &gt; Running &gt; Zapatillas Running &gt; Zapatillas Running Hombre",
+      "count": 414
+    },
+    {
+      "category": "Mujer &gt; Ropa &gt; Camisetas &gt; Camisetas Trekking Mujer",
+      "count": 398
+    },
+    {
+      "category": "Deportes &gt; Fútbol &gt; Botas de fútbol &gt; Botas Multitaco &gt; Botas Multitaco Hombre",
+      "count": 397
+    },
+    {
+      "category": "Deportes &gt; Running &gt; Zapatillas Running &gt; Zapatillas Running Niño",
+      "count": 381
+    },
+    {
+      "category": "Deportes &gt; Pádel &gt; Palas de Pádel",
+      "count": 377
+    },
+    {
+      "category": "Mujer &gt; Ropa &gt; Faldas y Vestidos",
+      "count": 362
+    },
+    {
+      "category": "Niña &gt; Ropa &gt; Mallas",
+      "count": 345
+    },
+    {
+      "category": "Hombre &gt; Ropa &gt; Camisas",
+      "count": 340
+    },
+    {
+      "category": "Hombre &gt; Ropa &gt; Sudaderas &gt; Montaña",
+      "count": 312
+    },
+    {
+      "category": "Niña &gt; Ropa &gt; Chaquetas",
+      "count": 310
+    },
+    {
+      "category": "Hombre &gt; Ropa &gt; Ropa Interior",
+      "count": 289
+    },
+    {
+      "category": "Niña &gt; Ropa &gt; Sudaderas",
+      "count": 288
+    },
+    {
+      "category": "Deportes &gt; Fútbol &gt; Zapatillas Futbol Sala &gt; Zapatillas Fútbol Sala Niño",
+      "count": 281
+    },
+    {
+      "category": "Mujer &gt; Ropa &gt; Softshells",
+      "count": 240
+    },
+    {
+      "category": "Mujer &gt; Ropa &gt; Chándals Mujer",
+      "count": 237
+    },
+    {
+      "category": "Hombre &gt; Ropa &gt; Cortavientos",
+      "count": 233
+    },
+    {
+      "category": "Hombre &gt; Ropa &gt; Ropa Térmica",
+      "count": 224
+    },
+    {
+      "category": "Hombre &gt; Ropa &gt; Sudaderas &gt; Running",
+      "count": 223
+    },
+    {
+      "category": "Hombre &gt; Ropa &gt; Chándals Hombre &gt; Chándal Fútbol Hombre",
+      "count": 222
+    },
+    {
+      "category": "Niño &gt; Calzado &gt; Zapatillas Niños",
+      "count": 218
+    },
+    {
+      "category": "Hombre &gt; Ropa &gt; Bañadores",
+      "count": 205
+    },
+    {
+      "category": "Deportes &gt; Outdoor &gt; Calzado &gt; Zapatillas &gt; Zapatillas Trekking Niños",
+      "count": 204
+    },
+    {
+      "category": "Hombre &gt; Calzado &gt; Zapatilla Hombre",
+      "count": 203
+    },
+    {
+      "category": "Mujer &gt; Accesorios &gt; Mochilas Deportivas Mujer",
+      "count": 199
+    },
+    {
+      "category": "Hombre &gt; Ropa &gt; Chalecos",
+      "count": 192
+    },
+    {
+      "category": "Deportes &gt; Fútbol &gt; Botas de fútbol &gt; Botas Fútbol Niño &gt; Botas Multitaco Niño",
+      "count": 192
+    },
+    {
+      "category": "Mujer &gt; Ropa &gt; Bikinis",
+      "count": 179
+    },
+    {
+      "category": "Niña &gt; Calzado &gt; Chanclas",
+      "count": 177
+    },
+    {
+      "category": "Deportes &gt; Fútbol &gt; Botas de fútbol &gt; Botas Fútbol Niño",
+      "count": 173
+    },
+    {
+      "category": "Hombre &gt; Ropa &gt; Mallas &gt; Running",
+      "count": 162
+    },
+    {
+      "category": "Mujer &gt; Ropa &gt; Sudaderas Mujer &gt; Sudaderas Fitness Mujer",
+      "count": 160
+    },
+    {
+      "category": "Niña &gt; Calzado &gt; Botas Niña &gt; Montaña",
+      "count": 159
+    },
+    {
+      "category": "Niño &gt; Ropa &gt; Forros Polares",
+      "count": 155
+    },
+    {
+      "category": "Niño &gt; Calzado &gt; Chanclas de niño",
+      "count": 154
+    },
+    {
+      "category": "Hombre &gt; Accesorios &gt; Calcetines Hombre &gt; Calcetines Running Hombre",
+      "count": 144
+    },
+    {
+      "category": "Hombre &gt; Ropa &gt; Camisetas &gt; Tenis",
+      "count": 142
+    },
+    {
+      "category": "Deportes &gt; Fútbol &gt; Ropa y Equipamiento",
+      "count": 141
+    },
+    {
+      "category": "Deportes &gt; Fútbol &gt; Material de fútbol &gt; Calcetines Fútbol",
+      "count": 137
+    },
+    {
+      "category": "Mujer &gt; Ropa &gt; Bañadores",
+      "count": 131
+    },
+    {
+      "category": "Deportes &gt; Fútbol &gt; Equipación Portero &gt; Guantes de Portero",
+      "count": 130
+    },
+    {
+      "category": "Mujer &gt; Ropa &gt; Chalecos",
+      "count": 127
+    },
+    {
+      "category": "Niña &gt; Ropa &gt; Forros Polares",
+      "count": 126
+    },
+    {
+      "category": "Niño &gt; Accesorios &gt; Calcetines Niños",
+      "count": 123
+    },
+    {
+      "category": "Hombre &gt; Calzado &gt; Botas",
+      "count": 119
+    },
+    {
+      "category": "Deportes &gt; Fitness &amp; Gimnasio &gt; Accesorios &gt; Guantes Gimnasio",
+      "count": 115
+    },
+    {
+      "category": "Niño &gt; Ropa &gt; Bañadores",
+      "count": 115
+    },
+    {
+      "category": "Niño &gt; Accesorios &gt; Guantes &gt; Fútbol",
+      "count": 111
+    },
+    {
+      "category": "Mujer &gt; Accesorios &gt; Gorras Mujer",
+      "count": 110
+    },
+    {
+      "category": "Niña &gt; Ropa &gt; Conjuntos",
+      "count": 101
+    },
+    {
+      "category": "Deportes &gt; Outdoor &gt; Camping &gt; Mobiliario &gt; Mesas",
+      "count": 97
+    },
+    {
+      "category": "Deportes &gt; Ciclismo &gt; Ropa Ciclismo &gt; Maillot Ciclista",
+      "count": 95
+    },
+    {
+      "category": "Hombre &gt; Ropa &gt; Polos &gt; Montaña",
+      "count": 94
+    },
+    {
+      "category": "Deportes &gt; Tienda Musculación &gt; Pesas &amp; Mancuernas &gt; Soportes",
+      "count": 90
+    },
+    {
+      "category": "Niña &gt; Ropa &gt; Cortavientos",
+      "count": 89
+    },
+    {
+      "category": "Hombre &gt; Ropa &gt; Polos &gt; Tenis",
+      "count": 88
+    },
+    {
+      "category": "Deportes &gt; Tienda Musculación &gt; Kettlebell",
+      "count": 85
+    },
+    {
+      "category": "Deportes &gt; Fútbol &gt; Porterías",
+      "count": 84
+    },
+    {
+      "category": "Deportes &gt; Ciclismo &gt; Ropa Ciclismo &gt; Culotte Ciclismo",
+      "count": 83
+    },
+    {
+      "category": "Hombre &gt; Ropa &gt; Bañadores &gt; Playa",
+      "count": 76
+    },
+    {
+      "category": "Deportes &gt; Surf &gt; Ropa &gt; Neoprenos",
+      "count": 76
+    },
+    {
+      "category": "Deportes &gt; Balonmano &gt; Protecciones",
+      "count": 75
+    },
+    {
+      "category": "Deportes &gt; Patinaje &gt; Protecciones",
+      "count": 70
+    },
+    {
+      "category": "Niño &gt; Calzado &gt; Botas Niño &gt; Botas Agua",
+      "count": 68
+    },
+    {
+      "category": "Mujer &gt; Ropa &gt; Cortavientos",
+      "count": 67
+    },
+    {
+      "category": "Electrónica Deportiva &gt; Smartwatch",
+      "count": 65
+    },
+    {
+      "category": "Niña &gt; Ropa &gt; Bañadores &gt; Natación",
+      "count": 64
+    },
+    {
+      "category": "Deportes &gt; Fútbol &gt; Ropa y Equipamiento &gt; Conjuntos",
+      "count": 62
+    },
+    {
+      "category": "Deportes &gt; Fútbol &gt; Balones Fútbol",
+      "count": 61
+    },
+    {
+      "category": "Deportes &gt; Boxeo &gt; Guantes de Boxeo",
+      "count": 60
+    },
+    {
+      "category": "Juegos &gt; Columpios",
+      "count": 58
+    },
+    {
+      "category": "Deportes &gt; Pádel &gt; Zapatillas Pádel",
+      "count": 58
+    },
+    {
+      "category": "Deportes &gt; Fitness &amp; Gimnasio &gt; Material Musculación &gt; Bandas Elásticas &amp; Tensores",
+      "count": 56
+    },
+    {
+      "category": "Deportes &gt; Fitness &amp; Gimnasio &gt; Accesorios &gt; Mochilas",
+      "count": 56
+    },
+    {
+      "category": "Deportes &gt; Fútbol &gt; Ropa y Equipamiento &gt; Camisetas",
+      "count": 55
+    },
+    {
+      "category": "Deportes &gt; Fútbol &gt; Ropa y Equipamiento &gt; Equipaciones  Fútbol &gt; Niño",
+      "count": 55
+    },
+    {
+      "category": "Deportes &gt; Boxeo",
+      "count": 54
+    },
+    {
+      "category": "Deportes &gt; Natación &gt; Material &gt; Gafas Natación",
+      "count": 52
+    },
+    {
+      "category": "Deportes &gt; Tienda Musculación &gt; Máquinas Musculación",
+      "count": 52
+    },
+    {
+      "category": "Deportes &gt; Ciclismo &gt; Complementos Ciclista &gt; Guantes Ciclismo &gt; Cortos",
+      "count": 52
+    },
+    {
+      "category": "Deportes &gt; Fitness &amp; Gimnasio &gt; Zapatillas &gt; Zapatillas Fitness Hombre",
+      "count": 52
+    },
+    {
+      "category": "Niño &gt; Ropa &gt; Calzoncillos",
+      "count": 51
+    },
+    {
+      "category": "Niña &gt; Calzado &gt; Escarpines",
+      "count": 50
+    },
+    {
+      "category": "Hombre &gt; Ropa &gt; Chaquetas &gt; Running",
+      "count": 50
+    },
+    {
+      "category": "Deportes &gt; Baloncesto &gt; Balones de Baloncesto",
+      "count": 49
+    },
+    {
+      "category": "Deportes &gt; Patinaje &gt; Patines",
+      "count": 49
+    },
+    {
+      "category": "Juegos &gt; Futbolín",
+      "count": 49
+    },
+    {
+      "category": "Deportes &gt; Tenis &gt; Raquetas Tenis",
+      "count": 47
+    },
+    {
+      "category": "Deportes &gt; Buceo &gt; Neoprenos",
+      "count": 46
+    },
+    {
+      "category": "Deportes &gt; Fútbol &gt; Ropa y Equipamiento &gt; Pantalón &gt; Niños",
+      "count": 46
+    },
+    {
+      "category": "Deportes &gt; Ciclismo &gt; Accesorios Bici &gt; Mochila Hidratación",
+      "count": 45
+    },
+    {
+      "category": "Hombre &gt; Accesorios &gt; Guantes &gt; Montaña",
+      "count": 44
+    },
+    {
+      "category": "Mujer &gt; Ropa &gt; Ropa Térmica",
+      "count": 44
+    },
+    {
+      "category": "Deportes &gt; Natación &gt; Piscinas",
+      "count": 43
+    },
+    {
+      "category": "Deportes &gt; Pádel &gt; Paleteros &amp; Mochilas",
+      "count": 42
+    },
+    {
+      "category": "Deportes &gt; Outdoor &gt; Camping",
+      "count": 41
+    },
+    {
+      "category": "Mujer &gt; Accesorios &gt; Calcetines Mujer",
+      "count": 40
+    },
+    {
+      "category": "Deportes &gt; Natación &gt; Material &gt; Gorros",
+      "count": 40
+    },
+    {
+      "category": "Niña &gt; Ropa &gt; Bikinis",
+      "count": 40
+    },
+    {
+      "category": "Deportes &gt; Pádel &gt; Zapatillas Pádel &gt; Zapatillas Pádel Niños",
+      "count": 40
+    },
+    {
+      "category": "Deportes &gt; Fitness &amp; Gimnasio &gt; Accesorios &gt; Botellas",
+      "count": 39
+    },
+    {
+      "category": "Deportes &gt; Kárate",
+      "count": 38
+    },
+    {
+      "category": "Hombre &gt; Calzado &gt; Escarpines",
+      "count": 37
+    },
+    {
+      "category": "Electrónica Deportiva &gt; Auriculares",
+      "count": 37
+    },
+    {
+      "category": "Deportes &gt; Balonmano &gt; Zapatillas",
+      "count": 37
+    },
+    {
+      "category": "Nutrición &gt; Fuerza y Energía &gt; Estimulantes Deportivos",
+      "count": 36
+    },
+    {
+      "category": "Mujer &gt; Accesorios &gt; Guantes",
+      "count": 36
+    },
+    {
+      "category": "Deportes &gt; Outdoor &gt; Ropa &gt; Sudaderas",
+      "count": 36
+    },
+    {
+      "category": "Mujer",
+      "count": 35
+    },
+    {
+      "category": "Hombre &gt; Accesorios &gt; Bolsas Deporte Hombre",
+      "count": 35
+    },
+    {
+      "category": "Deportes &gt; Kick Boxing &gt; Protecciones",
+      "count": 35
+    },
+    {
+      "category": "Deportes &gt; Outdoor &gt; Material &gt; Cantimploras y Botellas",
+      "count": 34
+    },
+    {
+      "category": "Deportes &gt; Fitness &amp; Gimnasio",
+      "count": 34
+    },
+    {
+      "category": "Niño &gt; Ropa &gt; Ropa Térmica",
+      "count": 34
+    },
+    {
+      "category": "Deportes &gt; Surf &gt; Mobiliario Playa",
+      "count": 34
+    },
+    {
+      "category": "Deportes &gt; Ciclismo &gt; Repuestos y Herramientas",
+      "count": 33
+    },
+    {
+      "category": "Niña &gt; Ropa &gt; Chaquetas &gt; Montaña",
+      "count": 33
+    },
+    {
+      "category": "Niño &gt; Calzado &gt; Escarpines",
+      "count": 33
+    },
+    {
+      "category": "Deportes &gt; Balonmano &gt; Zapatillas &gt; Mujer",
+      "count": 33
+    },
+    {
+      "category": "Deportes &gt; Tienda Paddle Surf &gt; Neoprenos",
+      "count": 33
+    },
+    {
+      "category": "Deportes &gt; Running &gt; Accesorios &gt; Medias de Compresión",
+      "count": 32
+    },
+    {
+      "category": "Deportes &gt; Fútbol &gt; Balones Fútbol &gt; Balones Fútbol adidas",
+      "count": 31
+    },
+    {
+      "category": "Mujer &gt; Ropa &gt; Cortavientos &gt; Montaña",
+      "count": 31
+    },
+    {
+      "category": "Deportes &gt; Tienda Cardio &gt; Bicicletas Estáticas",
+      "count": 30
+    },
+    {
+      "category": "Deportes &gt; Trail Running &gt; Complementos &gt; Plantillas",
+      "count": 30
+    },
+    {
+      "category": "Hombre &gt; Accesorios &gt; Bandoleras",
+      "count": 30
+    },
+    {
+      "category": "Deportes &gt; Fútbol &gt; Botas de fútbol &gt; Botas Tacos",
+      "count": 30
+    },
+    {
+      "category": "Deportes &gt; Tienda Cardio &gt; Cintas de Correr",
+      "count": 29
+    },
+    {
+      "category": "Deportes &gt; Ciclismo &gt; Complementos Ciclista &gt; Guantes Ciclismo &gt; Largos",
+      "count": 29
+    },
+    {
+      "category": "Deportes &gt; Fútbol &gt; Ropa y Equipamiento &gt; Pantalón",
+      "count": 29
+    },
+    {
+      "category": "Deportes &gt; Fútbol &gt; Botas de fútbol &gt; Botas Fútbol Niño &gt; Botas Fútbol Tacos Niños",
+      "count": 29
+    },
+    {
+      "category": "Deportes &gt; Running &gt; Accesorios &gt; Plantillas",
+      "count": 28
+    },
+    {
+      "category": "Mujer &gt; Accesorios",
+      "count": 27
+    },
+    {
+      "category": "Niño &gt; Accesorios &gt; Riñoneras",
+      "count": 27
+    },
+    {
+      "category": "Deportes &gt; Ciclismo &gt; Complementos Ciclista &gt; Casco Bicicleta",
+      "count": 27
+    },
+    {
+      "category": "Deportes &gt; Fútbol &gt; Balones Fútbol &gt; Minibalones",
+      "count": 26
+    },
+    {
+      "category": "Niña &gt; Ropa &gt; Faldas y vestidos",
+      "count": 26
+    },
+    {
+      "category": "Niña",
+      "count": 25
+    },
+    {
+      "category": "Deportes &gt; Running &gt; Accesorios",
+      "count": 25
+    },
+    {
+      "category": "Mujer &gt; Accesorios &gt; Gorras Mujer &gt; Running",
+      "count": 25
+    },
+    {
+      "category": "Mujer &gt; Accesorios &gt; Calcetines Mujer &gt; Calcetines Trekking Mujer",
+      "count": 25
+    },
+    {
+      "category": "Deportes &gt; Tenis &gt; Accesorios &gt; Grips y overgrips",
+      "count": 23
+    },
+    {
+      "category": "Niño &gt; Accesorios &gt; Mochilas Escolares",
+      "count": 22
+    },
+    {
+      "category": "Deportes &gt; Outdoor &gt; Acesorios &gt; Guantes",
+      "count": 22
+    },
+    {
+      "category": "Mujer &gt; Accesorios &gt; Gafas &gt; Sol",
+      "count": 22
+    },
+    {
+      "category": "Deportes &gt; Pádel &gt; Zapatillas Pádel &gt; Zapatillas Pádel Hombre",
+      "count": 22
+    },
+    {
+      "category": "Deportes &gt; Ciclismo &gt; Bicicletas &gt; Bicicletas Eléctricas",
+      "count": 22
+    },
+    {
+      "category": "Deportes &gt; Fitness &amp; Gimnasio &gt; Accesorios &gt; Protecciones",
+      "count": 21
+    },
+    {
+      "category": "Deportes &gt; Tienda Cardio &gt; Bicicleta Spinning",
+      "count": 21
+    },
+    {
+      "category": "Hombre &gt; Ropa &gt; Mallas &gt; Fútbol",
+      "count": 21
+    },
+    {
+      "category": "Mujer &gt; Accesorios &gt; Calcetines Mujer &gt; Calcetines Running Mujer",
+      "count": 20
+    },
+    {
+      "category": "Deportes &gt; Fitness &amp; Gimnasio &gt; Accesorios",
+      "count": 20
+    },
+    {
+      "category": "Deportes &gt; Ciclismo &gt; Bicicletas &gt; Bicicletas Montaña",
+      "count": 20
+    },
+    {
+      "category": "Deportes &gt; Ciclismo &gt; Complementos Ciclista &gt; Calcetines Ciclismo",
+      "count": 20
+    },
+    {
+      "category": "Hombre &gt; Ropa &gt; Chaquetas &gt; Ciclismo",
+      "count": 20
+    },
+    {
+      "category": "Deportes &gt; Ping Pong &gt; Mesas",
+      "count": 20
+    },
+    {
+      "category": "Deportes &gt; Triatlón &gt; Ropa &amp; Equipamiento &gt; Neoprenos",
+      "count": 20
+    },
+    {
+      "category": "Nutrición &gt; Proteínas &gt; Proteínas Whey",
+      "count": 19
+    },
+    {
+      "category": "Deportes &gt; Yoga &gt; Accesorios y Material &gt; Calcetines Yoga",
+      "count": 19
+    },
+    {
+      "category": "Deportes &gt; Tienda Musculación &gt; Pesas Lastradas",
+      "count": 19
+    },
+    {
+      "category": "Deportes &gt; Running",
+      "count": 18
+    },
+    {
+      "category": "Deportes &gt; Fútbol &gt; Balones Fútbol &gt; Balones Fútbol Nike",
+      "count": 18
+    },
+    {
+      "category": "Deportes &gt; Fitness &amp; Gimnasio &gt; Material Musculación &gt; Saco Búlgaro",
+      "count": 18
+    },
+    {
+      "category": "Deportes &gt; Pádel &gt; Pelotas",
+      "count": 17
+    },
+    {
+      "category": "Deportes &gt; Baloncesto &gt; Accesorios",
+      "count": 16
+    },
+    {
+      "category": "Niño &gt; Accesorios &gt; Bolsas Deporte",
+      "count": 16
+    },
+    {
+      "category": "Niña &gt; Accesorios &gt; Estuches escolares",
+      "count": 16
+    },
+    {
+      "category": "Deportes &gt; Boxeo &gt; Protecciones",
+      "count": 15
+    },
+    {
+      "category": "Deportes &gt; Fitness &amp; Gimnasio &gt; Material Musculación &gt; Combas",
+      "count": 15
+    },
+    {
+      "category": "Deportes &gt; Running &gt; Accesorios &gt; Diademas",
+      "count": 15
+    },
+    {
+      "category": "Niño &gt; Accesorios &gt; Guantes",
+      "count": 15
+    },
+    {
+      "category": "Deportes &gt; Billares &gt; Mesas",
+      "count": 15
+    },
+    {
+      "category": "Deportes &gt; Taekwondo",
+      "count": 15
+    },
+    {
+      "category": "Deportes &gt; Tenis &gt; Pelotas",
+      "count": 14
+    },
+    {
+      "category": "Hombre &gt; Accesorios &gt; Gorras",
+      "count": 14
+    },
+    {
+      "category": "Deportes &gt; Fitness &amp; Gimnasio &gt; Material Musculación &gt; Abdominales",
+      "count": 14
+    },
+    {
+      "category": "Hombre &gt; Accesorios &gt; Gorros",
+      "count": 14
+    },
+    {
+      "category": "Deportes &gt; Outdoor &gt; Acesorios &gt; Gorros",
+      "count": 14
+    },
+    {
+      "category": "Mujer &gt; Accesorios &gt; Bolsas Deporte Mujer",
+      "count": 14
+    },
+    {
+      "category": "Hombre &gt; Accesorios",
+      "count": 14
+    },
+    {
+      "category": "Deportes &gt; Running &gt; Accesorios &gt; Calcetines Running",
+      "count": 14
+    },
+    {
+      "category": "Deportes &gt; Outdoor &gt; Ropa &gt; Chubasqueros &gt; Mujer",
+      "count": 14
+    },
+    {
+      "category": "Niña &gt; Accesorios &gt; Calcetines Niña &gt; Casual",
+      "count": 14
+    },
+    {
+      "category": "Hombre &gt; Accesorios &gt; Guantes &gt; Running",
+      "count": 14
+    },
+    {
+      "category": "Deportes &gt; Voleibol &gt; Zapatillas &gt; Hombre",
+      "count": 14
+    },
+    {
+      "category": "Deportes &gt; Pádel &gt; Accesorios &gt; Grips y Overgrips",
+      "count": 13
+    },
+    {
+      "category": "Niña &gt; Ropa &gt; Ropa Térmica",
+      "count": 13
+    },
+    {
+      "category": "Mujer &gt; Ropa &gt; Ropa Interior",
+      "count": 13
+    },
+    {
+      "category": "Juegos &gt; Mesas Multijuegos",
+      "count": 13
+    },
+    {
+      "category": "Deportes &gt; Fitness &amp; Gimnasio &gt; Material Musculación &gt; Cajón Pliométrico",
+      "count": 13
+    },
+    {
+      "category": "Deportes &gt; Tienda Paddle Surf &gt; Tablas Paddlesurf",
+      "count": 13
+    },
+    {
+      "category": "Deportes &gt; Baloncesto &gt; Zapatillas &gt; Zapatillas Baloncesto de Hombre",
+      "count": 13
+    },
+    {
+      "category": "Deportes &gt; Outdoor &gt; Camping &gt; Menaje",
+      "count": 12
+    },
+    {
+      "category": "Deportes &gt; Pádel &gt; Accesorios &gt; Muñequeras",
+      "count": 12
+    },
+    {
+      "category": "Deportes &gt; Tienda Musculación &gt; Barras",
+      "count": 12
+    },
+    {
+      "category": "Deportes &gt; Esquí / Nieve &gt; Complementos &gt; Guantes Esquí",
+      "count": 12
+    },
+    {
+      "category": "Deportes &gt; Ciclismo &gt; Ropa Ciclismo &gt; Chubasquero &gt; Hombre",
+      "count": 12
+    },
+    {
+      "category": "Cuidados Deportista &gt; Perfumes",
+      "count": 12
+    },
+    {
+      "category": "Hombre &gt; Accesorios &gt; Billeteros",
+      "count": 11
+    },
+    {
+      "category": "Deportes &gt; Baloncesto &gt; Protecciones",
+      "count": 11
+    },
+    {
+      "category": "Nutrición",
+      "count": 11
+    },
+    {
+      "category": "Deportes &gt; Fútbol &gt; Ropa y Equipamiento &gt; Sudaderas",
+      "count": 11
+    },
+    {
+      "category": "Deportes &gt; Tienda Musculación &gt; Discos",
+      "count": 11
+    },
+    {
+      "category": "Deportes &gt; Ciclismo &gt; Accesorios Bici",
+      "count": 10
+    },
+    {
+      "category": "Deportes &gt; Outdoor &gt; Camping &gt; Sacos de Dormir",
+      "count": 10
+    },
+    {
+      "category": "Juegos &gt; Juegos Acuáticos &amp; Piscina",
+      "count": 10
+    },
+    {
+      "category": "Deportes &gt; Tienda Musculación &gt; Esterillas",
+      "count": 10
+    },
+    {
+      "category": "Electrónica Deportiva &gt; Pulseras Actividad",
+      "count": 10
+    },
+    {
+      "category": "Niño &gt; Calzado &gt; Botas Niño",
+      "count": 10
+    },
+    {
+      "category": "Deportes &gt; Fútbol &gt; Zapatillas Futbol Sala",
+      "count": 10
+    },
+    {
+      "category": "Deportes &gt; Outdoor &gt; Material &gt; Iluminación &gt; Linternas",
+      "count": 9
+    },
+    {
+      "category": "Deportes &gt; Tienda Cardio &gt; Bicicletas Elípticas",
+      "count": 9
+    },
+    {
+      "category": "Deportes &gt; Ciclismo &gt; Bicicletas &gt; Bicicletas Urbana",
+      "count": 9
+    },
+    {
+      "category": "Hombre",
+      "count": 8
+    },
+    {
+      "category": "Deportes &gt; Ciclismo &gt; Accesorios Bici &gt; Infladores",
+      "count": 8
+    },
+    {
+      "category": "Deportes &gt; Natación &gt; Material &gt; Otros",
+      "count": 8
+    },
+    {
+      "category": "Deportes &gt; Ciclismo &gt; Bicicletas &gt; Bicicletas Niños e infantiles",
+      "count": 8
+    },
+    {
+      "category": "Deportes &gt; Tenis &gt; Accesorios &gt; Diademas &amp; Cintas",
+      "count": 8
+    },
+    {
+      "category": "Deportes &gt; Pádel &gt; Accesorios &gt; Calcetines",
+      "count": 8
+    },
+    {
+      "category": "Niño &gt; Accesorios &gt; Guantes &gt; Ciclismo",
+      "count": 8
+    },
+    {
+      "category": "Deportes &gt; Voleibol &gt; Rodilleras y Coderas",
+      "count": 8
+    },
+    {
+      "category": "Deportes &gt; Tenis",
+      "count": 8
+    },
+    {
+      "category": "Deportes &gt; Tienda Musculación &gt; Pesas &amp; Mancuernas",
+      "count": 8
+    },
+    {
+      "category": "Deportes &gt; Fútbol &gt; Botas de fútbol &gt; Botas Multitaco",
+      "count": 8
+    },
+    {
+      "category": "Deportes &gt; Baloncesto &gt; Ropa y Equipamiento",
+      "count": 8
+    },
+    {
+      "category": "Deportes &gt; Escalada &gt; Accesorios &gt; Mochilas",
+      "count": 8
+    },
+    {
+      "category": "Deportes &gt; Fútbol &gt; Material de fútbol",
+      "count": 7
+    },
+    {
+      "category": "Deportes &gt; Tienda Musculación &gt; Bancos de Pesas",
+      "count": 7
+    },
+    {
+      "category": "Deportes &gt; Trail Running &gt; Complementos &gt; Calcetines",
+      "count": 7
+    },
+    {
+      "category": "Mujer &gt; Calzado &gt; Escarpines",
+      "count": 7
+    },
+    {
+      "category": "Deportes &gt; Fútbol &gt; Protecciones &gt; Espinilleras",
+      "count": 7
+    },
+    {
+      "category": "Hombre &gt; Accesorios &gt; Gorras &gt; Gorras Running Hombre",
+      "count": 7
+    },
+    {
+      "category": "Hombre &gt; Calzado &gt; Zapatillas Hombre &gt; Zapatillas Casual Hombre",
+      "count": 7
+    },
+    {
+      "category": "Deportes &gt; Fitness &amp; Gimnasio &gt; Material Musculación &gt; Kit Fitness",
+      "count": 7
+    },
+    {
+      "category": "Deportes &gt; Tenis &gt; Zapatillas Tenis &gt; Zapatillas Tenis Hombre",
+      "count": 7
+    },
+    {
+      "category": "Deportes &gt; Ciclismo &gt; Accesorios Bici &gt; Luces",
+      "count": 6
+    },
+    {
+      "category": "Hombre &gt; Accesorios &gt; Gafas &gt; Running",
+      "count": 6
+    },
+    {
+      "category": "Deportes &gt; Bádminton",
+      "count": 6
+    },
+    {
+      "category": "Deportes &gt; Outdoor &gt; Material &gt; Bastones Trekking",
+      "count": 6
+    },
+    {
+      "category": "Nutrición &gt; Aumento Masa Muscular &gt; Creatina",
+      "count": 6
+    },
+    {
+      "category": "Hombre &gt; Calzado &gt; Botas &gt; Casual",
+      "count": 6
+    },
+    {
+      "category": "Deportes &gt; Outdoor",
+      "count": 6
+    },
+    {
+      "category": "Deportes &gt; Esquí / Nieve &gt; Botas Apreski &gt; Niños",
+      "count": 6
+    },
+    {
+      "category": "Niña &gt; Accesorios &gt; Mochilas",
+      "count": 6
+    },
+    {
+      "category": "Deportes &gt; Muay Thai",
+      "count": 6
+    },
+    {
+      "category": "Deportes &gt; Ciclismo &gt; Bicicletas &gt; Bicicletas Plegables",
+      "count": 6
+    },
+    {
+      "category": "Niño",
+      "count": 5
+    },
+    {
+      "category": "Cuidados Deportista &gt; Antimosquitos",
+      "count": 5
+    },
+    {
+      "category": "Deportes &gt; Ping Pong",
+      "count": 5
+    },
+    {
+      "category": "Deportes &gt; Patinaje &gt; Cascos",
+      "count": 5
+    },
+    {
+      "category": "Deportes &gt; Fútbol &gt; Ropa y Equipamiento &gt; Ropa Compresión",
+      "count": 5
+    },
+    {
+      "category": "Deportes &gt; Fútbol",
+      "count": 5
+    },
+    {
+      "category": "Mujer &gt; Accesorios &gt; Gorros",
+      "count": 5
+    },
+    {
+      "category": "Niña &gt; Accesorios &gt; Bufandas",
+      "count": 5
+    },
+    {
+      "category": "Deportes &gt; Baloncesto &gt; Balones de Baloncesto &gt; Minibalones de Baloncesto",
+      "count": 5
+    },
+    {
+      "category": "Deportes &gt; Fitness &amp; Gimnasio &gt; Material Musculación &gt; Balón Medicinal &amp; Wallballs",
+      "count": 5
+    },
+    {
+      "category": "Deportes &gt; Outdoor &gt; Ropa &gt; Chubasqueros &gt; Hombre",
+      "count": 5
+    },
+    {
+      "category": "Deportes &gt; Ciclismo &gt; Accesorios Bici &gt; Bidones Bici",
+      "count": 5
+    },
+    {
+      "category": "Deportes &gt; Voleibol &gt; Balones",
+      "count": 5
+    },
+    {
+      "category": "Deportes &gt; Buceo &gt; Escarpines",
+      "count": 5
+    },
+    {
+      "category": "Deportes &gt; Surf &gt; Ropa &gt; Camisetas",
+      "count": 5
+    },
+    {
+      "category": "Deportes &gt; Boxeo &gt; Soportes",
+      "count": 5
+    },
+    {
+      "category": "Mujer &gt; Calzado &gt; Botas &gt; Botas Agua",
+      "count": 5
+    },
+    {
+      "category": "Deportes &gt; Cross Training &gt; Ropa y Equipamiento &gt; Protecciones",
+      "count": 5
+    },
+    {
+      "category": "Deportes &gt; Fitness &amp; Gimnasio &gt; Material Musculación &gt; Trampolines",
+      "count": 5
+    },
+    {
+      "category": "Deportes &gt; Outdoor &gt; Camping &gt; Esterillas",
+      "count": 4
+    },
+    {
+      "category": "Deportes &gt; Frontenis &gt; Pelotas",
+      "count": 4
+    },
+    {
+      "category": "Deportes &gt; Fútbol &gt; Ropa y Equipamiento &gt; Petos",
+      "count": 4
+    },
+    {
+      "category": "Deportes &gt; Ciclismo &gt; Accesorios Bici &gt; Portabidones Bici",
+      "count": 4
+    },
+    {
+      "category": "Deportes &gt; Tienda Skate &gt; Skates / Monopatines",
+      "count": 4
+    },
+    {
+      "category": "Niño &gt; Accesorios &gt; Estuches Escolares",
+      "count": 4
+    },
+    {
+      "category": "Deportes &gt; Fútbol &gt; Mochilas y Bolsas",
+      "count": 4
+    },
+    {
+      "category": "Deportes &gt; Patinetes &amp; Movilidad &gt; Patinetes",
+      "count": 4
+    },
+    {
+      "category": "Nutrición &gt; Salud &gt; Multivitaminas",
+      "count": 4
+    },
+    {
+      "category": "Deportes &gt; Yoga",
+      "count": 4
+    },
+    {
+      "category": "Cuidados Deportista",
+      "count": 4
+    },
+    {
+      "category": "Electrónica Deportiva &gt; Accesorios Smartwatch",
+      "count": 4
+    },
+    {
+      "category": "Deportes &gt; Outdoor &gt; Camping &gt; Tiendas de Campaña",
+      "count": 4
+    },
+    {
+      "category": "Niña &gt; Ropa &gt; Polos",
+      "count": 4
+    },
+    {
+      "category": "Deportes &gt; Triatlón &gt; Accesorios &gt; Gafas",
+      "count": 4
+    },
+    {
+      "category": "Deportes &gt; Fútbol &gt; Balones Fútbol &gt; Infladores",
+      "count": 3
+    },
+    {
+      "category": "Deportes &gt; Fútbol &gt; Protecciones &gt; Tobilleras Fútbol",
+      "count": 3
+    },
+    {
+      "category": "Deportes &gt; Running &gt; Accesorios &gt; Brazaletes",
+      "count": 3
+    },
+    {
+      "category": "Niño &gt; Accesorios &gt; Gorros",
+      "count": 3
+    },
+    {
+      "category": "Nutrición &gt; Adelgazamiento &gt; L Carnitina",
+      "count": 3
+    },
+    {
+      "category": "Nutrición &gt; Recuperación Muscular &gt; Aminoácidos",
+      "count": 3
+    },
+    {
+      "category": "Niño &gt; Accesorios &gt; Gorras",
+      "count": 3
+    },
+    {
+      "category": "Deportes &gt; Rugby &gt; Balones",
+      "count": 3
+    },
+    {
+      "category": "Deportes &gt; Frontenis &gt; Raquetas",
+      "count": 3
+    },
+    {
+      "category": "Niño &gt; Ropa &gt; Camisetas &gt; Montaña",
+      "count": 3
+    },
+    {
+      "category": "Deportes &gt; Triatlón &gt; Accesorios &gt; Mochilas",
+      "count": 3
+    },
+    {
+      "category": "Deportes &gt; Natación &gt; Neoprenos",
+      "count": 3
+    },
+    {
+      "category": "Niño &gt; Ropa &gt; Camisetas &gt; Tenis",
+      "count": 3
+    },
+    {
+      "category": "Deportes &gt; Pádel &gt; Accesorios &gt; Protecciones",
+      "count": 3
+    },
+    {
+      "category": "Deportes &gt; Fitness &amp; Gimnasio &gt; Material Musculación &gt; Barras Paralelas",
+      "count": 3
+    },
+    {
+      "category": "Deportes &gt; Ciclismo &gt; Accesorios Bici &gt; Timbres",
+      "count": 2
+    },
+    {
+      "category": "Deportes &gt; Escalada &gt; Accesorios &gt; Luz Frontal",
+      "count": 2
+    },
+    {
+      "category": "Deportes &gt; Ciclismo &gt; Accesorios Bici &gt; Candados",
+      "count": 2
+    },
+    {
+      "category": "Deportes &gt; Buceo &gt; Material y Equipo &gt; Gafas",
+      "count": 2
+    },
+    {
+      "category": "Deportes &gt; Ciclismo &gt; Accesorios Bici &gt; Bolsa Bici",
+      "count": 2
+    },
+    {
+      "category": "Deportes &gt; Ping Pong &gt; Pelotas",
+      "count": 2
+    },
+    {
+      "category": "Niño &gt; Accesorios &gt; Bufandas",
+      "count": 2
+    },
+    {
+      "category": "Deportes &gt; Tenis &gt; Accesorios &gt; Antivibrador",
+      "count": 2
+    },
+    {
+      "category": "Deportes &gt; Tienda Cardio &gt; Máquinas Remo",
+      "count": 2
+    },
+    {
+      "category": "Hombre &gt; Accesorios &gt; Guantes &gt; Nieve",
+      "count": 2
+    },
+    {
+      "category": "Hombre &gt; Accesorios &gt; Bufandas",
+      "count": 2
+    },
+    {
+      "category": "Deportes &gt; Buceo &gt; Material y Equipo",
+      "count": 2
+    },
+    {
+      "category": "Zapatillas &gt; Casual Niña",
+      "count": 2
+    },
+    {
+      "category": "Cuidados Deportista &gt; Gel Hidroalcóholico",
+      "count": 2
+    },
+    {
+      "category": "Deportes &gt; Ciclismo",
+      "count": 2
+    },
+    {
+      "category": "Hombre &gt; Accesorios &gt; Mochilas Deportivas Hombre",
+      "count": 2
+    },
+    {
+      "category": "Deportes &gt; Fútbol &gt; Protecciones",
+      "count": 2
+    },
+    {
+      "category": "Deportes &gt; Running &gt; Accesorios &gt; Gorras",
+      "count": 2
+    },
+    {
+      "category": "Deportes &gt; Outdoor &gt; Acesorios &gt; Gorros &gt; Niños",
+      "count": 2
+    },
+    {
+      "category": "Deportes &gt; Tienda Cardio &gt; Steppers",
+      "count": 2
+    },
+    {
+      "category": "Deportes &gt; Fitness &amp; Gimnasio &gt; Material Musculación &gt; Soporte Flexiones",
+      "count": 2
+    },
+    {
+      "category": "Deportes &gt; Patinaje &gt; Accesorios",
+      "count": 2
+    },
+    {
+      "category": "Deportes &gt; Trail Running &gt; Material &gt; Mochilas",
+      "count": 2
+    },
+    {
+      "category": "Niña &gt; Accesorios &gt; Monederos",
+      "count": 1
+    },
+    {
+      "category": "Deportes &gt; Outdoor &gt; Material &gt; Iluminación",
+      "count": 1
+    },
+    {
+      "category": "Electrónica Deportiva &gt; Cuentakilómetros",
+      "count": 1
+    },
+    {
+      "category": "Deportes &gt; Boxeo &gt; Sacos de Boxeo",
+      "count": 1
+    },
+    {
+      "category": "Electrónica Deportiva &gt; Banda Pulsómetro",
+      "count": 1
+    },
+    {
+      "category": "Nutrición &gt; Fuerza y Energía &gt; Barritas &gt; Barritas Energéticas",
+      "count": 1
+    },
+    {
+      "category": "Niño &gt; Calzado &gt; Zapatillas Casual",
+      "count": 1
+    },
+    {
+      "category": "Hombre &gt; Calzado &gt; Zapatillas Casual",
+      "count": 1
+    },
+    {
+      "category": "Hombre &gt; Accesorios &gt; Neceseres",
+      "count": 1
+    },
+    {
+      "category": "Niña &gt; Accesorios &gt; Gafas &gt; Sol",
+      "count": 1
+    },
+    {
+      "category": "Niño &gt; Accesorios &gt; Gafas &gt; Sol",
+      "count": 1
+    },
+    {
+      "category": "Niño &gt; Accesorios &gt; Monederos",
+      "count": 1
+    },
+    {
+      "category": "Deportes &gt; Buceo",
+      "count": 1
+    },
+    {
+      "category": "Deportes &gt; Running &gt; Accesorios &gt; Gorras &gt; Nike",
+      "count": 1
+    },
+    {
+      "category": "Cuidados Deportista &gt; Cremas y Geles",
+      "count": 1
+    },
+    {
+      "category": "Deportes &gt; Trail Running &gt; Complementos &gt; Gorras &gt; Nike",
+      "count": 1
+    },
+    {
+      "category": "Deportes &gt; Ciclismo &gt; Bicicletas",
+      "count": 1
+    },
+    {
+      "category": "Deportes &gt; Ciclismo &gt; Bicicletas &gt; Bicicletas Gravel",
+      "count": 1
+    },
+    {
+      "category": "Deportes &gt; Bodyboard &gt; Tablas",
+      "count": 1
+    },
+    {
+      "category": "Deportes &gt; Outdoor &gt; Acesorios &gt; Gorras",
+      "count": 1
+    }
+  ]
+}

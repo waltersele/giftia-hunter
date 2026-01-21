@@ -5,7 +5,7 @@ GIFTIA HUNTER v11.0 - THE GIFTIA STANDARD
 Curador IA: Ingeniero + Explorador + Hedonista
 
 - 4 Filtros de Excelencia: Utilidad Elevada, Auto-Boicot, Originalidad, Orgullo
-- ClÃƒÂ¡usula "Cheap & Chic" para <20Ã¢â€šÂ¬
+- Cláusula "Cheap & Chic" para <20€
 - Busca GEMAS que hagan sentir inteligente y generoso a quien regala
 """
 
@@ -19,6 +19,11 @@ import sys
 import re
 from concurrent.futures import ThreadPoolExecutor, TimeoutError as FuturesTimeoutError
 from dotenv import load_dotenv
+
+# Fix encoding para Windows (evitar crash con emojis en cp1252)
+if sys.platform == 'win32':
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+    sys.stderr.reconfigure(encoding='utf-8', errors='replace')
 
 # Cargar .env
 load_dotenv()
@@ -105,7 +110,7 @@ else:
     VALID_CATEGORIES = [
         "Tech", "Gourmet", "Bienestar", "Deporte", "Outdoor", "Moda", 
         "Gamer", "Hogar", "Libros", "Mascotas", "Bebidas", "Joyeria",
-        "Experiencias", "Infantil", "Cocina", "Belleza", "Otros"
+        "Experiencias", "Bebes", "Ninos", "Cocina", "Belleza", "Otros"
     ]
     VALID_VIBES = ["techie", "foodie", "zen", "friki", "aventurero", "estiloso", "practico"]
     VALID_ETAPAS = ["bebe", "peques", "teen", "genz", "adulto", "senior"]
@@ -114,7 +119,8 @@ else:
 # Mapeo de categorÃƒÂ­as antiguas/errÃƒÂ³neas a las correctas
 CATEGORY_MAPPING = {
     "Arte": "Hogar",
-    "Bebe": "Infantil",
+    "Bebe": "Bebes",
+    "Juguetes": "Ninos",
     "BebÃƒÂ©": "Friki",
     "Gaming": "Gamer",
     "Wellness": "Zen",
@@ -1651,29 +1657,10 @@ def classify_product_recipients(title, description=""):
 
 
 # ============================================================================
-# SELENIUM DRIVER SETUP
 # ============================================================================
-
-print("Ã°Å¸ÂÂ¹ Setting up Chrome driver...")
-options = Options()
-if not DEBUG:
-    options.add_argument("--headless")
-options.add_argument("--start-maximized")
-options.add_argument("--disable-blink-features=AutomationControlled")
-options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36")
-options.add_argument("--no-sandbox")
-options.add_argument("--disable-dev-shm-usage")
-
-try:
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
-    logger.info("[OK] Chrome driver initialized")
-except Exception as e:
-    logger.error(f"[ERROR] Failed to initialize Chrome: {e}")
-    sys.exit(1)
-
+# SELENIUM DRIVER SETUP - initialized in main()
 # ============================================================================
-# FUNCIÃƒâ€œN DE ENVÃƒÂO A GIFTIA
-# ============================================================================
+driver = None  # Global driver variable
 
 def send_to_giftia(datos):
     """
@@ -2120,6 +2107,31 @@ if __name__ == "__main__":
     logger.info(f"Ã¢ÂÂ° Inicio: {datetime.now().strftime('%H:%M:%S')}")
     logger.info(f"Ã¢ÂÂ° Fin previsto: {datetime.fromtimestamp(end_time).strftime('%H:%M:%S')}")
     
+    # Initialize Chrome driver
+    print("Setting up Chrome driver...")
+    options = Options()
+    if not DEBUG:
+        options.add_argument("--headless")
+    options.add_argument("--start-maximized")
+    options.add_argument("--disable-blink-features=AutomationControlled")
+    options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36")
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
+    options.add_argument("--disable-gpu")
+    options.add_argument("--disable-extensions")
+    options.add_argument("--disable-software-rasterizer")
+    options.add_argument("--log-level=3")
+    options.add_experimental_option("excludeSwitches", ["enable-logging", "enable-automation"])
+    options.add_experimental_option("useAutomationExtension", False)
+
+    try:
+        driver = webdriver.Chrome(service=Service(ChromeDriverManager(driver_version="144.0.7559.59").install()), options=options)
+        logger.info("[OK] Chrome driver initialized")
+    except Exception as e:
+        logger.error(f"[ERROR] Failed to initialize Chrome: {e}")
+        sys.exit(1)
+
+    
     while time.time() < end_time:
         cycle += 1
         remaining_hours = (end_time - time.time()) / 3600
@@ -2399,6 +2411,49 @@ if __name__ == "__main__":
                             delivery_lower = delivery_time.lower()
                             free_shipping = is_prime or "gratis" in delivery_lower or "envÃƒÂ­o gratis" in delivery_lower
 
+                            # Extraer EAN (multi-vendor matching)
+                            ean = ""
+                            try:
+                                # Ir a la página del producto para extraer EAN
+                                product_url = f"https://www.amazon.es/dp/{asin}"
+                                driver.execute_script(f"window.open('{product_url}', '_blank');")
+                                driver.switch_to.window(driver.window_handles[-1])
+                                time.sleep(2)
+                                
+                                # Buscar en tabla de detalles técnicos
+                                try:
+                                    detail_rows = driver.find_elements(By.CSS_SELECTOR, "#detailBullets_feature_div li, #productDetails_detailBullets_sections1 tr, .prodDetTable tr")
+                                    logger.info(f"[EAN] Filas detectadas: {len(detail_rows)}")
+                                    for row in detail_rows:
+                                        try:
+                                            text = row.text.lower()
+                                            if any(term in text for term in ['ean', 'código de barras', 'gtin', 'ean-13']):
+                                                # Extraer código (generalmente después de ':')
+                                                ean_match = re.search(r'[\d\s]{13,17}', row.text)
+                                                if ean_match:
+                                                    ean = ean_match.group(0).replace(' ', '').strip()
+                                                    logger.info(f"[EAN] ✓ Encontrado: {ean}")
+                                                    break
+                                        except:
+                                            continue
+                                    if not ean:
+                                        logger.info(f"[EAN] ✗ No encontrado en {len(detail_rows)} filas")
+                                except Exception as e:
+                                    logger.warning(f"[EAN] Error búsqueda: {e}")
+                                
+                                # Cerrar pestaña y volver
+                                driver.close()
+                                driver.switch_to.window(driver.window_handles[0])
+                            except Exception as e:
+                                logger.debug(f"No se pudo extraer EAN: {e}")
+                                try:
+                                    # Asegurar que volvemos a la ventana principal
+                                    if len(driver.window_handles) > 1:
+                                        driver.close()
+                                    driver.switch_to.window(driver.window_handles[0])
+                                except:
+                                    pass
+
                             # Construir payload
                             if parse_price(price) > 0:
                                 affiliate_url = f"https://www.amazon.es/dp/{asin}?tag={AMAZON_TAG}"
@@ -2414,10 +2469,12 @@ if __name__ == "__main__":
                                     "rating": rating,
                                     "rating_value": rating_value,
                                     "review_count": review_count,
+                                    "has_reviews": True,  # Amazon siempre tiene reviews verificadas
                                     "source_vibe": vibe,
                                     "is_prime": is_prime,
                                     "free_shipping": free_shipping,
-                                    "delivery_time": delivery_time
+                                    "delivery_time": delivery_time,
+                                    "ean": ean  # Multi-vendor matching
                                 }
                                 
                                 # MODO HÃƒÂBRIDO: aÃƒÂ±adir a cola (no llama a Gemini aÃƒÂºn)

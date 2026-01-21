@@ -40,7 +40,7 @@ if os.path.exists(ENV_PATH):
 VALID_CATEGORIES = [
     "Tech", "Gamer", "Gourmet", "Deporte", "Outdoor", "Viajes", "Moda", "Belleza",
     "Decoración", "Zen", "Lector", "Música", "Artista", "Fotografía", "Friki", 
-    "Mascotas", "Lujo", "Infantil"
+    "Mascotas", "Lujo", "Bebes", "Ninos"
 ]
 
 # Correcciones automáticas
@@ -49,8 +49,9 @@ CATEGORY_CORRECTIONS = {
     "hogar": "Decoración", "casa": "Decoración", "interiores": "Decoración",
     "bienestar": "Zen", "relax": "Zen", "relajación": "Zen", "wellness": "Zen",
     "fitness": "Deporte", "gimnasio": "Deporte", "gym": "Deporte", "sport": "Deporte",
-    "bebés": "Infantil", "bebes": "Infantil", "niños": "Infantil", "ninos": "Infantil",
-    "kids": "Infantil", "puericultura": "Infantil", "juguetes": "Infantil",
+    "bebés": "Bebes", "bebes": "Bebes", "infantil": "Ninos",
+    "niños": "Ninos", "ninos": "Ninos", "kids": "Ninos", 
+    "puericultura": "Bebes", "juguetes": "Ninos",
     "cocina": "Gourmet", "gastronomía": "Gourmet", "food": "Gourmet", "bebidas": "Gourmet",
     "electrónica": "Tech", "tecnología": "Tech", "gadgets": "Tech",
     "videojuegos": "Gamer", "gaming": "Gamer",
@@ -116,20 +117,30 @@ def classify_with_gemini(products_batch):
     for i, p in enumerate(products_batch):
         products_text += f"\n{i+1}. {p['title']}"
     
-    prompt = f"""Clasifica estos productos en UNA de estas 18 categorías EXACTAS:
+    prompt = f"""
+[!] REGLA #1 ABSOLUTA - LEER ANTES DE TODO:
+• BEBES (0-2 años): biberones, chupetes, ropa bebé, cunas, cochecitos → "Bebes"
+• NINOS (3-12 años): juguetes, mochilas escolares, libros infantiles, Montessori → "Ninos"
+SIN EXCEPCION. Productos infantiles NUNCA van a Tech, Decoración u otras categorías.
 
-Tech, Gamer, Gourmet, Deporte, Outdoor, Viajes, Moda, Belleza, Decoración, Zen, Lector, Música, Artista, Fotografía, Friki, Mascotas, Lujo, Infantil
+Clasifica estos productos en UNA de estas 19 categorías EXACTAS:
+
+Tech, Gamer, Gourmet, Deporte, Outdoor, Viajes, Moda, Belleza, Decoración, Zen, Lector, Música, Artista, Fotografía, Friki, Mascotas, Lujo, Bebes, Ninos
 
 PRODUCTOS:{products_text}
 
 REGLAS CRÍTICAS:
-- Biberones, mantas bebé, juguetes Montessori, termómetros bebé → Infantil
+- TODO para bebés 0-2 años → Bebes (biberones, chupetes, canastillas)
+- TODO para niños 3-12 años → Ninos (juguetes, Montessori, libros infantiles)
 - Barbacoas, utensilios cocina, sets té/café → Gourmet  
 - Electroestimuladores, foam roller, paleteros pádel → Deporte
 - Funko Pop, varitas Harry Potter, merchandising → Friki
 - Tiendas campaña, bastones senderismo → Outdoor
 - Robot aspirador, smart tracker → Tech
 - "Fandom" NO existe, usar "Friki"
+- "Aire libre" NO existe, usar "Outdoor"
+- "Arte/Craft" NO existe, usar "Artista"
+- "Infantil" NO existe, usar "Bebes" o "Ninos"
 
 Responde SOLO con JSON array:
 [{{"id": 1, "category": "Categoría"}}, ...]"""

@@ -1,0 +1,265 @@
+{
+  "timestamp": "2026-01-21T11:17:30.239518",
+  "dry_run": true,
+  "total_products": 50,
+  "changes": [
+    {
+      "id": 3060,
+      "title": "Cesta de Madera: El Regalo Perfecto para Baby Shower",
+      "old": "Tech",
+      "new": "Infantil"
+    },
+    {
+      "id": 3058,
+      "title": "Domina la Montaña con Bastones Plegables",
+      "old": "Aire libre",
+      "new": "Outdoor"
+    },
+    {
+      "id": 3056,
+      "title": "Bastones de Senderismo Ajustables: Conquista la Montaña con Confianza",
+      "old": "Aire libre",
+      "new": "Outdoor"
+    },
+    {
+      "id": 3054,
+      "title": "El Lienzo Perfecto para Desatar tu Creatividad",
+      "old": "Arte/Craft",
+      "new": "Artista"
+    },
+    {
+      "id": 3052,
+      "title": "El Kit de Dibujo A4 Completo para Desatar tu Arte",
+      "old": "Arte/Craft",
+      "new": "Artista"
+    },
+    {
+      "id": 3050,
+      "title": "Desata tu Creatividad con este Bloc de Dibujo A4",
+      "old": "Arte/Craft",
+      "new": "Artista"
+    },
+    {
+      "id": 3048,
+      "title": "Funko Pop Yuji Itadori: El Regalo Perfecto para Fans de Jujutsu Kaisen",
+      "old": "Fandom/Friki",
+      "new": "Friki"
+    },
+    {
+      "id": 3046,
+      "title": "Funko Pop Papa con Purpurina: El Regalo Rockero para Fans de Ghost",
+      "old": "Fandom/Friki",
+      "new": "Friki"
+    },
+    {
+      "id": 3044,
+      "title": "Funko Pop Genya Demon Form: El Regalo Definitivo para Fans de Demon Slayer",
+      "old": "Fandom/Friki",
+      "new": "Friki"
+    },
+    {
+      "id": 3042,
+      "title": "Inuyasha en su Pose Más Relajada: Funko Pop Coleccionable",
+      "old": "Fandom/Friki",
+      "new": "Friki"
+    },
+    {
+      "id": 3040,
+      "title": "Un Clásico de Disney en Formato Funko Pop",
+      "old": "Fandom/Friki",
+      "new": "Friki"
+    },
+    {
+      "id": 3038,
+      "title": "Bienvenida Personalizada: Cesta de Bebé con Amor",
+      "old": "Tech",
+      "new": "Infantil"
+    },
+    {
+      "id": 3036,
+      "title": "Bienvenido al Mundo, Pequeño Tesoro",
+      "old": "Tech",
+      "new": "Infantil"
+    },
+    {
+      "id": 3034,
+      "title": "El Primer Kit de Bordado para Pequeños Artistas",
+      "old": "Tech",
+      "new": "Infantil"
+    },
+    {
+      "id": 3032,
+      "title": "Cámara Instantánea para Pequeños Artistas",
+      "old": "Tech",
+      "new": "Infantil"
+    },
+    {
+      "id": 3030,
+      "title": "Captura la Aventura: Cámara Instantánea para Pequeños Exploradores",
+      "old": "Tech",
+      "new": "Infantil"
+    },
+    {
+      "id": 3024,
+      "title": "Aromas que Elevan el Espíritu",
+      "old": "Bienestar",
+      "new": "Zen"
+    },
+    {
+      "id": 3017,
+      "title": "Ilumina tus Aventuras: Linterna Frontal Ledlenser",
+      "old": "Aire libre",
+      "new": "Outdoor"
+    },
+    {
+      "id": 3013,
+      "title": "Regala Momentos Inolvidables en Pareja",
+      "old": "Viajes",
+      "new": "Gourmet"
+    },
+    {
+      "id": 3011,
+      "title": "El Primer Centro de Juegos Montessori",
+      "old": "Tech",
+      "new": "Infantil"
+    },
+    {
+      "id": 3009,
+      "title": "Centro de Aprendizaje Montessori: 4 Juguetes en 1",
+      "old": "Tech",
+      "new": "Infantil"
+    },
+    {
+      "id": 3007,
+      "title": "Cubo Mágico Montessori: 6 Juguetes en 1",
+      "old": "Tech",
+      "new": "Infantil"
+    },
+    {
+      "id": 3005,
+      "title": "Torre de Descubrimientos: Cubos Apilables Montessori",
+      "old": "Tech",
+      "new": "Infantil"
+    },
+    {
+      "id": 3003,
+      "title": "Decantador de Vino Amlong Crystal: Un Toque de Elegancia",
+      "old": "Cocina/Gourmet",
+      "new": "Gourmet"
+    },
+    {
+      "id": 3001,
+      "title": "Experiencia Vinícola Completa: Set Decantador de Cristal",
+      "old": "Cocina/Gourmet",
+      "new": "Gourmet"
+    },
+    {
+      "id": 2999,
+      "title": "Decantador Cisne: Una Joya para Degustar Vino",
+      "old": "Cocina/Gourmet",
+      "new": "Gourmet"
+    },
+    {
+      "id": 2995,
+      "title": "Descubre el Mundo Oculto: Endoscopio Infantil para Pequeños Exploradores",
+      "old": "Aire libre",
+      "new": "Infantil"
+    },
+    {
+      "id": 2993,
+      "title": "Alimentación Natural y Cómoda: Pack de 2 Biberones Philips Avent",
+      "old": "Belleza",
+      "new": "Infantil"
+    },
+    {
+      "id": 2991,
+      "title": "El Comienzo Perfecto: Set de Regalo Philips Avent",
+      "old": "Belleza",
+      "new": "Infantil"
+    },
+    {
+      "id": 2989,
+      "title": "Alimentación Suave y Natural: Set de 3 Biberones Philips Avent",
+      "old": "Belleza",
+      "new": "Infantil"
+    },
+    {
+      "id": 2987,
+      "title": "El Set Completo para una Alimentación Natural: Philips Avent",
+      "old": "Belleza",
+      "new": "Infantil"
+    },
+    {
+      "id": 2985,
+      "title": "El Comienzo Perfecto: Set de Biberones Philips Avent",
+      "old": "Belleza",
+      "new": "Infantil"
+    },
+    {
+      "id": 2981,
+      "title": "Despierta la Imaginación con la Pizarra de Fieltro de la Jungla",
+      "old": "Tech",
+      "new": "Infantil"
+    },
+    {
+      "id": 2979,
+      "title": "Organiza y Refresca tu PS5 con Estilo",
+      "old": "Videojuegos",
+      "new": "Gamer"
+    },
+    {
+      "id": 2977,
+      "title": "Globo Terráqueo MOVA: La Tierra en Movimiento",
+      "old": "Hogar",
+      "new": "Decoración"
+    },
+    {
+      "id": 2975,
+      "title": "Globo Terráqueo de Corcho: Tu Diario de Viajes",
+      "old": "Hogar",
+      "new": "Viajes"
+    },
+    {
+      "id": 2973,
+      "title": "The Glenrothes 12 Años Whisky Single Malt Escocés 70cl",
+      "old": "Cocina/Gourmet",
+      "new": "Gourmet"
+    },
+    {
+      "id": 2971,
+      "title": "Dalwhinnie 15 Años Whisky Escocés Single Malt, 700 ml",
+      "old": "Cocina/Gourmet",
+      "new": "Gourmet"
+    },
+    {
+      "id": 2969,
+      "title": "Jack Daniel's Single Barrel Tennessee Whiskey Con Estuche Metálico para regalo - 45% Vol. Alcohol, 7",
+      "old": "Cocina/Gourmet",
+      "new": "Gourmet"
+    },
+    {
+      "id": 2967,
+      "title": "Talisker 10 años, whisky escocés single malt, 700 ml",
+      "old": "Cocina/Gourmet",
+      "new": "Gourmet"
+    },
+    {
+      "id": 2965,
+      "title": "Laura Biagiotti",
+      "old": "Belleza",
+      "new": "Moda"
+    },
+    {
+      "id": 2963,
+      "title": "Philips Hue - Bombilla LED Inteligente, B39 E14, Luz Blanca Cálida Regulable, 5.5W 470 Lumens, Compa",
+      "old": "Hogar",
+      "new": "Tech"
+    },
+    {
+      "id": 2961,
+      "title": "El Kit Científico Definitivo: 238+ Experimentos para Jóvenes Genios",
+      "old": "Tech",
+      "new": "Infantil"
+    }
+  ]
+}

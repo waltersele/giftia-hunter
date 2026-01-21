@@ -1,0 +1,16 @@
+{
+  "merchant_id": 24562,
+  "merchant_name": "Padel Market",
+  "total_products": 5486,
+  "total_categories": 1,
+  "categories": {
+    "Tennis": 5486
+  },
+  "examples": {
+    "Tennis": {
+      "title": "PUMA Nova ELITE Padel Bag 2025 (Paletero)",
+      "price": "49.95",
+      "brand": "Puma"
+    }
+  }
+}

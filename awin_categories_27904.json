@@ -1,0 +1,2464 @@
+{
+  "merchant_id": 27904,
+  "merchant_name": "Sprinter",
+  "total_products": 118288,
+  "total_categories": 409,
+  "categories": {
+    "Hombre &gt; Calzado &gt; Zapatillas Casual Hombre": 13933,
+    "Niña &gt; Calzado": 10395,
+    "Niño &gt; Calzado": 6827,
+    "Hombre &gt; Calzado": 3968,
+    "Hombre &gt; Calzado &gt; Zapatillas Hombre": 3629,
+    "Niño &gt; Ropa &gt; Camisetas": 3417,
+    "Mujer &gt; Calzado": 2472,
+    "Hombre &gt; Ropa &gt; Sudaderas": 2348,
+    "Hombre &gt; Ropa &gt; Camisetas &gt; Casual": 2278,
+    "Mujer &gt; Ropa &gt; Camisetas": 2207,
+    "Niño &gt; Ropa &gt; Pantalones": 1941,
+    "Hombre &gt; Ropa &gt; Pantalones Hombre": 1838,
+    "Mujer &gt; Ropa &gt; Chaqueta": 1707,
+    "Hombre &gt; Ropa &gt; Camisetas": 1693,
+    "Hombre &gt; Ropa &gt; Pantalones Hombre &gt; Fútbol": 1664,
+    "Niño &gt; Calzado &gt; Sandalias": 1610,
+    "Mujer &gt; Calzado &gt; Zapatillas Mujer &gt; Zapatillas Casual Mujer": 1584,
+    "Hombre &gt; Ropa &gt; Pantalones Hombre &gt; Casual": 1582,
+    "Hombre &gt; Ropa &gt; Chaquetas": 1488,
+    "Zapatillas": 1435,
+    "Mujer &gt; Ropa &gt; Sudaderas Mujer": 1375,
+    "Hombre &gt; Ropa &gt; Polos": 1328,
+    "Mujer &gt; Ropa &gt; Mallas": 1279,
+    "Mujer &gt; Calzado &gt; Sandalias": 1225,
+    "Mujer &gt; Calzado &gt; Botas": 1161,
+    "Niña &gt; Calzado &gt; Sandalias": 1118,
+    "Mujer &gt; Ropa &gt; Camisetas &gt; Camisetas Casual Mujer": 1115,
+    "Hombre &gt; Ropa &gt; Sudaderas &gt; Fútbol": 1071,
+    "Hombre &gt; Calzado &gt; Deportivas de hombre": 1065,
+    "Niño &gt; Ropa &gt; Sudaderas": 931,
+    "Mujer &gt; Calzado &gt; Zapatillas Deporte Mujer": 919,
+    "Niño &gt; Ropa &gt; Chaquetas": 882,
+    "Hombre &gt; Ropa &gt; Chaquetas &gt; Montaña": 866,
+    "Deportes &gt; Trail Running &gt; Zapatillas &gt; Hombre": 840,
+    "Niño &gt; Ropa &gt; Sudaderas &gt; Fútbol": 808,
+    "Niña &gt; Ropa &gt; Camisetas": 784,
+    "Mujer &gt; Ropa &gt; Pantalones Deporte": 778,
+    "Mujer &gt; Ropa &gt; Camisetas &gt; Camisetas Fitness Mujer": 764,
+    "Niña &gt; Calzado &gt; Botas Niña": 762,
+    "Hombre &gt; Ropa &gt; Chaquetas &gt; Casual": 755,
+    "Mujer &gt; Calzado &gt; Chanclas Mujer": 671,
+    "Deportes &gt; Trail Running &gt; Zapatillas &gt; Niños": 652,
+    "Mujer &gt; Ropa &gt; Pantalones Deporte &gt; Casual": 650,
+    "Hombre &gt; Ropa &gt; Forros Polares": 641,
+    "Deportes &gt; Outdoor &gt; Calzado &gt; Zapatillas &gt; Zapatillas Trekking Mujer": 627,
+    "Niño &gt; Ropa &gt; Chándals Niño": 611,
+    "Hombre &gt; Calzado &gt; Chanclas Hombre": 606,
+    "Hombre &gt; Calzado &gt; Sandalias": 601,
+    "Hombre &gt; Ropa &gt; Pantalones Hombre &gt; Montaña": 592,
+    "Hombre &gt; Ropa &gt; Chándals Hombre": 568,
+    "Mujer &gt; Ropa &gt; Forros Polares": 564,
+    "Hombre &gt; Ropa &gt; Pantalones Hombre &gt; Running": 559,
+    "Hombre &gt; Calzado &gt; Botas &gt; Montaña": 557,
+    "Hombre &gt; Ropa &gt; Camisetas &gt; Montaña": 516,
+    "Niño &gt; Ropa &gt; Polos": 508,
+    "Deportes &gt; Trail Running &gt; Zapatillas &gt; Zapatillas Trail Mujer": 484,
+    "Niño &gt; Ropa &gt; Conjuntos": 476,
+    "Niña &gt; Ropa &gt; Chándals": 475,
+    "Hombre &gt; Ropa &gt; Camisetas &gt; Baloncesto": 470,
+    "Hombre &gt; Accesorios &gt; Calcetines Hombre": 466,
+    "Mujer &gt; Ropa &gt; Sujetadores Deportivos": 458,
+    "Deportes &gt; Running &gt; Zapatillas Running &gt; Zapatillas Running Niña": 452,
+    "Mujer &gt; Ropa &gt; Polos": 427,
+    "Mujer &gt; Ropa &gt; Pantalones Deporte &gt; Montaña": 422,
+    "Hombre &gt; Ropa &gt; Softshell": 422,
+    "Deportes &gt; Running &gt; Zapatillas Running &gt; Zapatillas Running Hombre": 414,
+    "Mujer &gt; Ropa &gt; Camisetas &gt; Camisetas Trekking Mujer": 398,
+    "Deportes &gt; Fútbol &gt; Botas de fútbol &gt; Botas Multitaco &gt; Botas Multitaco Hombre": 397,
+    "Deportes &gt; Running &gt; Zapatillas Running &gt; Zapatillas Running Niño": 381,
+    "Deportes &gt; Pádel &gt; Palas de Pádel": 377,
+    "Mujer &gt; Ropa &gt; Faldas y Vestidos": 362,
+    "Niña &gt; Ropa &gt; Mallas": 345,
+    "Hombre &gt; Ropa &gt; Camisas": 340,
+    "Hombre &gt; Ropa &gt; Sudaderas &gt; Montaña": 312,
+    "Niña &gt; Ropa &gt; Chaquetas": 310,
+    "Hombre &gt; Ropa &gt; Ropa Interior": 289,
+    "Niña &gt; Ropa &gt; Sudaderas": 288,
+    "Deportes &gt; Fútbol &gt; Zapatillas Futbol Sala &gt; Zapatillas Fútbol Sala Niño": 281,
+    "Mujer &gt; Ropa &gt; Softshells": 240,
+    "Mujer &gt; Ropa &gt; Chándals Mujer": 237,
+    "Mujer &gt; Ropa &gt; Pantalones Deporte &gt; Fitness": 235,
+    "Hombre &gt; Ropa &gt; Cortavientos": 233,
+    "Niña &gt; Ropa &gt; Pantalones": 230,
+    "Hombre &gt; Ropa &gt; Ropa Térmica": 224,
+    "Hombre &gt; Ropa &gt; Sudaderas &gt; Running": 223,
+    "Hombre &gt; Ropa &gt; Chándals Hombre &gt; Chándal Fútbol Hombre": 222,
+    "Niño &gt; Calzado &gt; Zapatillas Niños": 218,
+    "Hombre &gt; Ropa &gt; Bañadores": 205,
+    "Deportes &gt; Outdoor &gt; Calzado &gt; Zapatillas &gt; Zapatillas Trekking Niños": 204,
+    "Hombre &gt; Calzado &gt; Zapatilla Hombre": 203,
+    "Mujer &gt; Accesorios &gt; Mochilas Deportivas Mujer": 199,
+    "Hombre &gt; Ropa &gt; Chalecos": 192,
+    "Deportes &gt; Fútbol &gt; Botas de fútbol &gt; Botas Fútbol Niño &gt; Botas Multitaco Niño": 192,
+    "Mujer &gt; Ropa &gt; Bikinis": 179,
+    "Niña &gt; Calzado &gt; Chanclas": 177,
+    "Deportes &gt; Fútbol &gt; Botas de fútbol &gt; Botas Fútbol Niño": 173,
+    "Hombre &gt; Ropa &gt; Mallas &gt; Running": 162,
+    "Mujer &gt; Ropa &gt; Sudaderas Mujer &gt; Sudaderas Fitness Mujer": 160,
+    "Niña &gt; Calzado &gt; Botas Niña &gt; Montaña": 159,
+    "Niño &gt; Ropa &gt; Forros Polares": 155,
+    "Niño &gt; Calzado &gt; Chanclas de niño": 154,
+    "Hombre &gt; Accesorios &gt; Calcetines Hombre &gt; Calcetines Running Hombre": 144,
+    "Hombre &gt; Ropa &gt; Camisetas &gt; Tenis": 142,
+    "Deportes &gt; Fútbol &gt; Ropa y Equipamiento": 141,
+    "Deportes &gt; Fútbol &gt; Material de fútbol &gt; Calcetines Fútbol": 137,
+    "Mujer &gt; Ropa &gt; Bañadores": 131,
+    "Deportes &gt; Fútbol &gt; Equipación Portero &gt; Guantes de Portero": 130,
+    "Mujer &gt; Ropa &gt; Chalecos": 127,
+    "Niña &gt; Ropa &gt; Forros Polares": 126,
+    "Niño &gt; Accesorios &gt; Calcetines Niños": 123,
+    "Hombre &gt; Calzado &gt; Botas": 119,
+    "Deportes &gt; Fitness &amp; Gimnasio &gt; Accesorios &gt; Guantes Gimnasio": 115,
+    "Niño &gt; Ropa &gt; Bañadores": 115,
+    "Niño &gt; Accesorios &gt; Guantes &gt; Fútbol": 111,
+    "Mujer &gt; Accesorios &gt; Gorras Mujer": 110,
+    "Nutrición &gt; Fuerza y Energía &gt; Bebidas Isotónicas": 109,
+    "Niña &gt; Ropa &gt; Conjuntos": 101,
+    "Deportes &gt; Outdoor &gt; Camping &gt; Mobiliario &gt; Mesas": 97,
+    "Deportes &gt; Ciclismo &gt; Ropa Ciclismo &gt; Maillot Ciclista": 95,
+    "Hombre &gt; Ropa &gt; Polos &gt; Montaña": 94,
+    "Deportes &gt; Tienda Musculación &gt; Pesas &amp; Mancuernas &gt; Soportes": 90,
+    "Niña &gt; Ropa &gt; Cortavientos": 89,
+    "Hombre &gt; Ropa &gt; Polos &gt; Tenis": 88,
+    "Deportes &gt; Tienda Musculación &gt; Kettlebell": 85,
+    "Deportes &gt; Fútbol &gt; Porterías": 84,
+    "Deportes &gt; Ciclismo &gt; Ropa Ciclismo &gt; Culotte Ciclismo": 83,
+    "Hombre &gt; Ropa &gt; Bañadores &gt; Playa": 76,
+    "Deportes &gt; Surf &gt; Ropa &gt; Neoprenos": 76,
+    "Deportes &gt; Balonmano &gt; Protecciones": 75,
+    "Deportes &gt; Patinaje &gt; Protecciones": 70,
+    "Niño &gt; Calzado &gt; Botas Niño &gt; Botas Agua": 68,
+    "Mujer &gt; Ropa &gt; Cortavientos": 67,
+    "Electrónica Deportiva &gt; Smartwatch": 65,
+    "Niña &gt; Ropa &gt; Bañadores &gt; Natación": 64,
+    "Deportes &gt; Fútbol &gt; Ropa y Equipamiento &gt; Conjuntos": 62,
+    "Deportes &gt; Fútbol &gt; Balones Fútbol": 61,
+    "Deportes &gt; Boxeo &gt; Guantes de Boxeo": 60,
+    "Juegos &gt; Columpios": 58,
+    "Deportes &gt; Pádel &gt; Zapatillas Pádel": 58,
+    "Deportes &gt; Fitness &amp; Gimnasio &gt; Material Musculación &gt; Bandas Elásticas &amp; Tensores": 56,
+    "Deportes &gt; Fitness &amp; Gimnasio &gt; Accesorios &gt; Mochilas": 56,
+    "Deportes &gt; Fútbol &gt; Ropa y Equipamiento &gt; Camisetas": 55,
+    "Deportes &gt; Fútbol &gt; Ropa y Equipamiento &gt; Equipaciones  Fútbol &gt; Niño": 55,
+    "Deportes &gt; Boxeo": 54,
+    "Deportes &gt; Natación &gt; Material &gt; Gafas Natación": 52,
+    "Deportes &gt; Tienda Musculación &gt; Máquinas Musculación": 52,
+    "Deportes &gt; Ciclismo &gt; Complementos Ciclista &gt; Guantes Ciclismo &gt; Cortos": 52,
+    "Deportes &gt; Fitness &amp; Gimnasio &gt; Zapatillas &gt; Zapatillas Fitness Hombre": 52,
+    "Niño &gt; Ropa &gt; Calzoncillos": 51,
+    "Niña &gt; Calzado &gt; Escarpines": 50,
+    "Hombre &gt; Ropa &gt; Chaquetas &gt; Running": 50,
+    "Deportes &gt; Baloncesto &gt; Balones de Baloncesto": 49,
+    "Deportes &gt; Patinaje &gt; Patines": 49,
+    "Juegos &gt; Futbolín": 49,
+    "Deportes &gt; Tenis &gt; Raquetas Tenis": 47,
+    "Deportes &gt; Buceo &gt; Neoprenos": 46,
+    "Deportes &gt; Fútbol &gt; Ropa y Equipamiento &gt; Pantalón &gt; Niños": 46,
+    "Deportes &gt; Ciclismo &gt; Accesorios Bici &gt; Mochila Hidratación": 45,
+    "Hombre &gt; Accesorios &gt; Guantes &gt; Montaña": 44,
+    "Mujer &gt; Ropa &gt; Ropa Térmica": 44,
+    "Deportes &gt; Natación &gt; Piscinas": 43,
+    "Deportes &gt; Pádel &gt; Paleteros &amp; Mochilas": 42,
+    "Deportes &gt; Outdoor &gt; Camping": 41,
+    "Mujer &gt; Accesorios &gt; Calcetines Mujer": 40,
+    "Deportes &gt; Natación &gt; Material &gt; Gorros": 40,
+    "Niña &gt; Ropa &gt; Bikinis": 40,
+    "Deportes &gt; Pádel &gt; Zapatillas Pádel &gt; Zapatillas Pádel Niños": 40,
+    "Deportes &gt; Fitness &amp; Gimnasio &gt; Accesorios &gt; Botellas": 39,
+    "Deportes &gt; Kárate": 38,
+    "Hombre &gt; Calzado &gt; Escarpines": 37,
+    "Electrónica Deportiva &gt; Auriculares": 37,
+    "Deportes &gt; Balonmano &gt; Zapatillas": 37,
+    "Nutrición &gt; Fuerza y Energía &gt; Estimulantes Deportivos": 36,
+    "Mujer &gt; Accesorios &gt; Guantes": 36,
+    "Deportes &gt; Outdoor &gt; Ropa &gt; Sudaderas": 36,
+    "Mujer": 35,
+    "Hombre &gt; Accesorios &gt; Bolsas Deporte Hombre": 35,
+    "Deportes &gt; Kick Boxing &gt; Protecciones": 35,
+    "Deportes &gt; Outdoor &gt; Material &gt; Cantimploras y Botellas": 34,
+    "Deportes &gt; Fitness &amp; Gimnasio": 34,
+    "Niño &gt; Ropa &gt; Ropa Térmica": 34,
+    "Deportes &gt; Surf &gt; Mobiliario Playa": 34,
+    "Deportes &gt; Ciclismo &gt; Repuestos y Herramientas": 33,
+    "Niña &gt; Ropa &gt; Chaquetas &gt; Montaña": 33,
+    "Niño &gt; Calzado &gt; Escarpines": 33,
+    "Deportes &gt; Balonmano &gt; Zapatillas &gt; Mujer": 33,
+    "Deportes &gt; Tienda Paddle Surf &gt; Neoprenos": 33,
+    "Deportes &gt; Running &gt; Accesorios &gt; Medias de Compresión": 32,
+    "Deportes &gt; Fútbol &gt; Balones Fútbol &gt; Balones Fútbol adidas": 31,
+    "Mujer &gt; Ropa &gt; Cortavientos &gt; Montaña": 31,
+    "Deportes &gt; Tienda Cardio &gt; Bicicletas Estáticas": 30,
+    "Deportes &gt; Trail Running &gt; Complementos &gt; Plantillas": 30,
+    "Hombre &gt; Accesorios &gt; Bandoleras": 30,
+    "Deportes &gt; Fútbol &gt; Botas de fútbol &gt; Botas Tacos": 30,
+    "Deportes &gt; Tienda Cardio &gt; Cintas de Correr": 29,
+    "Deportes &gt; Ciclismo &gt; Complementos Ciclista &gt; Guantes Ciclismo &gt; Largos": 29,
+    "Deportes &gt; Fútbol &gt; Ropa y Equipamiento &gt; Pantalón": 29,
+    "Deportes &gt; Fútbol &gt; Botas de fútbol &gt; Botas Fútbol Niño &gt; Botas Fútbol Tacos Niños": 29,
+    "Deportes &gt; Running &gt; Accesorios &gt; Plantillas": 28,
+    "Mujer &gt; Accesorios": 27,
+    "Niño &gt; Accesorios &gt; Riñoneras": 27,
+    "Deportes &gt; Ciclismo &gt; Complementos Ciclista &gt; Casco Bicicleta": 27,
+    "Deportes &gt; Fútbol &gt; Balones Fútbol &gt; Minibalones": 26,
+    "Niña &gt; Ropa &gt; Faldas y vestidos": 26,
+    "Niña": 25,
+    "Deportes &gt; Running &gt; Accesorios": 25,
+    "Mujer &gt; Accesorios &gt; Gorras Mujer &gt; Running": 25,
+    "Mujer &gt; Accesorios &gt; Calcetines Mujer &gt; Calcetines Trekking Mujer": 25,
+    "Deportes &gt; Tenis &gt; Accesorios &gt; Grips y overgrips": 23,
+    "Niño &gt; Accesorios &gt; Mochilas Escolares": 22,
+    "Deportes &gt; Outdoor &gt; Acesorios &gt; Guantes": 22,
+    "Mujer &gt; Accesorios &gt; Gafas &gt; Sol": 22,
+    "Deportes &gt; Pádel &gt; Zapatillas Pádel &gt; Zapatillas Pádel Hombre": 22,
+    "Deportes &gt; Ciclismo &gt; Bicicletas &gt; Bicicletas Eléctricas": 22,
+    "Juegos &gt; Camas Elásticas": 22,
+    "Deportes &gt; Fitness &amp; Gimnasio &gt; Accesorios &gt; Protecciones": 21,
+    "Deportes &gt; Tienda Cardio &gt; Bicicleta Spinning": 21,
+    "Hombre &gt; Ropa &gt; Mallas &gt; Fútbol": 21,
+    "Mujer &gt; Accesorios &gt; Calcetines Mujer &gt; Calcetines Running Mujer": 20,
+    "Deportes &gt; Fitness &amp; Gimnasio &gt; Accesorios": 20,
+    "Deportes &gt; Ciclismo &gt; Bicicletas &gt; Bicicletas Montaña": 20,
+    "Deportes &gt; Ciclismo &gt; Complementos Ciclista &gt; Calcetines Ciclismo": 20,
+    "Hombre &gt; Ropa &gt; Chaquetas &gt; Ciclismo": 20,
+    "Deportes &gt; Ping Pong &gt; Mesas": 20,
+    "Deportes &gt; Triatlón &gt; Ropa &amp; Equipamiento &gt; Neoprenos": 20,
+    "Nutrición &gt; Proteínas &gt; Proteínas Whey": 19,
+    "Deportes &gt; Yoga &gt; Accesorios y Material &gt; Calcetines Yoga": 19,
+    "Deportes &gt; Tienda Musculación &gt; Pesas Lastradas": 19,
+    "Deportes &gt; Running": 18,
+    "Deportes &gt; Fútbol &gt; Balones Fútbol &gt; Balones Fútbol Nike": 18,
+    "Deportes &gt; Fitness &amp; Gimnasio &gt; Material Musculación &gt; Saco Búlgaro": 18,
+    "Deportes &gt; Pádel &gt; Pelotas": 17,
+    "Deportes &gt; Baloncesto &gt; Accesorios": 16,
+    "Niño &gt; Accesorios &gt; Bolsas Deporte": 16,
+    "Niña &gt; Accesorios &gt; Estuches escolares": 16,
+    "Deportes &gt; Boxeo &gt; Protecciones": 15,
+    "Deportes &gt; Fitness &amp; Gimnasio &gt; Material Musculación &gt; Combas": 15,
+    "Deportes &gt; Running &gt; Accesorios &gt; Diademas": 15,
+    "Niño &gt; Accesorios &gt; Guantes": 15,
+    "Deportes &gt; Billares &gt; Mesas": 15,
+    "Deportes &gt; Taekwondo": 15,
+    "Deportes &gt; Tenis &gt; Pelotas": 14,
+    "Hombre &gt; Accesorios &gt; Gorras": 14,
+    "Deportes &gt; Fitness &amp; Gimnasio &gt; Material Musculación &gt; Abdominales": 14,
+    "Hombre &gt; Accesorios &gt; Gorros": 14,
+    "Deportes &gt; Outdoor &gt; Acesorios &gt; Gorros": 14,
+    "Mujer &gt; Accesorios &gt; Bolsas Deporte Mujer": 14,
+    "Hombre &gt; Accesorios": 14,
+    "Deportes &gt; Running &gt; Accesorios &gt; Calcetines Running": 14,
+    "Deportes &gt; Outdoor &gt; Ropa &gt; Chubasqueros &gt; Mujer": 14,
+    "Niña &gt; Accesorios &gt; Calcetines Niña &gt; Casual": 14,
+    "Hombre &gt; Accesorios &gt; Guantes &gt; Running": 14,
+    "Deportes &gt; Voleibol &gt; Zapatillas &gt; Hombre": 14,
+    "Deportes &gt; Pádel &gt; Accesorios &gt; Grips y Overgrips": 13,
+    "Niña &gt; Ropa &gt; Ropa Térmica": 13,
+    "Mujer &gt; Ropa &gt; Ropa Interior": 13,
+    "Juegos &gt; Mesas Multijuegos": 13,
+    "Deportes &gt; Fitness &amp; Gimnasio &gt; Material Musculación &gt; Cajón Pliométrico": 13,
+    "Deportes &gt; Tienda Paddle Surf &gt; Tablas Paddlesurf": 13,
+    "Deportes &gt; Baloncesto &gt; Zapatillas &gt; Zapatillas Baloncesto de Hombre": 13,
+    "Deportes &gt; Outdoor &gt; Camping &gt; Menaje": 12,
+    "Deportes &gt; Pádel &gt; Accesorios &gt; Muñequeras": 12,
+    "Deportes &gt; Tienda Musculación &gt; Barras": 12,
+    "Deportes &gt; Esquí / Nieve &gt; Complementos &gt; Guantes Esquí": 12,
+    "Deportes &gt; Ciclismo &gt; Ropa Ciclismo &gt; Chubasquero &gt; Hombre": 12,
+    "Cuidados Deportista &gt; Perfumes": 12,
+    "Hombre &gt; Accesorios &gt; Billeteros": 11,
+    "Deportes &gt; Baloncesto &gt; Protecciones": 11,
+    "Nutrición": 11,
+    "Deportes &gt; Fútbol &gt; Ropa y Equipamiento &gt; Sudaderas": 11,
+    "Deportes &gt; Tienda Musculación &gt; Discos": 11,
+    "Deportes &gt; Ciclismo &gt; Accesorios Bici": 10,
+    "Deportes &gt; Outdoor &gt; Camping &gt; Sacos de Dormir": 10,
+    "Juegos &gt; Juegos Acuáticos &amp; Piscina": 10,
+    "Deportes &gt; Tienda Musculación &gt; Esterillas": 10,
+    "Electrónica Deportiva &gt; Pulseras Actividad": 10,
+    "Niño &gt; Calzado &gt; Botas Niño": 10,
+    "Deportes &gt; Fútbol &gt; Zapatillas Futbol Sala": 10,
+    "Deportes &gt; Outdoor &gt; Material &gt; Iluminación &gt; Linternas": 9,
+    "Deportes &gt; Tienda Cardio &gt; Bicicletas Elípticas": 9,
+    "Deportes &gt; Ciclismo &gt; Bicicletas &gt; Bicicletas Urbana": 9,
+    "Hombre": 8,
+    "Deportes &gt; Ciclismo &gt; Accesorios Bici &gt; Infladores": 8,
+    "Deportes &gt; Natación &gt; Material &gt; Otros": 8,
+    "Deportes &gt; Ciclismo &gt; Bicicletas &gt; Bicicletas Niños e infantiles": 8,
+    "Deportes &gt; Tenis &gt; Accesorios &gt; Diademas &amp; Cintas": 8,
+    "Deportes &gt; Pádel &gt; Accesorios &gt; Calcetines": 8,
+    "Niño &gt; Accesorios &gt; Guantes &gt; Ciclismo": 8,
+    "Deportes &gt; Voleibol &gt; Rodilleras y Coderas": 8,
+    "Deportes &gt; Tenis": 8,
+    "Deportes &gt; Tienda Musculación &gt; Pesas &amp; Mancuernas": 8,
+    "Deportes &gt; Fútbol &gt; Botas de fútbol &gt; Botas Multitaco": 8,
+    "Deportes &gt; Baloncesto &gt; Ropa y Equipamiento": 8,
+    "Deportes &gt; Escalada &gt; Accesorios &gt; Mochilas": 8,
+    "Deportes &gt; Ciclismo &gt; Accesorios Bici &gt; Limpieza&amp;Lubricante": 7,
+    "Deportes &gt; Fútbol &gt; Material de fútbol": 7,
+    "Deportes &gt; Tienda Musculación &gt; Bancos de Pesas": 7,
+    "Deportes &gt; Trail Running &gt; Complementos &gt; Calcetines": 7,
+    "Mujer &gt; Calzado &gt; Escarpines": 7,
+    "Deportes &gt; Fútbol &gt; Protecciones &gt; Espinilleras": 7,
+    "Hombre &gt; Accesorios &gt; Gorras &gt; Gorras Running Hombre": 7,
+    "Hombre &gt; Calzado &gt; Zapatillas Hombre &gt; Zapatillas Casual Hombre": 7,
+    "Deportes &gt; Fitness &amp; Gimnasio &gt; Material Musculación &gt; Kit Fitness": 7,
+    "Niña &gt; Ropa &gt; Pantalones &gt; Montaña": 7,
+    "Deportes &gt; Tenis &gt; Zapatillas Tenis &gt; Zapatillas Tenis Hombre": 7,
+    "Deportes &gt; Ciclismo &gt; Accesorios Bici &gt; Luces": 6,
+    "Hombre &gt; Accesorios &gt; Gafas &gt; Running": 6,
+    "Deportes &gt; Bádminton": 6,
+    "Deportes &gt; Outdoor &gt; Material &gt; Bastones Trekking": 6,
+    "Nutrición &gt; Aumento Masa Muscular &gt; Creatina": 6,
+    "Hombre &gt; Calzado &gt; Botas &gt; Casual": 6,
+    "Deportes &gt; Outdoor": 6,
+    "Deportes &gt; Esquí / Nieve &gt; Botas Apreski &gt; Niños": 6,
+    "Niña &gt; Accesorios &gt; Mochilas": 6,
+    "Deportes &gt; Muay Thai": 6,
+    "Deportes &gt; Ciclismo &gt; Bicicletas &gt; Bicicletas Plegables": 6,
+    "Niño": 5,
+    "Cuidados Deportista &gt; Antimosquitos": 5,
+    "Deportes &gt; Ping Pong": 5,
+    "Deportes &gt; Patinaje &gt; Cascos": 5,
+    "Deportes &gt; Fútbol &gt; Ropa y Equipamiento &gt; Ropa Compresión": 5,
+    "Deportes &gt; Fútbol": 5,
+    "Mujer &gt; Accesorios &gt; Gorros": 5,
+    "Niña &gt; Accesorios &gt; Bufandas": 5,
+    "Deportes &gt; Baloncesto &gt; Balones de Baloncesto &gt; Minibalones de Baloncesto": 5,
+    "Deportes &gt; Fitness &amp; Gimnasio &gt; Material Musculación &gt; Balón Medicinal &amp; Wallballs": 5,
+    "Deportes &gt; Outdoor &gt; Ropa &gt; Chubasqueros &gt; Hombre": 5,
+    "Deportes &gt; Ciclismo &gt; Accesorios Bici &gt; Bidones Bici": 5,
+    "Deportes &gt; Voleibol &gt; Balones": 5,
+    "Deportes &gt; Buceo &gt; Escarpines": 5,
+    "Deportes &gt; Surf &gt; Ropa &gt; Camisetas": 5,
+    "Deportes &gt; Boxeo &gt; Soportes": 5,
+    "Mujer &gt; Calzado &gt; Botas &gt; Botas Agua": 5,
+    "Deportes &gt; Cross Training &gt; Ropa y Equipamiento &gt; Protecciones": 5,
+    "Deportes &gt; Fitness &amp; Gimnasio &gt; Material Musculación &gt; Trampolines": 5,
+    "Deportes &gt; Outdoor &gt; Camping &gt; Esterillas": 4,
+    "Deportes &gt; Frontenis &gt; Pelotas": 4,
+    "Deportes &gt; Fútbol &gt; Ropa y Equipamiento &gt; Petos": 4,
+    "Deportes &gt; Ciclismo &gt; Accesorios Bici &gt; Portabidones Bici": 4,
+    "Deportes &gt; Tienda Skate &gt; Skates / Monopatines": 4,
+    "Niño &gt; Accesorios &gt; Estuches Escolares": 4,
+    "Deportes &gt; Fútbol &gt; Mochilas y Bolsas": 4,
+    "Deportes &gt; Patinetes &amp; Movilidad &gt; Patinetes": 4,
+    "Nutrición &gt; Salud &gt; Multivitaminas": 4,
+    "Deportes &gt; Yoga": 4,
+    "Cuidados Deportista": 4,
+    "Electrónica Deportiva &gt; Accesorios Smartwatch": 4,
+    "Deportes &gt; Outdoor &gt; Camping &gt; Tiendas de Campaña": 4,
+    "Niña &gt; Ropa &gt; Polos": 4,
+    "Deportes &gt; Triatlón &gt; Accesorios &gt; Gafas": 4,
+    "Deportes &gt; Fútbol &gt; Balones Fútbol &gt; Infladores": 3,
+    "Deportes &gt; Fútbol &gt; Protecciones &gt; Tobilleras Fútbol": 3,
+    "Deportes &gt; Running &gt; Accesorios &gt; Brazaletes": 3,
+    "Niño &gt; Accesorios &gt; Gorros": 3,
+    "Nutrición &gt; Adelgazamiento &gt; L Carnitina": 3,
+    "Nutrición &gt; Recuperación Muscular &gt; Aminoácidos": 3,
+    "Niño &gt; Accesorios &gt; Gorras": 3,
+    "Deportes &gt; Rugby &gt; Balones": 3,
+    "Deportes &gt; Frontenis &gt; Raquetas": 3,
+    "Niño &gt; Ropa &gt; Camisetas &gt; Montaña": 3,
+    "Deportes &gt; Triatlón &gt; Accesorios &gt; Mochilas": 3,
+    "Deportes &gt; Natación &gt; Neoprenos": 3,
+    "Niño &gt; Ropa &gt; Camisetas &gt; Tenis": 3,
+    "Deportes &gt; Pádel &gt; Accesorios &gt; Protecciones": 3,
+    "Deportes &gt; Fitness &amp; Gimnasio &gt; Material Musculación &gt; Barras Paralelas": 3,
+    "Deportes &gt; Ciclismo &gt; Accesorios Bici &gt; Timbres": 2,
+    "Deportes &gt; Escalada &gt; Accesorios &gt; Luz Frontal": 2,
+    "Deportes &gt; Ciclismo &gt; Accesorios Bici &gt; Candados": 2,
+    "Deportes &gt; Buceo &gt; Material y Equipo &gt; Gafas": 2,
+    "Deportes &gt; Ciclismo &gt; Accesorios Bici &gt; Bolsa Bici": 2,
+    "Deportes &gt; Ping Pong &gt; Pelotas": 2,
+    "Niño &gt; Accesorios &gt; Bufandas": 2,
+    "Deportes &gt; Tenis &gt; Accesorios &gt; Antivibrador": 2,
+    "Deportes &gt; Tienda Cardio &gt; Máquinas Remo": 2,
+    "Hombre &gt; Accesorios &gt; Guantes &gt; Nieve": 2,
+    "Hombre &gt; Accesorios &gt; Bufandas": 2,
+    "Deportes &gt; Outdoor &gt; Camping &gt; Neveras": 2,
+    "Deportes &gt; Buceo &gt; Material y Equipo": 2,
+    "Zapatillas &gt; Casual Niña": 2,
+    "Cuidados Deportista &gt; Gel Hidroalcóholico": 2,
+    "Deportes &gt; Ciclismo": 2,
+    "Hombre &gt; Accesorios &gt; Mochilas Deportivas Hombre": 2,
+    "Deportes &gt; Fútbol &gt; Protecciones": 2,
+    "Deportes &gt; Running &gt; Accesorios &gt; Gorras": 2,
+    "Deportes &gt; Outdoor &gt; Acesorios &gt; Gorros &gt; Niños": 2,
+    "Deportes &gt; Tienda Cardio &gt; Steppers": 2,
+    "Deportes &gt; Fitness &amp; Gimnasio &gt; Material Musculación &gt; Soporte Flexiones": 2,
+    "Deportes &gt; Patinaje &gt; Accesorios": 2,
+    "Deportes &gt; Trail Running &gt; Material &gt; Mochilas": 2,
+    "Niña &gt; Accesorios &gt; Monederos": 1,
+    "Deportes &gt; Outdoor &gt; Material &gt; Iluminación": 1,
+    "Electrónica Deportiva &gt; Cuentakilómetros": 1,
+    "Deportes &gt; Boxeo &gt; Sacos de Boxeo": 1,
+    "Electrónica Deportiva &gt; Banda Pulsómetro": 1,
+    "Nutrición &gt; Fuerza y Energía &gt; Barritas &gt; Barritas Energéticas": 1,
+    "Niño &gt; Calzado &gt; Zapatillas Casual": 1,
+    "Hombre &gt; Calzado &gt; Zapatillas Casual": 1,
+    "Hombre &gt; Accesorios &gt; Neceseres": 1,
+    "Niña &gt; Accesorios &gt; Gafas &gt; Sol": 1,
+    "Niño &gt; Accesorios &gt; Gafas &gt; Sol": 1,
+    "Niño &gt; Accesorios &gt; Monederos": 1,
+    "Deportes &gt; Buceo": 1,
+    "Deportes &gt; Running &gt; Accesorios &gt; Gorras &gt; Nike": 1,
+    "Cuidados Deportista &gt; Cremas y Geles": 1,
+    "Deportes &gt; Trail Running &gt; Complementos &gt; Gorras &gt; Nike": 1,
+    "Deportes &gt; Ciclismo &gt; Bicicletas": 1,
+    "Deportes &gt; Ciclismo &gt; Bicicletas &gt; Bicicletas Gravel": 1,
+    "Deportes &gt; Bodyboard &gt; Tablas": 1,
+    "Deportes &gt; Outdoor &gt; Acesorios &gt; Gorras": 1
+  },
+  "examples": {
+    "Deportes &gt; Tenis &gt; Accesorios &gt; Grips y overgrips": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Ciclismo &gt; Accesorios Bici &gt; Luces": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Mujer": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Outdoor &gt; Material &gt; Cantimploras y Botellas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Ciclismo &gt; Repuestos y Herramientas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Accesorios &gt; Calcetines Hombre": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Ciclismo &gt; Accesorios Bici": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niña": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Tenis &gt; Pelotas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Pádel &gt; Pelotas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Ciclismo &gt; Accesorios Bici &gt; Infladores": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niño": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Ciclismo &gt; Accesorios Bici &gt; Timbres": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Calzado &gt; Zapatillas Casual Hombre": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Mujer &gt; Calzado &gt; Zapatillas Mujer &gt; Zapatillas Casual Mujer": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Ciclismo &gt; Accesorios Bici &gt; Limpieza&amp;Lubricante": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Calzado &gt; Botas &gt; Montaña": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Accesorios &gt; Gorras": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Calzado &gt; Zapatillas Hombre": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Outdoor &gt; Camping &gt; Esterillas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Mujer &gt; Accesorios &gt; Calcetines Mujer": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Accesorios &gt; Gafas &gt; Running": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Frontenis &gt; Pelotas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Outdoor &gt; Camping &gt; Menaje": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Cuidados Deportista &gt; Antimosquitos": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Mujer &gt; Accesorios &gt; Gorras Mujer": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Escalada &gt; Accesorios &gt; Luz Frontal": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Nutrición &gt; Fuerza y Energía &gt; Estimulantes Deportivos": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Ropa &gt; Pantalones Hombre &gt; Montaña": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Accesorios &gt; Calcetines Hombre &gt; Calcetines Running Hombre": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Outdoor &gt; Camping": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Fitness &amp; Gimnasio &gt; Accesorios &gt; Botellas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Trail Running &gt; Zapatillas &gt; Zapatillas Trail Mujer": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Mujer &gt; Ropa &gt; Pantalones Deporte &gt; Montaña": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Calzado &gt; Chanclas Hombre": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niño &gt; Accesorios &gt; Mochilas Escolares": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Mujer &gt; Accesorios": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niño &gt; Accesorios &gt; Riñoneras": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Fitness &amp; Gimnasio &gt; Material Musculación &gt; Abdominales": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Fútbol &gt; Ropa y Equipamiento": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Fútbol &gt; Material de fútbol &gt; Calcetines Fútbol": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Ropa &gt; Camisetas &gt; Casual": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Mujer &gt; Accesorios &gt; Mochilas Deportivas Mujer": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niña &gt; Calzado": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Mujer &gt; Calzado &gt; Chanclas Mujer": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Natación &gt; Material &gt; Gorros": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Fútbol &gt; Balones Fútbol &gt; Infladores": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Natación &gt; Material &gt; Otros": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Fitness &amp; Gimnasio &gt; Accesorios &gt; Guantes Gimnasio": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Baloncesto &gt; Balones de Baloncesto": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Accesorios &gt; Billeteros": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Pádel &gt; Accesorios &gt; Grips y Overgrips": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niño &gt; Accesorios &gt; Calcetines Niños": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Fitness &amp; Gimnasio &gt; Accesorios &gt; Protecciones": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Baloncesto &gt; Accesorios": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niño &gt; Calzado &gt; Chanclas de niño": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niño &gt; Accesorios &gt; Guantes &gt; Fútbol": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Ping Pong": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Natación &gt; Material &gt; Gafas Natación": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Fútbol &gt; Ropa y Equipamiento &gt; Petos": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Ropa &gt; Camisetas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Ropa &gt; Pantalones Hombre &gt; Running": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Fitness &amp; Gimnasio": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Zapatillas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Ciclismo &gt; Bicicletas &gt; Bicicletas Niños e infantiles": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niño &gt; Calzado": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Mujer &gt; Ropa &gt; Camisetas &gt; Camisetas Fitness Mujer": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Mujer &gt; Ropa &gt; Mallas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Fútbol &gt; Protecciones &gt; Tobilleras Fútbol": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Tenis &gt; Accesorios &gt; Diademas &amp; Cintas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niña &gt; Accesorios &gt; Monederos": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niña &gt; Ropa &gt; Mallas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Mujer &gt; Ropa &gt; Sujetadores Deportivos": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Ciclismo &gt; Accesorios Bici &gt; Portabidones Bici": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Ropa &gt; Pantalones Hombre &gt; Casual": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Patinaje &gt; Cascos": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Mujer &gt; Calzado": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niño &gt; Ropa &gt; Pantalones": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Fútbol &gt; Material de fútbol": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Ropa &gt; Pantalones Hombre &gt; Fútbol": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Baloncesto &gt; Protecciones": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Ropa &gt; Bañadores": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niña &gt; Ropa &gt; Bañadores &gt; Natación": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Fútbol &gt; Ropa y Equipamiento &gt; Ropa Compresión": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Accesorios &gt; Gorros": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Outdoor &gt; Acesorios &gt; Gorros": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Pádel &gt; Accesorios &gt; Calcetines": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Outdoor &gt; Material &gt; Iluminación": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Tienda Skate &gt; Skates / Monopatines": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Ciclismo &gt; Accesorios Bici &gt; Candados": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Boxeo &gt; Protecciones": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Running &gt; Accesorios": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Outdoor &gt; Acesorios &gt; Guantes": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Mujer &gt; Accesorios &gt; Gorras Mujer &gt; Running": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Buceo &gt; Material y Equipo &gt; Gafas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Running &gt; Accesorios &gt; Brazaletes": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Tienda Musculación &gt; Kettlebell": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Mujer &gt; Ropa &gt; Bikinis": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Mujer &gt; Accesorios &gt; Calcetines Mujer &gt; Calcetines Running Mujer": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Fútbol": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Pádel &gt; Accesorios &gt; Muñequeras": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Outdoor &gt; Material &gt; Iluminación &gt; Linternas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Ropa &gt; Bañadores &gt; Playa": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Mujer &gt; Calzado &gt; Zapatillas Deporte Mujer": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Tienda Cardio &gt; Bicicletas Estáticas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Trail Running &gt; Complementos &gt; Plantillas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Bádminton": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Accesorios &gt; Bandoleras": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Calzado &gt; Sandalias": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Ropa &gt; Sudaderas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Outdoor &gt; Camping &gt; Sacos de Dormir": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Accesorios &gt; Guantes &gt; Montaña": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niño &gt; Ropa &gt; Chaquetas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Mujer &gt; Ropa &gt; Chaqueta": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niño &gt; Ropa &gt; Ropa Térmica": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Mujer &gt; Ropa &gt; Ropa Térmica": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Ropa &gt; Ropa Térmica": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Fútbol &gt; Balones Fútbol": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niño &gt; Accesorios &gt; Guantes &gt; Ciclismo": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Ropa &gt; Sudaderas &gt; Montaña": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Fútbol &gt; Ropa y Equipamiento &gt; Camisetas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Nutrición": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Outdoor &gt; Material &gt; Bastones Trekking": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Calzado &gt; Zapatilla Hombre": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Mujer &gt; Accesorios &gt; Bolsas Deporte Mujer": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niño &gt; Accesorios &gt; Bolsas Deporte": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Running &gt; Accesorios &gt; Plantillas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Ropa &gt; Ropa Interior": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Ciclismo &gt; Ropa Ciclismo &gt; Culotte Ciclismo": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Mujer &gt; Ropa &gt; Camisetas &gt; Camisetas Trekking Mujer": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Mujer &gt; Calzado &gt; Sandalias": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niño &gt; Ropa &gt; Camisetas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niño &gt; Ropa &gt; Bañadores": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Patinaje &gt; Protecciones": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niño &gt; Ropa &gt; Sudaderas &gt; Fútbol": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Fitness &amp; Gimnasio &gt; Material Musculación &gt; Combas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Electrónica Deportiva &gt; Smartwatch": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Tienda Cardio &gt; Bicicletas Elípticas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Running &gt; Accesorios &gt; Medias de Compresión": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Ropa &gt; Mallas &gt; Running": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Ciclismo &gt; Complementos Ciclista &gt; Casco Bicicleta": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niña &gt; Ropa &gt; Pantalones": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niño &gt; Accesorios &gt; Estuches Escolares": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Mujer &gt; Ropa &gt; Pantalones Deporte &gt; Casual": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niña &gt; Ropa &gt; Camisetas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Mujer &gt; Accesorios &gt; Gafas &gt; Sol": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Ropa &gt; Camisetas &gt; Baloncesto": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Fútbol &gt; Mochilas y Bolsas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Tienda Musculación &gt; Barras": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Boxeo &gt; Guantes de Boxeo": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Mujer &gt; Accesorios &gt; Guantes": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Ropa &gt; Chaquetas &gt; Montaña": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Mujer &gt; Calzado &gt; Botas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niña &gt; Ropa &gt; Ropa Térmica": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Tienda Cardio &gt; Cintas de Correr": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Ropa &gt; Sudaderas &gt; Fútbol": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Ropa &gt; Pantalones Hombre": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Mujer &gt; Accesorios &gt; Gorros": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Tienda Musculación &gt; Máquinas Musculación": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Calzado": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Mujer &gt; Ropa &gt; Camisetas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Ropa &gt; Softshell": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Esquí / Nieve &gt; Complementos &gt; Guantes Esquí": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Natación &gt; Piscinas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Pádel &gt; Palas de Pádel": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Outdoor &gt; Calzado &gt; Zapatillas &gt; Zapatillas Trekking Mujer": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Ropa &gt; Polos": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niña &gt; Calzado &gt; Chanclas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Ropa &gt; Polos &gt; Tenis": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Electrónica Deportiva &gt; Cuentakilómetros": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Mujer &gt; Ropa &gt; Camisetas &gt; Camisetas Casual Mujer": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Accesorios": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Tenis &gt; Raquetas Tenis": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Ciclismo &gt; Accesorios Bici &gt; Bolsa Bici": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Nutrición &gt; Proteínas &gt; Proteínas Whey": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Running": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Ping Pong &gt; Pelotas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Ropa &gt; Chalecos": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Fútbol &gt; Equipación Portero &gt; Guantes de Portero": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Mujer &gt; Ropa &gt; Bañadores": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Mujer &gt; Ropa &gt; Sudaderas Mujer": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niño &gt; Ropa &gt; Chándals Niño": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Accesorios &gt; Bolsas Deporte Hombre": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Ciclismo &gt; Complementos Ciclista &gt; Guantes Ciclismo &gt; Largos": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Ciclismo &gt; Complementos Ciclista &gt; Guantes Ciclismo &gt; Cortos": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Running &gt; Zapatillas Running &gt; Zapatillas Running Niña": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Fútbol &gt; Ropa y Equipamiento &gt; Pantalón": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Fútbol &gt; Zapatillas Futbol Sala &gt; Zapatillas Fútbol Sala Niño": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Ropa &gt; Chándals Hombre": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Pádel &gt; Paleteros &amp; Mochilas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Voleibol &gt; Rodilleras y Coderas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Mujer &gt; Accesorios &gt; Calcetines Mujer &gt; Calcetines Trekking Mujer": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Ropa &gt; Sudaderas &gt; Running": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Ropa &gt; Cortavientos": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Tienda Musculación &gt; Bancos de Pesas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niño &gt; Accesorios &gt; Bufandas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niño &gt; Accesorios &gt; Gorros": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Nutrición &gt; Fuerza y Energía &gt; Bebidas Isotónicas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Fitness &amp; Gimnasio &gt; Accesorios": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niña &gt; Accesorios &gt; Bufandas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Outdoor &gt; Calzado &gt; Zapatillas &gt; Zapatillas Trekking Niños": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Nutrición &gt; Adelgazamiento &gt; L Carnitina": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Nutrición &gt; Recuperación Muscular &gt; Aminoácidos": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Nutrición &gt; Aumento Masa Muscular &gt; Creatina": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Fútbol &gt; Balones Fútbol &gt; Minibalones": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Baloncesto &gt; Balones de Baloncesto &gt; Minibalones de Baloncesto": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Trail Running &gt; Complementos &gt; Calcetines": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Ropa &gt; Polos &gt; Montaña": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Fútbol &gt; Ropa y Equipamiento &gt; Sudaderas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Fitness &amp; Gimnasio &gt; Material Musculación &gt; Balón Medicinal &amp; Wallballs": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niño &gt; Calzado &gt; Sandalias": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Running &gt; Accesorios &gt; Calcetines Running": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Mujer &gt; Ropa &gt; Pantalones Deporte": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Tenis &gt; Accesorios &gt; Antivibrador": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niña &gt; Calzado &gt; Sandalias": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Patinaje &gt; Patines": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niño &gt; Ropa &gt; Calzoncillos": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Ciclismo &gt; Bicicletas &gt; Bicicletas Montaña": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Outdoor &gt; Ropa &gt; Chubasqueros &gt; Mujer": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Juegos &gt; Juegos Acuáticos &amp; Piscina": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Patinetes &amp; Movilidad &gt; Patinetes": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Fútbol &gt; Botas de fútbol &gt; Botas Multitaco &gt; Botas Multitaco Hombre": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Mujer &gt; Ropa &gt; Forros Polares": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niño &gt; Ropa &gt; Sudaderas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niño &gt; Accesorios &gt; Gorras": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Outdoor &gt; Ropa &gt; Chubasqueros &gt; Hombre": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Calzado &gt; Deportivas de hombre": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Ciclismo &gt; Ropa Ciclismo &gt; Maillot Ciclista": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Mujer &gt; Ropa &gt; Cortavientos": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niña &gt; Calzado &gt; Botas Niña": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niña &gt; Ropa &gt; Chaquetas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Ciclismo &gt; Accesorios Bici &gt; Bidones Bici": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Mujer &gt; Ropa &gt; Faldas y Vestidos": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Ropa &gt; Forros Polares": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Mujer &gt; Ropa &gt; Chalecos": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Voleibol &gt; Balones": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niña &gt; Ropa &gt; Chaquetas &gt; Montaña": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Ciclismo &gt; Ropa Ciclismo &gt; Chubasquero &gt; Hombre": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Ciclismo &gt; Bicicletas &gt; Bicicletas Urbana": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Trail Running &gt; Zapatillas &gt; Hombre": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niño &gt; Ropa &gt; Forros Polares": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Mujer &gt; Ropa &gt; Softshells": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Boxeo &gt; Sacos de Boxeo": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Tienda Cardio &gt; Bicicleta Spinning": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Nutrición &gt; Salud &gt; Multivitaminas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Juegos &gt; Futbolín": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Ropa &gt; Camisetas &gt; Tenis": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Buceo &gt; Escarpines": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Fitness &amp; Gimnasio &gt; Material Musculación &gt; Bandas Elásticas &amp; Tensores": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Yoga": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Tienda Musculación &gt; Esterillas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Tienda Cardio &gt; Máquinas Remo": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Electrónica Deportiva &gt; Banda Pulsómetro": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Running &gt; Zapatillas Running &gt; Zapatillas Running Niño": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Ropa &gt; Camisetas &gt; Montaña": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niño &gt; Calzado &gt; Zapatillas Niños": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Ciclismo &gt; Complementos Ciclista &gt; Calcetines Ciclismo": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Trail Running &gt; Zapatillas &gt; Niños": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Rugby &gt; Balones": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Accesorios &gt; Guantes &gt; Nieve": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niño &gt; Ropa &gt; Conjuntos": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Calzado &gt; Escarpines": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niña &gt; Ropa &gt; Bikinis": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Mujer &gt; Calzado &gt; Escarpines": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niña &gt; Calzado &gt; Escarpines": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niño &gt; Calzado &gt; Escarpines": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Yoga &gt; Accesorios y Material &gt; Calcetines Yoga": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Electrónica Deportiva &gt; Pulseras Actividad": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Tenis": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Balonmano &gt; Zapatillas &gt; Mujer": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Fútbol &gt; Balones Fútbol &gt; Balones Fútbol adidas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niña &gt; Ropa &gt; Sudaderas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Nutrición &gt; Fuerza y Energía &gt; Barritas &gt; Barritas Energéticas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niña &gt; Ropa &gt; Chándals": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Cuidados Deportista &gt; Perfumes": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Fútbol &gt; Protecciones &gt; Espinilleras": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niño &gt; Calzado &gt; Zapatillas Casual": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Ropa &gt; Chaquetas &gt; Ciclismo": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niña &gt; Ropa &gt; Forros Polares": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Calzado &gt; Botas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Ropa &gt; Chaquetas &gt; Casual": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Calzado &gt; Zapatillas Casual": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Mujer &gt; Ropa &gt; Sudaderas Mujer &gt; Sudaderas Fitness Mujer": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Outdoor &gt; Ropa &gt; Sudaderas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Accesorios &gt; Bufandas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Electrónica Deportiva &gt; Auriculares": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Calzado &gt; Botas &gt; Casual": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Running &gt; Accesorios &gt; Diademas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Mujer &gt; Ropa &gt; Polos": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Tienda Musculación &gt; Pesas &amp; Mancuernas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Running &gt; Zapatillas Running &gt; Zapatillas Running Hombre": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Outdoor &gt; Camping &gt; Neveras": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Mujer &gt; Ropa &gt; Chándals Mujer": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Accesorios &gt; Neceseres": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niña &gt; Accesorios &gt; Gafas &gt; Sol": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niño &gt; Accesorios &gt; Gafas &gt; Sol": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Tienda Musculación &gt; Pesas Lastradas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niño &gt; Accesorios &gt; Monederos": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Accesorios &gt; Gorras &gt; Gorras Running Hombre": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niño &gt; Ropa &gt; Polos": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Surf &gt; Ropa &gt; Camisetas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niña &gt; Accesorios &gt; Calcetines Niña &gt; Casual": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Surf &gt; Ropa &gt; Neoprenos": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Tienda Musculación &gt; Discos": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niña &gt; Ropa &gt; Conjuntos": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Buceo &gt; Material y Equipo": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Zapatillas &gt; Casual Niña": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Fútbol &gt; Porterías": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Cuidados Deportista": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Buceo": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Cuidados Deportista &gt; Gel Hidroalcóholico": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Fútbol &gt; Botas de fútbol &gt; Botas Fútbol Niño &gt; Botas Multitaco Niño": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Buceo &gt; Neoprenos": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Fútbol &gt; Ropa y Equipamiento &gt; Pantalón &gt; Niños": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Frontenis &gt; Raquetas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Fútbol &gt; Ropa y Equipamiento &gt; Equipaciones  Fútbol &gt; Niño": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Mujer &gt; Ropa &gt; Pantalones Deporte &gt; Fitness": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Fútbol &gt; Balones Fútbol &gt; Balones Fútbol Nike": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niño &gt; Calzado &gt; Botas Niño": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niña &gt; Accesorios &gt; Estuches escolares": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Balonmano &gt; Zapatillas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Fútbol &gt; Botas de fútbol &gt; Botas Tacos": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Fútbol &gt; Botas de fútbol &gt; Botas Multitaco": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Fútbol &gt; Botas de fútbol &gt; Botas Fútbol Niño &gt; Botas Fútbol Tacos Niños": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Ciclismo": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Pádel &gt; Zapatillas Pádel &gt; Zapatillas Pádel Niños": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Electrónica Deportiva &gt; Accesorios Smartwatch": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Fútbol &gt; Botas de fútbol &gt; Botas Fútbol Niño": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Outdoor &gt; Camping &gt; Tiendas de Campaña": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niña &gt; Ropa &gt; Polos": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Ropa &gt; Chándals Hombre &gt; Chándal Fútbol Hombre": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Pádel &gt; Zapatillas Pádel &gt; Zapatillas Pádel Hombre": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niño &gt; Calzado &gt; Botas Niño &gt; Botas Agua": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Accesorios &gt; Guantes &gt; Running": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Accesorios &gt; Mochilas Deportivas Hombre": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Running &gt; Accesorios &gt; Gorras &gt; Nike": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Voleibol &gt; Zapatillas &gt; Hombre": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Boxeo &gt; Soportes": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niña &gt; Ropa &gt; Cortavientos": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Fútbol &gt; Protecciones": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Mujer &gt; Ropa &gt; Ropa Interior": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Running &gt; Accesorios &gt; Gorras": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Outdoor": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Outdoor &gt; Acesorios &gt; Gorros &gt; Niños": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niño &gt; Ropa &gt; Camisetas &gt; Montaña": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Cuidados Deportista &gt; Cremas y Geles": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niño &gt; Accesorios &gt; Guantes": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Baloncesto &gt; Ropa y Equipamiento": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Esquí / Nieve &gt; Botas Apreski &gt; Niños": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Trail Running &gt; Complementos &gt; Gorras &gt; Nike": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Calzado &gt; Zapatillas Hombre &gt; Zapatillas Casual Hombre": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Ciclismo &gt; Bicicletas &gt; Bicicletas Eléctricas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Ropa &gt; Camisas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Balonmano &gt; Protecciones": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Ciclismo &gt; Accesorios Bici &gt; Mochila Hidratación": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niña &gt; Calzado &gt; Botas Niña &gt; Montaña": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Ropa &gt; Chaquetas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Boxeo": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Tienda Paddle Surf &gt; Neoprenos": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niña &gt; Ropa &gt; Faldas y vestidos": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niña &gt; Accesorios &gt; Mochilas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Triatlón &gt; Accesorios &gt; Mochilas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Juegos &gt; Mesas Multijuegos": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Outdoor &gt; Camping &gt; Mobiliario &gt; Mesas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Surf &gt; Mobiliario Playa": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Fitness &amp; Gimnasio &gt; Zapatillas &gt; Zapatillas Fitness Hombre": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Ropa &gt; Mallas &gt; Fútbol": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Muay Thai": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Hombre &gt; Ropa &gt; Chaquetas &gt; Running": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Triatlón &gt; Accesorios &gt; Gafas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Kárate": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Tienda Musculación &gt; Pesas &amp; Mancuernas &gt; Soportes": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Natación &gt; Neoprenos": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Escalada &gt; Accesorios &gt; Mochilas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Mujer &gt; Ropa &gt; Cortavientos &gt; Montaña": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Billares &gt; Mesas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Tienda Cardio &gt; Steppers": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Fitness &amp; Gimnasio &gt; Material Musculación &gt; Kit Fitness": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Fitness &amp; Gimnasio &gt; Material Musculación &gt; Cajón Pliométrico": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Fitness &amp; Gimnasio &gt; Material Musculación &gt; Saco Búlgaro": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Kick Boxing &gt; Protecciones": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Fitness &amp; Gimnasio &gt; Accesorios &gt; Mochilas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Mujer &gt; Calzado &gt; Botas &gt; Botas Agua": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Ping Pong &gt; Mesas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niño &gt; Ropa &gt; Camisetas &gt; Tenis": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Juegos &gt; Columpios": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Pádel &gt; Accesorios &gt; Protecciones": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Triatlón &gt; Ropa &amp; Equipamiento &gt; Neoprenos": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Ciclismo &gt; Bicicletas &gt; Bicicletas Plegables": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Cross Training &gt; Ropa y Equipamiento &gt; Protecciones": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Juegos &gt; Camas Elásticas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Niña &gt; Ropa &gt; Pantalones &gt; Montaña": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Ciclismo &gt; Bicicletas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Fitness &amp; Gimnasio &gt; Material Musculación &gt; Trampolines": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Fitness &amp; Gimnasio &gt; Material Musculación &gt; Soporte Flexiones": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Taekwondo": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Patinaje &gt; Accesorios": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Ciclismo &gt; Bicicletas &gt; Bicicletas Gravel": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Fitness &amp; Gimnasio &gt; Material Musculación &gt; Barras Paralelas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Bodyboard &gt; Tablas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Trail Running &gt; Material &gt; Mochilas": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Tienda Paddle Surf &gt; Tablas Paddlesurf": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Fútbol &gt; Ropa y Equipamiento &gt; Conjuntos": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Fútbol &gt; Zapatillas Futbol Sala": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Pádel &gt; Zapatillas Pádel": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Outdoor &gt; Acesorios &gt; Gorras": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Baloncesto &gt; Zapatillas &gt; Zapatillas Baloncesto de Hombre": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    },
+    "Deportes &gt; Tenis &gt; Zapatillas Tenis &gt; Zapatillas Tenis Hombre": {
+      "title": "",
+      "price": "",
+      "brand": ""
+    }
+  }
+}
