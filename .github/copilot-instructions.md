@@ -39,7 +39,7 @@ hunter.py → pending_products.json → process_queue.py → Gemini → api-inge
 
 ```python
 WP_API_URL = "https://giftia.es/wp-content/plugins/giftfinder-core/api-ingest.php"
-WP_TOKEN = "nu27OrX2t5VZQmrGXfoZk3pbcS97yiP5"
+WP_TOKEN = "LEER_DESDE_ENV_FILE"
 BATCH_SIZE = 3
 GEMINI_PACING_SECONDS = 1
 ```

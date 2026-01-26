@@ -11,6 +11,7 @@ import time
 import re
 import logging
 import requests
+import argparse
 from datetime import datetime
 from dotenv import load_dotenv
 
@@ -1245,7 +1246,25 @@ def run_processor():
     return total_published
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='Procesa la cola de Giftia Hunter.')
+    parser.add_argument('--daemon', action='store_true', help='Ejecuta en modo continuo esperando nuevos productos')
+    args = parser.parse_args()
+
     try:
-        run_processor()
+        if args.daemon:
+            print(f"🟢 MODO DAEMON ACTIVADO: Esperando nuevos productos...")
+            while True:
+                processed = run_processor()
+                if processed == 0:
+                    # Si no hubo nada, esperar 60s
+                    print(f"😴 Zzz... Esperando 60s... (Cola vacía)")
+                    time.sleep(60)
+                else:
+                    # Si hubo trabajo, seguir rápido
+                    print(f"⚡ Trabajo terminado. Buscando más...")
+                    time.sleep(5)
+        else:
+            run_processor()
+            
     except KeyboardInterrupt:
         print(f"\n🛑 Interrumpido. Quedan {get_pending_count()} en cola.")

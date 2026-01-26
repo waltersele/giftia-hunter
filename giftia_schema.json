@@ -8,134 +8,154 @@
       "slug": "tech",
       "name": "Tecnología",
       "description": "Gadgets, electrónica, smartwatches, auriculares",
-      "keywords": ["gadget", "tech", "electrónic", "usb", "bluetooth", "wifi", "smart", "auricular", "smartwatch", "led"],
-      "emoji": "📱"
+      "keywords": ["gadget", "tech", "electrónic", "usb", "bluetooth", "wifi", "smart", "auricular", "smartwatch", "led"]
     },
     "Gamer": {
       "slug": "gaming",
       "name": "Videojuegos",
       "description": "Consolas, mandos, accesorios gaming, esports",
-      "keywords": ["playstation", "xbox", "nintendo", "gaming", "mando", "consola", "ps5", "videojuego", "esport"],
-      "emoji": "🎮"
+      "keywords": ["playstation", "xbox", "nintendo", "gaming", "mando", "consola", "ps5", "videojuego", "esport"]
     },
     "Gourmet": {
       "slug": "cocina",
       "name": "Cocina/Gourmet",
       "description": "Utensilios cocina, vinos, gastronomía, accesorios chef",
-      "keywords": ["café", "vino", "gourmet", "chef", "cocina", "whisky", "gin", "cafetera", "cuchillo", "especias"],
-      "emoji": "🍷"
+      "keywords": ["café", "vino", "gourmet", "chef", "cocina", "whisky", "gin", "cafetera", "cuchillo", "especias"]
     },
     "Deporte": {
       "slug": "deporte",
       "name": "Deporte/Fitness",
       "description": "Fitness, running, gym, equipamiento deportivo",
-      "keywords": ["deporte", "fitness", "running", "gym", "yoga", "pesas", "entrenamiento", "sport", "bicicleta"],
-      "emoji": "💪"
+      "keywords": ["deporte", "fitness", "running", "gym", "yoga", "pesas", "entrenamiento", "sport", "bicicleta"]
     },
     "Outdoor": {
       "slug": "outdoor",
       "name": "Aire libre",
       "description": "Camping, senderismo, aventura, naturaleza",
-      "keywords": ["camping", "senderismo", "montaña", "aventura", "outdoor", "trekking", "linterna", "navaja"],
-      "emoji": "🏕️"
+      "keywords": ["camping", "senderismo", "montaña", "aventura", "outdoor", "trekking", "linterna", "navaja"]
     },
     "Viajes": {
       "slug": "viajes",
       "name": "Viajes",
       "description": "Maletas, adaptadores, accesorios de viaje",
-      "keywords": ["maleta", "viaje", "adaptador", "equipaje", "mochila", "viajero", "portátil"],
-      "emoji": "✈️"
+      "keywords": ["maleta", "viaje", "adaptador", "equipaje", "mochila", "viajero", "portátil"]
     },
     "Moda": {
       "slug": "moda",
       "name": "Moda",
       "description": "Ropa, bolsos, accesorios, joyería",
-      "keywords": ["ropa", "bolso", "reloj", "gafas", "cartera", "joya", "moda", "perfume", "zapatos"],
-      "emoji": "👗"
+      "keywords": ["ropa", "bolso", "reloj", "gafas", "cartera", "joya", "moda", "perfume", "zapatos"]
     },
     "Belleza": {
       "slug": "belleza",
       "name": "Belleza",
       "description": "Cosmética, skincare, cuidado personal",
-      "keywords": ["maquillaje", "skincare", "cosmética", "crema", "beauty", "tratamiento", "sérum"],
-      "emoji": "💄"
+      "keywords": ["maquillaje", "skincare", "cosmética", "crema", "beauty", "tratamiento", "sérum"]
     },
     "Decoración": {
       "slug": "hogar",
       "name": "Hogar/Deco",
       "description": "Decoración, organización, accesorios hogar",
-      "keywords": ["decoración", "hogar", "lámpara", "cuadro", "jarrón", "estantería", "cojín"],
-      "emoji": "🏠"
+      "keywords": ["decoración", "hogar", "lámpara", "cuadro", "jarrón", "estantería", "cojín"]
     },
     "Zen": {
       "slug": "bienestar",
       "name": "Bienestar",
       "description": "Relax, meditación, yoga, aromaterapia",
-      "keywords": ["meditación", "yoga", "spa", "aromaterapia", "vela", "relax", "zen", "mindfulness", "difusor"],
-      "emoji": "🧘"
+      "keywords": ["meditación", "yoga", "spa", "aromaterapia", "vela", "relax", "zen", "mindfulness", "difusor"]
     },
     "Lector": {
       "slug": "libros",
       "name": "Lectura",
       "description": "Libros, e-readers, accesorios lectura",
-      "keywords": ["libro", "lectura", "kindle", "literatura", "novela", "e-reader", "marcapáginas"],
-      "emoji": "📚"
+      "keywords": ["libro", "lectura", "kindle", "literatura", "novela", "e-reader", "marcapáginas"]
     },
     "Música": {
       "slug": "musica",
       "name": "Música",
       "description": "Instrumentos, vinilos, audio, auriculares",
-      "keywords": ["guitarra", "piano", "vinilo", "tocadiscos", "instrumento", "música", "ukelele"],
-      "emoji": "🎵"
+      "keywords": ["guitarra", "piano", "vinilo", "tocadiscos", "instrumento", "música", "ukelele"]
     },
     "Artista": {
       "slug": "arte",
       "name": "Arte/Craft",
       "description": "Pintura, manualidades, materiales artísticos",
-      "keywords": ["pintura", "lienzo", "acuarela", "dibujo", "manualidad", "craft", "arte", "rotulador"],
-      "emoji": "🎨"
+      "keywords": ["pintura", "lienzo", "acuarela", "dibujo", "manualidad", "craft", "arte", "rotulador"]
     },
     "Fotografía": {
       "slug": "foto",
       "name": "Fotografía",
       "description": "Cámaras, accesorios foto, álbumes, impresión",
-      "keywords": ["cámara", "fotografía", "polaroid", "instax", "foto", "trípode", "álbum"],
-      "emoji": "📷"
+      "keywords": ["cámara", "fotografía", "polaroid", "instax", "foto", "trípode", "álbum"]
     },
     "Friki": {
       "slug": "fandom",
       "name": "Fandom/Friki",
       "description": "Merchandising, coleccionables, series, películas",
-      "keywords": ["funko", "star wars", "harry potter", "marvel", "anime", "manga", "colección", "lego", "disney"],
-      "emoji": "🦸"
+      "keywords": ["funko", "star wars", "harry potter", "marvel", "anime", "manga", "colección", "lego", "disney"]
     },
     "Mascotas": {
       "slug": "mascotas",
       "name": "Mascotas",
       "description": "Productos para mascotas y amantes de los animales",
-      "keywords": ["perro", "gato", "mascota", "pet", "collar", "comedero", "juguete mascota"],
-      "emoji": "🐾"
+      "keywords": ["perro", "gato", "mascota", "pet", "collar", "comedero", "juguete mascota"]
     },
     "Lujo": {
       "slug": "lujo",
       "name": "Premium/Lujo",
       "description": "Productos premium, alta gama, ediciones limitadas",
-      "keywords": ["premium", "lujo", "luxury", "exclusivo", "edición limitada", "oro", "plata"],
-      "emoji": "💎"
+      "keywords": ["premium", "lujo", "luxury", "exclusivo", "edición limitada", "oro", "plata"]
     },
     "Bebes": {
       "slug": "bebes",
       "name": "Bebés",
       "description": "Productos para bebés 0-2 años: biberones, chupetes, ropa bebé, cunas, cochecitos",
-      "keywords": ["bebé", "bebe", "biberón", "chupete", "cuna", "cochecito", "pañal", "recién nacido", "lactancia", "embarazo", "parto", "canastilla", "body bebé", "manta bebé", "sonajero"],
-      "emoji": "👶"
+      "keywords": ["bebé", "bebe", "biberón", "chupete", "cuna", "cochecito", "pañal", "recién nacido", "lactancia", "embarazo", "parto", "canastilla", "body bebé", "manta bebé", "sonajero"]
     },
     "Ninos": {
       "slug": "ninos",
       "name": "Niños",
       "description": "Productos para niños 3-12 años: juguetes, mochilas escolares, libros infantiles, juegos educativos",
-      "keywords": ["niño", "juguete", "montessori", "lego niños", "mochila escolar", "libro infantil", "puzzle", "juego educativo", "peluche", "muñeca", "coche juguete", "construcción", "colorear", "kit niños"],
-      "emoji": "🧒"
+      "keywords": ["niño", "juguete", "montessori", "lego niños", "mochila escolar", "libro infantil", "puzzle", "juego educativo", "peluche", "muñeca", "coche juguete", "construcción", "colorear", "kit niños"]
+    }
+  },
+
+  "delivery_types": {
+    "instant_digital": {
+      "priority": 100,
+      "keywords": ["código", "digital", "email", "psn", "tarjeta regalo", "entradas", "descarga", "entrada"]
+    },
+    "store_pickup_today": {
+      "priority": 90,
+      "keywords": ["1h", "2h", "express", "inmediata", "recogida gratis", "click & collect express", "recogida en 1"]
+    },
+    "store_pickup_ship": {
+      "priority": 80,
+      "keywords": ["envío a tienda", "recoger en tienda", "click & collect", "recogida en tienda", "punto de entrega"]
+    },
+    "same_day": {
+      "priority": 85,
+      "keywords": ["entrega hoy", "mismo día", "same day"]
+    },
+    "express_24h": {
+      "priority": 75,
+      "keywords": ["mañana", "24h", "24 horas", "siguiente día", "día siguiente", "prime", "urgente"]
+    },
+    "weekend_delivery": {
+      "priority": 60,
+      "keywords": ["sábado", "domingo", "fin de semana"]
+    },
+    "preorder": {
+      "priority": 70,
+      "keywords": ["pre-venta", "preventa", "lanzamiento", "reserva", "preorder"]
+    },
+    "international_shipping": {
+      "priority": 30,
+      "keywords": ["envío desde", "china", "importación", "internacional"]
+    },
+    "standard": {
+      "priority": 10,
+      "keywords": []
     }
   },
   
@@ -144,42 +164,36 @@
       "name": "Niños",
       "range": "0-12 años",
       "description": "Productos infantiles, seguros, divertidos",
-      "emoji": "👶",
       "restrictions": ["no_alcohol", "no_adult_content", "safe_materials"]
     },
     "adolescentes": {
       "name": "Adolescentes",
       "range": "13-17 años",
       "description": "Moderno, tendencias, tecnología",
-      "emoji": "🧑",
       "restrictions": ["no_alcohol"]
     },
     "jovenes": {
       "name": "Jóvenes",
       "range": "18-30 años",
       "description": "Tendencias, tecnología, experiencias",
-      "emoji": "👱",
       "restrictions": []
     },
     "adultos": {
       "name": "Adultos",
       "range": "31-50 años",
       "description": "Calidad, utilidad, sofisticación",
-      "emoji": "🧔",
       "restrictions": []
     },
     "seniors": {
       "name": "Seniors",
       "range": "51-70 años",
       "description": "Práctico, significativo, calidad",
-      "emoji": "👨‍🦳",
       "restrictions": []
     },
     "abuelos": {
       "name": "Abuelos",
       "range": "70+ años",
       "description": "Comodidad, sentimiento, facilidad de uso",
-      "emoji": "👴",
       "restrictions": ["easy_to_use"]
     }
   },
@@ -187,118 +201,94 @@
   "genders": {
     "unisex": {
       "name": "Unisex",
-      "description": "Apto para cualquier género",
-      "emoji": "👥"
+      "description": "Apto para cualquier género"
     },
     "male": {
       "name": "Hombre",
-      "description": "Diseñado principalmente para hombres",
-      "emoji": "👨"
+      "description": "Diseñado principalmente para hombres"
     },
     "female": {
       "name": "Mujer",
-      "description": "Diseñado principalmente para mujeres",
-      "emoji": "👩"
+      "description": "Diseñado principalmente para mujeres"
     },
     "kids": {
       "name": "Niños",
-      "description": "Diseñado para niños (0-12 años)",
-      "emoji": "👶"
+      "description": "Diseñado para niños (0-12 años)"
     }
   },
   
   "recipients": {
     "pareja": {
       "name": "Mi pareja",
-      "description": "Pareja romántica",
-      "emoji": "💑"
+      "description": "Pareja romántica"
     },
     "padre": {
       "name": "Padre/Madre",
-      "description": "Papá o mamá",
-      "emoji": "👨‍👩‍👧"
+      "description": "Papá o mamá"
     },
     "amigo": {
       "name": "Amigo/a",
-      "description": "Amigo cercano",
-      "emoji": "👫"
+      "description": "Amigo cercano"
     },
     "hermano": {
       "name": "Hermano/a",
-      "description": "Hermano o hermana",
-      "emoji": "👨‍👩‍👦"
+      "description": "Hermano o hermana"
     },
     "hijo": {
       "name": "Hijo/a",
-      "description": "Hijo o hija",
-      "emoji": "👶"
+      "description": "Hijo o hija"
     },
     "abuelo": {
       "name": "Abuelo/a",
-      "description": "Abuelo o abuela",
-      "emoji": "👴"
+      "description": "Abuelo o abuela"
     },
     "jefe": {
       "name": "Jefe",
-      "description": "Superior en el trabajo",
-      "emoji": "👔"
+      "description": "Superior en el trabajo"
     },
     "colega": {
       "name": "Colega",
-      "description": "Compañero de trabajo",
-      "emoji": "🤝"
+      "description": "Compañero de trabajo"
     },
     "yo": {
       "name": "Para mí",
-      "description": "Autorregalo",
-      "emoji": "😊"
+      "description": "Autorregalo"
     }
   },
   
   "occasions": {
     "cumpleanos": {
-      "name": "Cumpleaños",
-      "emoji": "🎂"
+      "name": "Cumpleaños"
     },
     "navidad": {
-      "name": "Navidad",
-      "emoji": "🎄"
+      "name": "Navidad"
     },
     "amigo-invisible": {
-      "name": "Amigo Invisible",
-      "emoji": "🎭"
+      "name": "Amigo Invisible"
     },
     "san-valentin": {
-      "name": "San Valentín",
-      "emoji": "💝"
+      "name": "San Valentín"
     },
     "aniversario": {
-      "name": "Aniversario",
-      "emoji": "💍"
+      "name": "Aniversario"
     },
     "dia-de-la-madre": {
-      "name": "Día de la Madre",
-      "emoji": "💐"
+      "name": "Día de la Madre"
     },
     "dia-del-padre": {
-      "name": "Día del Padre",
-      "emoji": "👔"
+      "name": "Día del Padre"
     },
     "graduacion": {
-      "name": "Graduación",
-      "emoji": "🎓"
+      "name": "Graduación"
     },
     "bodas": {
-      "name": "Bodas",
-      "emoji": "💒"
+      "name": "Bodas"
     },
     "agradecimiento": {
-      "name": "Agradecimiento",
-      "emoji": "🙏"
+      "name": "Agradecimiento"
     },
     "sin-motivo": {
-      "name": "Sin motivo",
-      "emoji": "🎁"
+      "name": "Sin motivo"
     }
   },
 
@@ -307,32 +297,27 @@
     "hooks": {
       "core": {
         "name": "EL CORE",
-        "emoji": "🎯",
         "description": "La Pasión Principal - El regalo obvio que define su etiqueta",
         "examples": ["Si es Gamer → Videojuego Top", "Si es Zen → Set Meditación", "Si es Tech → Gadget estrella"]
       },
       "habitat": {
         "name": "EL HÁBITAT",
-        "emoji": "🏠",
         "description": "El Entorno - Mejora su espacio (casa/oficina)",
         "examples": ["Lámpara diseño", "Vela premium", "Organizador escritorio", "Planta eterna"]
       },
       "estilo": {
         "name": "EL ESTILO",
-        "emoji": "🕶️",
         "description": "La Identidad Pública - Se lleva puesto o se muestra (sin tallas)",
         "examples": ["Mochila técnica", "Gorra marca", "Joya minimalista", "Reloj", "Bolsa tote diseño"]
       },
       "hedonismo": {
         "name": "EL HEDONISMO",
-        "emoji": "🧪",
         "description": "El Placer Inmediato - Se disfruta sensorialmente",
         "examples": ["Chocolates autor", "Kit Spa", "Audio premium", "Café especialidad"],
         "teen_substitute": "Merch/Coleccionismo (Funko/Lego) en vez de comida"
       },
       "wildcard": {
         "name": "EL WILDCARD",
-        "emoji": "💡",
         "description": "El Descubrimiento - Inesperado pero genial",
         "examples": ["Cuaderno inteligente", "Gadget curioso", "Kit cultivo", "Mapa rascable"]
       }

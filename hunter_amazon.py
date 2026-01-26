@@ -2125,11 +2125,17 @@ if __name__ == "__main__":
     options.add_experimental_option("useAutomationExtension", False)
 
     try:
-        driver = webdriver.Chrome(service=Service(ChromeDriverManager(driver_version="144.0.7559.59").install()), options=options)
+        # Usar gestor automático de drivers
+        driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
         logger.info("[OK] Chrome driver initialized")
     except Exception as e:
         logger.error(f"[ERROR] Failed to initialize Chrome: {e}")
-        sys.exit(1)
+        # Intentar fallback sin especificar versión (a veces ayuda si hay conflicto)
+        try:
+             logger.info("Attempting fallback driver init...")
+             driver = webdriver.Chrome(service=Service(), options=options)
+        except:
+             sys.exit(1)
 
     
     while time.time() < end_time:

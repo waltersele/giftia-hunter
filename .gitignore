@@ -1,3 +1,8 @@
+
+# AI Context & Instructions
+# Las instrucciones limpias sí se suben
+# .github/copilot-instructions.md 
+
 # Archivos de configuración sensible
 .env
 .env.local
@@ -15,6 +20,8 @@ processed_products.json
 published_inventory.json
 last_gemini_response.txt
 last_gemini_response_ok.txt
+feed_eci.csv
+feed_eci.csv.gz
 
 # Logs de reprocesamiento
 reprocess_*.txt

@@ -1,0 +1,6 @@
+product_id,product_name,description,search_price,merchant_deep_link,merchant_image_url
+1001,"Auriculares Bluetooth Sony Noise Cancelling","Sony WH-1000XM4 con cancelación de ruido, perfectos para viajar y trabajar. Batería de 30 horas.",249.00,"https://example.com/sony","https://example.com/img/sony.jpg"
+1002,"Batería para Samsung Galaxy S20","Repuesto original de batería para tu móvil.",15.00,"https://example.com/bat","https://example.com/img/bat.jpg"
+1003,"Calcetines Básicos Pack 3","Calcetines blancos de algodón.",5.00,"https://example.com/socks","https://example.com/img/socks.jpg"
+1004,"Kit de Cata de Vinos Gourmet","Experiencia sommelier en casa con 5 vinos premium y guía de cata.",45.99,"https://example.com/wine","https://example.com/img/wine.jpg"
+1005,"Xiaomi Smart Band 7","Pulsera de actividad con pantalla AMOLED y monitoreo de salud.",39.99,"https://example.com/miband","https://example.com/img/miband.jpg"

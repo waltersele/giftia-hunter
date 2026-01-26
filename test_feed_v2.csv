@@ -1,0 +1,6 @@
+product_id,product_name,description,search_price,merchant_deep_link,merchant_image_url
+2001,"Auriculares Bose QuietComfort","Auriculares premium con cancelaciÃ³n de ruido.",299.00,"https://example.com/bose","https://example.com/img/bose.jpg"
+2002,"BaterÃa externa 20000mAh","Power bank para cargar tu mÃ³vil.",19.00,"https://example.com/powerbank","https://example.com/img/powerbank.jpg"
+2003,"Pack Calcetines AlgodÃ³n","Calcetines cÃ³modos para diario.",8.50,"https://example.com/socks2","https://example.com/img/socks2.jpg"
+2004,"Set de Sushi JaponÃ©s","Kit completo para hacer sushi en casa.",35.00,"https://example.com/sushi","https://example.com/img/sushi.jpg"
+2005,"Kindle Paperwhite","E-reader resistente al agua con luz integrada.",140.00,"https://example.com/kindle","https://example.com/img/kindle.jpg"

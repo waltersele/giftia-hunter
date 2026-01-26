@@ -544,4 +544,40 @@ El Hunter registra:
 
 ---
 
+## MULTI-VENDOR SUPPORT (AWIN)
+
+El soporte para Awin (`hunter_awin.py`) permite ingerir feeds CSV de múltiples vendedores (El Corte Inglés, Fnac, etc.) integrándolos en el flujo unificado V52.
+
+### 1. Uso
+```bash
+python hunter_awin.py <archivo_csv> [--limit N]
+```
+
+### 2. Procesamiento de CSV
+El script mapea dinámicamente las columnas del CSV buscando patrones en las cabeceras:
+- **Nombre**: `product_name`, `name`
+- **Precio**: `search_price`, `price`
+- **Imagen**: `merchant_image_url`, `large_image`
+- **Link**: `merchant_deep_link`, `aw_deep_link`
+- **Categoría**: `merchant_category`, `category`
+- **Envío**: `delivery_time`, `shipping`, `delivery`
+
+### 3. Lógica de Entrega Unificada (V52)
+Clasifica el envío en 5 niveles de prioridad (de mayor a menor) basándose en palabras clave del texto de envío o título:
+
+1. **`instant_digital`**: Entrega inmediata (códigos, entradas).
+2. **`store_pickup_today`**: Recogida en tienda en 1-2h.
+3. **`same_day`**: Entrega en el mismo día.
+4. **`express_24h`**: Entrega al día siguiente.
+5. **`standard`**: Envío convencional.
+
+Además, establece flags de compatibilidad legacy:
+- **`is_prime`**: Si detecta "prime" en el texto de envío.
+- **`free_shipping`**: Si detecta "gratis", "gratuito" o "0€".
+
+### 4. Referencia al Schema
+Las palabras clave para cada tipo de entrega se gestionan centralizadamente en `giftia_schema.json` bajo la clave `delivery_types`, permitiendo ajustes sin tocar código.
+
+---
+
 *Documentación del Hunter generada el 17 de Enero de 2026*
